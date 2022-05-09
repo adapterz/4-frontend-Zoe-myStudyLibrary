@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Zoe0631/4-frontend-Zoe-myStudyLibrary/issues"
   },
-  "homepage": "https://github.com/Zoe0631/4-frontend-Zoe-myStudyLibrary#readme"
+  "homepage": "https://github.com/Zoe0631/4-frontend-Zoe-myStudyLibrary#readme",
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "2.6.2"
+  }
 }
