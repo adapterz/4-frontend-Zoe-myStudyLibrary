@@ -30,3 +30,7 @@ export async function deleteBoardController(req, res) {}
 export async function favoriteBoardController(req, res) {}
 // 3-2. 게시글 검색기능
 export async function searchBoardController(req, res) {}
+
+// 4. 유저가 작성한 글 조회
+export async function userBoardController(req, res) {}
+
