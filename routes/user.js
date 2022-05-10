@@ -3,18 +3,18 @@
 import express from "express"
 // 내장모듈
 import {
-  deleteUserLibraryController,
+  signUpGuideController,
+  signUpController,
   dropOutController,
-  editPhoneNumberController,
-  editProfileNicknameController,
-  editPwController,
   loginController,
   logoutController,
-  registerUserLibraryController,
-  signUpController,
-  signUpGuideController,
   userLibraryController,
+  registerUserLibraryController,
+  deleteUserLibraryController,
+  editProfileNicknameController,
   editProfileImageController,
+  editPhoneNumberController,
+  editPwController,
   getUserController,
 } from "../controllers/user.js"
 // 라우터 변수
