@@ -20,6 +20,7 @@
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.16",
     "prettier": "2.6.2"
   },
   "dependencies": {
@@ -32,6 +33,9 @@
     "moment": "^2.29.3",
     "moment-timezone": "^0.5.34",
     "node-fetch": "^3.2.4"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
   },
   "type": "module"
 }
