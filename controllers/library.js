@@ -9,10 +9,19 @@
  */
 
 // 1. 전체 도서관 정보
-export async function allLibraryController(req, res) {}
+export async function allLibraryController(req, res) {
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  const modelResult = await allLibraryModel(req.ip);
+}
 
 // 2. 내가 사는 지역을 입력하면 주변 도서관 정보를 주는 메서드
-export async function localLibraryController(req, res) {}
+export async function localLibraryController(req, res) {
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  const modelResult = await localLibraryModel(req.ip);
+}
 
 // 3. 특정 도서관인덱스의 도서관 정보 응답
-export async function detailLibraryController(req, res) {}
+export async function detailLibraryController(req, res) {
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  const modelResult = await detailLibraryModel(req.ip);
+}

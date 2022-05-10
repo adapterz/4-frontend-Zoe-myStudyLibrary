@@ -1,4 +1,5 @@
 // 댓글 컨트롤러
+// 내장모듈
 
 /*
  * 1. 댓글 작성
@@ -12,19 +13,38 @@
  */
 
 // 1. 댓글 최초 작성
-export async function writeCommentController(req, res) {}
+
+export async function writeCommentController(req, res) {
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  const modelResult = await writeCommentModel(req.ip);
+}
 
 // 2. 게시글의 댓글 정보
-export async function detailCommentController(req, res) {}
+export async function detailCommentController(req, res) {
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  const modelResult = await detailCommentModel(req.ip);
+}
 
 // 3. 수정시 기존 댓글 정보 불러오기
-export async function getCommentController(req, res) {}
+export async function getCommentController(req, res) {
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  const modelResult = await getCommentModel(req.ip);
+}
 
 // 4. 댓글 수정 요청
-export async function editCommentController(req, res) {}
+export async function editCommentController(req, res) {
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  const modelResult = await editCommentModel(req.ip);
+}
 
 // 5. 댓글 삭제
-export async function deleteCommentController(req, res) {}
+export async function deleteCommentController(req, res) {
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  const modelResult = await deleteCommentModel(req.ip);
+}
 
 // 6. 유저가 작성한 댓글 조회
-export async function userCommentController(req, res) {}
+export async function userCommentController(req, res) {
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  const modelResult = await userCommentModel(req.ip);
+}
