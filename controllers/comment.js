@@ -1,5 +1,12 @@
 // 댓글 컨트롤러
 // 내장모듈
+import {
+  deleteCommentModel,
+  detailCommentModel,
+  editCommentModel,
+  getCommentModel, userCommentModel,
+  writeCommentModel
+} from "../models/comment.js";
 
 /*
  * 1. 댓글 작성
@@ -13,7 +20,6 @@
  */
 
 // 1. 댓글 최초 작성
-
 export async function writeCommentController(req, res) {
   // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
   const modelResult = await writeCommentModel(req.ip);

@@ -1,4 +1,12 @@
 // 도서관 후기 컨트롤러
+// 내장모듈
+import {
+  deleteReviewModel,
+  detailReviewModel,
+  editReviewModel,
+  getReviewModel,
+  registerReviewModel, userReviewModel
+} from "../models/review.js";
 
 /*
  * 1. 도서관 후기 등록

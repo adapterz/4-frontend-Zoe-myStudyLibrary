@@ -1,5 +1,20 @@
 // 유저 컨트롤러
-
+// 내장모듈
+import {
+  deleteUserLibraryModel,
+  dropOutModel,
+  editPhoneNumberModel,
+  editProfileImageModel,
+  editProfileNicknameModel,
+  editPwModel,
+  getUserModel,
+  loginModel,
+  logoutModel,
+  registerUserLibraryModel,
+  signUpGuideModel,
+  signUpModel,
+  userLibraryModel,
+} from "../models/user.js";
 /*
  * 1. 회원가입/탈퇴
  * 2. 로그인/로그아웃
@@ -31,7 +46,6 @@ export async function dropOutController(req, res) {
 export async function loginController(req, res) {
   // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
   const modelResult = await loginModel(req.ip);
-
 }
 // 2-2. 로그아웃
 export async function logoutController(req, res) {
@@ -61,7 +75,6 @@ export async function deleteUserLibraryController(req, res) {
 export async function editProfileNicknameController(req, res) {
   // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
   const modelResult = await editProfileNicknameModel(req.ip);
-
 }
 // 4-2. 유저 프로필 - 이미지 수정
 export async function editProfileImageController(req, res) {

@@ -1,4 +1,6 @@
 // 도서관 컨트롤러
+// 내장모듈
+import { allLibraryModel, detailLibraryModel, localLibraryModel } from "../models/library.js";
 
 /*
  * 1. 전체도서관 정보

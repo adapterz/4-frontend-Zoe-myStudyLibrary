@@ -2,15 +2,11 @@
 // 내장모듈
 import {
   deleteBoardModel,
-  detailBoardModel,
-  editBoardModel,
-  entireBoardModel,
-  favoriteBoardModel,
+  detailBoardModel, editBoardModel,
+  entireBoardModel, favoriteBoardModel,
   getRecentBoardModel,
-  getWriteModel,
-  searchBoardModel,
-  writeBoardModel,
-  userBoardModel,
+  getWriteModel, searchBoardModel, userBoardModel,
+  writeBoardModel
 } from "../models/board.js";
 /*
  * 1. 게시글 조회
