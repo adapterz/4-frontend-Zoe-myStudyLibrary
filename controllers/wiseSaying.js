@@ -17,8 +17,10 @@ export async function wiseSayingController(req, res) {
     // 모델 실행 결과값에 따라 분기처리
     // model 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
     if (modelResult.state === "fail-fetch") return res.status(INTERNAL_SERVER_ERROR).end();
-    // sequelize query 메서드 실패
+    // 백엔드 서버의 sequelize query 메서드 실패
     if (modelResult.state === "fail_sequelize") return res.status(INTERNAL_SERVER_ERROR).json(modelResult);
+    // 백엔드 서버의 예상치 못한 오류
+    if (modelResult.state === "unexpected_error") return res.status(INTERNAL_SERVER_ERROR).end();
     // 명언 리소스 찾는 것을 실패했을 때
     if (modelResult.state === "not_exist") return res.status(NOT_FOUND).json(modelResult);
     // 성공적으로 명언 정보 가져왔을 때

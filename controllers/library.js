@@ -19,8 +19,10 @@ export async function allLibraryController(req, res) {
     // 모델 실행결과에 따른 분기처리
     // model 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
     if (modelResult.state === "fail-fetch") return res.status(INTERNAL_SERVER_ERROR).end();
-    // sequelize query 메서드 실패
+    // 백엔드 서버의 sequelize query 메서드 실패
     if (modelResult.state === "fail_sequelize") return res.status(INTERNAL_SERVER_ERROR).json(modelResult);
+    // 백엔드 서버의 예상치 못한 오류
+    if (modelResult.state === "unexpected_error") return res.status(INTERNAL_SERVER_ERROR).end();
 
     // 전체 도서관 정보 응답
     console.log("##### 성공시 첫번째 도서관 정보 ######".rainbow);
@@ -46,16 +48,19 @@ export async function localLibraryController(req, res) {
     // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
     const modelResult = await localLibraryModel(req.query, req.ip);
     // 모델 실행 결과에 따른 분기처리
-    // model 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
-    if (modelResult.state === "fail-fetch") return res.status(INTERNAL_SERVER_ERROR).end();
+    // 유효하지 않은 req.query(queryString) 으로 요청했을 때
     if (modelResult.state === "invalid_params_or_query") {
-      // 유효하지 않은 req.query(queryString) 으로 요청했을 때
       console.log("##### 해당 queryString 이 유효하지 않을 때 ######".rainbow);
       console.log(modelResult.state);
       return res.status(OK).json(modelResult);
     }
-    // sequelize query 메서드 실패
+    // model 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
+    if (modelResult.state === "fail-fetch") return res.status(INTERNAL_SERVER_ERROR).end();
+    // 백엔드 서버의 sequelize query 메서드 실패
     if (modelResult.state === "fail_sequelize") return res.status(INTERNAL_SERVER_ERROR).json(modelResult);
+    // 백엔드 서버의 예상치 못한 오류
+    if (modelResult.state === "unexpected_error") return res.status(INTERNAL_SERVER_ERROR).end();
+
     // 도서관 정보가 없을 때(올바른 요청이지만 안타깝게도 정보가 존재하지 않을 때)
     if (modelResult.state === "non_existent_library") {
       console.log("##### 해당 queryString 값에 일치하는 검색 정보가 없을 때 ######".rainbow);
@@ -86,16 +91,18 @@ export async function detailLibraryController(req, res) {
     // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
     const modelResult = await detailLibraryModel(req.params.libraryIndex, req.ip);
     // 모델 실행 결과에 따른 분기처리
-    // model 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
-    if (modelResult.state === "fail-fetch") return res.status(INTERNAL_SERVER_ERROR).end();
     // 유효하지 않은 req.params 으로 요청했을 때
     if (modelResult.state === "invalid_params_or_query") {
       console.log("##### 해당 libraryIndex 매개변수가 유효하지 않을 때 ######".rainbow);
       console.log(modelResult.state);
       return res.status(OK).json(modelResult);
     }
-    // sequelize query 메서드 실패
+    // model 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
+    if (modelResult.state === "fail-fetch") return res.status(INTERNAL_SERVER_ERROR).end();
+    // 백엔드 서버의 sequelize query 메서드 실패
     if (modelResult.state === "fail_sequelize") return res.status(INTERNAL_SERVER_ERROR).json(modelResult);
+    // 백엔드 서버의 예상치 못한 오류
+    if (modelResult.state === "unexpected_error") return res.status(INTERNAL_SERVER_ERROR).end();
     // 해당 도서관 정보가 존재하지 않거나 삭제됐을 때
     if (modelResult.state === "non_existent_library") {
       console.log("##### 해당 인덱스의 도서관 리소스가 존재하지 않을 때 ######".rainbow);
