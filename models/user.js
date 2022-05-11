@@ -1,4 +1,10 @@
 // 유저 모델
+// 내장모듈
+import fetch from "node-fetch";
+import { BACKEND_URL } from "../customModule/constant.js";
+import { INTERNAL_SERVER_ERROR, OK } from "../customModule/statusCode.js";
+import { JSONCookie } from "cookie-parser";
+
 /*
  * 1. 회원가입/탈퇴
  * 2. 로그인/(로그아웃 - 모델x)
@@ -8,15 +14,79 @@
  */
 // 1. 회원가입/탈퇴
 // 1-1. 회원가입 이용약관
-export async function signUpGuideModel(ip) {}
+export async function signUpGuideModel(ip) {
+  try {
+    const backendResponse = await fetch(BACKEND_URL + "/user/sign-up/guide");
+    // 성공적으로 이용약관 정보 가져왔을 때 (응답값: html)
+    if (backendResponse.status === OK) {
+      const htmlData = await backendResponse.text();
+      return { state: "OK", data: htmlData };
+    }
+    // 백엔드 서버에 예상치 못한 오류가 생겼을 때 (응답값: json)
+    if (backendResponse.status === INTERNAL_SERVER_ERROR) {
+      const jsonData = await backendResponse.json();
+      return { state: "INTERNAL_SERVER_ERROR", data: jsonData };
+    }
+  } catch {
+    return { state: "fail_fetch" };
+  }
+}
 // 1-2. 회원가입
-export async function signUpModel(ip) {}
+export async function signUpModel(reqBody, ip) {
+  try {
+    const backendResponse = await fetch(BACKEND_URL + "/user/sign-up", {
+      method: "POST",
+      headers: { "Content-Type": "application/json;charset=utf-8" },
+      body: JSON.stringify(reqBody),
+    });
+    const jsonData = await backendResponse.json();
+    return jsonData;
+  } catch {
+    return { state: "fail_fetch" };
+  }
+}
 // 1-3. 회원탈퇴
-export async function dropOutModel(ip) {}
+export async function dropOutModel(cookieToken, ip) {
+  try {
+    const backendResponse = await fetch(BACKEND_URL + "/user/drop-out", {
+      method: "DELETE",
+      headers: { Cookie: cookieToken },
+    });
+    const jsonData = await backendResponse.json();
+    console.log(jsonData);
+    return jsonData;
+  } catch {
+    return { state: "fail_fetch" };
+  }
+}
 
 // 2. 로그인/로그아웃
 // 2-1. 로그인
-export async function loginModel(ip) {}
+export async function loginModel(reqBody, loginCookie, ip) {
+  try {
+    let backendResponse;
+    if (loginCookie !== undefined) {
+      console.log("cookie:"+loginCookie);
+      backendResponse = await fetch(BACKEND_URL + "/user/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json;charset=utf-8", cookie: "token=" + loginCookie },
+        body: JSON.stringify(reqBody),
+      });
+    } else {
+      backendResponse = await fetch(BACKEND_URL + "/user/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json;charset=utf-8" },
+        body: JSON.stringify(reqBody),
+      });
+    }
+    const jsonData = await backendResponse.json();
+    console.log(jsonData);
+    console.log(typeof backendResponse.headers.get("set-cookie"));
+    return { data: jsonData, cookie: backendResponse.headers.get("set-cookie") };
+  } catch {
+    return { state: "fail_fetch" };
+  }
+}
 // 2-2. 로그아웃
 export async function logoutModel(ip) {}
 
