@@ -5,7 +5,11 @@ import { BACKEND_URL } from "../customModule/constant.js";
 
 // 50가지의 명언 정보 중 랜덤하게 주기
 export async function wiseSayingModel(ip) {
-  const backendResponse = await fetch(BACKEND_URL + "/wise-saying");
-  const jsonData = await backendResponse.json();
-  return jsonData;
+  try {
+    const backendResponse = await fetch(BACKEND_URL + "/wise-saying");
+    const jsonData = await backendResponse.json();
+    return jsonData;
+  } catch {
+    return { state: "fail_fetch" };
+  }
 }
