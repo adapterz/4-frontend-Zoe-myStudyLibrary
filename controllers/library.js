@@ -82,7 +82,7 @@ export async function detailLibraryController(req, res) {
   // sequelize query 메서드 실패
   if (modelResult.state === "fail_sequelize") return res.status(INTERNAL_SERVER_ERROR).json(modelResult);
   // 해당 도서관 정보가 존재하지 않거나 삭제됐을 때
-  else if (modelResult.state === "non_existent_library") {
+   if (modelResult.state === "non_existent_library") {
     console.log("##### 해당 인덱스의 도서관 리소스가 존재하지 않을 때 ######".rainbow);
     console.log(modelResult.state);
     return res.status(NOT_FOUND).json(modelResult);
