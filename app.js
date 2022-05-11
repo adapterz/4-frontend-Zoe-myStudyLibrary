@@ -7,6 +7,8 @@ import bodyParser from "body-parser"
 import helmet from "helmet"
 // console 로그 예쁘게 쓰기
 import colors from "colors"
+// 쿠키 모듈
+import cookieParser from "cookie-parser";
 // 디도스 방어 모듈
 import rateLimit from "express-rate-limit"
 // dotenv 모듈
@@ -37,6 +39,7 @@ const apiLimiter = rateLimit({
 const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extends: false }))
+app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(helmet())
 app.use(apiLimiter)
 
