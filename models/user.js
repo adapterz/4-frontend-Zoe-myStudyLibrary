@@ -1,6 +1,6 @@
 // 유저 모델
 // 내장모듈
-import fetch from "node-fetch";
+import fetch from "isomorphic-fetch";
 import { BACKEND_URL } from "../customModule/constant.js";
 import { INTERNAL_SERVER_ERROR, OK } from "../customModule/statusCode.js";
 import { JSONCookie } from "cookie-parser";
