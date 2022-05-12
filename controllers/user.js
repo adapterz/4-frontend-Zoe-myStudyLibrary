@@ -119,8 +119,7 @@ export async function loginController(req, res) {
     // 성공적으로 로그인 요청 수행
     // 헤더필드에 쿠키 전달
     console.log("##### 로그인######".rainbow);
-    console.log(modelResult.cookie);
-    res.set("set-cookie", modelResult.cookie);
+    console.log(modelResult);
     return res.status(OK).end();
   } catch (err) {
     console.log(err);
