@@ -3,7 +3,6 @@
 import fetch from "isomorphic-fetch";
 import { BACKEND_URL } from "../customModule/constant.js";
 import { INTERNAL_SERVER_ERROR, OK } from "../customModule/statusCode.js";
-import { JSONCookie } from "cookie-parser";
 
 /*
  * 1. 회원가입/탈퇴
@@ -16,7 +15,13 @@ import { JSONCookie } from "cookie-parser";
 // 1-1. 회원가입 이용약관
 export async function signUpGuideModel(ip) {
   try {
-    const backendResponse = await fetch(BACKEND_URL + "/user/sign-up/guide");
+    const backendResponse = await fetch(BACKEND_URL + "/user/sign-up/guide", {
+      credentials: "include",
+      headers: {
+        "Access-Control-Allow-Headers": " Referrer-Policy",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+      },
+    });
     // 성공적으로 이용약관 정보 가져왔을 때 (응답값: html)
     if (backendResponse.status === OK) {
       const htmlData = await backendResponse.text();
@@ -36,7 +41,12 @@ export async function signUpModel(reqBody, ip) {
   try {
     const backendResponse = await fetch(BACKEND_URL + "/user/sign-up", {
       method: "POST",
-      headers: { "Content-Type": "application/json;charset=utf-8" },
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+      },
       body: JSON.stringify(reqBody),
     });
     const jsonData = await backendResponse.json();
@@ -50,7 +60,11 @@ export async function dropOutModel(cookieToken, ip) {
   try {
     const backendResponse = await fetch(BACKEND_URL + "/user/drop-out", {
       method: "DELETE",
-      headers: { Cookie: cookieToken },
+      credentials: "include",
+      headers: {
+        "Access-Control-Allow-Headers": " Referrer-Policy",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+      },
     });
     const jsonData = await backendResponse.json();
     console.log(jsonData);
@@ -66,23 +80,32 @@ export async function loginModel(reqBody, loginCookie, ip) {
   try {
     let backendResponse;
     if (loginCookie !== undefined) {
-      console.log("cookie:"+loginCookie);
       backendResponse = await fetch(BACKEND_URL + "/user/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json;charset=utf-8", cookie: "token=" + loginCookie },
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+        },
         body: JSON.stringify(reqBody),
       });
     } else {
       backendResponse = await fetch(BACKEND_URL + "/user/login", {
+        mode: "cors",
         method: "POST",
-        headers: { "Content-Type": "application/json;charset=utf-8" },
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+        },
         body: JSON.stringify(reqBody),
       });
     }
+    console.log(backendResponse.headers);
     const jsonData = await backendResponse.json();
-    console.log(jsonData);
-    console.log(typeof backendResponse.headers.get("set-cookie"));
-    return { data: jsonData, cookie: backendResponse.headers.get("set-cookie") };
+    return jsonData;
   } catch {
     return { state: "fail_fetch" };
   }
