@@ -84,9 +84,9 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and *not* Next.js
+# Comment in the data line in if your project uses Gatsby and *not* Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
-# public
+# data
 
 # vuepress build output
 .vuepress/dist
@@ -118,3 +118,6 @@ dist
 .idea/navEditor.xml
 /.idea/vcs.xml
 /.idea/
+/controllers/
+/models/
+/routes/
