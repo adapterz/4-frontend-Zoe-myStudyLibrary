@@ -31,7 +31,7 @@ async function getSignUpGuide() {
 }
 
 // 1-2. 회원가입
-async function signUp(_id, _pw, _confirmPw, _name, _nickname, _phoneNumber, _gender) {
+async function reqSignUp(_id, _pw, _confirmPw, _name, _nickname, _phoneNumber, _gender) {
   try {
     const options = {
       mode: "cors",
@@ -61,7 +61,7 @@ async function signUp(_id, _pw, _confirmPw, _name, _nickname, _phoneNumber, _gen
   }
 }
 // 1-3. 회원탈퇴
-async function dropOut() {
+async function reqDropOut() {
   try {
     const options = {
       mode: "cors",
@@ -82,7 +82,7 @@ async function dropOut() {
 }
 // 2. 로그인/로그아웃
 // 2-1. 로그인
-async function login(_id, _pw) {
+async function reqLogin(_id, _pw) {
   try {
     const options = {
       mode: "cors",
@@ -104,14 +104,14 @@ async function login(_id, _pw) {
 }
 
 // 2-2. 로그아웃
-async function logout() {
+async function reqLogout() {
   try {
     const options = {
       mode: "cors",
       method: POST,
       credentials: "include",
     };
-    const backendResponse = await fetch(BACKEND_URL + "/user/logout", options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/logout`, options);
 
     const logoutResult = await backendResponse.json();
     return logoutResult;
