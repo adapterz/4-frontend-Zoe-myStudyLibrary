@@ -27,7 +27,7 @@ async function reqRegisterReview(libraryIndex, _reviewContent, _grade) {
     const backendResponse = await fetch(`${BACKEND_URL}/review/post?libraryIndex=${libraryIndex}`, options);
     const status = backendResponse.status;
     // 리뷰 작성 성공
-    if (status === OK) return { state: REQUEST_SUCCESS };
+    if (status === CREATED) return { state: REQUEST_SUCCESS };
     // 리뷰 작성 실패
     const registerReviewResult = await backendResponse.json();
     return registerReviewResult;
