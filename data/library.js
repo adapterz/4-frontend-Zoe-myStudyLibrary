@@ -14,7 +14,7 @@ async function getEntireLibraryData() {
     const entireLibraryData = await backendResponse.json();
     return entireLibraryData;
   } catch (err) {
-    console.log(`ERROR: ${err}`);
+    console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
   }
 }
@@ -52,7 +52,7 @@ async function getLocalLibraryData(nameOfCity, districts) {
     const localLibraryData = await backendResponse.json();
     return localLibraryData;
   } catch (err) {
-    console.log(`ERROR: ${err}`);
+    console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
   }
 }
@@ -87,7 +87,7 @@ async function getDetailLibraryData(libraryIndex) {
     const localLibraryData = await backendResponse.json();
     return localLibraryData;
   } catch (err) {
-    console.log(`ERROR: ${err}`);
+    console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
   }
 }
