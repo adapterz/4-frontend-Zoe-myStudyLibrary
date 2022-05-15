@@ -44,7 +44,7 @@ async function getDetailReview(libraryIndex, page) {
       credentials: "include",
     };
     // 쿼리스트링에 page 값이 없을 때
-    if (page === -1) {
+    if (page === undefined) {
       const backendResponse = await fetch(`${BACKEND_URL}/review/detail?libraryIndex=${libraryIndex}`, options);
       const getDetailReviewResult = await backendResponse.json();
       return getDetailReviewResult;
