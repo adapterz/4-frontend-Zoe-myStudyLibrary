@@ -7,7 +7,7 @@
  * 6. 유저가 작성한 후기 조회
  */
 
-// 도서관 후기 등록하는 모델
+// 1. 도서관 후기 등록하는 모델
 async function reqRegisterReview(libraryIndex, _reviewContent, _grade) {
   try {
     const options = {
@@ -36,7 +36,7 @@ async function reqRegisterReview(libraryIndex, _reviewContent, _grade) {
     return { state: FAIL_FETCH };
   }
 }
-// 특정 도서관의 후기 상세 조회
+// 2. 특정 도서관의 후기 상세 조회
 async function getDetailReview(libraryIndex, page) {
   try {
     const options = {
