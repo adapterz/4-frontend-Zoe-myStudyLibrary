@@ -113,3 +113,44 @@ async function editReview(libraryIndex, reviewIndex, _reviewContent, _grade) {
     return { state: FAIL_FETCH };
   }
 }
+// 5. 후기 삭제
+async function deleteReview(libraryIndex, reviewIndex) {
+  const options = {
+    mode: "cors",
+    method: DELETE,
+    credentials: "include",
+  };
+  const backendResponse = await fetch(
+    `${BACKEND_URL}/review/delete?libraryIndex=${libraryIndex}&reviewIndex=${reviewIndex}`,
+    options
+  );
+  const status = backendResponse.status;
+  // 성공적으로 후기 삭제했을 때
+  if (status === NO_CONTENT) return { state: REQUEST_SUCCESS };
+  // 후기 삭제 실패
+  const deleteReviewResult = await backendResponse.json();
+  return deleteReviewResult;
+}
+// 6. 유저가 작성한 후기 목록
+async function getUserReview(page) {
+  try {
+    const options = {
+      mode: "cors",
+      method: GET,
+      credentials: "include",
+    };
+    // 쿼리스트링에 들어갈 페이지 값이 없을 때
+    if (page === undefined) {
+      const backendResponse = await fetch(`${BACKEND_URL}/review/user`, options);
+      const userReviewResult = await backendResponse.json();
+      return userReviewResult;
+    }
+    // 쿼리스트링에 들어갈 페이지 값이 있을 때
+    const backendResponse = await fetch(`${BACKEND_URL}/review/user?page=${page}`, options);
+    const userReviewResult = await backendResponse.json();
+    return userReviewResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
