@@ -8,6 +8,7 @@
  */
 // 1. 회원가입/탈퇴
 // 1-1. 회원가입 이용약관
+
 async function getSignUpGuide() {
   try {
     const options = {
@@ -115,6 +116,183 @@ async function reqLogout() {
 
     const logoutResult = await backendResponse.json();
     return logoutResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+
+// 3. 관심도서관 조회/등록/탈퇴
+// 3-1. 관심도서관 조회
+async function getUserLibrary() {
+  try {
+    const options = {
+      mode: "cors",
+      credentials: "include",
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/user/user-lib`, options);
+    const getUserLibraryResult = await backendResponse.json();
+    console.log(getUserLibraryResult);
+    return getUserLibraryResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+// 3-2. 관심도서관 등록
+async function reqRegisterUserLibrary(libraryIndex) {
+  try {
+    const options = {
+      mode: "cors",
+      method: PATCH,
+      credentials: "include",
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/user/user-lib?libraryIndex=${libraryIndex}`, options);
+    const status = backendResponse.status;
+    // 구독 요청 성공
+    if (status === OK) return { state: REQUEST_SUCCESS };
+    // 구독 요청 실패했을 때
+    const registerUserLibraryResult = await backendResponse.json();
+    return registerUserLibraryResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+// 3-3. 관심도서관 삭제
+async function deleteUserLibrary(libraryIndex) {
+  try {
+    const options = {
+      mode: "cors",
+      method: DELETE,
+      credentials: "include",
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/user/user-lib?libraryIndex=${libraryIndex}`, options);
+    const deleteUserLibraryResult = await backendResponse.json();
+    return deleteUserLibraryResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+
+// 4. 유저 정보 수정
+// 4-1. 유저 프로필 - 닉네임 수정
+async function editUserNickname(_nickname) {
+  try {
+    const options = {
+      mode: "cors",
+      method: PATCH,
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+      },
+      body: JSON.stringify({ nickname: _nickname }),
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/user/profile/nickname`, options);
+    const status = backendResponse.status;
+    if (status === OK) return { state: REQUEST_SUCCESS };
+
+    const editUserNicknameResult = await backendResponse.json();
+    return editUserNicknameResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+// TODO 4-2. 유저 프로필 - 이미지 수정
+async function editProfileImage(_profileImage) {
+  try {
+    const imageFormData = new FormData();
+    imageFormData.append("profileImage", _profileImage);
+    const options = {
+      mode: "cors",
+      method: PATCH,
+      credentials: "include",
+      headers: {
+        "Content-Type": "multipart/form-data; boundary=----MyBoundary",
+        "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+      },
+      body: imageFormData,
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/user/profile/profileImage`, options);
+    const status = backendResponse.status;
+    // 연락처 수정 성공
+    if (status === OK) return { state: REQUEST_SUCCESS };
+    // 연락처 수정 실패
+    const editProfileImageResult = await backendResponse.json();
+    return editProfileImageResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+// 4-3. 연락처 수정
+async function editPhoneNumber(_phoneNumber) {
+  try {
+    const options = {
+      mode: "cors",
+      method: PATCH,
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+      },
+      body: JSON.stringify({ phoneNumber: _phoneNumber }),
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/user/new-contact`, options);
+    const status = backendResponse.status;
+    // 연락처 수정 성공
+    if (status === OK) return { state: REQUEST_SUCCESS };
+    // 연락처 수정 실패
+    const editContactResult = await backendResponse.json();
+    return editContactResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+// 4-4. 비밀번호 수정
+async function editPw(_pw, _newPw, _confirmPw) {
+  try {
+    const options = {
+      mode: "cors",
+      method: PATCH,
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+      },
+      body: JSON.stringify({ pw: _pw, newPw: _newPw, confirmPw: _confirmPw }),
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/user/new-pw`, options);
+    const status = backendResponse.status;
+    // 비밀번호 수정 성공
+    if (status === OK) return { state: REQUEST_SUCCESS };
+    // 비밀번호 수정 실패
+    const editPwResult = await backendResponse.json();
+    return editPwResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+
+// 5. 유저 정보 가져오기
+async function getUserInfo(){
+  try {
+    const options = {
+      mode: "cors",
+      credentials: "include",
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/user/info`, options);
+    const getUserInfoResult = await backendResponse.json();
+    return getUserInfoResult;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
