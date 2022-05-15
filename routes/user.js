@@ -28,6 +28,7 @@ const router = express.Router()
  */
 // 1. 회원가입/탈퇴
 // 1-1. 회원가입 약관확인
+/*
 router.get("/sign-up/guide", signUpGuideController)
 // 1-2. 회원가입 요청
 router.post("/sign-up", signUpController)
@@ -60,6 +61,9 @@ router.patch("/new-pw", editPwController)
 
 // 5. 유저 정보 가져오기
 router.get("/info", getUserController)
+
+ */
+
 
 // 모듈화
 export default router

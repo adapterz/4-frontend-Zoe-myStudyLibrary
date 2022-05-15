@@ -3,7 +3,6 @@
 import querystring from "query-string";
 import fetch from "isomorphic-fetch";
 // 내장모듈
-import { BACKEND_URL } from "../customModule/constant.js";
 import { OK } from "../customModule/statusCode.js";
 /*
  * 1. 전체도서관 정보
@@ -11,9 +10,11 @@ import { OK } from "../customModule/statusCode.js";
  * 3. 특정 인덱스의 도서관 정보
  */
 // 1. 전체 도서관 정보 불러오는 모델
+
 export async function allLibraryModel(ip) {
   try {
     const backendResponse = await fetch(BACKEND_URL + "/library", {
+      mode: "cors",
       credentials: "include",
       headers: {
         "Access-Control-Allow-Headers": " Referrer-Policy",
@@ -45,6 +46,7 @@ export async function localLibraryModel(reqQuery, ip) {
     const jsonData = await backendResponse.json();
     return jsonData;
   } catch {
+
     return { state: "fail_fetch" };
   }
 }
@@ -60,6 +62,7 @@ export async function detailLibraryModel(libraryIndex, ip) {
       },
     });
     const jsonData = await backendResponse.json();
+
     return jsonData;
   } catch {
     return { state: "fail_fetch" };

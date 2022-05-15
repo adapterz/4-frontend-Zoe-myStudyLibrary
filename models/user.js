@@ -1,7 +1,6 @@
 // 유저 모델
 // 내장모듈
 import fetch from "isomorphic-fetch";
-import { BACKEND_URL } from "../customModule/constant.js";
 import { INTERNAL_SERVER_ERROR, OK } from "../customModule/statusCode.js";
 
 /*
@@ -67,7 +66,10 @@ export async function dropOutModel(cookieToken, ip) {
       },
     });
     const jsonData = await backendResponse.json();
-    console.log(jsonData);
+    console.log("header");
+    console.log("header");
+    console.log(backendResponse.headers);
+    console.log(backendResponse.headers.get("set-cookie"));
     return jsonData;
   } catch {
     return { state: "fail_fetch" };
@@ -103,7 +105,11 @@ export async function loginModel(reqBody, loginCookie, ip) {
         body: JSON.stringify(reqBody),
       });
     }
+    console.log("header");
     console.log(backendResponse.headers);
+    console.log("cookie");
+    let cookie = backendResponse.headers.get('set-cookie');
+    console.log('set-cookie header value', cookie);
     const jsonData = await backendResponse.json();
     return jsonData;
   } catch {
