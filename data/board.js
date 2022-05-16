@@ -133,7 +133,7 @@ async function editPost(boardIndex, _postTitle, _postContent, _tags) {
     // 성공적으로 수정했을 때
     if (backendResponse.status === OK) return { state: REQUEST_SUCCESS };
     // 수정 실패
-    const editPostResult=backendResponse.json();
+    const editPostResult = backendResponse.json();
     return editPostResult;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
