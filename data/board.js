@@ -129,7 +129,7 @@ async function editPost(boardIndex, _postTitle, _postContent, _tags) {
         tags: _tags,
       }),
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/board/write?boardIndex=${boardIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/board/edit?boardIndex=${boardIndex}`, options);
     // 성공적으로 수정했을 때
     if (backendResponse.status === OK) return { state: REQUEST_SUCCESS };
     // 수정 실패
