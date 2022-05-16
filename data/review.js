@@ -99,7 +99,7 @@ async function editReview(libraryIndex, reviewIndex, _reviewContent, _grade) {
       }),
     };
     const backendResponse = await fetch(
-      `${BACKEND_URL}/review/patch?libraryIndex=${libraryIndex}&reviewIndex=${reviewIndex}`,
+      `${BACKEND_URL}/review/edit?libraryIndex=${libraryIndex}&reviewIndex=${reviewIndex}`,
       options
     );
     const status = backendResponse.status;
