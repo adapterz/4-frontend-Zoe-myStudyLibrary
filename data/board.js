@@ -53,9 +53,41 @@ async function getDetailBoard(boardIndex) {
       mode: "cors",
       credentials: "include",
     };
-   const backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin/${boardIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin/${boardIndex}`, options);
     const detailBoardData = await backendResponse.json();
     return detailBoardData;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+// 2. 게시글 작성/수정/삭제
+// 2-1. 최초 게시글 작성 요청
+async function reqWritePost(_postTitle, _postContent, _tags) {
+  try {
+    const options = {
+      mode: "cors",
+      method: POST,
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+      },
+      body: JSON.stringify({
+        category: "자유게시판",
+        postTitle: _postTitle,
+        postContent: _postContent,
+        tags:_tags
+      }),
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/board/write`, options);
+    const status = backendResponse.status;
+    // 게시글 작성 성공
+    if (status === CREATED) return { state: REQUEST_SUCCESS };
+    // 게시글 작성 실패
+    const writePostResult = await backendResponse.json();
+    return writePostResult;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
