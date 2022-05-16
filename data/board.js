@@ -161,3 +161,21 @@ async function deletePost(boardIndex) {
     return { state: FAIL_FETCH };
   }
 }
+
+// 3. 좋아요/검색기능
+// 3-1. 게시글 좋아요 요청
+async function favoritePost(boardIndex) {
+  try {
+    const options = {
+      mode: "cors",
+      method: PATCH,
+      credentials: "include",
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/board/like?boardIndex=${boardIndex}`, options);
+    const favoriteResult = backendResponse.json();
+    return favoriteResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
