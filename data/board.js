@@ -179,3 +179,63 @@ async function favoritePost(boardIndex) {
     return { state: FAIL_FETCH };
   }
 }
+// 3-2. 검색관련 기능
+async function getSearchBoard(searchOption, searchContent, page) {
+  try {
+    let backendResponse;
+    const options = {
+      mode: "cors",
+      method: GET,
+      credentials: "include",
+    };
+    // 쿼리스트링에 page 키가 없을 때
+    if (page === undefined) {
+      backendResponse = await fetch(
+        `${BACKEND_URL}/board/search/free-bulletin?searchOption=${searchOption}&searchContent=${searchContent}`,
+        options
+      );
+    }
+    // 쿼리스트링에 page 키가 있을 때
+    else {
+      backendResponse = await fetch(
+        `${BACKEND_URL}/board/search/free-bulletin?searchOption=${searchOption}&searchContent=${searchContent}&page=${page}`,
+        options
+      );
+    }
+    const getSearchResult = backendResponse.json();
+    return getSearchResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+// 4. 유저가 쓴 글 목록 가져오기
+async function getUserBoard(page) {
+  try {
+    let backendResponse;
+    const options = {
+      mode: "cors",
+      method: GET,
+      credentials: "include",
+    };
+    // 쿼리스트링에 page 키가 없을 때
+    if (page === undefined) {
+      backendResponse = await fetch(
+        `${BACKEND_URL}/board/user`,
+        options
+      );
+    }
+    // 쿼리스트링에 page 키가 있을 때
+    else {
+      backendResponse = await fetch(
+        `${BACKEND_URL}/board/user?page=${page}`,
+        options
+      );
+    }
+    const getUserBoardResult = backendResponse.json();
+    return getUserBoardResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
