@@ -110,3 +110,33 @@ async function getWrite(boardIndex) {
     return { state: FAIL_FETCH };
   }
 }
+// 2-3. 게시글 수정요청
+async function editPost(boardIndex, _postTitle, _postContent, _tags) {
+  try {
+    const options = {
+      mode: "cors",
+      method: PATCH,
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+      },
+      body: JSON.stringify({
+        category: "자유게시판",
+        postTitle: _postTitle,
+        postContent: _postContent,
+        tags: _tags,
+      }),
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/board/write?boardIndex=${boardIndex}`, options);
+    // 성공적으로 수정했을 때
+    if (backendResponse.status === OK) return { state: REQUEST_SUCCESS };
+    // 수정 실패
+    const editPostResult=backendResponse.json();
+    return editPostResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
