@@ -78,7 +78,7 @@ async function reqWritePost(_postTitle, _postContent, _tags) {
         category: "자유게시판",
         postTitle: _postTitle,
         postContent: _postContent,
-        tags:_tags
+        tags: _tags,
       }),
     };
     const backendResponse = await fetch(`${BACKEND_URL}/board/write`, options);
@@ -86,6 +86,23 @@ async function reqWritePost(_postTitle, _postContent, _tags) {
     // 게시글 작성 성공
     if (status === CREATED) return { state: REQUEST_SUCCESS };
     // 게시글 작성 실패
+    const writePostResult = await backendResponse.json();
+    return writePostResult;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+// 2-2. 게시글 수정을 위해 기존 게시글 정보 불러오기
+async function getWrite(boardIndex) {
+  try {
+    const options = {
+      mode: "cors",
+      method: GET,
+      credentials: "include",
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/board/write?boardIndex=${boardIndex}`, options);
+
     const writePostResult = await backendResponse.json();
     return writePostResult;
   } catch (err) {
