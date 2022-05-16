@@ -84,3 +84,11 @@ app.get("/get-data/review", (req, res) => {
   res.header({ "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414" });
   res.status(OK).sendFile(path.join(__dirname, "data", "review.html"));
 });
+app.get("/get-data/board", (req, res) => {
+  res.header({ "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414" });
+  res.status(OK).sendFile(path.join(__dirname, "data", "board.html"));
+});
+app.get("/get-data/comment", (req, res) => {
+  res.header({ "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414" });
+  res.status(OK).sendFile(path.join(__dirname, "data", "comment.html"));
+});
