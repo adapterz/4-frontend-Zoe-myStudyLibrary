@@ -140,3 +140,22 @@ async function editPost(boardIndex, _postTitle, _postContent, _tags) {
     return { state: FAIL_FETCH };
   }
 }
+
+// 2-4. 게시글 삭제하기
+async function deletePost(boardIndex) {
+  const options = {
+    mode: "cors",
+    method: DELETE,
+    credentials: "include",
+  };
+  const backendResponse = await fetch(
+    `${BACKEND_URL}/board/delete?boardIndex=${boardIndex}`,
+    options
+  );
+  const status = backendResponse.status;
+  // 성공적으로 후기 삭제했을 때
+  if (status === NO_CONTENT) return { state: REQUEST_SUCCESS };
+  // 후기 삭제 실패
+  const deleteReviewResult = await backendResponse.json();
+  return deleteReviewResult;
+}
