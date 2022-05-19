@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1d9c72;
+  padding: 8px 200px;
+}
+.navbar__logo {
+  font-size: 27px;
+  color: #fff;
+  font-family: "Gugi";
+}
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  font-family: "Gugi";
+}
+.navbar__menu li:hover {
+  background-color: #d49466;
+  border-radius: 5px;
+}
+.navbar__menu li {
+  padding: 8px 20px;
+}
+
+@media screen and (max-width: 1040px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+  .navbar__menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .navbar__menu li {
+    width: 80%;
+    text-align: center;
+  }
+}
