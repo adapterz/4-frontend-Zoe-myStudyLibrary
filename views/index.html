@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="common.css" />
+    <title>myStudyLibrary 홈페이지</title>
+    <style>
+      .navbar__logo--img {
+        width: 40px;
+        height: 25px;
+      }
+    </style>
+    <!-- 글씨체 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- 맨 위에 메뉴바 -->
+    <nav class="navbar">
+      <!-- 로고 -->
+      <div class="navbar__logo">
+        <img class="navbar__logo--img"src="./logo.png" />
+        <a href="">myStudyLibrary</a>
+      </div>
+      <!-- 메뉴 -->
+      <ul class="navbar__menu">
+        <li><a href="">주변도서관</a></li>
+        <li><a href="">자유게시판</a></li>
+        <li><a href="">내가작성한글</a></li>
+      </ul>
+    </nav>
+    <!-- TODO 홈화면 FLEX 만들어서 가운데 사진, 오른쪽에 로그인/회원가입 버튼, 아래 자유게시판(최신글)-->
+    <main class="">
+        <section><img src="./home.png" /></section>
+        <aside>
+          <button type="button">로그인 하기</button>
+          <button type="button">회원가입</button>
+        </aside>
+    <section>
+      <h2>자유게시판 - 최신글</h2>
+      <nav>
+        <li class="board-item"><a href="">게시글1</a></li>
+        <li class="board-item"><a href="">게시글2</a></li>
+        <li class="board-item"><a href="">게시글3</a></li>
+        <li class="board-item"><a href="">게시글4</a></li>
+        <li class="board-item"><a href="">게시글5</a></li>
+      </nav>
+    </section>
+    </main>
+    <footer>발바닥(서비스 정보)</footer>
+    <main></main>
+  </body>
+</html>
