@@ -141,7 +141,6 @@ main 구성요소
   color: dimgray;
 }
 
-
 /* 4. 로그인, 회원가입 버튼 */
 .btn__login {
   font-family: "Poor Story";
@@ -193,7 +192,6 @@ main 구성요소
   font-weight: bold;
   border-radius: 30px;
 }
-
 /* 5. 반응형 디자인 */
 @media screen and (max-width: 1800px) {
   .main {
@@ -210,7 +208,17 @@ main 구성요소
 
     border: 1px solid #dae1e6;
   }
-  .main__user {
+  .main__user--notlogined {
+    display: grid;
+    padding: 30px;
+    background-color: #f7f9fa;
+    height: 120px;
+    color: grey;
+    border: 1px solid #dae1e6;
+    border-radius: 5px;
+    justify-content: space-evenly;
+  }
+  .main__user--logined {
     display: grid;
     padding: 30px;
     background-color: #f7f9fa;
