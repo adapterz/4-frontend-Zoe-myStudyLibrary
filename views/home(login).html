@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>myStudyLibrary 홈페이지</title>
     <style>
-        @import url("reset.css");
-        @import url("common.css");
-        @import url("home.css");
+      @import url("reset.css");
+      @import url("common.css");
+      @import url("home.css");
     </style>
+    <title>myStudyLibrary 홈페이지</title>
+    <style></style>
     <!-- 글씨체 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,11 +43,8 @@
     <main class="main">
       <!-- 배경사진 -->
       <section class="main__card"><img class="main__card--img" src="./home.png" /></section>
-      <!-- 로그인, 회원가입 -->
-      <section class="main__user--notlogined">
-        <button type="button" class="btn__login">로그인</button>
-        <button type="button" class="btn__signup">회원가입</button>
-      </section>
+      <!-- 유저 정보 -->
+      <section class="main__user--logined"></section>
       <!-- 자유게시판-최근게시글 -->
       <article class="main__board">
         <p class="main__category">📋 자유게시판 - 최신글</p>
@@ -101,6 +99,5 @@
       <pre> 대표: 김예지</pre>
       <br />
     </footer>
-    <main></main>
   </body>
 </html>
