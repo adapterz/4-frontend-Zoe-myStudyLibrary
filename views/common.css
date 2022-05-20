@@ -6,12 +6,13 @@ a {
   text-decoration: none;
   color: #fff;
 }
+/* 메뉴바(로고, 메뉴로 구성)*/
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #1d9c72;
-  padding: 8px 200px;
+  padding: 8px 400px;
   height: 4em;
 }
 .navbar__logo {
@@ -32,6 +33,10 @@ a {
 }
 .navbar__menu li {
   padding: 8px 20px;
+}
+.navbar__logo--img {
+  width: 40px;
+  height: 25px;
 }
 
 @media screen and (max-width: 1040px) {
