@@ -39,7 +39,20 @@ a {
   height: 25px;
 }
 
-@media screen and (max-width: 1040px) {
+/* footer(서비스명, 대표자 등 페이지 맨 밑에 들어가는 내용)*/
+.footer__serviceinfo {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  color: #9b9b9b;
+  line-height: 25px;
+  justify-content: center;
+  align-items: center;
+  background-color: #3e3e3e;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 1480px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
