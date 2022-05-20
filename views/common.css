@@ -4,7 +4,7 @@ a {
   color: #fff;
 }
 /* 메뉴바(로고, 메뉴로 구성)*/
-.navbar {
+.gmb {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,26 +12,26 @@ a {
   padding: 8px 400px;
   height: 4em;
 }
-.navbar__logo {
+.gmb__logo {
   font-size: 27px;
   color: #fff;
   font-family: "Gugi";
 }
-.navbar__menu {
+.gmb__menu {
   display: flex;
   list-style: none;
   padding: 0;
   font-size: 18px;
   font-family: "Gugi";
 }
-.navbar__menu li:hover {
+.gmb__menu li:hover {
   background-color: #d49466;
   border-radius: 5px;
 }
-.navbar__menu li {
+.gmb__menu li {
   padding: 8px 20px;
 }
-.navbar__logo--img {
+.gmb__logo--img {
   width: 40px;
   height: 25px;
 }
@@ -50,18 +50,18 @@ a {
 
 /* 반응형 디자인 */
 @media screen and (max-width: 1480px) {
-  .navbar {
+  .gmb {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 20px;
     height: 9em;
   }
-  .navbar__menu {
+  .gmb__menu {
     flex-direction: column;
     align-items: center;
     width: 100%;
   }
-  .navbar__menu li {
+  .gmb__menu li {
     width: 80%;
     text-align: center;
   }
