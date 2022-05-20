@@ -1,7 +1,4 @@
 /* common.css(메뉴바, footer 등 공통적으로 쓰이는 요소들) */
-body {
-  margin: 0;
-}
 a {
   text-decoration: none;
   color: #fff;
