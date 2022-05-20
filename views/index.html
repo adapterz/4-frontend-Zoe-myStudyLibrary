@@ -38,23 +38,60 @@
         <li><a href="">내가작성한글</a></li>
       </ul>
     </nav>
-    <!-- TODO 홈화면 FLEX 만들어서 가운데 사진, 오른쪽에 로그인/회원가입 버튼, 아래 자유게시판(최신글)-->
-    <main class="">
-        <section><img src="./home.png" /></section>
-        <aside>
-          <button type="button">로그인 하기</button>
-          <button type="button">회원가입</button>
-        </aside>
-    <section>
-      <h2>자유게시판 - 최신글</h2>
-      <nav>
-        <li class="board-item"><a href="">게시글1</a></li>
-        <li class="board-item"><a href="">게시글2</a></li>
-        <li class="board-item"><a href="">게시글3</a></li>
-        <li class="board-item"><a href="">게시글4</a></li>
-        <li class="board-item"><a href="">게시글5</a></li>
-      </nav>
-    </section>
+    <main class="main">
+      <!-- 배경사진 -->
+      <section class="main__card"><img class="main__card--img" src="./home.png" /></section>
+      <!-- 로그인, 회원가입 -->
+      <section class="main__user">
+        <button type="button" class="btn__login">로그인</button>
+        <button type="button" class="btn__signup">회원가입</button>
+      </section>
+      <!-- 자유게시판-최근게시글 -->
+      <article class="main__board">
+        <p class="main__category">📋 자유게시판 - 최신글</p>
+        <nav>
+          <li>
+            <a href=""
+              ><p class="main__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="main__board--nickname">닉네임: 작성자1</p></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><p class="main__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="main__board--nickname">닉네임: 작성자2</p></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><p class="main__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="main__board--nickname">닉네임: 작성자3</p></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><p class="main__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="main__board--nickname">닉네임: 작성자4</p></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><p class="main__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="main__board--nickname">닉네임: 작성자5</p></a
+            >
+          </li>
+        </nav>
+      </article>
+      <!-- 동기부여용 명언 -->
+      <article class="main__wisesaying">
+        <nav>
+          <p class="main__category">💪 동기부여</p>
+          <li>
+            명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다
+          </li>
+          <li>-Zoe-</li>
+        </nav>
+      </article>
     </main>
     <footer>발바닥(서비스 정보)</footer>
     <main></main>
