@@ -1,0 +1,71 @@
+/* common.css(메뉴바, footer 등 공통적으로 쓰이는 요소들) */
+body {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+/* 메뉴바(로고, 메뉴로 구성)*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1d9c72;
+  padding: 8px 400px;
+  height: 4em;
+}
+.navbar__logo {
+  font-size: 27px;
+  color: #fff;
+  font-family: "Gugi";
+}
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  font-family: "Gugi";
+}
+.navbar__menu li:hover {
+  background-color: #d49466;
+  border-radius: 5px;
+}
+.navbar__menu li {
+  padding: 8px 20px;
+}
+.navbar__logo--img {
+  width: 40px;
+  height: 25px;
+}
+
+/* footer(서비스명, 대표자 등 페이지 맨 밑에 들어가는 내용)*/
+.footer__serviceinfo {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  color: #9b9b9b;
+  line-height: 25px;
+  justify-content: center;
+  align-items: center;
+  background-color: #3e3e3e;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 1480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    height: 9em;
+  }
+  .navbar__menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .navbar__menu li {
+    width: 80%;
+    text-align: center;
+  }
+}
