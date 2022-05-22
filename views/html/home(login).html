@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>myStudyLibrary 홈페이지</title>
     <style>
-      @import url("reset.css");
-      @import url("common.css");
-      @import url("home.css");
+      @import url("../css/reset.css");
+      @import url("../css/common.css");
+      @import url("../css/home.css");
     </style>
+    <title>myStudyLibrary 홈페이지</title>
+    <style></style>
     <!-- 글씨체 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,7 @@
     <nav class="gmb">
       <!-- 로고 -->
       <div class="gmb__logo">
-        <img class="gmb__logo--img" src="./logo.png" alt="서비스 로고입니다." />
+        <img class="gmb__logo--img" src="../img/logo.png" alt="서비스 로고입니다." />
         <a href="">myStudyLibrary</a>
       </div>
       <!-- 메뉴 -->
@@ -42,12 +42,16 @@
     <main class="home">
       <!-- 배경사진 -->
       <section class="home__card">
-        <img class="home__card--img" src="./home.png" alt="홈페이지 메인 배경화면입니다." />
+        <img class="home__card--img" src="../img/home.png" alt="홈페이지 메인 배경화면입니다." />
       </section>
-      <!-- 로그인, 회원가입 -->
-      <section class="home__user--notlogined">
-        <button type="button" class="button__login">로그인</button>
-        <button type="button" class="button__signup">회원가입</button>
+      <!-- 유저 정보 -->
+      <section class="home__user--logined">
+        <!-- 유저가 사진등록안했을 때 -->
+        <img class="home__user--profileImage" src="../img/none_registered.png" alt="유저 사진입니다." />
+        <!-- 유저가 사진등록했을 때 -->
+        <!-- <img class="home__user--profileImage" src="./user_image.jpg" alt="유저 사진입니다." /-->
+        <p class="home__user--nickname">조이에용</p>
+        <button type="button" class="button__user">유저정보수정하기</button>
       </section>
       <!-- 자유게시판-최근게시글 -->
       <article class="home__board">
@@ -103,6 +107,5 @@
       <pre> 대표: 김예지</pre>
       <br />
     </footer>
-    <main></main>
   </body>
 </html>
