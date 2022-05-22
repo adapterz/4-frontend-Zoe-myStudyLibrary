@@ -1,0 +1,102 @@
+/*
+회원가입 페이지(프론트 단 유효성검사 실패했을 때)
+1. 회원가입 전체 컨테이너
+2. 회원가입 form 컨테이너
+2-1. 회원가입 title
+2-2. 입력(input) 설정
+2-3. gender 셀렉트박스 설정
+2-4. 제출 버튼
+2-5. 유효성
+*/
+/* 회원가입 페이지 전체 컨테이너 */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 150vh;
+}
+
+/* 회원가입 form 컨테이너 */
+.container__signUp {
+  border: 1px solid #dae1e6;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  height: 950px;
+}
+
+/* 회원가입 컨테이너 title */
+.container__signUp--title {
+  font-family: "Gugi";
+  color: darkslategray;
+  margin: 15px;
+  font-size: 1.5rem;
+}
+
+/* 회원가입 컨테이너 입력(input) 설정 */
+.container__signUp--input {
+  font-size: 12px;
+  background: none;
+  text-align: center;
+  outline: none;
+  padding: 20px;
+  margin: 30px;
+  width: 50%;
+  height: 0.5em;
+  border-radius: 40px;
+  border: solid 1px #ec3b3b;
+}
+/* 회원가입 성별 select 박스 설정 */
+.container__signUp--gender {
+  font-size: 12px;
+  text-align: center;
+  margin: 30px;
+  height: 30px;
+  width: 50%;
+  padding: 5px;
+  border: solid 1px #999;
+  border-radius: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+/* 회원가입 컨테이너 제출 버튼 */
+.container__signUp--submit {
+  font-family: "Poor Story";
+  font-size: 16px;
+  width: 40%;
+  height: 5%;
+  margin: 20px;
+  color: #fff;
+  background-color: lightsalmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.container__signUp--submit:hover {
+  font-family: "Poor Story";
+  font-size: 16px;
+  width: 40%;
+  height: 5%;
+  margin: 20px;
+  padding: 5px;
+  background-color: salmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+/* 유효성 */
+.container__signUp--validation {
+  font-size: 12px;
+  color: #ec3b3b;
+}
