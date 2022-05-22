@@ -18,7 +18,7 @@ main 구성요소
 }
 /* 1. user 탭 */
 /* notlogined */
-.home__user--notlogined {
+.home__user--notLogined {
   margin: 5% 0%;
   display: grid;
   padding: 30px;
@@ -136,14 +136,14 @@ main 구성요소
   border-bottom: 1px solid #dae1e6;
 }
 /* 3. 동기부여용 명언 */
-.home__wisesaying {
+.home__wiseSaying {
   margin: 5% 0%;
   font-family: "Noto Serif Kr";
   line-height: 30px;
   display: flex;
   list-style: none;
 }
-.home__wisesaying li {
+.home__wiseSaying li {
   padding: 20px 20px;
   font-size: 15px;
   color: dimgray;
@@ -217,7 +217,7 @@ main 구성요소
 
     border: 1px solid #dae1e6;
   }
-  .home__user--notlogined {
+  .home__user--notLogined {
     display: grid;
     padding: 30px;
     background-color: #f7f9fa;
@@ -243,7 +243,7 @@ main 구성요소
     display: flex;
     list-style: none;
   }
-  .home__wisesaying {
+  .home__wiseSaying {
     display: flex;
     flex-direction: column;
     list-style: none;
