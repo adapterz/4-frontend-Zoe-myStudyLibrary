@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>myStudyLibrary 회원가입</title>
+    <style>
+      @import url("../css/reset.css");
+      @import url("../css/common.css");
+      @import url("../css/sign_up.css");
+    </style>
+    <!-- 글씨체 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- 맨 위에 메뉴바 -->
+    <nav class="gmb">
+      <!-- 로고 -->
+      <div class="gmb__logo">
+        <img class="gmb__logo--img" src="../img/logo.png" alt="서비스 로고입니다." />
+        <a href="">myStudyLibrary</a>
+      </div>
+      <!-- 메뉴 -->
+      <ul class="gmb__menu">
+        <li><a href="">주변도서관</a></li>
+        <li><a href="">자유게시판</a></li>
+        <li><a href="">내가작성한글</a></li>
+      </ul>
+    </nav>
+    <section class="container">
+      <form action="" class="container__signUp" method="post">
+        <h2 class="container__signUp--title">회원가입</h2>
+        <input type="text" placeholder="아이디" class="container__signUp--input" name="id" />
+        <input type="password" placeholder="비밀번호" class="container__signUp--input" name="pw" />
+        <input type="password" placeholder="비밀번호확인" class="container__signUp--input" name="confirmPw" />
+        <input type="text" placeholder="이름" class="container__signUp--input" name="name" />
+        <input type="text" placeholder="연락처(휴대전화)" class="container__signUp--input" name="phoneNumber" />
+        <input type="text" placeholder="닉네임" class="container__signUp--input" name="nickname" />
+        <select class="container__signUp--gender" name="gender">
+          <option value="">성별</option>
+          <option value="여">여</option>
+          <option value="남">남</option>
+        </select>
+        <input type="submit" value="로그인" class="container__signUp--submit" />
+      </form>
+    </section>
+    <!-- footer -->
+    <footer class="footer__serviceInfo">
+      (주) myStudyLibrary
+      <br />
+      <pre> 대표: 김예지</pre>
+      <br />
+    </footer>
+    <main></main>
+  </body>
+</html>
