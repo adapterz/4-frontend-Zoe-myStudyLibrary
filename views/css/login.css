@@ -53,7 +53,6 @@
 /* 로그인 컨테이너 제출 버튼 */
 .container__login--submit {
   font-family: "Poor Story";
-  font-size: 7px;
   width: 40%;
   height: 10%;
   margin: 20px;
@@ -68,7 +67,6 @@
 
 .container__login--submit:hover {
   font-family: "Poor Story";
-  font-size: 7px;
   width: 40%;
   height: 10%;
   margin: 20px;
