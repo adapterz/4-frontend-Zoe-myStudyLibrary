@@ -39,13 +39,12 @@
 /* 로그인 컨테이너 입력(input) 설정 */
 .container__login--input {
   font-size: 12px;
-  border: none;
   background: none;
   text-align: center;
   outline: none;
   padding: 20px;
   margin: 30px;
-  width: 60%;
+  width: 50%;
   height: 0.5em;
   border-radius: 40px;
   border: solid 1px #ffc400;
@@ -55,7 +54,7 @@
 .container__login--submit {
   font-family: "Poor Story";
   font-size: 7px;
-  width: 50%;
+  width: 40%;
   height: 10%;
   margin: 20px;
   color: #fff;
@@ -70,7 +69,7 @@
 .container__login--submit:hover {
   font-family: "Poor Story";
   font-size: 7px;
-  width: 50%;
+  width: 40%;
   height: 10%;
   margin: 20px;
   padding: 5px;
