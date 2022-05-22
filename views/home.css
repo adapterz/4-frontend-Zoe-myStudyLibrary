@@ -13,9 +13,13 @@ main 구성요소
   grid-template-rows: 2fr 2fr 1fr;
   justify-content: space-evenly;
 }
+.home__card--img {
+  margin: 5% 0%;
+}
 /* 1. user 탭 */
 /* notlogined */
 .home__user--notlogined {
+  margin: 5% 0%;
   display: grid;
   padding: 30px;
   background-color: #f7f9fa;
@@ -28,6 +32,7 @@ main 구성요소
 }
 /* logined */
 .home__user--logined {
+  margin: 5% 0%;
   display: grid;
   padding: 30px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -98,7 +103,7 @@ main 구성요소
 }
 /* 2. 자유게시판 */
 .home__board {
-  padding: 0px 0px;
+  margin: 5% 0%;
   flex-direction: column;
   width: 300px;
   display: flex;
@@ -132,7 +137,7 @@ main 구성요소
 }
 /* 3. 동기부여용 명언 */
 .home__wisesaying {
-  padding: 0px;
+  margin: 5% 0%;
   font-family: "Noto Serif Kr";
   line-height: 30px;
   display: flex;
@@ -206,6 +211,7 @@ main 구성요소
     justify-content: center;
   }
   .home__card--img {
+    margin: 5% 0%;
     max-width: 100%;
     height: auto !important;
 
