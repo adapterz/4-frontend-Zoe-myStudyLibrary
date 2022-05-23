@@ -17,6 +17,7 @@
 
 /* 유저정보 form 컨테이너 */
 .container__userInfo {
+  margin: 10%;
   border: 1px solid #dae1e6;
   padding: 20px;
   display: flex;
