@@ -18,6 +18,8 @@
 
 /* 연락처 수정 form 컨테이너 */
 .container__editContact {
+
+  margin: 10%;
   border: 1px solid #dae1e6;
   padding: 20px;
   display: flex;

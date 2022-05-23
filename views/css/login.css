@@ -17,6 +17,7 @@
 
 /* 로그인 form 컨테이너 */
 .container__login {
+  margin: 10%;
   border: 1px solid #dae1e6;
   padding: 20px;
   display: flex;
