@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>myStudyLibrary 탈퇴안내</title>
+    <style>
+      @import url("../css/reset.css");
+      @import url("../css/common.css");
+      @import url("../css/drop_out.css");
+    </style>
+    <!-- 글씨체 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- 맨 위에 메뉴바 -->
+    <nav class="gmb">
+      <!-- 로고 -->
+      <div class="gmb__logo">
+        <img class="gmb__logo--img" src="../img/logo.png" alt="서비스 로고입니다." />
+        <a href="">myStudyLibrary</a>
+      </div>
+      <!-- 메뉴 -->
+      <ul class="gmb__menu">
+        <li><a href="">주변도서관</a></li>
+        <li><a href="">자유게시판</a></li>
+        <li><a href="">내가작성한글</a></li>
+      </ul>
+    </nav>
+
+    <!-- 탈퇴안내 -->
+    <section class="container">
+      <form action="" class="container__dropOut">
+        <h2 class="container__dropOut--title">탈퇴안내</h2>
+        <textarea class="container__dropOut--terms" readonly>
+1. 사용하고 계신 아이디는 탈퇴할 경우 재사용 및 복구가 불가능합니다.
+
+2. 탈퇴 후 회원정보 및 개인형 서비스 이용기록은 모두 삭제됩니다.
+      
+3. 탈퇴 후에도 게시판형 서비스에 등록한 게시물은 그대로 남아 있습니다.
+        </textarea>
+        <label>그래도 탈퇴하겠습니까? <input class="container__dropOut--agree" type="checkbox" name="agree" /> </label>
+        <input type="submit" value="확인" class="container__dropOut--submit" />
+      </form>
+    </section>
+    <!-- footer -->
+    <footer class="footer__serviceInfo">
+      (주) myStudyLibrary
+      <br />
+      <pre> 대표: 김예지</pre>
+      <br />
+    </footer>
+    <main></main>
+  </body>
+</html>
