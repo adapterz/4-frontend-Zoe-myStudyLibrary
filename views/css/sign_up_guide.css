@@ -1,13 +1,13 @@
 /*
-회원가입 페이지
-1. 회원가입 전체 컨테이너
-2. 회원가입 form 컨테이너
-2-1. 회원가입 title
+회원가입 약관동의 페이지
+1. 전체 컨테이너
+2. form 컨테이너
+2-1. title
 2-2. 이용약관
 2-3. 약관동의 체크박스
 2-4. 제출 버튼
 */
-/* 회원가입 페이지 전체 컨테이너 */
+/* 회원가입 약관동의 페이지 전체 컨테이너 */
 .container {
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@
   min-height: 110vh;
 }
 
-/* 회원가입 form 컨테이너 */
+/* form 컨테이너 */
 .container__signUpGuide {
   border: 1px solid #dae1e6;
   padding: 20px;
@@ -26,10 +26,10 @@
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   width: 250px;
-  height: 600px;
+  height: 500px;
 }
 
-/* 회원가입 컨테이너 title */
+/* title */
 .container__signUpGuide--title {
   font-family: "Gugi";
   color: darkslategray;
@@ -53,7 +53,7 @@
   cursor: pointer;
   border-radius: 3px;
 }
-/* 회원가입 컨테이너 제출 버튼 */
+/* 제출 버튼 */
 .container__signUpGuide--submit {
   font-family: "Poor Story";
   font-size: 16px;
