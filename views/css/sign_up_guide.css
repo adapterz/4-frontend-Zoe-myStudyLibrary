@@ -1,0 +1,84 @@
+/*
+회원가입 페이지
+1. 회원가입 전체 컨테이너
+2. 회원가입 form 컨테이너
+2-1. 회원가입 title
+2-2. 이용약관
+2-3. 약관동의 체크박스
+2-4. 제출 버튼
+*/
+/* 회원가입 페이지 전체 컨테이너 */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 120vh;
+}
+
+/* 회원가입 form 컨테이너 */
+.container__signUpGuide {
+  border: 1px solid #dae1e6;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  height: 600px;
+}
+
+/* 회원가입 컨테이너 title */
+.container__signUpGuide--title {
+  font-family: "Gugi";
+  color: darkslategray;
+  margin: 15px;
+  font-size: 1.5rem;
+}
+
+/* 이용약관 */
+.container__signUpGuide--terms {
+  border: 1px solid #e6e6e6;
+  overflow: auto;
+  height: 30%;
+  padding: 26px 19px;
+  margin: 15%;
+}
+/* 약관동의 체크박스 */
+.container__signUpGuide--agree + label {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+/* 회원가입 컨테이너 제출 버튼 */
+.container__signUpGuide--submit {
+  font-family: "Poor Story";
+  font-size: 16px;
+  width: 40%;
+  height: 5%;
+  margin: 10%;
+  color: #fff;
+  background-color: lightsalmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.container__signUpGuide--submit:hover {
+  font-family: "Poor Story";
+  font-size: 16px;
+  width: 40%;
+  height: 5%;
+  margin: 20px;
+  padding: 5px;
+  background-color: salmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+}
