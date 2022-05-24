@@ -1,3 +1,8 @@
+/*
+1. 유저가 작성한 리뷰 컨테이너
+2. 유저가 작성한 리뷰 도서관/작성날짜/리뷰내용 설정
+ */
+/* 유저가 작성한 리뷰 컨테이너 */
 .userReview__review {
   margin-left: 10%;
   margin-top: 5%;
@@ -6,6 +11,8 @@
   display: flex;
   list-style: none;
 }
+
+/* 유저가 작성한 리뷰 도서관/작성날짜/리뷰내용 설정 */
 .userReview__review li {
   font-family: "Noto Serif Kr";
   line-height: 20px;
