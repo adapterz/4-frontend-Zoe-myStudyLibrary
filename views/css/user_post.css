@@ -1,0 +1,36 @@
+.userPost__board {
+  margin-left: 10%;
+  margin-top: 5%;
+  flex-direction: column;
+  width: 300px;
+  display: flex;
+  list-style: none;
+}
+.userPost__board li {
+  font-family: "Noto Serif Kr";
+  line-height: 20px;
+  padding: 20px 20px;
+  border-bottom: 1px solid #dae1e6;
+}
+.userPost__board--title {
+  margin-bottom: 4%;
+}
+
+.userPost__board--createDate {
+  color: dimgray;
+  font-size: 0.9rem;
+}
+.userPost__board--favoriteCount {
+  color: dimgray;
+  font-size: 0.9rem;
+}
+.userPost__board--viewCount {
+  color: dimgray;
+  font-size: 0.9rem;
+}
+
+.userPost__board--img {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+}
