@@ -1,3 +1,8 @@
+/*
+1. 유저가 작성한 댓글 컨테이너
+2. 유저가 작성한 댓글 글제목/작성날짜/댓글내용 설정
+ */
+/* 유저가 작성한 댓글 컨테이너 */
 .userComment__comment {
   margin-left: 10%;
   margin-top: 5%;
@@ -6,6 +11,8 @@
   display: flex;
   list-style: none;
 }
+
+/* 유저가 작성한 댓글 글제목/작성날짜/댓글내용 설정 */
 .userComment__comment li {
   font-family: "Noto Serif Kr";
   line-height: 20px;
