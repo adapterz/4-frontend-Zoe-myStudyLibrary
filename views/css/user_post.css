@@ -1,3 +1,9 @@
+/*
+1. 유저가 작성한 게시글 컨테이너
+2. 유저가 작성한 게시글 제목/작성날짜/조회수/좋아요 수 설정
+3. 조회수/좋아요 수 아이콘 설정
+ */
+/* 유저가 작성한 게시글 컨테이너 */
 .userPost__board {
   margin-left: 10%;
   margin-top: 5%;
@@ -6,6 +12,8 @@
   display: flex;
   list-style: none;
 }
+
+/* 유저가 작성한 게시글 제목/작성날짜/조회수/좋아요 수 설정 */
 .userPost__board li {
   font-family: "Noto Serif Kr";
   line-height: 20px;
@@ -29,6 +37,7 @@
   font-size: 0.9rem;
 }
 
+/* 조회수/좋아요 수 아이콘 설정 */
 .userPost__board--img {
   width: 1em;
   height: 1em;
