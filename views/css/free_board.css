@@ -35,19 +35,23 @@
 }
 
 .freeBoard__board--createDate {
+  text-align: right;
   color: dimgray;
   font-size: 0.9rem;
 }
 .freeBoard__board--favoriteCount {
+  text-align: right;
   color: dimgray;
   font-size: 0.9rem;
 }
 .freeBoard__board--viewCount {
+  text-align: right;
   color: dimgray;
   font-size: 0.9rem;
 }
 
 .freeBoard__board--nickname {
+  text-align: right;
   color: dimgray;
   align-self: flex-start;
   font-size: 0.9rem;
@@ -92,7 +96,6 @@
   place-self: center;
 }
 
-
 /* 입력(input) 설정 */
 .container__search--input {
   font-size: 12px;
@@ -107,7 +110,7 @@
   border: solid 1px dimgray;
 }
 /* 검색옵션 select 박스 설정 */
-.container__search--searchOption{
+.container__search--searchOption {
   font-size: 12px;
   text-align: center;
   height: 30px;
@@ -136,7 +139,6 @@
   padding: 10px;
 }
 
-
 /*  반응형 디자인 */
 @media screen and (max-width: 1480px) {
   .freeBoard {
@@ -146,5 +148,4 @@
     justify-content: center;
     min-height: 200vh;
   }
-
 }
