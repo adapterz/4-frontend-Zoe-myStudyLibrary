@@ -1,3 +1,10 @@
+/*
+1. 자유게시판 컨테이너
+2. 자유게시판 타이틀
+3. 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정
+4. 조회수/좋아요 수 아이콘 설정
+ */
+/* 자유게시판 컨테이너 */
 .freeBoard {
   padding: 50px 400px;
   display: flex;
@@ -15,6 +22,7 @@
   align-items: center;
 }
 
+/* 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정 */
 .freeBoard__board li {
   font-family: "Noto Serif Kr";
   line-height: 23px;
@@ -45,6 +53,7 @@
   font-size: 0.9rem;
 }
 
+/* 조회수/좋아요 수 아이콘 설정 */
 .freeBoard__board--img {
   width: 1em;
   height: 1em;
