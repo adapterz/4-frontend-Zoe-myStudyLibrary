@@ -1,0 +1,27 @@
+.userReview__review {
+  margin-left: 10%;
+  margin-top: 5%;
+  flex-direction: column;
+  width: 300px;
+  display: flex;
+  list-style: none;
+}
+.userReview__review li {
+  font-family: "Noto Serif Kr";
+  line-height: 20px;
+  padding: 20px 20px;
+  border-bottom: 1px solid #dae1e6;
+}
+.userReview__review--library {
+  color: dimgray;
+}
+
+.userReview__review--createDate {
+  margin-top: 4%;
+  color: dimgray;
+  font-size: 0.9rem;
+}
+.userReview__review--content {
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
