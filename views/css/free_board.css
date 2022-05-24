@@ -1,0 +1,141 @@
+.freeBoard {
+  padding: 50px 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 100vh;
+}
+/* 자유게시판 타이틀 */
+.freeBoard__title {
+  padding: 15px 0px;
+  font-size: 25px;
+  font-weight: 100;
+  font-family: "Gugi";
+  color: dimgray;
+  align-items: center;
+}
+
+.freeBoard__board li {
+  font-family: "Noto Serif Kr";
+  line-height: 23px;
+  padding: 20px 20px;
+  border-bottom: 1px solid #dae1e6;
+  list-style: none;
+}
+.freeBoard__board--title {
+  margin-bottom: 3%;
+}
+
+.freeBoard__board--createDate {
+  color: dimgray;
+  font-size: 0.9rem;
+}
+.freeBoard__board--favoriteCount {
+  color: dimgray;
+  font-size: 0.9rem;
+}
+.freeBoard__board--viewCount {
+  color: dimgray;
+  font-size: 0.9rem;
+}
+
+.freeBoard__board--nickname {
+  color: dimgray;
+  align-self: flex-start;
+  font-size: 0.9rem;
+}
+
+.freeBoard__board--img {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+}
+.button__freeBoard--write {
+  font-family: "Poor Story", serif;
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  background-color: lightsalmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 20px;
+  align-self: self-end;
+  margin-top: 5%;
+}
+
+.button__freeBoard--write:hover {
+  font-family: "Poor Story", serif;
+  padding: 10px;
+  background-color: salmon;
+}
+
+/* form 컨테이너 */
+.container__search {
+  margin: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  place-self: center;
+}
+
+
+/* 입력(input) 설정 */
+.container__search--input {
+  font-size: 12px;
+  background: none;
+  text-align: center;
+  outline: none;
+  width: 200px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: solid 1px dimgray;
+}
+/* 검색옵션 select 박스 설정 */
+.container__search--searchOption{
+  font-size: 12px;
+  text-align: center;
+  height: 30px;
+  width: 60px;
+  border: solid 1px #999;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+/* 제출 버튼 */
+.container__search--submit {
+  font-family: "Poor Story", serif;
+  width: 60px;
+  height: 30px;
+  color: #fff;
+  background-color: lightsalmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.container__search--submit:hover {
+  background-color: salmon;
+  padding: 10px;
+}
+
+
+/*  반응형 디자인 */
+@media screen and (max-width: 1480px) {
+  .freeBoard {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200vh;
+  }
+
+}

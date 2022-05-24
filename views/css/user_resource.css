@@ -1,6 +1,17 @@
+/*
+유저가 작성한 글/댓글/리뷰 탭에 공통적으로 쓰일 css 설정
+1. 초기화
+2. 전체 컨테이너
+3. 유저가 작성한 글/댓글/리뷰 메뉴
+4. 페이지(이전 페이지/다음 페이지) 버튼
+5. 삭제하기 버튼
+6. 반응형 디자인
+ */
+/* 초기화 */
 .userResource__menu a {
   color: dimgray;
 }
+/* 전체 컨테이너 */
 .userResource {
   padding: 50px 400px;
   display: grid;
@@ -8,6 +19,7 @@
   grid-template-rows: 4fr 1fr;
   min-height: 100vh;
 }
+/* 유저가 작성한 글/댓글/리뷰 메뉴 */
 .userResource__menu {
   color: dimgray;
   display: flex;
@@ -35,6 +47,7 @@
   background-color: lightsalmon;
   border-radius: 5px;
 }
+/* 페이지 관련 버튼 */
 .userResource__page {
   flex-direction: row;
   display: flex;
@@ -64,6 +77,7 @@
   background-color: salmon;
 }
 
+/* 삭제하기 버튼 */
 .button__userResource--delete {
   align-self: self-end;
   font-family: "Poor Story";
