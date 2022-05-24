@@ -59,18 +59,9 @@
   font-weight: bold;
 }
 
-.button__userResource--page :hover {
-  font-family: "Poor Story";
-  border-radius: 50px;
-  width: 120px;
-  height: 40px;
-  align-self: self-end;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
+.button__userResource--page:hover {
+  padding: 10px;
   background-color: salmon;
-  border: none;
-  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
 }
 
 .button__userResource--delete {
