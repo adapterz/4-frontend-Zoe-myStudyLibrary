@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>myStudyLibrary 홈페이지</title>
+    <style>
+      @import url("../css/reset.css");
+      @import url("../css/common.css");
+      @import url("../css/home.css");
+    </style>
+    <!-- 글씨체 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 맨 위에 메뉴바 -->
+    <nav class="gmb">
+      <!-- 로고 -->
+      <div class="gmb__logo">
+        <img class="gmb__logo--img" src="../img/logo.png" alt="서비스 로고입니다." />
+        <a href="">myStudyLibrary</a>
+      </div>
+      <!-- 메뉴 -->
+      <ul class="gmb__menu">
+        <li><a href="">주변도서관</a></li>
+        <li><a href="">자유게시판</a></li>
+        <li><a href="">내가작성한글</a></li>
+      </ul>
+    </nav>
+    <main class="home">
+      <!-- 배경사진 -->
+      <section class="home__card">
+        <img class="home__card--img" src="../img/home.png" alt="홈페이지 메인 배경화면입니다." />
+      </section>
+      <!-- 로그인, 회원가입 -->
+      <section class="home__user--notLogined">
+        <button type="button" class="button__login">로그인</button>
+        <button type="button" class="button__signup">회원가입</button>
+      </section>
+      <!-- 자유게시판-최근게시글 -->
+      <article class="home__board">
+        <p class="home__category">📋 자유게시판 - 최신글</p>
+        <nav>
+          <li>
+            <a href=""
+              ><p class="home__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="home__board--nickname">닉네임: 작성자1</p></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><p class="home__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="home__board--nickname">닉네임: 작성자2</p></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><p class="home__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="home__board--nickname">닉네임: 작성자3</p></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><p class="home__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="home__board--nickname">닉네임: 작성자4</p></a
+            >
+          </li>
+          <li>
+            <a href=""
+              ><p class="home__board--title">포스팅제목입니다. 포스팅제목입...</p>
+              <p class="home__board--nickname">닉네임: 작성자5</p></a
+            >
+          </li>
+        </nav>
+      </article>
+      <!-- 동기부여용 명언 -->
+      <article class="home__wiseSaying">
+        <nav>
+          <p class="home__category">💪 동기부여</p>
+          <li>
+            명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다
+          </li>
+          <li>-Zoe-</li>
+        </nav>
+      </article>
+    </main>
+    <!-- footer -->
+    <footer class="footer__serviceInfo">
+      (주) myStudyLibrary
+      <br />
+      <pre> 대표: 김예지</pre>
+      <br />
+    </footer>
+    <main></main>
+  </body>
+</html>

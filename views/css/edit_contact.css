@@ -1,0 +1,79 @@
+/*
+ 연락처 수정 관리 페이지
+1. 전체 컨테이너
+2. form 컨테이너
+2-1. title
+2-2. input 설정
+2-3. 제출
+*/
+/* 연락처 수정 전체 컨테이너 */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 연락처 수정 form 컨테이너 */
+.container__editContact {
+    margin: 10%;
+    border: 1px solid #dae1e6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    width: 250px;
+    height: 300px;
+}
+/* title */
+.container__editContact--title {
+    font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
+    color: darkslategray;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+/* input 설정 */
+.container__editContact--input {
+    font-size: 12px;
+    background: none;
+    text-align: center;
+    outline: none;
+    padding: 20px;
+    margin: 40px;
+    width: 50%;
+    height: 0.5em;
+    border-radius: 40px;
+    border: solid 1px #ffc400;
+}
+
+/* 제출 버튼 */
+.container__editContact--submit {
+    font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+    width: 40%;
+    height: 15%;
+    margin: 10%;
+    color: #fff;
+    background-color: lightsalmon;
+    border: 1px solid #d6e9c6;
+    box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.container__editContact--submit:hover {
+    margin: 20px;
+    padding: 5px;
+    background-color: salmon;
+    border: 1px solid #d6e9c6;
+    box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+}

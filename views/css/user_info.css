@@ -1,0 +1,92 @@
+/*
+유저정보 관리 페이지
+1. 전체 컨테이너
+2. form 컨테이너
+2-1. title
+2-2. 버튼
+2-3. 회원탈퇴 버튼
+*/
+/* 유저 정보 전체 컨테이너 */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 유저정보 form 컨테이너 */
+.container__userInfo {
+  margin: 10%;
+  border: 1px solid #dae1e6;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  height: 300px;
+}
+/* title */
+.container__userInfo--title {
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
+  color: darkslategray;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  font-size: 1.5rem;
+}
+/* 유저 정보 button */
+.button__userInfo {
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  width: 200px;
+  height: 40px;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.button__userInfo:hover {
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  background-color: lightgray;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+/* 회원탈퇴 button */
+.button__userInfo--dropOut {
+  align-self: self-end;
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  margin-top: 30px;
+  width: 70px;
+  height: 20px;
+  color: lightgray;
+  background-color: #ffffff;
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.button__userInfo--dropOut:hover {
+  align-self: self-end;
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  margin-top: 30px;
+  width: 70px;
+  height: 20px;
+  background-color: lightgray;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: dimgray;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+}

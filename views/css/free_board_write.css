@@ -1,0 +1,133 @@
+/*
+게시글 작성 페이지
+1. 게시글 작성 form 컨테이너
+2. 글제목/글내용/태그 input 설정
+3. 글작성 버튼
+4. 반응형 디자인
+ */
+/* 게시글작성 form 컨테이너 */
+.container__write {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+  height: 150vh;
+}
+/* 글제목/글내용/태그 input 창 설정 */
+.container__write--title {
+  font-size: 12px;
+  background: none;
+  padding-left: 20px;
+  width: 800px;
+  padding-right: 20px;
+  outline: none;
+  height: 30px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: solid 1px dimgray;
+}
+.container__write--content {
+  font-size: 12px;
+  background: none;
+  outline: none;
+  padding-left: 20px;
+  width: 800px;
+  padding-right: 20px;
+  height: 80vh;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: solid 1px dimgray;
+}
+.container__write--tag {
+  font-size: 12px;
+  background: none;
+  padding-left: 20px;
+  width: 800px;
+  padding-right: 20px;
+  outline: none;
+  height: 30px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: solid 1px dimgray;
+}
+/* 글작성 확인 버튼 */
+.container__write--submit {
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  font-size: 16px;
+  width: 40%;
+  height: 5%;
+  margin: 10%;
+  color: #fff;
+  background-color: lightsalmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.container__write--submit:hover {
+  font-size: 16px;
+  width: 40%;
+  height: 5%;
+  margin: 20px;
+  padding: 5px;
+  background-color: salmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+/*  반응형 디자인 */
+@media screen and (max-width: 800px) {
+  .container__write {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10%;
+    margin-left: 0%;
+    align-content: flex-start;
+    justify-content: flex-start;
+    width: 350px;
+    height: 150vh;
+  }
+  /* 글제목/글내용/태그 input 창 설정 */
+  .container__write--title {
+    font-size: 12px;
+    background: none;
+    width: 350px;
+    outline: none;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: solid 1px dimgray;
+  }
+  .container__write--content {
+    font-size: 12px;
+    background: none;
+    outline: none;
+    width: 350px;
+    height: 80vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: solid 1px dimgray;
+  }
+  .container__write--tag {
+    font-size: 12px;
+    background: none;
+    width: 350px;
+    outline: none;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: solid 1px dimgray;
+  }
+}

@@ -1,0 +1,82 @@
+/*
+게시글 상세 조회
+1. 게시글 내용
+2. 게시글 좋아요 누르기 아이콘
+3. 해당 게시글에 댓글 달 댓글 컨테이너(댓글 title/input/댓글입력 버튼)
+ */
+/* 게시글 내용 */
+.freeBoard__board--content {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 23px;
+}
+/* 게시글 좋아요 누르기 아이콘 */
+.freeBoard__board--giveLove {
+  margin-top: 5%;
+  align-self: center;
+}
+.freeBoard__board--giveLoveImg {
+  width: 60px;
+  height: 60px;
+  align-self: center;
+}
+
+.freeBoard__board--giveLoveImg:hover {
+  width: 63px;
+  height: 63px;
+  align-self: center;
+}
+
+/* 댓글 컨테이너 */
+/* 댓글 타이틀 */
+.freeBoard__comment--title {
+  margin-top: 30px;
+  border-top: 1px solid #dae1e6;
+  padding: 15px 0px;
+  font-size: 20px;
+  font-weight: 100;
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
+  color: dimgray;
+  align-items: center;
+}
+/* 댓글 input */
+.freeBoard__comment--input {
+  font-size: 12px;
+    width: 70%;
+  background: none;
+  outline: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 150px;
+  margin-left: 100px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: solid 1px dimgray;
+}
+/* 댓글 작성 버튼 */
+.freeBoard__comment--submit {
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  width: 80px;
+  height: 40px;
+  color: #fff;
+  background-color: lightsalmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  align-self: self-end;
+  justify-self: end;
+  margin-top: 5%;
+}
+
+.freeBoard__comment--submit:hover {
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  padding: 10px;
+  background-color: salmon;
+}
