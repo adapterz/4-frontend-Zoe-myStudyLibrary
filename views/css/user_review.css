@@ -14,7 +14,7 @@
 
 /* 유저가 작성한 리뷰 도서관/작성날짜/리뷰내용 설정 */
 .userReview__review li {
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   line-height: 20px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;

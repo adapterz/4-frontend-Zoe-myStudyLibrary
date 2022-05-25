@@ -15,7 +15,7 @@
 
 /* 유저가 작성한 게시글 제목/작성날짜/조회수/좋아요 수 설정 */
 .userPost__board li {
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr","Noto Sans Kr";
   line-height: 20px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;

@@ -17,14 +17,14 @@
   padding: 15px 0px;
   font-size: 25px;
   font-weight: 100;
-  font-family: "Gugi";
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
   color: dimgray;
   align-items: center;
 }
 
 /* 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정 */
 .freeBoard__board li {
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   line-height: 23px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
@@ -64,7 +64,7 @@
   margin-right: 0.5em;
 }
 .button__freeBoard--write {
-  font-family: "Poor Story", serif;
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 100px;
   height: 40px;
   color: #fff;
@@ -79,7 +79,7 @@
 }
 
 .button__freeBoard--write:hover {
-  font-family: "Poor Story", serif;
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   padding: 10px;
   background-color: salmon;
 }
@@ -123,7 +123,7 @@
 }
 /* 제출 버튼 */
 .container__search--submit {
-  font-family: "Poor Story", serif;
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 60px;
   height: 30px;
   color: #fff;

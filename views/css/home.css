@@ -176,7 +176,7 @@ main 구성요소
   border-radius: 30px;
 }
 .button__signup {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 200px;
   height: 40px;
   color: #333;
@@ -188,7 +188,7 @@ main 구성요소
   border-radius: 20px;
 }
 .button__signup:hover {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 200px;
   height: 40px;
   padding: 10px;

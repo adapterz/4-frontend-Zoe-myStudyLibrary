@@ -57,7 +57,7 @@
 }
 /* 글작성 확인 버튼 */
 .container__write--submit {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   font-size: 16px;
   width: 40%;
   height: 5%;
@@ -71,7 +71,6 @@
 }
 
 .container__write--submit:hover {
-  font-family: "Poor Story";
   font-size: 16px;
   width: 40%;
   height: 5%;
@@ -87,50 +86,48 @@
 
 /*  반응형 디자인 */
 @media screen and (max-width: 800px) {
-
-    .container__write {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-right:10%;
-        margin-left:0%;
-        align-content: flex-start;
-        justify-content: flex-start;
-        width: 350px;
-        height: 150vh;
-    }
-    /* 글제목/글내용/태그 input 창 설정 */
-    .container__write--title {
-        font-size: 12px;
-        background: none;
-        width: 350px;
-        outline: none;
-        height: 30px;
-        margin-bottom: 10px;
-        border-radius: 10px;
-        border: solid 1px dimgray;
-    }
-    .container__write--content {
-        font-size: 12px;
-        background: none;
-        outline: none;
-        width: 350px;
-        height: 80vh;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        border-radius: 10px;
-        border: solid 1px dimgray;
-    }
-    .container__write--tag {
-        font-size: 12px;
-        background: none;
-        width: 350px;
-        outline: none;
-        height: 30px;
-        margin-bottom: 10px;
-        border-radius: 10px;
-        border: solid 1px dimgray;
-    }
-
+  .container__write {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10%;
+    margin-left: 0%;
+    align-content: flex-start;
+    justify-content: flex-start;
+    width: 350px;
+    height: 150vh;
+  }
+  /* 글제목/글내용/태그 input 창 설정 */
+  .container__write--title {
+    font-size: 12px;
+    background: none;
+    width: 350px;
+    outline: none;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: solid 1px dimgray;
+  }
+  .container__write--content {
+    font-size: 12px;
+    background: none;
+    outline: none;
+    width: 350px;
+    height: 80vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: solid 1px dimgray;
+  }
+  .container__write--tag {
+    font-size: 12px;
+    background: none;
+    width: 350px;
+    outline: none;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: solid 1px dimgray;
+  }
 }

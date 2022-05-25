@@ -6,7 +6,7 @@
  */
 /* 게시글 내용 */
 .freeBoard__board--content {
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   margin-top: 10%;
   margin-left: 10%;
   margin-right: 10%;
@@ -39,7 +39,7 @@
   padding: 15px 0px;
   font-size: 20px;
   font-weight: 100;
-  font-family: "Gugi";
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
   color: dimgray;
   align-items: center;
 }
@@ -60,7 +60,7 @@
 }
 /* 댓글 작성 버튼 */
 .freeBoard__comment--submit {
-  font-family: "Poor Story", serif;
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 80px;
   height: 40px;
   color: #fff;
@@ -76,7 +76,7 @@
 }
 
 .freeBoard__comment--submit:hover {
-  font-family: "Poor Story", serif;
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   padding: 10px;
   background-color: salmon;
 }

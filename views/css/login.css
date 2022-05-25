@@ -31,7 +31,7 @@
 
 /* 로그인 컨테이너 title */
 .container__login--title {
-  font-family: "Gugi";
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
   color: darkslategray;
   margin: 15px;
   font-size: 1.5rem;
@@ -53,7 +53,7 @@
 
 /* 로그인 컨테이너 제출 버튼 */
 .container__login--submit {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 40%;
   height: 10%;
   margin: 10%;
@@ -67,7 +67,7 @@
 }
 
 .container__login--submit:hover {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 40%;
   height: 10%;
   margin: 20px;

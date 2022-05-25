@@ -14,7 +14,7 @@
 
 /* 유저가 작성한 댓글 글제목/작성날짜/댓글내용 설정 */
 .userComment__comment li {
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   line-height: 20px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;

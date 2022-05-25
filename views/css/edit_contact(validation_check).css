@@ -18,7 +18,6 @@
 
 /* 연락처 수정 form 컨테이너 */
 .container__editContact {
-
   margin: 10%;
   border: 1px solid #dae1e6;
   padding: 20px;
@@ -32,7 +31,7 @@
 }
 /* title */
 .container__editContact--title {
-  font-family: "Gugi";
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
   color: darkslategray;
   margin-top: 15px;
   margin-bottom: 25px;
@@ -55,7 +54,7 @@
 
 /* 제출 버튼 */
 .container__editContact--submit {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 40%;
   height: 15%;
   margin: 10%;
@@ -69,9 +68,6 @@
 }
 
 .container__editContact--submit:hover {
-  font-family: "Poor Story";
-  width: 40%;
-  height: 15%;
   margin: 20px;
   padding: 5px;
   background-color: salmon;

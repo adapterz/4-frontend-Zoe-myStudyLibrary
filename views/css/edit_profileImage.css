@@ -31,7 +31,7 @@
 }
 /* title */
 .container__editProfileImage--title {
-  font-family: "Gugi";
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
   color: darkslategray;
   margin-top: 15px;
   margin-bottom: 30px;
@@ -54,7 +54,7 @@
 
 /* 제출 버튼 */
 .container__editProfileImage--submit {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 50%;
   height: 10%;
   margin: 20%;
@@ -68,7 +68,6 @@
 }
 
 .container__editProfileImage--submit:hover {
-  font-family: "Poor Story";
   width: 50%;
   height: 10%;
   margin: 40px;

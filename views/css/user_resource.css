@@ -27,7 +27,7 @@
   list-style: none;
   padding: 0;
   font-size: 18px;
-  font-family: "Gugi";
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
   row-gap: 3%;
   border-right: 1px solid #9b9b9b;
 }
@@ -58,7 +58,7 @@
   column-gap: 10%;
 }
 .button__userResource--page {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   border-radius: 50px;
   width: 120px;
   height: 40px;
@@ -80,7 +80,7 @@
 /* 삭제하기 버튼 */
 .button__userResource--delete {
   align-self: self-end;
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   margin-top: 30px;
   width: 70px;
   height: 20px;
@@ -96,7 +96,7 @@
 
 .button__userResource--delete:hover {
   align-self: self-end;
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   margin-top: 30px;
   width: 70px;
   height: 20px;
