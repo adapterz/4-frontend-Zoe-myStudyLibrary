@@ -71,34 +71,62 @@ main 구성요소
 
 .button__user {
   font-family: "Poor Story";
-  margin: 0px 25px;
-  width: 170px;
+  width: 70px;
   height: 40px;
   color: #fff;
   background-color: lightsalmon;
   border: 1px solid #d6e9c6;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   border-radius: 20px;
-  grid-column: 3/7;
+  grid-column: 3/5;
   grid-row: 2/4;
 }
 
 .button__user:hover {
   font-family: "Poor Story";
-  margin: 0px 25px;
-  width: 170px;
+  width: 70px;
   padding: 10px;
+  background-color: salmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  grid-column: 3/5;
+  grid-row: 2/4;
+}
+
+.button__logout {
+  font-family: "Poor Story";
+  width: 70px;
+  height: 40px;
+  color: #fff;
+  background-color: lightsalmon;
+  border: 1px solid #d6e9c6;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 20px;
+  grid-column: 5/7;
+  grid-row: 2/4;
+}
+
+.button__logout:hover {
+  font-family: "Poor Story";
+  width: 70px;
+  padding: 5px;
   height: 40px;
   background-color: salmon;
   border: 1px solid #d6e9c6;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   border-radius: 20px;
-  grid-column: 3/7;
+  grid-column: 5/7;
   grid-row: 2/4;
 }
 /* 2. 자유게시판 */
