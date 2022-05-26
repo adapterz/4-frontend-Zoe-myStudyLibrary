@@ -49,6 +49,17 @@
         // 명언 정보 파싱
         document.getElementsByClassName("home__wiseSaying--content")[0].innerHTML = wiseSayingResult.wiseSayingContent;
         document.getElementsByClassName("home__wiseSaying--celebrity")[0].innerHTML = wiseSayingResult.celebrity;
+
+        // 유저 정보
+        const userResult = await getUserInfo();
+        document.getElementsByClassName("home__user--nickname")[0].innerHTML = `${userResult.nickname}님`;
+        // 등록된 프로필 사진이 있을 때 프로필 사진 정보 주기
+        if (userResult.isProfileImage) {
+          const image = userResult.profileImage;
+          const mime = userResult.mime;
+          const imageHTML = document.getElementsByClassName("home__user--profileImage")[0];
+          imageHTML.innerHTML = `<img class="home__user--profileImageImg" src="data:${mime};base64,${image} ">`;
+        }
       }
       page();
     </script>
@@ -79,10 +90,10 @@
       <!-- 유저 정보 -->
       <section class="home__user--logined">
         <!-- 유저가 사진등록안했을 때 -->
-        <img class="home__user--profileImage" src="/views/img/none_registered.png" alt="유저 사진입니다." />
-        <!-- 유저가 사진등록했을 때 -->
-        <!-- <img class="home__user--profileImage" src="./user_image.jpg" alt="유저 사진입니다." /-->
-        <p class="home__user--nickname">조이에용</p>
+        <p class="home__user--profileImage">
+          <img class="home__user--profileImageImg" src="/views/img/none_registered.png" alt="유저 사진입니다." />
+        </p>
+        <p class="home__user--nickname">유저 닉네임</p>
         <button type="button" class="button__user">유저정보</button>
         <button type="button" class="button__logout" onclick="logout()">로그아웃</button>
       </section>
@@ -127,9 +138,9 @@
         <nav>
           <p class="home__category">💪 동기부여</p>
           <li class="home__wiseSaying--content">
-            명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다
+            명언 예시
           </li>
-          <li class="home__wiseSaying--celebrity">-Zoe-</li>
+          <li class="home__wiseSaying--celebrity">- Zoe -</li>
         </nav>
       </article>
     </main>
