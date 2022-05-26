@@ -17,16 +17,15 @@
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
     <script>
-      // 로그인 체크 필요(최초 한번 체크)
+      // 로그인 여부 체크
       async function checkLogin() {
         const result = await getUserInfo();
-        // 이미 로그인 했을 때 다른 페이지로
+        // 로그인 안했을 때 로그인 창 있는 홈페이지로
         if (result.state !== LOGIN_REQUIRED) {
-          location.href = "/authorized";
+          location.href = "/";
         }
       }
       checkLogin();
-
       // 로그인 버튼 눌렀을 때
       async function login(id, pw) {
         const result = await reqLogin(id, pw);
@@ -35,13 +34,8 @@
         if (resultJson.state === LOGIN || resultJson.state === ALREADY_LOGIN) {
           const link = "/";
           location.href = link;
-          alert(resultJson.state);
-          // 로그인 필요할 때 다시 로그인 화면으로
-        } else {
-          const link = "/user/login";
-          location.href = link;
-          alert(resultJson.state);
         }
+        alert(resultJson.state);
       }
     </script>
   </head>
