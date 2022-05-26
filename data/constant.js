@@ -16,9 +16,12 @@ const NOT_FOUND = 404;
 const CONFLICT = 409;
 const INTERNAL_SERVER_ERROR = 500;
 
-const FAIL_FETCH = "fail_fetch"
-const REQUEST_SUCCESS = "request_success"
-
-// 로그인 상태
-const LOGIN ="login"
-const ALREADY_LOGIN ="already_login"
+const FAIL_FETCH = "fail_fetch";
+const REQUEST_SUCCESS = "request_success";
+// fetch 결과값
+// 유저 정보
+const LOGIN_REQUIRED = "login_required";
+// 로그인
+const LOGIN = "login";
+const ALREADY_LOGIN = "already_login";
+const LOGOUT ="logout";
