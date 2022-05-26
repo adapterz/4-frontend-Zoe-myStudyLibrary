@@ -8,21 +8,6 @@
     <script src="/data/constant.js"></script>
     <script src="/data/user.js" type="text/javascript"></script>
     <script src="/data/cookie.js" type="text/javascript"></script>
-    <script>
-      // 로그인여부 체크
-      async function checkLogin() {
-        const cookieValue = await getCookie("token");
-        // 이미 로그인 했을 때 - 홈페이지로 로드 시켜주기
-        if (cookieValue !== undefined) {
-        }
-      }
-      // 로그인요청
-      async function login(id, pw) {
-        const result = await reqLogin(id, pw);
-        return result;
-      }
-      //const a= await login(document.getElementsByName("id")[0].value,document.getElementsByName("pw")[0].value);
-    </script>
     <title>myStudyLibrary 로그인</title>
     <style>
       @import url("/views/css/reset.css");
@@ -31,6 +16,34 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
+    <script>
+      // 로그인 체크 필요(최초 한번 체크)
+      async function checkLogin() {
+        const result = await getUserInfo();
+        // 이미 로그인 했을 때 홈페이지로
+        if (result !== LOGIN_REQUIRED) {
+          location.href = "/";
+        }
+      }
+      checkLogin();
+
+      // 로그인 버튼 눌렀을 때
+      async function login(id, pw) {
+        const result = await reqLogin(id, pw);
+        const resultJson = await result.json();
+        // 로그인 성공 혹은 이미 로그인 된 상태일 때 홈페이지로 이동
+        if (resultJson.state === LOGIN || resultJson.state === ALREADY_LOGIN) {
+          const link = "/";
+          location.href = link;
+          alert(resultJson.state);
+          // 로그인 필요할 때 다시 로그인 화면으로
+        } else {
+          const link = "/login";
+          location.href = link;
+          alert(resultJson.state);
+        }
+      }
+    </script>
   </head>
   <body>
     <!-- 맨 위에 메뉴바 -->
@@ -48,11 +61,16 @@
       </ul>
     </nav>
     <section class="container">
-      <form action="" class="container__login" method="post">
+      <form class="container__login" method="post">
         <h2 class="container__login--title">로그인 창</h2>
         <input type="text" placeholder="아이디" class="container__login--input" name="id" />
         <input type="password" placeholder="비밀번호" class="container__login--input" name="pw" />
-        <input type="submit" value="로그인" class="container__login--submit" />
+        <input
+          type="button"
+          value="로그인"
+          class="container__login--submit"
+          onclick="login(document.getElementsByName('id')[0].value,document.getElementsByName('pw')[0].value);"
+        />
       </form>
     </section>
     <!-- footer -->
