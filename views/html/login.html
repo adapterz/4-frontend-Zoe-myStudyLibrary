@@ -28,7 +28,7 @@
       checkLogin();
       // 로그인 버튼 눌렀을 때
       async function login(id, pw) {
-        const result = await reqLogin(id, pw);
+        const result = await loginRequest(id, pw);
         const resultJson = await result.json();
         // 로그인 성공 혹은 이미 로그인 된 상태일 때 홈페이지로 이동
         if (resultJson.state === LOGIN || resultJson.state === ALREADY_LOGIN) {
