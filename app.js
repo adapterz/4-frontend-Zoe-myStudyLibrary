@@ -56,6 +56,8 @@ app.use("/wise-saying", wiseSayingRouter);
 
 // 정적 파일 경로
 app.use("/data", express.static("data"));
+app.use("/views", express.static("views"));
+app.use("/models", express.static("models"));
 
 // 서버 시작
 app.listen(process.env.PORT, () => {
