@@ -24,15 +24,17 @@
         }
       }
       checkLogin();
+      // 버튼 메서드 정의
       // 로그아웃
       async function logout() {
-        const result = await reqLogout();
+        const result = await logoutRequest();
         if (result.state === LOGOUT) {
           location.href = "/";
         }
         alert(result.state);
       }
-      // 데이터 가져오기
+
+      // 데이터 가져오기(최초 1회)
       async function page() {
         // 최근 게시판 정보
         const boardResult = await getRecentBoard();
@@ -93,7 +95,7 @@
           <img class="home__user--profileImageImg" src="/views/img/none_registered.png" alt="유저 사진입니다." />
         </p>
         <p class="home__user--nickname">유저 닉네임</p>
-        <button type="button" class="button__user">유저정보</button>
+        <button type="button" class="button__user" onclick="location.href='/user/info'">유저정보</button>
         <button type="button" class="button__logout" onclick="logout()">로그아웃</button>
       </section>
       <!-- 자유게시판-최근게시글 -->
