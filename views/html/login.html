@@ -20,9 +20,9 @@
       // 로그인 체크 필요(최초 한번 체크)
       async function checkLogin() {
         const result = await getUserInfo();
-        // 이미 로그인 했을 때 홈페이지로
-        if (result !== LOGIN_REQUIRED) {
-          location.href = "/";
+        // 이미 로그인 했을 때 다른 페이지로
+        if (result.state !== LOGIN_REQUIRED) {
+          location.href = "/authorized";
         }
       }
       checkLogin();
@@ -38,7 +38,7 @@
           alert(resultJson.state);
           // 로그인 필요할 때 다시 로그인 화면으로
         } else {
-          const link = "/login";
+          const link = "/user/login";
           location.href = link;
           alert(resultJson.state);
         }
