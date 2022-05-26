@@ -83,7 +83,7 @@ async function reqDropOut() {
 }
 // 2. 로그인/로그아웃
 // 2-1. 로그인
-async function reqLogin(_id, _pw) {
+async function loginRequest(_id, _pw) {
   try {
     const options = {
       mode: "cors",
