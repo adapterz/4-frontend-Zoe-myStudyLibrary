@@ -118,6 +118,3 @@ dist
 .idea/navEditor.xml
 /.idea/vcs.xml
 /.idea/
-/controllers/
-/models/
-/routes/
