@@ -115,10 +115,20 @@ export async function editPwController(req, res) {
   const modelResult = await editPwModel(req.ip);
 }
 
-// 5. 유저 정보 가져오기
+ */
+// 5. 유저 정보 페이지
 export async function getUserController(req, res) {
-  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
-  const modelResult = await getUserModel(req.ip);
+  try {
+    res.header({
+      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    });
+    res.header({
+      "Content-Security-Policy":
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+    });
+    res.status(OK).sendFile(path.join(__dirname, "views", "html", "user_info.html"));
+  } catch (err) {
+    console.log("loginControllerError:" + err);
+  }
 }
 
- */
