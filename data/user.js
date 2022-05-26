@@ -104,7 +104,7 @@ async function loginRequest(_id, _pw) {
 }
 
 // 2-2. 로그아웃
-async function reqLogout() {
+async function logoutRequest() {
   try {
     const options = {
       mode: "cors",
