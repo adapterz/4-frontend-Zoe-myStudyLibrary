@@ -96,8 +96,7 @@ async function reqLogin(_id, _pw) {
       body: JSON.stringify({ id: _id, pw: _pw }),
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/login`, options);
-    const loginResult = await backendResponse.json();
-    return loginResult;
+    return backendResponse;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
