@@ -19,3 +19,6 @@ const INTERNAL_SERVER_ERROR = 500;
 const FAIL_FETCH = "fail_fetch"
 const REQUEST_SUCCESS = "request_success"
 
+// 로그인 상태
+const LOGIN ="login"
+const ALREADY_LOGIN ="already_login"
