@@ -231,7 +231,7 @@ async function editProfileImageRequest(_profileImage) {
   }
 }
 // 4-3. 연락처 수정
-async function editPhoneNumber(_phoneNumber) {
+async function editContactRequest(contact) {
   try {
     const options = {
       mode: "cors",
@@ -242,7 +242,7 @@ async function editPhoneNumber(_phoneNumber) {
         "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
         "Referrer-Policy": "strict-origin-when-cross-origin",
       },
-      body: JSON.stringify({ phoneNumber: _phoneNumber }),
+      body: JSON.stringify({ phoneNumber: contact }),
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/new-contact`, options);
     const status = backendResponse.status;
