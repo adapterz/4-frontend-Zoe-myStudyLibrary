@@ -42,8 +42,9 @@
 .container__signUpGuide--terms {
   border: 1px solid #e6e6e6;
   overflow: auto;
-  height: 30%;
-  padding: 26px 19px;
+  height: 60%;
+  width: 80%;
+  padding: 2%;
   margin: 15%;
 }
 /* 약관동의 체크박스 */
@@ -70,16 +71,9 @@
 }
 
 .container__signUpGuide--submit:hover {
-  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  font-size: 16px;
-  width: 40%;
-  height: 10%;
-  margin: 20px;
-  padding: 5px;
+  padding: 1%;
   background-color: salmon;
   border: 1px solid #d6e9c6;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
-  font-weight: bold;
-  border-radius: 20px;
 }

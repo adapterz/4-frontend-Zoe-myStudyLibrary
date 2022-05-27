@@ -13,28 +13,38 @@ import { __dirname } from "../app.js";
  * 참고: models 메서드에 인자로 보낸 요청한 유저의 ip 정보는 models 수행 로그 남기는데 이용
  */
 // 1. 회원가입/탈퇴
-// 1-1. 회원가입 약관 확인
+// 1-1. 회원가입 약관 확인 페이지
 export async function signUpGuideController(req, res) {
   try {
-    // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
-    const modelResult = await signUpGuideModel(req.ip);
-    // 모델 실행 결과에 따른 분기처리
-    // 백엔드 서버의 예상치 못한 오류
-    if (modelResult.state === "INTERNAL_SERVER_ERROR") {
-      console.log(modelResult.data);
-      return res.status(INTERNAL_SERVER_ERROR).end();
-    }
-    // 성공적으로 이용약관 html 파일을 가져왔을 때
-    if (modelResult.state === "OK") {
-      console.log("##### 이용약관 html 데이터 ######".rainbow);
-      console.log(modelResult.data);
-      return res.status(OK).send(modelResult.data);
-    }
-  } catch {
+    res.header({
+      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    });
+    res.header({
+      "Content-Security-Policy":
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+    });
+    return res.status(OK).sendFile(path.join(__dirname, "views", "html", "sign_up_guide.html"));
+  } catch (err) {
     return res.status(INTERNAL_SERVER_ERROR).end();
   }
 }
-// 1-2. 회원가입 페이지
+
+// 1-2. 약관 가져오는 페이지
+export async function termsController(req, res) {
+  try {
+    res.header({
+      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    });
+    res.header({
+      "Content-Security-Policy":
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+    });
+    return res.status(OK).sendFile(path.join(__dirname, "views", "html", "terms.html"));
+  } catch (err) {
+    return res.status(INTERNAL_SERVER_ERROR).end();
+  }
+}
+// 1-3. 회원가입 페이지
 export async function signUpController(req, res) {
   try {
     res.header({
@@ -46,10 +56,10 @@ export async function signUpController(req, res) {
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "sign_up.html"));
   } catch (err) {
-    console.log("loginControllerError:" + err);
+    return res.status(INTERNAL_SERVER_ERROR).end();
   }
 }
-// 1-3. 회원탈퇴 요청
+// 1-4. 회원탈퇴 페이지
 export async function dropOutController(req, res) {
   try {
     // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
@@ -73,6 +83,7 @@ export async function loginController(req, res) {
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "login.html"));
   } catch (err) {
     console.log("loginControllerError:" + err);
+    return res.status(INTERNAL_SERVER_ERROR).end();
   }
 }
 /*

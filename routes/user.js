@@ -4,7 +4,7 @@ import express from "express";
 // 내장모듈
 import {
   signUpGuideController,
-  signUpController, loginController, getUserController
+  signUpController, loginController, getUserController, termsController
 } from "../controllers/user.js";
 // 라우터 변수
 const router = express.Router();
@@ -18,10 +18,12 @@ const router = express.Router();
 // 1. 회원가입/탈퇴
 // 1-1. 회원가입 약관확인
 router.get("/sign-up/guide", signUpGuideController)
-// 1-2. 회원가입 페이지
+// 1-2. 회원가입 약관확인
+router.get("/sign-up/terms", termsController)
+// 1-3. 회원가입 페이지
 router.get("/sign-up", signUpController)
 
-// 1-3. 회원탈퇴 요청
+// 1-4. 회원탈퇴 요청
 // router.delete("/drop-out", dropOutController)
 
 // 2. 로그인
