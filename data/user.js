@@ -62,7 +62,7 @@ async function signUpRequest(_id, _pw, _confirmPw, _name, _nickname, _phoneNumbe
   }
 }
 // 1-3. 회원탈퇴
-async function reqDropOut() {
+async function dropOutRequest() {
   try {
     const options = {
       mode: "cors",
@@ -74,6 +74,7 @@ async function reqDropOut() {
       },
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/drop-out`, options);
+    if (backendResponse.status === NO_CONTENT) return { state: REQUEST_SUCCESS };
     const dropOutResult = await backendResponse.json();
     return dropOutResult;
   } catch (err) {
@@ -132,7 +133,6 @@ async function getUserLibrary() {
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/user-lib`, options);
     const getUserLibraryResult = await backendResponse.json();
-    console.log(getUserLibraryResult);
     return getUserLibraryResult;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
@@ -214,7 +214,7 @@ async function editProfileImageRequest(_profileImage) {
       credentials: "include",
       headers: {
         "Content-Type": "multipart/form-data; boundary=----MyBoundary",
-        "Access-Control-Allow-Headers": "Content-Type"
+        "Access-Control-Allow-Headers": "Content-Type",
       },
       body: imageFormData,
     };
