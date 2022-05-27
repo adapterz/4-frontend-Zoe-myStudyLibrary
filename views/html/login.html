@@ -20,9 +20,9 @@
       // 로그인 여부 체크
       async function checkLogin() {
         const result = await getUserInfo();
-        // 로그인 안했을 때 로그인 창 있는 홈페이지로
+        // 로그인 이미 했을 때 다른 경로로 이동
         if (result.state !== LOGIN_REQUIRED) {
-          location.href = "/";
+          location.href = "/authorized";
         }
       }
       checkLogin();
