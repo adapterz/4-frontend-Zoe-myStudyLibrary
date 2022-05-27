@@ -29,3 +29,8 @@ const LOGOUT = "logout";
 
 // 회원가입
 const SIGN_UP = "sign_up";
+
+// 비밀번호 수정
+const PW_MISMATCHED = "pw_mismatched";
+const NEW_PW_CONFIRM_MISMATCHED = "pw/pw_confirm_mismatched";
+const EDIT_PW = "edit_pw"

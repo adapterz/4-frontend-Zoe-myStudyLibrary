@@ -257,7 +257,7 @@ async function editPhoneNumber(_phoneNumber) {
   }
 }
 // 4-4. 비밀번호 수정
-async function editPw(_pw, _newPw, _confirmPw) {
+async function editPwRequest(_pw, _newPw, _confirmPw) {
   try {
     const options = {
       mode: "cors",
