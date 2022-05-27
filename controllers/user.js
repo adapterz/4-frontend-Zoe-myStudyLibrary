@@ -62,10 +62,15 @@ export async function signUpController(req, res) {
 // 1-4. 회원탈퇴 페이지
 export async function dropOutController(req, res) {
   try {
-    // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
-    const modelResult = await dropOutModel(req.signedCookies.token, req.ip);
-    console.log(modelResult.state);
-  } catch {
+    res.header({
+      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    });
+    res.header({
+      "Content-Security-Policy":
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+    });
+    res.status(OK).sendFile(path.join(__dirname, "views", "html", "drop_out.html"));
+  } catch (err) {
     return res.status(INTERNAL_SERVER_ERROR).end();
   }
 }
@@ -82,7 +87,6 @@ export async function loginController(req, res) {
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "login.html"));
   } catch (err) {
-    console.log("loginControllerError:" + err);
     return res.status(INTERNAL_SERVER_ERROR).end();
   }
 }
@@ -103,30 +107,70 @@ export async function deleteUserLibraryController(req, res) {
   // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
   const modelResult = await deleteUserLibraryModel(req.ip);
 }
+ */
 
 // 4. 유저 정보 수정
 // 4-1. 유저 프로필 - 닉네임 수정
 export async function editProfileNicknameController(req, res) {
-  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
-  const modelResult = await editProfileNicknameModel(req.ip);
+  try {
+    res.header({
+      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    });
+    res.header({
+      "Content-Security-Policy":
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+    });
+    res.status(OK).sendFile(path.join(__dirname, "views", "html", "edit_nickname.html"));
+  } catch (err) {
+    return res.status(INTERNAL_SERVER_ERROR).end();
+  }
 }
 // 4-2. 유저 프로필 - 이미지 수정
 export async function editProfileImageController(req, res) {
-  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
-  const modelResult = await editProfileImageModel(req.ip);
+  try {
+    res.header({
+      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    });
+    res.header({
+      "Content-Security-Policy":
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+    });
+    res.status(OK).sendFile(path.join(__dirname, "views", "html", "edit_profileImage.html"));
+  } catch (err) {
+    return res.status(INTERNAL_SERVER_ERROR).end();
+  }
 }
 // 4-3. 회원정보 수정(연락처 수정)
 export async function editPhoneNumberController(req, res) {
-  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
-  const modelResult = await editPhoneNumberModel(req.ip);
+  try {
+    res.header({
+      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    });
+    res.header({
+      "Content-Security-Policy":
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+    });
+    res.status(OK).sendFile(path.join(__dirname, "views", "html", "edit_contact.html"));
+  } catch (err) {
+    return res.status(INTERNAL_SERVER_ERROR).end();
+  }
 }
 // 4-4. 비밀번호 수정
 export async function editPwController(req, res) {
-  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
-  const modelResult = await editPwModel(req.ip);
+  try {
+    res.header({
+      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    });
+    res.header({
+      "Content-Security-Policy":
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+    });
+    res.status(OK).sendFile(path.join(__dirname, "views", "html", "edit_pw.html"));
+  } catch (err) {
+    return res.status(INTERNAL_SERVER_ERROR).end();
+  }
 }
 
- */
 // 5. 유저 정보 페이지
 export async function getUserController(req, res) {
   try {
@@ -142,4 +186,3 @@ export async function getUserController(req, res) {
     console.log("loginControllerError:" + err);
   }
 }
-
