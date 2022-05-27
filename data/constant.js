@@ -36,3 +36,6 @@ const NEW_PW_CONFIRM_MISMATCHED = "pw/pw_confirm_mismatched";
 
 // 이미지 유효하지 않을 때
 const ONLY_IMAGE = "only_jpg,jpeg,gjf,png(upper_5MB)_format_can_be_uploaded";
+
+// 닉네임 수정
+const DUPLICATED_NICKNAME = "duplicated_nickname";

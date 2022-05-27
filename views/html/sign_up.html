@@ -85,7 +85,14 @@
           pattern="^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$"
           title="비밀번호: 8 ~ 16글자 사이의 문자, 숫자, 특수문자 조합"
         />
-        <input type="password" placeholder="비밀번호확인" class="container__signUp--input" name="confirmPw" required title="비밀번호확인" />
+        <input
+          type="password"
+          placeholder="비밀번호확인"
+          class="container__signUp--input"
+          name="confirmPw"
+          required
+          title="비밀번호확인"
+        />
         <input
           type="text"
           placeholder="이름"
@@ -113,7 +120,7 @@
           name="nickname"
           required
           pattern="^[가-힣|a-z|A-Z|0-9]+$"
-          title="닉네임: 2~8글자 사이의 한글, 숫자, 영어"
+          title="닉네임: 2~8글자 사이의 한글, 숫자, 영어 (공백 불가)"
         />
         <select class="container__signUp--gender" name="gender" required title="성별">
           <option value="">성별</option>

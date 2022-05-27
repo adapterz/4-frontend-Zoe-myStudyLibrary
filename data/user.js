@@ -178,7 +178,7 @@ async function deleteUserLibrary(libraryIndex) {
 
 // 4. 유저 정보 수정
 // 4-1. 유저 프로필 - 닉네임 수정
-async function editUserNickname(_nickname) {
+async function editNicknameRequest(_nickname) {
   try {
     const options = {
       mode: "cors",
