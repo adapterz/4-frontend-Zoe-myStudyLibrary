@@ -60,10 +60,9 @@ main 구성요소
 
 .home__user--profileImageImg {
   border: 1px solid #dae1e6;
-  width: 150%;
   margin: auto;
+  height:150%;
   object-position: center;
-  object-fit: cover;
 }
 .home__user--nickname {
   font-size: 17px;
