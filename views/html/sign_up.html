@@ -74,7 +74,7 @@
           name="id"
           required
           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,20}$"
-          title="5 ~ 20글자 사이의 문자와 숫자 조합 입력"
+          title="아이디: 5 ~ 20글자 사이의 문자와 숫자 조합 입력"
         />
         <input
           type="password"
@@ -83,9 +83,9 @@
           name="pw"
           required
           pattern="^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$"
-          title="8 ~ 16글자 사이의 문자, 숫자, 특수문자 조합"
+          title="비밀번호: 8 ~ 16글자 사이의 문자, 숫자, 특수문자 조합"
         />
-        <input type="password" placeholder="비밀번호확인" class="container__signUp--input" name="confirmPw" />
+        <input type="password" placeholder="비밀번호확인" class="container__signUp--input" name="confirmPw" required title="비밀번호확인" />
         <input
           type="text"
           placeholder="이름"
@@ -95,7 +95,7 @@
           pattern="^[가-힣]+$"
           minlength="1"
           maxlength="30"
-          title="1 ~ 30글자 사이의 한글 입력"
+          title="이름: 1 ~ 30글자 사이의 한글 입력"
         />
         <input
           type="text"
@@ -104,7 +104,7 @@
           name="phoneNumber"
           required
           pattern="^01([0|1|6|7|8|9])?([0-9]{3,4})?([0-9]{4})$"
-          title="(-)없이 01012345678 형태 입력"
+          title="연락처: (-)없이 01012345678 형태 입력"
         />
         <input
           type="text"
@@ -113,9 +113,9 @@
           name="nickname"
           required
           pattern="^[가-힣|a-z|A-Z|0-9]+$"
-          title="2~8글자 사이의 한글, 숫자, 영어"
+          title="닉네임: 2~8글자 사이의 한글, 숫자, 영어"
         />
-        <select class="container__signUp--gender" name="gender" required>
+        <select class="container__signUp--gender" name="gender" required title="성별">
           <option value="">성별</option>
           <option value="여">여</option>
           <option value="남">남</option>
