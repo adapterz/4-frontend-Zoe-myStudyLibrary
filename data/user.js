@@ -203,18 +203,18 @@ async function editUserNickname(_nickname) {
   }
 }
 // TODO 4-2. 유저 프로필 - 이미지 수정
-async function editProfileImage(_profileImage) {
+async function editProfileImageRequest(_profileImage) {
   try {
     const imageFormData = new FormData();
-    imageFormData.append("profileImage", _profileImage);
+    imageFormData.append("profileImage", _profileImage, _profileImage.name);
+    console.log(imageFormData);
     const options = {
       mode: "cors",
       method: PATCH,
       credentials: "include",
       headers: {
         "Content-Type": "multipart/form-data; boundary=----MyBoundary",
-        "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
-        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Access-Control-Allow-Headers": "Content-Type"
       },
       body: imageFormData,
     };

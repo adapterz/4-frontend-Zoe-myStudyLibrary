@@ -33,4 +33,6 @@ const SIGN_UP = "sign_up";
 // 비밀번호 수정
 const PW_MISMATCHED = "pw_mismatched";
 const NEW_PW_CONFIRM_MISMATCHED = "pw/pw_confirm_mismatched";
-const EDIT_PW = "edit_pw"
+
+// 이미지 유효하지 않을 때
+const ONLY_IMAGE = "only_jpg,jpeg,gjf,png(upper_5MB)_format_can_be_uploaded";

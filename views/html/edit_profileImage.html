@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- fetch -->
+    <script src="/data/constant.js"></script>
+    <script src="/data/user.js" type="text/javascript"></script>
     <title>myStudyLibrary 프로필사진 수정</title>
     <style>
       @import url("/views/css/reset.css");
@@ -12,6 +15,33 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
+    <script>
+      // 로그인 여부 체크
+      async function checkLogin() {
+        const result = await getUserInfo();
+        // 로그인 안 했을 때 다른 경로로 이동
+        if (result.state === LOGIN_REQUIRED) {
+          location.href = "/user/login";
+        }
+      }
+      checkLogin();
+      // 프로필 수정 버튼 눌렀을 때
+      async function editProfileImage(profileImage) {
+        const result = await editProfileImageRequest(profileImage);
+        // 비밀번호 수정 성공시 홈페이지로 이동
+        if (result.state === REQUEST_SUCCESS) {
+          const link = "/authorized";
+          location.href = link;
+        }
+        // 5mb 이하의 이미지파일이 아니라서 요청거부된 상황이 아닐 때 (ex. 백엔드 서버의 문제, fetch 실패 등)
+        if (result.state !== ONLY_IMAGE) {
+          const link = "/";
+          location.href = link;
+        }
+        alert(result.state);
+      }
+    </script>
+    </script>
   </head>
   <body>
     <!-- 맨 위에 메뉴바 -->
@@ -30,18 +60,19 @@
         <li><a href="">내가작성한글</a></li>
       </ul>
     </nav>
-    <!-- 비밀번호 수정 컨테이너 -->
+    <!-- 프로필 사진 수정 컨테이너 -->
     <main class="container">
-      <form action="" class="container__editProfileImage" method="post" enctype="multipart/form-data">
+      <form
+        action=""
+        class="container__editProfileImage"
+        method="post"
+        enctype="multipart/form-data" onsubmit="editProfileImage(document.getElementsByName('profileImage')[0].files[0]);return false";
+        ;>
         <h2 class="container__editProfileImage--title">프로필 사진 수정</h2>
-        <label>
-          <img class="container__editProfileImage--img" src="../img/user.png" alt="프로필 사진 업로드." /><input
-            type="file"
-            name="profileImage"
-            accept="image/gjf,image/jpeg,image/jpg,image/png"
-            style="display: none"
-          />
+        <label for="container__editProfileImage--button">
+          <img class="container__editProfileImage--img" src="/views/img/user.png" alt="프로필 사진 업로드." />
         </label>
+        <input id="container__editProfileImage--button" type="file" name="profileImage" accept="image/*" />
         <input type="submit" value="프로필 사진 수정" class="container__editProfileImage--submit" />
       </form>
     </main>
