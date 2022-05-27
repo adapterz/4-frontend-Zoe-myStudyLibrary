@@ -21,7 +21,11 @@ const REQUEST_SUCCESS = "request_success";
 // fetch 결과값
 // 유저 정보
 const LOGIN_REQUIRED = "login_required";
+
 // 로그인
 const LOGIN = "login";
 const ALREADY_LOGIN = "already_login";
-const LOGOUT ="logout";
+const LOGOUT = "logout";
+
+// 회원가입
+const SIGN_UP = "sign_up";
