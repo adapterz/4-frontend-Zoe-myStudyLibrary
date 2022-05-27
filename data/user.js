@@ -32,7 +32,7 @@ async function getSignUpGuide() {
 }
 
 // 1-2. 회원가입
-async function reqSignUp(_id, _pw, _confirmPw, _name, _nickname, _phoneNumber, _gender) {
+async function signUpRequest(_id, _pw, _confirmPw, _name, _nickname, _phoneNumber, _gender) {
   try {
     const options = {
       mode: "cors",
