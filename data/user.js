@@ -96,7 +96,8 @@ async function loginRequest(_id, _pw) {
       body: JSON.stringify({ id: _id, pw: _pw }),
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/login`, options);
-    return backendResponse;
+    const resultJson = await backendResponse.json();
+    return resultJson;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
@@ -283,7 +284,7 @@ async function editPw(_pw, _newPw, _confirmPw) {
 }
 
 // 5. 유저 정보 가져오기
-async function getUserInfo(){
+async function getUserInfo() {
   try {
     const options = {
       mode: "cors",
