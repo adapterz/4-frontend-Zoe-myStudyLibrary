@@ -15,6 +15,50 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
+  </head>
+  <body>
+    <!-- 맨 위에 메뉴바 -->
+    <nav class="gmb">
+      <!-- 로고 -->
+      <a href="/">
+        <div class="gmb__logo">
+          <img class="gmb__logo--img" src="/views/img/logo.png" alt="서비스 로고입니다." />
+          myStudyLibrary
+        </div>
+      </a>
+      <!-- 메뉴 -->
+      <ul class="gmb__menu">
+        <li><a href="">주변도서관</a></li>
+        <li><a href="">자유게시판</a></li>
+        <li><a href="">내가작성한글</a></li>
+      </ul>
+    </nav>
+    <!-- 프로필 사진 수정 컨테이너 -->
+    <main class="container">
+      <form
+        action=""
+        class="container__editProfileImage"
+        method="post"
+        enctype="multipart/form-data"
+        onsubmit="editProfileImage(document.getElementsByName('profileImage')[0].files[0]);return false"
+        ;
+        ;
+      >
+        <h2 class="container__editProfileImage--title">프로필 사진 수정</h2>
+        <label for="container__editProfileImage--button">
+          <img class="container__editProfileImage--img" src="/views/img/user.png" alt="프로필 사진 업로드." />
+        </label>
+        <input id="container__editProfileImage--button" type="file" name="profileImage" accept="image/*" />
+        <input type="submit" value="프로필 사진 수정" class="container__editProfileImage--submit" />
+      </form>
+    </main>
+    <!-- footer -->
+    <footer class="footer__serviceInfo">
+      (주) myStudyLibrary
+      <br />
+      <pre> 대표: 김예지</pre>
+      <br />
+    </footer>
     <script>
       // 로그인 여부 체크
       async function checkLogin() {
@@ -41,49 +85,5 @@
         alert(result.state);
       }
     </script>
-    </script>
-  </head>
-  <body>
-    <!-- 맨 위에 메뉴바 -->
-    <nav class="gmb">
-      <!-- 로고 -->
-      <a href="/">
-        <div class="gmb__logo">
-          <img class="gmb__logo--img" src="/views/img/logo.png" alt="서비스 로고입니다." />
-          myStudyLibrary
-        </div>
-      </a>
-      <!-- 메뉴 -->
-      <ul class="gmb__menu">
-        <li><a href="">주변도서관</a></li>
-        <li><a href="">자유게시판</a></li>
-        <li><a href="">내가작성한글</a></li>
-      </ul>
-    </nav>
-    <!-- 프로필 사진 수정 컨테이너 -->
-    <main class="container">
-      <form
-        action=""
-        class="container__editProfileImage"
-        method="post"
-        enctype="multipart/form-data" onsubmit="editProfileImage(document.getElementsByName('profileImage')[0].files[0]);return false";
-        ;>
-        <h2 class="container__editProfileImage--title">프로필 사진 수정</h2>
-        <label for="container__editProfileImage--button">
-          <img class="container__editProfileImage--img" src="/views/img/user.png" alt="프로필 사진 업로드." />
-        </label>
-        <input id="container__editProfileImage--button" type="file" name="profileImage" accept="image/*" />
-        <input type="submit" value="프로필 사진 수정" class="container__editProfileImage--submit" />
-      </form>
-    </main>
-
-    <!-- footer -->
-    <footer class="footer__serviceInfo">
-      (주) myStudyLibrary
-      <br />
-      <pre> 대표: 김예지</pre>
-      <br />
-    </footer>
-    <main></main>
   </body>
 </html>

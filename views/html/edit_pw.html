@@ -15,32 +15,6 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
-    <script>
-      // 로그인 여부 체크
-      async function checkLogin() {
-        const result = await getUserInfo();
-        // 로그인 안 했을 때 다른 경로로 이동
-        if (result.state === LOGIN_REQUIRED) {
-          location.href = "/user/login";
-        }
-      }
-      checkLogin();
-      // 비밀번호 수정 버튼 눌렀을 때
-      async function editPw(pw, newPw, confirmPw) {
-        const result = await editPwRequest(pw, newPw, confirmPw);
-        // 비밀번호 수정 성공시 홈페이지로 이동
-        if (result.state === REQUEST_SUCCESS) {
-          const link = "/authorized";
-          location.href = link;
-        }
-        // 현재 비밀번호 입력 틀렸거나 새 비밀번호/새비밀번호 확인이 일치하지 않을 때가 아닐 때
-        if (result.state !== PW_MISMATCHED || result.state !== NEW_PW_CONFIRM_MISMATCHED) {
-          const link = "/";
-          location.href = link;
-        }
-        alert(result.state);
-      }
-    </script>
   </head>
   <body>
     <!-- 맨 위에 메뉴바 -->
@@ -89,7 +63,6 @@
         <input type="submit" value="비밀번호 수정" class="container__editPw--submit" />
       </form>
     </main>
-
     <!-- footer -->
     <footer class="footer__serviceInfo">
       (주) myStudyLibrary
@@ -97,6 +70,31 @@
       <pre> 대표: 김예지</pre>
       <br />
     </footer>
-    <main></main>
+    <script>
+      // 로그인 여부 체크
+      async function checkLogin() {
+        const result = await getUserInfo();
+        // 로그인 안 했을 때 다른 경로로 이동
+        if (result.state === LOGIN_REQUIRED) {
+          location.href = "/user/login";
+        }
+      }
+      checkLogin();
+      // 비밀번호 수정 버튼 눌렀을 때
+      async function editPw(pw, newPw, confirmPw) {
+        const result = await editPwRequest(pw, newPw, confirmPw);
+        // 비밀번호 수정 성공시 홈페이지로 이동
+        if (result.state === REQUEST_SUCCESS) {
+          const link = "/authorized";
+          location.href = link;
+        }
+        // 현재 비밀번호 입력 틀렸거나 새 비밀번호/새비밀번호 확인이 일치하지 않을 때가 아닐 때
+        if (result.state !== PW_MISMATCHED || result.state !== NEW_PW_CONFIRM_MISMATCHED) {
+          const link = "/";
+          location.href = link;
+        }
+        alert(result.state);
+      }
+    </script>
   </body>
 </html>
