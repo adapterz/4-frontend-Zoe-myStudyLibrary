@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- fetch -->
-    <script src="/data/constant.js" type="text/javascript"></script>
-    <script src="/data/user.js" type="text/javascript"></script>
     <title>myStudyLibrary 탈퇴안내</title>
     <style>
       @import url("/views/css/reset.css");
@@ -15,6 +12,12 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
+    <!-- fetch -->
+    <script src="/data/constant.js" type="text/javascript"></script>
+    <script src="/data/user.js" type="text/javascript"></script>
+    <!-- sweetAlert2 -->
+    <script src="/views/js/sweetalert2.js" type="text/javascript"></script>
+    <script src="/views/js/custom.js" type="text/javascript"></script>
   </head>
   <body>
     <!-- 맨 위에 메뉴바 -->
@@ -70,11 +73,21 @@
       checkLogin();
       // 회원탈퇴 버튼 눌렀을 때
       async function dropOut() {
-        const result = await dropOutRequest();
-        // 홈페이지로 이동
-        const link = "/";
-        location.href = link;
-        alert(result.state);
+        const backendResult = await dropOutRequest();
+        // 회원탈퇴 성공 시 홈페이지로 이동
+        if (backendResult.state === REQUEST_SUCCESS) {
+          const result = await sweetAlert(SUCCESS, "회원탈퇴 성공", "홈페이지로 이동합니다.");
+          if (result) {
+            const link = "/";
+            location.href = link;
+          }
+        } else {
+          const result = await sweetAlert(ERROR, "회원탈퇴 실패", "홈페이지로 이동합니다. 다시 시도해주세요.");
+          if (result) {
+            const link = "/";
+            location.href = link;
+          }
+        }
       }
     </script>
   </body>
