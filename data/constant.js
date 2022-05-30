@@ -30,6 +30,9 @@ const LOGOUT = "logout";
 // 회원가입
 const SIGN_UP = "sign_up";
 
+// 유효하지않은 body
+const INVALID_BODY = "invalid_body";
+
 // 비밀번호 수정
 const PW_MISMATCHED = "pw_mismatched";
 const NEW_PW_CONFIRM_MISMATCHED = "pw/pw_confirm_mismatched";
