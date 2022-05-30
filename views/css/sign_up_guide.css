@@ -64,7 +64,7 @@
   margin: 10%;
   color: #fff;
   background-color: lightsalmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   font-weight: bold;
   border-radius: 20px;
@@ -73,7 +73,7 @@
 .container__signUpGuide--submit:hover {
   padding: 1%;
   background-color: salmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
 }

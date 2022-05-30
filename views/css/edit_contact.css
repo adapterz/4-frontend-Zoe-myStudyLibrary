@@ -51,16 +51,16 @@
   border: solid 1px #ffc400;
 }
 .container__editContact--input:required:valid {
-    font-size: 12px;
-    background: none;
-    text-align: center;
-    outline: none;
-    padding: 20px;
-    margin: 40px;
-    width: 50%;
-    height: 0.5em;
-    border-radius: 40px;
-    border: 1px solid darkseagreen;
+  font-size: 12px;
+  background: none;
+  text-align: center;
+  outline: none;
+  padding: 20px;
+  margin: 40px;
+  width: 50%;
+  height: 0.5em;
+  border-radius: 40px;
+  border: 1px solid darkseagreen;
 }
 /* 제출 버튼 */
 .container__editContact--submit {
@@ -70,7 +70,7 @@
   margin: 10%;
   color: #fff;
   background-color: lightsalmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   font-size: 16px;
   font-weight: bold;
@@ -81,7 +81,7 @@
   margin: 20px;
   padding: 5px;
   background-color: salmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
   font-size: 16px;
