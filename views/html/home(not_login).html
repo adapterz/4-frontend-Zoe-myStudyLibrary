@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="/data/constant.js"></script>
-    <script src="/data/user.js" type="text/javascript"></script>
-    <script src="/data/board.js" type="text/javascript"></script>
-    <script src="/data/wise_saying.js" type="text/javascript"></script>
     <title>myStudyLibrary 홈페이지</title>
     <style>
       @import url("/views/css/reset.css");
@@ -16,6 +12,11 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
+    <!-- fetch -->
+    <script src="/data/constant.js"></script>
+    <script src="/data/user.js" type="text/javascript"></script>
+    <script src="/data/board.js" type="text/javascript"></script>
+    <script src="/data/wise_saying.js" type="text/javascript"></script>
   </head>
   <body>
     <!-- 맨 위에 메뉴바 -->
@@ -48,36 +49,38 @@
       <article class="home__board">
         <p class="home__category">📋 자유게시판 - 최신글</p>
         <nav>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
+          <ul>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+          </ul>
         </nav>
       </article>
       <!-- 동기부여용 명언 -->
@@ -118,7 +121,7 @@
           document.getElementsByClassName("home__board--title")[num].innerHTML = `${boardResult[num].postTitle}`;
           document.getElementsByClassName("home__board--nickname")[
             num
-            ].innerHTML = `작성자: ${boardResult[num].nickname}`;
+          ].innerHTML = `작성자: ${boardResult[num].nickname}`;
         }
         // 명언 정보
         const wiseSayingResult = await getWiseSaying();

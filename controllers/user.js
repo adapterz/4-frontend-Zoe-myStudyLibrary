@@ -83,7 +83,7 @@ export async function loginController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "login.html"));
   } catch (err) {
