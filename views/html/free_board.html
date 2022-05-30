@@ -6,26 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>myStudyLibrary 자유게시판</title>
     <style>
-      @import url("../css/reset.css");
-      @import url("../css/common.css");
-      @import url("../css/free_board.css");
+      @import url("/views/css/reset.css");
+      @import url("/views/css/common.css");
+      @import url("/views/css/free_board.css");
+      /* 글씨체 */
+      @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
-    <!-- 글씨체 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <!-- 맨 위에 메뉴바 -->
     <nav class="gmb">
       <!-- 로고 -->
-      <div class="gmb__logo">
-        <img class="gmb__logo--img" src="../img/logo.png" alt="서비스 로고입니다." />
-        <a href="">myStudyLibrary</a>
-      </div>
+      <a href="/">
+        <div class="gmb__logo">
+          <img class="gmb__logo--img" src="/views/img/logo.png" alt="서비스 로고입니다." />
+          myStudyLibrary
+        </div>
+      </a>
       <!-- 메뉴 -->
       <ul class="gmb__menu">
         <li><a href="">주변도서관</a></li>

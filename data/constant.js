@@ -16,6 +16,26 @@ const NOT_FOUND = 404;
 const CONFLICT = 409;
 const INTERNAL_SERVER_ERROR = 500;
 
-const FAIL_FETCH = "fail_fetch"
-const REQUEST_SUCCESS = "request_success"
+const FAIL_FETCH = "fail_fetch";
+const REQUEST_SUCCESS = "request_success";
+// fetch 결과값
+// 유저 정보
+const LOGIN_REQUIRED = "login_required";
 
+// 로그인
+const LOGIN = "login";
+const ALREADY_LOGIN = "already_login";
+const LOGOUT = "logout";
+
+// 회원가입
+const SIGN_UP = "sign_up";
+
+// 비밀번호 수정
+const PW_MISMATCHED = "pw_mismatched";
+const NEW_PW_CONFIRM_MISMATCHED = "pw/pw_confirm_mismatched";
+
+// 이미지 유효하지 않을 때
+const ONLY_IMAGE = "only_jpg,jpeg,gjf,png(upper_5MB)_format_can_be_uploaded";
+
+// 닉네임 수정
+const DUPLICATED_NICKNAME = "duplicated_nickname";

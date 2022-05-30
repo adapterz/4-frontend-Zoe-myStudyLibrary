@@ -32,7 +32,7 @@ async function getSignUpGuide() {
 }
 
 // 1-2. 회원가입
-async function reqSignUp(_id, _pw, _confirmPw, _name, _nickname, _phoneNumber, _gender) {
+async function signUpRequest(_id, _pw, _confirmPw, _name, _nickname, _phoneNumber, _gender) {
   try {
     const options = {
       mode: "cors",
@@ -62,7 +62,7 @@ async function reqSignUp(_id, _pw, _confirmPw, _name, _nickname, _phoneNumber, _
   }
 }
 // 1-3. 회원탈퇴
-async function reqDropOut() {
+async function dropOutRequest() {
   try {
     const options = {
       mode: "cors",
@@ -74,6 +74,7 @@ async function reqDropOut() {
       },
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/drop-out`, options);
+    if (backendResponse.status === NO_CONTENT) return { state: REQUEST_SUCCESS };
     const dropOutResult = await backendResponse.json();
     return dropOutResult;
   } catch (err) {
@@ -83,7 +84,7 @@ async function reqDropOut() {
 }
 // 2. 로그인/로그아웃
 // 2-1. 로그인
-async function reqLogin(_id, _pw) {
+async function loginRequest(_id, _pw) {
   try {
     const options = {
       mode: "cors",
@@ -96,8 +97,8 @@ async function reqLogin(_id, _pw) {
       body: JSON.stringify({ id: _id, pw: _pw }),
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/login`, options);
-    const loginResult = await backendResponse.json();
-    return loginResult;
+    const resultJson = await backendResponse.json();
+    return resultJson;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
@@ -105,7 +106,7 @@ async function reqLogin(_id, _pw) {
 }
 
 // 2-2. 로그아웃
-async function reqLogout() {
+async function logoutRequest() {
   try {
     const options = {
       mode: "cors",
@@ -132,7 +133,6 @@ async function getUserLibrary() {
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/user-lib`, options);
     const getUserLibraryResult = await backendResponse.json();
-    console.log(getUserLibraryResult);
     return getUserLibraryResult;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
@@ -178,7 +178,7 @@ async function deleteUserLibrary(libraryIndex) {
 
 // 4. 유저 정보 수정
 // 4-1. 유저 프로필 - 닉네임 수정
-async function editUserNickname(_nickname) {
+async function editNicknameRequest(_nickname) {
   try {
     const options = {
       mode: "cors",
@@ -203,18 +203,18 @@ async function editUserNickname(_nickname) {
   }
 }
 // TODO 4-2. 유저 프로필 - 이미지 수정
-async function editProfileImage(_profileImage) {
+async function editProfileImageRequest(_profileImage) {
   try {
     const imageFormData = new FormData();
-    imageFormData.append("profileImage", _profileImage);
+    imageFormData.append("profileImage", _profileImage, _profileImage.name);
+    console.log(imageFormData);
     const options = {
       mode: "cors",
       method: PATCH,
       credentials: "include",
       headers: {
         "Content-Type": "multipart/form-data; boundary=----MyBoundary",
-        "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
-        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Access-Control-Allow-Headers": "Content-Type",
       },
       body: imageFormData,
     };
@@ -231,7 +231,7 @@ async function editProfileImage(_profileImage) {
   }
 }
 // 4-3. 연락처 수정
-async function editPhoneNumber(_phoneNumber) {
+async function editContactRequest(contact) {
   try {
     const options = {
       mode: "cors",
@@ -242,7 +242,7 @@ async function editPhoneNumber(_phoneNumber) {
         "Access-Control-Allow-Headers": "Content-Type, Referrer-Policy",
         "Referrer-Policy": "strict-origin-when-cross-origin",
       },
-      body: JSON.stringify({ phoneNumber: _phoneNumber }),
+      body: JSON.stringify({ phoneNumber: contact }),
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/new-contact`, options);
     const status = backendResponse.status;
@@ -257,7 +257,7 @@ async function editPhoneNumber(_phoneNumber) {
   }
 }
 // 4-4. 비밀번호 수정
-async function editPw(_pw, _newPw, _confirmPw) {
+async function editPwRequest(_pw, _newPw, _confirmPw) {
   try {
     const options = {
       mode: "cors",
@@ -284,7 +284,7 @@ async function editPw(_pw, _newPw, _confirmPw) {
 }
 
 // 5. 유저 정보 가져오기
-async function getUserInfo(){
+async function getUserInfo() {
   try {
     const options = {
       mode: "cors",
