@@ -93,9 +93,8 @@
           const result = await sweetAlert(
             WARNING,
             "로그인 실패",
-            `로그인 시도를 다시 해주세요.
-
-            \n 서버 메세지: ${serverResult.state}`
+            "로그인 시도를 다시 해주세요.",
+            `서버 메세지: ${serverResult.state}`
           );
           if (result) {
             const link = "/user/login";

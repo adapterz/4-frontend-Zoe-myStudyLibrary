@@ -97,9 +97,9 @@
         else if (backendResult.state !== ONLY_IMAGE) {
           const result = await sweetAlert(
             ERROR,
-            "프로필이미지 수정 실패",
-            `예상치 못한 오류입니다.
-             서버 메세지: ${backendResult.state}`
+            "프로필 사진 수정 실패",
+            "예상치 못한 오류입니다.",
+            `서버 메세지: ${backendResult.state}`
           );
           if (result) {
             const link = "/";

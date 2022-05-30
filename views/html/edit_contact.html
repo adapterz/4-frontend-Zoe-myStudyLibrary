@@ -93,7 +93,7 @@
         } else if (backendResult.state === INVALID_BODY) {
           await sweetAlert(WARNING, "연락처 수정 실패", `010 0000 0000 형태로 입력해주세요`);
         } else {
-          await sweetAlert(ERROR, "연락처 수정 실패", `예상치 못한 에러입니다. 서버 메시지: ${backendResult.state}`);
+          await sweetAlert(ERROR, "연락처 수정 실패", "예상치 못한 에러입니다",`서버 메시지: ${backendResult.state}`);
         }
       }
     </script>

@@ -135,17 +135,15 @@
           await sweetAlert(
             WARNING,
             "회원가입 실패",
-            `회원가입 시도를 다시 해주세요.
-
-            \n plz change ${backendResult.error}`
+            "회원가입 시도를 다시 해주세요."
+            `plz change ${backendResult.error}`
           );
         } else if (backendResult.state !== SIGN_UP) {
           await sweetAlert(
             WARNING,
             "회원가입 실패",
-            `회원가입 시도를 다시 해주세요.
-
-            \n 서버 메시지: ${backendResult.state}`
+            "회원가입 시도를 다시 해주세요.",
+            `서버 메시지: ${backendResult.state}`
           );
         }
         // 회원가입 성공 후 홈페이지로
