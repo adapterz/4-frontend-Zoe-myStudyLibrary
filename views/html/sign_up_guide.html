@@ -32,11 +32,12 @@
       </ul>
     </nav>
     <!-- html에 html 파일 추가하기 -->
-    <section class="container">
-      <form action="" class="container__signUpGuide" onsubmit="location.href='/user/sign-up';return false" ;>
+    <section class="container" onsubmit="location.href='/user/sign-up';return false" ;>
+      <form action="" class="container__signUpGuide">
         <h2 class="container__signUpGuide--title">회원가입 이용약관</h2>
-
-        <iframe class="container__signUpGuide--terms" src="terms"></iframe>
+        <button class="button__terms" onclick="window.open('/user/sign-up/terms');return false" target="_blank">
+          >  약관확인
+        </button>
 
         <label
           >약관에 동의해주세요 <input class="container__signUpGuide--agree" type="checkbox" name="agree" required />
