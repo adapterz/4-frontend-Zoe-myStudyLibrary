@@ -21,10 +21,10 @@ import { fileURLToPath } from "url";
 import { moment } from "./services/dateTime.js";
 
 // 라우터
-import boardRouter from "./routes/board.js";
-import commentRouter from "./routes/comment.js";
-import libraryRouter from "./routes/library.js";
-import reviewRouter from "./routes/review.js";
+// import boardRouter from "./routes/board.js";
+// import commentRouter from "./routes/comment.js";
+// import libraryRouter from "./routes/library.js";
+// import reviewRouter from "./routes/review.js";
 import userRouter from "./routes/user.js";
 import { OK } from "./services/statusCode.js";
 
@@ -46,16 +46,12 @@ app.use(helmet());
 app.use(apiLimiter);
 
 // 경로별로 라우팅
-app.use("/comment", commentRouter);
-app.use("/library", libraryRouter);
-app.use("/review", reviewRouter);
+// app.use("/comment", commentRouter);
+// app.use("/library", libraryRouter);
+// app.use("/review", reviewRouter);
 app.use("/user", userRouter);
-app.use("/board", boardRouter);
+// app.use("/board", boardRouter);
 
-// 정적 파일 경로
-app.use("/views", express.static("views"));
-app.use("/models", express.static("models"));
-app.use("/services", express.static("services"));
 
 // 서버 시작
 app.listen(process.env.PORT, () => {
@@ -66,6 +62,11 @@ app.listen(process.env.PORT, () => {
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
 export const basename = path.basename(__filename);
+
+// 정적 파일 경로
+app.use("/views", express.static(path.join(__dirname, "views")));
+app.use("/models", express.static(path.join(__dirname, "models")));
+app.use("/services", express.static(path.join(__dirname, "services")));
 
 // 홈
 // 로그인 했을 때
