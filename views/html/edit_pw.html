@@ -47,6 +47,12 @@
       >
         <h2 class="container__editPw--title">비밀번호 수정</h2>
         <input type="password" placeholder="현재 비밀번호" class="container__editPw--input" name="pw" required />
+        <nav class="container__editPw--tooltip">
+          <li>❔</li>
+          <li class="container__editPw--tooltipText">
+            <p>자신의 현재 비밀번호를 입력해주세요. 정보를 기입했는지 안했는지만 확인합니다.</p>
+          </li>
+        </nav>
         <input
           type="password"
           placeholder="새 비밀번호"
@@ -56,13 +62,26 @@
           pattern="^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$"
           title="새 비밀번호: 8 ~ 16글자 사이의 문자, 숫자, 특수문자 조합"
         />
+        <nav class="container__editPw--tooltip">
+          <li>❔</li>
+          <li class="container__editPw--tooltipText">
+            <p>새 비밀번호: 8 ~ 16글자 사이의 문자, 숫자, 특수문자 조합</p>
+          </li>
+        </nav>
         <input
           type="password"
           placeholder="새 비밀번호 확인"
           class="container__editPw--input"
           name="confirmPw"
           required
+          oninput="checkValidation(this,document.getElementsByName('newPw')[0])"
         />
+        <nav class="container__editPw--tooltip">
+          <li>❔</li>
+          <li class="container__editPw--tooltipText">
+            <p>새 비밀번호 확인, 새 비밀번호와 일치시켜주세요.</p>
+          </li>
+        </nav>
         <input type="submit" value="비밀번호 수정" class="container__editPw--submit" />
       </form>
     </main>
@@ -113,6 +132,16 @@
             location.href = link;
           }
         }
+      }
+
+      // 비밀번호와 비밀번호 확인이 같은지 확인
+      function checkValidation(confirm, pw) {
+        if (pw.value === confirm.value) {
+          confirm.setCustomValidity("");
+        } else {
+          confirm.setCustomValidity("새 비밀번호와 새 비밀번호확인이 일치하지 않습니다");
+        }
+        confirm.reportValidity();
       }
     </script>
   </body>

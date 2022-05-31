@@ -3,8 +3,9 @@
 1. 전체 컨테이너
 2. form 컨테이너
 2-1. title
-2-2. input 설정
-2-3. 제출
+2-2. input 설정 (입력창)
+2-3. 유효성 검사 툴팁
+2-4. 제출
 */
 /* 비밀번호 수정 전체 컨테이너 */
 .container {
@@ -28,6 +29,7 @@
   width: 250px;
   height: 550px;
 }
+
 /* title */
 .container__editPw--title {
   font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
@@ -36,9 +38,8 @@
   margin-bottom: 30px;
   font-size: 1.5rem;
 }
-
-/* input 설정 */
-.container__editPw--input:required:invalid {
+/* 비밀번호 수정 컨테이너 입력(input) 설정 */
+.container__editPw--input {
   font-size: 12px;
   background: none;
   text-align: center;
@@ -51,9 +52,24 @@
   border: solid 1px #ffc400;
 }
 
-.container__editPw--input:required:valid {
+/* 유효하지 않을 때 */
+.container__editPw--input:focus:invalid {
   font-size: 12px;
-  background: none;
+  text-align: center;
+  outline: none;
+  padding: 20px;
+  margin: 30px;
+  width: 50%;
+  height: 0.5em;
+  border-radius: 40px;
+  border: solid 1px lightcoral;
+  background: url("/views/img/warning.png") no-repeat 90% 50% #ffafb0;
+  background-size: 2em 2em;
+}
+
+/* 유효할 때 */
+.container__editPw--input:valid {
+  font-size: 12px;
   text-align: center;
   outline: none;
   padding: 20px;
@@ -62,7 +78,35 @@
   height: 0.5em;
   border-radius: 40px;
   border: 1px solid darkseagreen;
+  background: url("/views/img/check.png") no-repeat 90% 50% #e2ffaf;
+  background-size: 2em 2em;
 }
+
+/* 유효성 설명 툴팁 */
+.container__editPw--tooltip {
+  color: white;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+.container__editPw--tooltip .container__editPw--tooltipText {
+  visibility: hidden;
+  display: block;
+  font-size: 12px;
+  line-height: 2em;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+}
+.container__editPw--tooltip:hover .container__editPw--tooltipText {
+  visibility: visible;
+}
+
 /* 제출 버튼 */
 .container__editPw--submit {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
@@ -79,8 +123,6 @@
 }
 
 .container__editPw--submit:hover {
-  width: 40%;
-  height: 10%;
   margin: 20px;
   padding: 5px;
   background-color: salmon;
