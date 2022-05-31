@@ -33,6 +33,7 @@ async function sweetAlert(type, title, content, message) {
         icon: "warning",
         confirmButtonColor: "#ffa07a",
       });
+      return result.isConfirmed;
     }
   } else if (type === ERROR) {
     if (message) {
