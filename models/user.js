@@ -202,21 +202,14 @@ async function editNicknameRequest(_nickname) {
     return { state: FAIL_FETCH };
   }
 }
-// TODO 4-2. 유저 프로필 - 이미지 수정
-async function editProfileImageRequest(_profileImage) {
+// 4-2. 유저 프로필 - 이미지 수정
+async function editProfileImageRequest(formData) {
   try {
-    const imageFormData = new FormData();
-    imageFormData.append("profileImage", _profileImage, _profileImage.name);
-    console.log(imageFormData);
     const options = {
       mode: "cors",
       method: PATCH,
       credentials: "include",
-      headers: {
-        "Content-Type": "multipart/form-models; boundary=----MyBoundary",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
-      body: imageFormData,
+      body: formData,
     };
     const backendResponse = await fetch(`${BACKEND_URL}/user/profile/profileImage`, options);
     const status = backendResponse.status;
@@ -297,5 +290,4 @@ async function getUserInfo() {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
   }
-
 }
