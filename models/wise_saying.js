@@ -12,4 +12,5 @@ async function getWiseSaying(){
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
   }
+
 }

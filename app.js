@@ -18,7 +18,7 @@ import { fileURLToPath } from "url";
 
 // 내장모듈
 // 날짜/시간 관련 모듈
-import { moment } from "./customModule/dateTime.js";
+import { moment } from "./services/dateTime.js";
 
 // 라우터
 import boardRouter from "./routes/board.js";
@@ -26,7 +26,7 @@ import commentRouter from "./routes/comment.js";
 import libraryRouter from "./routes/library.js";
 import reviewRouter from "./routes/review.js";
 import userRouter from "./routes/user.js";
-import { OK } from "./customModule/statusCode.js";
+import { OK } from "./services/statusCode.js";
 
 // 각종 모듈 설정
 // 디도스 방어 모듈 설정(요청 제한)
@@ -53,9 +53,9 @@ app.use("/user", userRouter);
 app.use("/board", boardRouter);
 
 // 정적 파일 경로
-app.use("/data", express.static("data"));
 app.use("/views", express.static("views"));
 app.use("/models", express.static("models"));
+app.use("/services", express.static("services"));
 
 // 서버 시작
 app.listen(process.env.PORT, () => {
