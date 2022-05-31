@@ -13,28 +13,15 @@
     </style>
   </head>
   <body>
-    <!-- 맨 위에 메뉴바 -->
-    <nav class="gmb">
-      <!-- 로고 -->
-      <a href="/">
-        <div class="gmb__logo">
-          <img class="gmb__logo--img" src="/views/img/logo.png" alt="서비스 로고입니다." />
-          myStudyLibrary
-        </div>
-      </a>
-      <!-- 메뉴 -->
-      <ul class="gmb__menu">
-        <li><a href="">주변도서관</a></li>
-        <li><a href="">자유게시판</a></li>
-        <li><a href="">내가작성한글</a></li>
-      </ul>
-    </nav>
-    <!-- html에 html 파일 추가하기 -->
+    <!-- gmb -->
+    <header>
+      <script src="/views/js/header.js"></script>
+    </header>
     <section class="container" onsubmit="location.href='/user/sign-up';return false" ;>
       <form action="" class="container__signUpGuide">
         <h2 class="container__signUpGuide--title">회원가입 이용약관</h2>
         <button class="button__terms" onclick="window.open('/user/sign-up/terms');return false" target="_blank">
-          >  약관확인
+          > 약관확인
         </button>
 
         <label
@@ -45,10 +32,7 @@
     </section>
     <!-- footer -->
     <footer class="footer__serviceInfo">
-      (주) myStudyLibrary
-      <br />
-      <pre> 대표: 김예지</pre>
-      <br />
+      <script src="/views/js/footer.js"></script>
     </footer>
 
     <script src="/services/constant.js"></script>
