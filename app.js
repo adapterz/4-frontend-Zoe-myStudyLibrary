@@ -18,15 +18,15 @@ import { fileURLToPath } from "url";
 
 // 내장모듈
 // 날짜/시간 관련 모듈
-import { moment } from "./services/dateTime.js";
+import { moment } from "./customs/dateTime.js";
 
 // 라우터
-// import boardRouter from "./routes/board.js";
+import boardRouter from "./routes/board.js";
 // import commentRouter from "./routes/comment.js";
 // import libraryRouter from "./routes/library.js";
 // import reviewRouter from "./routes/review.js";
 import userRouter from "./routes/user.js";
-import { OK } from "./services/statusCode.js";
+import { OK } from "./customs/statusCode.js";
 
 // 각종 모듈 설정
 // 디도스 방어 모듈 설정(요청 제한)
@@ -50,7 +50,7 @@ app.use(apiLimiter);
 // app.use("/library", libraryRouter);
 // app.use("/review", reviewRouter);
 app.use("/user", userRouter);
-// app.use("/board", boardRouter);
+app.use("/board", boardRouter);
 
 
 // 서버 시작
@@ -66,7 +66,7 @@ export const basename = path.basename(__filename);
 // 정적 파일 경로
 app.use("/views", express.static(path.join(__dirname, "views")));
 app.use("/models", express.static(path.join(__dirname, "models")));
-app.use("/services", express.static(path.join(__dirname, "services")));
+app.use("/customs", express.static(path.join(__dirname, "customs")));
 
 // 홈
 // 로그인 했을 때
