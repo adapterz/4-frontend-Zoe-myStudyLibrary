@@ -52,9 +52,15 @@
           class="container__editContact--input"
           name="contact"
           required
-          pattern="^01([0|1|6|7|8|9])?([0-9]{3,4})?([0-9]{4})$"
+          pattern="^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})$"
           title="연락처: (-)없이 01012345678 형태 입력"
         />
+        <nav class="container__editContact--tooltip">
+          <li>❔</li>
+          <li class="container__editContact--tooltipText">
+            <p>연락처: (-)없이 01012345678 형태 입력</p>
+          </li>
+        </nav>
         <input type="submit" value="연락처 수정" class="container__editContact--submit" />
       </form>
     </main>
@@ -93,7 +99,7 @@
         } else if (backendResult.state === INVALID_BODY) {
           await sweetAlert(WARNING, "연락처 수정 실패", `010 0000 0000 형태로 입력해주세요`);
         } else {
-          await sweetAlert(ERROR, "연락처 수정 실패", "예상치 못한 에러입니다",`서버 메시지: ${backendResult.state}`);
+          await sweetAlert(ERROR, "연락처 수정 실패", "예상치 못한 에러입니다", `서버 메시지: ${backendResult.state}`);
         }
       }
     </script>

@@ -3,8 +3,9 @@
 1. 전체 컨테이너
 2. form 컨테이너
 2-1. title
-2-2. input 설정
-2-3. 제출
+2-2. input 설정(입력창)
+2-3.
+2-4. 제출
 */
 /* 연락처 수정 전체 컨테이너 */
 .container {
@@ -26,7 +27,8 @@
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   width: 250px;
-  height: 300px;
+  height: 350px;
+  row-gap: 5%;
 }
 /* title */
 .container__editContact--title {
@@ -38,29 +40,72 @@
 }
 
 /* input 설정 */
-.container__editContact--input:required:invalid {
+/* 회원가입 컨테이너 입력(input) 설정 */
+.container__editContact--input {
   font-size: 12px;
   background: none;
   text-align: center;
   outline: none;
   padding: 20px;
-  margin: 40px;
+  margin: 30px;
   width: 50%;
   height: 0.5em;
   border-radius: 40px;
   border: solid 1px #ffc400;
 }
-.container__editContact--input:required:valid {
+
+/* 유효하지 않을 때 */
+.container__editContact--input:focus:invalid {
   font-size: 12px;
-  background: none;
   text-align: center;
   outline: none;
   padding: 20px;
-  margin: 40px;
+  margin: 30px;
+  width: 50%;
+  height: 0.5em;
+  border-radius: 40px;
+  border: solid 1px lightcoral;
+  background: url("/views/img/warning.png") no-repeat 90% 50% #ffafb0;
+  background-size: 2em 2em;
+}
+
+/* 유효할 때 */
+.container__editContact--input:valid {
+  font-size: 12px;
+  text-align: center;
+  outline: none;
+  padding: 20px;
+  margin: 30px;
   width: 50%;
   height: 0.5em;
   border-radius: 40px;
   border: 1px solid darkseagreen;
+  background: url("/views/img/check.png") no-repeat 90% 50% #e2ffaf;
+  background-size: 2em 2em;
+}
+/* 유효성 설명 툴팁 */
+.container__editContact--tooltip {
+  color: white;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+.container__editContact--tooltip .container__editContact--tooltipText {
+  visibility: hidden;
+  display: block;
+  font-size: 12px;
+  line-height: 2em;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+}
+.container__editContact--tooltip:hover .container__editContact--tooltipText {
+  visibility: visible;
 }
 /* 제출 버튼 */
 .container__editContact--submit {

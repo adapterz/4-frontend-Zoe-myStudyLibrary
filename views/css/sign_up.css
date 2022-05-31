@@ -107,7 +107,7 @@
   text-align: center;
   border-radius: 6px;
   padding: 10px;
-  position: absolute; /* 절대 위치를 사용 */
+  position: absolute;
   z-index: 1;
 }
 .container__signUp--tooltip:hover .container__signUp--tooltipText {
