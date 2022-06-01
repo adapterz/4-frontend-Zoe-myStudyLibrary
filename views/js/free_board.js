@@ -146,3 +146,19 @@ async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate
   document.getElementsByClassName("freeBoard__board--href")[index].append(favoriteElement);
   document.getElementsByClassName("freeBoard__board--href")[index].append(createDateElement);
 }
+// 글쓰기 버튼 눌렀을 때 로그인 체크
+// 로그인 여부 체크
+async function checkLogin() {
+  const backendResult = await getUserInfo();
+  // 로그인 안 했을 때 로그인 페이지로 이동
+  if (backendResult.state === LOGIN_REQUIRED) {
+    const result = await sweetAlert(WARNING, "로그인 필요", "로그인이 필요한 기능입니다.");
+    if (result) {
+      const link = "/user/login";
+      location.href = link;
+    }
+  } else {
+    const link = "/board/write";
+    location.href = link;
+  }
+}
