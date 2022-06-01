@@ -1,6 +1,6 @@
 /*
 1. 자유게시판 컨테이너
-2. 자유게시판 타이틀
+2. 자유게시판 타이틀/서브 타이틀
 3. 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정
 4. 조회수/좋아요 수 아이콘 설정
  */
@@ -22,6 +22,15 @@
   align-items: center;
 }
 
+/* 자유게시판 서브타이틀 */
+.freeBoard__subtitle {
+  padding: 15px 0px;
+  font-size: 20px;
+  font-weight: 100;
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
+  color: dimgray;
+  align-items: center;
+}
 /* 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정 */
 .freeBoard__board li {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
@@ -37,30 +46,30 @@
 .freeBoard__board--createDate {
   text-align: right;
   color: dimgray;
-  font-size: 0.9rem;
+  font-size: 15px;
 }
 .freeBoard__board--favoriteCount {
   text-align: right;
   color: dimgray;
-  font-size: 0.9rem;
+  font-size: 15px;
 }
 .freeBoard__board--viewCount {
   text-align: right;
   color: dimgray;
-  font-size: 0.9rem;
+  font-size: 15px;
 }
 
 .freeBoard__board--nickname {
   text-align: right;
   color: dimgray;
   align-self: flex-start;
-  font-size: 0.9rem;
+  font-size: 15px;
 }
 
 /* 조회수/좋아요 수 아이콘 설정 */
 .freeBoard__board--img {
-  width: 1em;
-  height: 1em;
+  width: 15px;
+  height: 15px;
   margin-right: 0.5em;
 }
 .button__freeBoard--write {
@@ -75,7 +84,6 @@
   font-weight: bold;
   border-radius: 20px;
   align-self: self-end;
-  margin-top: 5%;
 }
 
 .button__freeBoard--write:hover {
@@ -86,7 +94,7 @@
 
 /* form 컨테이너 */
 .container__search {
-  margin: 15%;
+  margin-bottom: 5%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -114,12 +122,14 @@
   font-size: 12px;
   text-align: center;
   height: 30px;
-  width: 60px;
+  width: 120px;
   border: solid 1px #999;
   border-radius: 10px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background: url("/views/img/arrow.png") no-repeat 90% 50% white;
+  background-size: 2em 2em;
 }
 /* 제출 버튼 */
 .container__search--submit {
@@ -147,5 +157,17 @@
     flex-direction: column;
     justify-content: center;
     min-height: 200vh;
+  }
+
+  .container__search {
+    margin-bottom: 5%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    place-self: center;
   }
 }

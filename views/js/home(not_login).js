@@ -10,7 +10,7 @@ async function checkLogin() {
 checkLogin();
 
 // 데이터 가져오기
-async function page() {
+async function home() {
   // 최근 게시판 정보
   const boardResult = await getRecentBoard();
   // 최근 게시판 정보 파싱
@@ -26,4 +26,4 @@ async function page() {
   document.getElementsByClassName("home__wiseSaying--content")[0].innerHTML = wiseSayingResult.wiseSayingContent;
   document.getElementsByClassName("home__wiseSaying--celebrity")[0].innerHTML = wiseSayingResult.celebrity;
 }
-page();
+home();
