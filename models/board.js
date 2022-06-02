@@ -54,6 +54,7 @@ async function getDetailBoard(boardIndex) {
     };
     const backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin/${boardIndex}`, options);
     const detailBoardData = await backendResponse.json();
+    if (backendResponse.status === OK) detailBoardData.state = REQUEST_SUCCESS;
     return detailBoardData;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);

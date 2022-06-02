@@ -2,9 +2,21 @@
 게시글 상세 조회
 1. 게시글 내용
 2. 수정, 삭제버튼 컨테이너와 버튼
-2. 게시글 좋아요 누르기 아이콘
-3. 해당 게시글에 댓글 달 댓글 컨테이너(댓글 title/input/댓글입력 버튼)
+3. 게시글 좋아요 누르기 아이콘
+4. 태그
+5. 작성 유저 정보
+6. 해당 게시글에 댓글 달 댓글 컨테이너(댓글 title/input/댓글입력 버튼)
  */
+/* 컨테이너 */
+.freeBoard__board {
+  margin-top: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+  line-height: 25px;
+  list-style: none;
+  row-gap: 3px;
+}
+
 /* 게시글 내용 */
 .freeBoard__board--content {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
@@ -13,7 +25,7 @@
   margin-right: 10%;
   border-radius: 10px;
   text-align: center;
-  line-height: 23px;
+  line-height: 25px;
 }
 /* 수정하기, 삭제하기 버튼 관리해줄 컨테이너 */
 .container__freeBoard--authorization {
@@ -23,11 +35,13 @@
   text-align: right;
 }
 /* 수정하기, 삭제하기 버튼 */
-.button__freeBoard--write{
+.button__freeBoard--write {
   margin: 0px 5px;
 }
 /* 게시글 좋아요 누르기 아이콘 */
 .freeBoard__board--giveLove {
+  width: 65px;
+  height: 65px;
   margin-top: 5%;
   align-self: center;
 }
@@ -38,9 +52,59 @@
 }
 
 .freeBoard__board--giveLoveImg:hover {
-  width: 63px;
-  height: 63px;
+  width: 65px;
+  height: 65px;
   align-self: center;
+}
+/* 태그 */
+.freeBoard__board--tags {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-size: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 40px 10%;
+  column-gap: 8px;
+  row-gap: 8px;
+}
+.freeBoard__board--tag {
+  padding: 5px;
+  background-color: darkseagreen;
+  border-radius: 20px;
+  color: white;
+}
+/* 유저 정보 */
+.freeBoard__user--profileImage {
+  margin: 5px 0px;
+  border: 1px solid #dae1e6;
+  border-radius: 70%;
+  height: 130px;
+  width: 130px;
+  overflow: hidden;
+  position: relative;
+  text-align: right;
+  justify-self: self-end;
+  align-self: self-end;
+  justify-items: self-end;
+  align-items: self-end;
+}
+
+.freeBoard__user--profileImageImg {
+  padding-bottom: 30px;
+  border: none;
+  height: 170px;
+  weight: 170px;
+  margin: auto;
+  object-position: center;
+}
+
+.freeBoard__user--nickname {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  text-align: left;
+  color: dimgray;
+  font-size: 17px;
+  margin-left: 13px;
+  margin-top: 13px;
 }
 
 /* 댓글 컨테이너 */

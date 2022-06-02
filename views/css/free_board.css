@@ -32,36 +32,40 @@
 /* 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정 */
 .freeBoard__board--list {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
-  line-height: 23px;
+  line-height: 25px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
   list-style: none;
 }
 .freeBoard__board--title {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   margin-bottom: 3%;
   font-size: 20px;
 }
 
 .freeBoard__board--createDate {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   text-align: right;
   color: dimgray;
   font-size: 17px;
 }
 .freeBoard__board--favoriteCount {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   text-align: right;
   color: dimgray;
   font-size: 17px;
 }
 .freeBoard__board--viewCount {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   text-align: right;
   color: dimgray;
   font-size: 17px;
 }
 
 .freeBoard__board--nickname {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   text-align: right;
   color: dimgray;
-  align-self: flex-start;
   font-size: 17px;
 }
 
@@ -73,8 +77,8 @@
 }
 .button__freeBoard--write {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 120px;
-  height: 50px;
+  width: 100px;
+  height: 45px;
   color: #fff;
   background-color: lightsalmon;
   border: 1px solid #d6e9c6;
