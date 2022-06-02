@@ -102,7 +102,7 @@ async function writePostRequest(_postTitle, _postContent, tag) {
   }
 }
 // 2-2. 게시글 수정을 위해 기존 게시글 정보 불러오기
-async function getWrite(boardIndex) {
+async function getPostRequest(boardIndex) {
   try {
     const options = {
       mode: "cors",
@@ -112,6 +112,7 @@ async function getWrite(boardIndex) {
     const backendResponse = await fetch(`${BACKEND_URL}/board/write?boardIndex=${boardIndex}`, options);
 
     const writePostResult = await backendResponse.json();
+    if (backendResponse.status === OK) writePostResult.state = REQUEST_SUCCESS;
     return writePostResult;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
@@ -119,8 +120,16 @@ async function getWrite(boardIndex) {
   }
 }
 // 2-3. 게시글 수정요청
-async function editPost(boardIndex, _postTitle, _postContent, _tags) {
+async function editPostRequest(boardIndex, _postTitle, _postContent, tag) {
   try {
+    const _tags = [];
+    // 태그 보내야하는 양식으로 바꿔주기
+    const tagArray = tag.split("#");
+    tagArray.shift();
+    for (let tag of tagArray) {
+      const tempTag = { content: tag };
+      _tags.push(tempTag);
+    }
     const options = {
       mode: "cors",
       method: PATCH,

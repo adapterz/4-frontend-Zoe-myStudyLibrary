@@ -134,7 +134,7 @@ async function deletePost() {
 // 게시글 수정하기 버튼 눌렀을 때
 async function editPage() {
   const boardIndex = await getBoardIndex();
-  location.href = `/board/write?${boardIndex}`;
+  location.href = `/board/write?boardIndex=${boardIndex}`;
 }
 
 // 해당 페이지에서 최초 한번 호출

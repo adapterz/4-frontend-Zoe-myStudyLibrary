@@ -1,10 +1,11 @@
+let thisBoardIndex;
 // 게시글 작성 html 에 쓰일 js 코드
 // 제목 글자수 체크
 async function checkTitleLength(titleElement) {
   const length = titleElement.value.length;
   document.getElementsByClassName("container__title--length")[0].innerHTML = `(${length}/50)`;
   // 50글자 이상일 때
-  if (length > 50) {
+  if (length >= 50) {
     // 50글자 넘었을 때 49글자 짤라서 제목 입력창에 넣어주기
     const substring = titleElement.value.substring(0, 49);
     titleElement.value = substring;
@@ -88,11 +89,92 @@ async function writePost(postTitle, postContent, tag) {
   }
   // 그 외의 에러
   if (backendResult.state !== LOGIN_REQUIRED && backendResult.state !== REQUEST_SUCCESS) {
-    await sweetAlert(
-      ERROR,
-      "글 작성 실패",
-      "예상치 못한 에러입니다.",
-      `서버 메시지: ${backendResult.state}`
-    );
+    await sweetAlert(ERROR, "글 작성 실패", "예상치 못한 에러입니다.", `서버 메시지: ${backendResult.state}`);
   }
 }
+// 최초 한번 게시글 수정 요청인지 최초 글 작성인지 확인
+async function checkRequest() {
+  const URLSearch = new URLSearchParams(location.search);
+  for (const [key, valueString] of URLSearch) {
+    // 쿼리스트링에 boardIndex 라는 키가 있고 그 값이 숫자 일때
+    if (key === "boardIndex") {
+      const value = Number(valueString);
+      // boardIndex 의 값이 숫자일 때( 쿼리스트링이 유효할 때)
+      if (!isNaN(value)) {
+        thisBoardIndex = value;
+        // 기존 게시글 정보 가져오는 요청
+        const backendResult = await getPostRequest(valueString);
+        // 로그인이 안돼있을 때
+        if (backendResult.state === LOGIN_REQUIRED) {
+          const result = await sweetAlert(WARNING, "로그인 필요", "로그인이 필요한 기능입니다.");
+          if (result) {
+            const link = "/user/login";
+            location.href = link;
+          }
+        }
+        // 게시글이 없을 때 게시글 목록으로 이동
+        else if (backendResult.state === NOT_EXIST) {
+          const result = await sweetAlert(
+            WARNING,
+            "존재하지 않는 게시글입니다.",
+            "삭제되거나 존재하지 않는 게시글입니다."
+          );
+          if (result) location.href = "/board";
+        }
+        // 성공적으로 게시글 정보 가져왔을 때
+        else if (backendResult.state === REQUEST_SUCCESS) {
+          document.getElementsByClassName("freeBoard__title")[0].innerHTML = "자유게시판 - 글 수정";
+          // 기존 게시글 데이터 input 창에 넣어주기
+          // 제목, 내용
+          const titleElement = document.getElementsByClassName("container__write--title")[0];
+          const contentElement = document.getElementsByClassName("container__write--content")[0];
+          titleElement.value = backendResult.dataOfBoard.postTitle;
+          contentElement.value = backendResult.dataOfBoard.postContent;
+          await checkTitleLength(titleElement);
+          await checkContentLength(contentElement);
+          // 태그
+          let tags = ``;
+          for (let tag of backendResult.dataOfTag) {
+            tags = `${tags}#${tag.tag}`;
+          }
+          document.getElementsByClassName("container__write--tag")[0].value = tags;
+          // 확인 버튼 눌렀을 때 게시글 수정요청 보내도록 하기
+          document
+            .getElementsByClassName("container__write")[0]
+            .setAttribute(
+              "onsubmit",
+              "editPost(thisBoardIndex,document.getElementsByName('postTitle')[0].value,document.getElementsByName('postContent')[0].value,document.getElementsByName('tags')[0].value);return false"
+            );
+        }
+      }
+    }
+  }
+}
+// 글 수정 요청
+async function editPost(boardIndex, postTitle, postContent, tags) {
+  const backendResult = await editPostRequest(boardIndex, postTitle, postContent, tags);
+  // 로그인 필요(시간이 지나 로그아웃 됐을 경우)
+  if (backendResult.state === LOGIN_REQUIRED) {
+    const result = await sweetAlert(WARNING, "로그인 필요", "새 창에서 로그인 해주세요");
+    window.open("/user/login");
+  }
+  // 존재하지 않는 게시글
+  else if (backendResult.state === NOT_EXIST) {
+    const result = await sweetAlert(WARNING, "존재하지 않는 게시글", "게시글 목록으로 이동");
+    if (result) location.href = "/board";
+  }
+  // 글 수정 성공
+  else if (backendResult.state === REQUEST_SUCCESS) {
+    const result = await sweetAlert(SUCCESS, "글 수정 성공", "해당 게시글로 이동합니다.");
+    if (result) location.href = `/board/${boardIndex}`;
+  }
+  // 그 외의 에러
+  else {
+    await sweetAlert(ERROR, "글 작성 실패", "예상치 못한 에러입니다.", `서버 메시지: ${backendResult.state}`);
+  }
+}
+// 최초 한번 실행시켜줄 메서드
+async function lifeCycle() {
+  await checkRequest();
+}
+lifeCycle();
