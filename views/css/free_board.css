@@ -73,7 +73,7 @@
   height: 15px;
   margin-right: 0.5em;
 }
-.button__freeBoard--write {
+.button__freeBoard {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 100px;
   height: 40px;
@@ -88,7 +88,7 @@
   align-self: self-end;
 }
 
-.button__freeBoard--write:hover {
+.button__freeBoard:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   padding: 10px;
   background-color: salmon;

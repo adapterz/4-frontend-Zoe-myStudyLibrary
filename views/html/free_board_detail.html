@@ -29,10 +29,10 @@
           </p>
           <p class="freeBoard__board--nickname">작성자는조이</p>
           <p class="freeBoard__board--viewCount">
-            <img class="freeBoard__board--img" src="../img/view.png" alt="조회수 아이콘" />123
+            <img class="freeBoard__board--img" src="/views/img/view.png" alt="조회수 아이콘" />123
           </p>
           <p class="freeBoard__board--favoriteCount">
-            <img class="freeBoard__board--img" src="../img/love.png" alt="좋아요 아이콘" />123
+            <img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" />123
           </p>
           <p class="freeBoard__board--createDate">2022년 05월 23일</p>
         </li>
@@ -72,11 +72,13 @@
         내용이에요~게시글 내용이에요~게시글 내용이에요~게시글 내용이에요~게시글 내용이에요~v
       </p>
       <a href="" class="freeBoard__board--giveLove">
-        <img src="../img/give-love.png" class="freeBoard__board--giveLoveImg" alt="좋아요 +1"
+        <img src="/views/img/give-love.png" class="freeBoard__board--giveLoveImg" alt="좋아요 +1"
       /></a>
 
-      <button type="button" class="button__freeBoard--write">글 수정하기</button>
-
+      <section class="container__freeBoard--authorization">
+        <button type="button" class="button__freeBoard">글 수정하기</button>
+        <button type="button" class="button__freeBoard">글 삭제하기</button>
+      </section>
       <form action="" class="freeBoard__comment" method="post">
         <h2 class="freeBoard__comment--title">✏ 댓글</h2>
         <input type="textarea" placeholder="댓글 입력" class="freeBoard__comment--input" name="content" />
@@ -88,5 +90,13 @@
     <footer class="footer__serviceInfo">
       <script src="/views/js/footer.js"></script>
     </footer>
+
+    <script src="/customs/constant.js"></script>
+    <script>
+      const url = location.href;
+      const urlArray = url.split(`${FRONT_URL}/board/`);
+      const boardIndex = urlArray[1];
+      console.log(boardIndex);
+    </script>
   </body>
 </html>

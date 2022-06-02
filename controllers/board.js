@@ -38,7 +38,7 @@ export async function detailBoardController(req, res) {
       "Content-Security-Policy":
         "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
     });
-    return res.status(OK).sendFile(path.join(__dirname, "views", "html", "free_board_write.html"));
+    return res.status(OK).sendFile(path.join(__dirname, "views", "html", "free_board_detail.html"));
   } catch (err) {
     return res.status(INTERNAL_SERVER_ERROR).end();
   }

@@ -1,6 +1,7 @@
 /*
 게시글 상세 조회
 1. 게시글 내용
+2. 수정, 삭제버튼 컨테이너와 버튼
 2. 게시글 좋아요 누르기 아이콘
 3. 해당 게시글에 댓글 달 댓글 컨테이너(댓글 title/input/댓글입력 버튼)
  */
@@ -13,6 +14,17 @@
   border-radius: 10px;
   text-align: center;
   line-height: 23px;
+}
+/* 수정하기, 삭제하기 버튼 관리해줄 컨테이너 */
+.container__freeBoard--authorization {
+  align-self: self-end;
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+}
+/* 수정하기, 삭제하기 버튼 */
+.button__freeBoard{
+  margin: 0px 5px;
 }
 /* 게시글 좋아요 누르기 아이콘 */
 .freeBoard__board--giveLove {
@@ -46,7 +58,7 @@
 /* 댓글 input */
 .freeBoard__comment--input {
   font-size: 12px;
-    width: 70%;
+  width: 70%;
   background: none;
   outline: none;
   padding-left: 20px;

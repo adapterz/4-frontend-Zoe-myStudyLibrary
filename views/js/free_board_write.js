@@ -1,8 +1,11 @@
+// 게시글 작성 html 에 쓰일 js 코드
 // 제목 글자수 체크
 async function checkTitleLength(titleElement) {
   const length = titleElement.value.length;
   document.getElementsByClassName("container__title--length")[0].innerHTML = `(${length}/50)`;
+  // 50글자 이상일 때
   if (length > 50) {
+    // 50글자 넘었을 때 49글자 짤라서 제목 입력창에 넣어주기
     const substring = titleElement.value.substring(0, 49);
     titleElement.value = substring;
     const length = titleElement.value.length;
@@ -14,8 +17,10 @@ async function checkTitleLength(titleElement) {
 async function checkContentLength(contentElement) {
   const length = contentElement.value.length;
   document.getElementsByClassName("container__content--length")[0].innerHTML = `(${length}/5000)`;
+  // 5000글자 이상일 때
   if (length >= 5000) {
-    const substring = contentElement.value.substring(0, 4998);
+    // 5000글자 넘었을 때 49글자 짤라서 제목 입력창에 넣어주기
+    const substring = contentElement.value.substring(0, 4999);
     contentElement.value = substring;
     const length = contentElement.value.length;
     document.getElementsByClassName("container__content--length")[0].innerHTML = `(${length}/5000)`;
@@ -24,6 +29,7 @@ async function checkContentLength(contentElement) {
 }
 // 태그 체크
 async function checkTagValidation(tagElement) {
+  // TODO isValidated 에 대한 설명
   let isValidated = true;
   const tagArray = tagElement.value.split("#");
   tagArray.shift();
@@ -82,7 +88,7 @@ async function writePost(postTitle, postContent, tag) {
   }
   // 그 외의 에러
   if (backendResult.state !== LOGIN_REQUIRED && backendResult.state !== REQUEST_SUCCESS) {
-    const result = await sweetAlert(
+    await sweetAlert(
       ERROR,
       "글 작성 실패",
       "예상치 못한 에러입니다.",

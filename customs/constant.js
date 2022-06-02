@@ -1,5 +1,6 @@
-// 백엔드서버 url
+// 서버 url
 const BACKEND_URL = "http://localhost:13414";
+const FRONT_URL = "http://localhost:37866";
 // HTTP 메서드
 const GET = "GET";
 const POST = "POST";
