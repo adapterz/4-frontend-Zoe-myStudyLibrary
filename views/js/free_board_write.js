@@ -28,6 +28,11 @@ async function checkTagValidation(tagElement) {
   const tagArray = tagElement.value.split("#");
   tagArray.shift();
   // 유효성 체크
+  if (tagElement.value.length === 0) {
+    tagElement.setCustomValidity("");
+    tagElement.reportValidity();
+    return;
+  }
   // 첫 글자 #으로 시작하는지
   if (tagElement.value.substring(0, 1) !== "#") {
     tagElement.setCustomValidity("첫글자는 #으로 시작해주세요.");
