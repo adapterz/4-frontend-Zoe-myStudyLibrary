@@ -46,6 +46,11 @@ const DUPLICATED_NICKNAME = "duplicated_nickname";
 
 // 글작성
 const NOT_EXIST = "not_exist";
+
+// 특정 게시글 조회
+const FAVORITE = "favorite +1";
+const CANCEL_FAVORITE = "cancel_favorite";
+
 // sweetAlert icon
 const INFO = "info";
 const ERROR = "error";

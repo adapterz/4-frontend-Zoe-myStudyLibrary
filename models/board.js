@@ -172,7 +172,7 @@ async function deletePost(boardIndex) {
 
 // 3. 좋아요/검색기능
 // 3-1. 게시글 좋아요 요청
-async function favoritePost(boardIndex) {
+async function favoritePostRequest(boardIndex) {
   try {
     const options = {
       mode: "cors",

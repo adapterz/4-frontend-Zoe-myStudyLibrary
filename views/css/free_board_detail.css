@@ -44,7 +44,10 @@
   height: 65px;
   margin-top: 5%;
   align-self: center;
+  border: none;
+  background-color: #ffffff;
 }
+
 .freeBoard__board--giveLoveImg {
   width: 60px;
   height: 60px;
