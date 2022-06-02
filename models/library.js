@@ -1,70 +1,54 @@
-// 도서관 모델
-// 외장모듈
-import querystring from "query-string";
-import fetch from "isomorphic-fetch";
-// 내장모듈
-import { OK } from "../customModule/statusCode.js";
 /*
  * 1. 전체도서관 정보
  * 2. 입력한 지역의 도서관 정보
  * 3. 특정 인덱스의 도서관 정보
  */
-// 1. 전체 도서관 정보 불러오는 모델
-
-export async function allLibraryModel(ip) {
+// 1. 전체 도서관 정보 불러오기
+async function getEntireLibraryData() {
   try {
-    const backendResponse = await fetch(BACKEND_URL + "/library", {
+    const options = {
       mode: "cors",
       credentials: "include",
-      headers: {
-        "Access-Control-Allow-Headers": " Referrer-Policy",
-        "Referrer-Policy": "strict-origin-when-cross-origin",
-      },
-    });
-    console.log(backendResponse);
-    console.log(backendResponse.headers);
-    const jsonData = await backendResponse.json();
-    return jsonData;
-  } catch {
-    return { state: "fail_fetch" };
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/library`, options);
+    const entireLibraryData = await backendResponse.json();
+    return entireLibraryData;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
   }
 }
-
-// 2. 입력한 지역에 따라 도서관 정보주는 모델
-export async function localLibraryModel(reqQuery, ip) {
+// 2. 입력한 지역에 따라 도서관 정보 불러오기
+async function getLocalLibraryData(nameOfCity, districts) {
   try {
-    const backendResponse = await fetch(
-      BACKEND_URL + "/library/search?" + decodeURIComponent(querystring.stringify(reqQuery)),
-      {
-        credentials: "include",
-        headers: {
-          "Access-Control-Allow-Headers": " Referrer-Policy",
-          "Referrer-Policy": "strict-origin-when-cross-origin",
-        },
-      }
-    );
-    const jsonData = await backendResponse.json();
-    return jsonData;
-  } catch {
-
-    return { state: "fail_fetch" };
-  }
-}
-
-// 3. 특정 도서관 정보 가져오는 모델
-export async function detailLibraryModel(libraryIndex, ip) {
-  try {
-    const backendResponse = await fetch(BACKEND_URL + "/library/librarys/" + libraryIndex, {
+    const options = {
+      mode: "cors",
       credentials: "include",
-      headers: {
-        "Access-Control-Allow-Headers": " Referrer-Policy",
-        "Referrer-Policy": "strict-origin-when-cross-origin",
-      },
-    });
-    const jsonData = await backendResponse.json();
+    };
+    const backendResponse = await fetch(
+      `${BACKEND_URL}/library/search?nameOfCity=${nameOfCity}&districts=${districts}`,
+      options
+    );
+    const localLibraryData = await backendResponse.json();
+    return localLibraryData;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
+  }
+}
+// 3. 특정 도서관 정보 가져오기
+async function getDetailLibraryData(libraryIndex) {
+  try {
+    const options = {
+      mode: "cors",
+      credentials: "include",
+    };
+    const backendResponse = await fetch(`${BACKEND_URL}/library/librarys/${libraryIndex}`, options);
 
-    return jsonData;
-  } catch {
-    return { state: "fail_fetch" };
+    const localLibraryData = await backendResponse.json();
+    return localLibraryData;
+  } catch (err) {
+    console.log(`FETCH ERROR: ${err}`);
+    return { state: FAIL_FETCH };
   }
 }

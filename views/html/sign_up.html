@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- fetch -->
-    <script src="/data/constant.js"></script>
-    <script src="/data/user.js" type="text/javascript"></script>
     <title>myStudyLibrary 회원가입</title>
     <style>
       @import url("/views/css/reset.css");
@@ -15,50 +12,12 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
-
-    <script>
-      // 로그인 여부 체크
-      async function checkLogin() {
-        const result = await getUserInfo();
-        // 로그인 이미 했을 때 다른 경로로 이동
-        if (result.state !== LOGIN_REQUIRED) {
-          location.href = "/authorized";
-        }
-      }
-      checkLogin();
-      // 로그인 버튼 눌렀을 때
-      async function signUp(id, pw, confirmPw, name, phoneNumber, nickname, gender) {
-        const result = await signUpRequest(id, pw, confirmPw, name, nickname, phoneNumber, gender);
-        if (result.error !== undefined) {
-          alert(`plz change ${result.error}`);
-        } else {
-          alert(result.state);
-        }
-        // 로그인 성공 혹은 이미 로그인 된 상태일 때 홈페이지로 이동
-        if (result.state === SIGN_UP) {
-          const link = "/";
-          location.href = link;
-        }
-      }
-    </script>
   </head>
   <body>
-    <!-- 맨 위에 메뉴바 -->
-    <nav class="gmb">
-      <!-- 로고 -->
-      <a href="/">
-        <div class="gmb__logo">
-          <img class="gmb__logo--img" src="/views/img/logo.png" alt="서비스 로고입니다." />
-          myStudyLibrary
-        </div>
-      </a>
-      <!-- 메뉴 -->
-      <ul class="gmb__menu">
-        <li><a href="">주변도서관</a></li>
-        <li><a href="">자유게시판</a></li>
-        <li><a href="">내가작성한글</a></li>
-      </ul>
-    </nav>
+    <!-- gmb -->
+    <header>
+      <script src="/views/js/header.js"></script>
+    </header>
     <section class="container">
       <form
         class="container__signUp"
@@ -67,6 +26,7 @@
         ;
       >
         <h2 class="container__signUp--title">회원가입</h2>
+        <h3 class="container__signUp--subtitle">?에 마우스를 올려보고 입력조건 확인</h3>
         <input
           type="text"
           placeholder="아이디"
@@ -76,6 +36,12 @@
           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,20}$"
           title="아이디: 5 ~ 20글자 사이의 문자와 숫자 조합 입력"
         />
+        <nav class="container__signUp--tooltip">
+          <li>❔</li>
+          <li class="container__signUp--tooltipText">
+            <p>아이디: 5 ~ 20글자 사이의 문자와 숫자 조합 입력</p>
+          </li>
+        </nav>
         <input
           type="password"
           placeholder="비밀번호"
@@ -85,14 +51,26 @@
           pattern="^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$"
           title="비밀번호: 8 ~ 16글자 사이의 문자, 숫자, 특수문자 조합"
         />
+        <nav class="container__signUp--tooltip">
+          <li>❔</li>
+          <li class="container__signUp--tooltipText">
+            <p>비밀번호: 8 ~ 16글자 사이의 문자, 숫자, 특수문자 조합</p>
+          </li>
+        </nav>
         <input
           type="password"
           placeholder="비밀번호확인"
           class="container__signUp--input"
           name="confirmPw"
           required
-          title="비밀번호확인"
+          oninput="checkValidation(this,document.getElementsByName('pw')[0])"
         />
+        <nav class="container__signUp--tooltip">
+          <li>❔</li>
+          <li class="container__signUp--tooltipText">
+            <p>비밀번호 확인, 비밀번호와 일치시켜주세요.</p>
+          </li>
+        </nav>
         <input
           type="text"
           placeholder="이름"
@@ -104,15 +82,27 @@
           maxlength="30"
           title="이름: 1 ~ 30글자 사이의 한글 입력"
         />
+        <nav class="container__signUp--tooltip">
+          <li>❔</li>
+          <li class="container__signUp--tooltipText">
+            <p>이름: 1 ~ 30글자 사이의 한글 입력</p>
+          </li>
+        </nav>
         <input
           type="text"
           placeholder="연락처(휴대전화)"
           class="container__signUp--input"
           name="phoneNumber"
           required
-          pattern="^01([0|1|6|7|8|9])?([0-9]{3,4})?([0-9]{4})$"
+          pattern="^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})$"
           title="연락처: (-)없이 01012345678 형태 입력"
         />
+        <nav class="container__signUp--tooltip">
+          <li>❔</li>
+          <li class="container__signUp--tooltipText">
+            <p>연락처: (-)없이 01012345678 형태 입력</p>
+          </li>
+        </nav>
         <input
           type="text"
           placeholder="닉네임"
@@ -122,8 +112,14 @@
           pattern="^[가-힣|a-z|A-Z|0-9]+$"
           title="닉네임: 2~8글자 사이의 한글, 숫자, 영어 (공백 불가)"
         />
-        <select class="container__signUp--gender" name="gender" required title="성별">
-          <option value="">성별</option>
+        <nav class="container__signUp--tooltip">
+          <li>❔</li>
+          <li class="container__signUp--tooltipText">
+            <p>닉네임: 2~8글자 사이의 한글, 숫자, 영어 (공백 불가)</p>
+          </li>
+        </nav>
+        <select class="container__signUp--gender" name="gender" title="성별">
+          <option value="">성별 선택</option>
           <option value="여">여</option>
           <option value="남">남</option>
         </select>
@@ -132,11 +128,15 @@
     </section>
     <!-- footer -->
     <footer class="footer__serviceInfo">
-      (주) myStudyLibrary
-      <br />
-      <pre> 대표: 김예지</pre>
-      <br />
+      <script src="/views/js/footer.js"></script>
     </footer>
-    <main></main>
+    <!-- fetch -->
+    <script src="/customs/constant.js"></script>
+    <script src="/models/user.js" type="text/javascript"></script>
+    <!-- sweetAlert2 -->
+    <script src="/views/js/sweetalert2.js" type="text/javascript"></script>
+    <script src="/views/js/custom.js" type="text/javascript"></script>
+
+    <script src="/views/js/sign_up.js" type="text/javascript"></script>
   </body>
 </html>

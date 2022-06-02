@@ -18,15 +18,15 @@ import { fileURLToPath } from "url";
 
 // 내장모듈
 // 날짜/시간 관련 모듈
-import { moment } from "./customModule/dateTime.js";
+import { moment } from "./customs/dateTime.js";
 
 // 라우터
 import boardRouter from "./routes/board.js";
-import commentRouter from "./routes/comment.js";
-import libraryRouter from "./routes/library.js";
-import reviewRouter from "./routes/review.js";
+// import commentRouter from "./routes/comment.js";
+// import libraryRouter from "./routes/library.js";
+// import reviewRouter from "./routes/review.js";
 import userRouter from "./routes/user.js";
-import { OK } from "./customModule/statusCode.js";
+import { OK } from "./customs/statusCode.js";
 
 // 각종 모듈 설정
 // 디도스 방어 모듈 설정(요청 제한)
@@ -46,16 +46,12 @@ app.use(helmet());
 app.use(apiLimiter);
 
 // 경로별로 라우팅
-app.use("/comment", commentRouter);
-app.use("/library", libraryRouter);
-app.use("/review", reviewRouter);
+// app.use("/comment", commentRouter);
+// app.use("/library", libraryRouter);
+// app.use("/review", reviewRouter);
 app.use("/user", userRouter);
 app.use("/board", boardRouter);
 
-// 정적 파일 경로
-app.use("/data", express.static("data"));
-app.use("/views", express.static("views"));
-app.use("/models", express.static("models"));
 
 // 서버 시작
 app.listen(process.env.PORT, () => {
@@ -67,6 +63,11 @@ export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
 export const basename = path.basename(__filename);
 
+// 정적 파일 경로
+app.use("/views", express.static(path.join(__dirname, "views")));
+app.use("/models", express.static(path.join(__dirname, "models")));
+app.use("/customs", express.static(path.join(__dirname, "customs")));
+
 // 홈
 // 로그인 했을 때
 app.get("/", (req, res) => {
@@ -75,7 +76,7 @@ app.get("/", (req, res) => {
   });
   res.header({
     "Content-Security-Policy":
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
   });
   res.status(OK).sendFile(path.join(__dirname, "views", "html", "home(not_login).html"));
 });
@@ -86,7 +87,7 @@ app.get("/authorized", (req, res) => {
   });
   res.header({
     "Content-Security-Policy":
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
   });
   res.status(OK).sendFile(path.join(__dirname, "views", "html", "home(login).html"));
 });

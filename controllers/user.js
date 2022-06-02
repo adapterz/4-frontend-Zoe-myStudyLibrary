@@ -1,6 +1,6 @@
 // 유저 컨트롤러
 // 내장모듈
-import { BAD_REQUEST, CONFLICT, CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../customModule/statusCode.js";
+import { BAD_REQUEST, CONFLICT, CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../customs/statusCode.js";
 import path from "path";
 import { __dirname } from "../app.js";
 /*
@@ -83,7 +83,7 @@ export async function loginController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "login.html"));
   } catch (err) {
@@ -94,17 +94,17 @@ export async function loginController(req, res) {
 // 3. 관심도서관 조회/등록/삭제
 // 3-1. 관심도서관 조회
 export async function userLibraryController(req, res) {
-  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 models 실행결과
   const modelResult = await userLibraryModel(req.ip);
 }
 // 3-2. 관심도서관 등록
 export async function registerUserLibraryController(req, res) {
-  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 models 실행결과
   const modelResult = await registerUserLibraryModel(req.ip);
 }
 // 3-3. 관심도서관 삭제
 export async function deleteUserLibraryController(req, res) {
-  // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+  // 백엔드 서버로부터 요청에 대한 응답받아오는 models 실행결과
   const modelResult = await deleteUserLibraryModel(req.ip);
 }
  */

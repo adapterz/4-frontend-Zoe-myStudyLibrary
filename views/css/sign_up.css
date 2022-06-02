@@ -3,10 +3,10 @@
 1. 회원가입 전체 컨테이너
 2. 회원가입 form 컨테이너
 2-1. 회원가입 title
-2-2. 입력(input) 설정
-2-3. gender 셀렉트박스 설정
-2-4. 제출 버튼
-2-5. 유효하지 않을 때
+2-2. 입력(input)창 설정
+2-3. 유효성 설명 툴팁
+2-4. gender 셀렉트박스 설정
+2-5. 제출 버튼
 */
 /* 회원가입 페이지 전체 컨테이너 */
 .container {
@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 150vh;
+  min-height: 200vh;
 }
 
 /* 회원가입 form 컨테이너 */
@@ -27,8 +27,8 @@
   align-items: center;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  width: 250px;
-  height: 950px;
+  width: 300px;
+  height: 1200px;
 }
 
 /* 회원가입 컨테이너 title */
@@ -39,8 +39,13 @@
   font-size: 1.5rem;
 }
 
-/* 회원가입 컨테이너 입력(input) 설정 */
+.container__signUp--subtitle {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  color: dimgray;
+  font-size: 1rem;
+}
 
+/* 회원가입 컨테이너 입력(input) 설정 */
 .container__signUp--input {
   font-size: 12px;
   background: none;
@@ -53,9 +58,10 @@
   border-radius: 40px;
   border: solid 1px #ffc400;
 }
-.container__signUp--input:required:invalid {
+
+/* 유효하지 않을 때 */
+.container__signUp--input:focus:invalid {
   font-size: 12px;
-  background: none;
   text-align: center;
   outline: none;
   padding: 20px;
@@ -63,11 +69,13 @@
   width: 50%;
   height: 0.5em;
   border-radius: 40px;
-  border: solid 1px #ffc400;
+  border: solid 1px lightcoral;
+  background: url("/views/img/warning.png") no-repeat 90% 50% #ffafb0;
+  background-size: 2em 2em;
 }
 
 /* 유효할 때 */
-.container__signUp--input:required:valid {
+.container__signUp--input:valid {
   font-size: 12px;
   text-align: center;
   outline: none;
@@ -77,8 +85,34 @@
   height: 0.5em;
   border-radius: 40px;
   border: 1px solid darkseagreen;
+  background: url("/views/img/check.png") no-repeat 90% 50% #e2ffaf;
+  background-size: 2em 2em;
 }
 
+/* 유효성 설명 툴팁 */
+.container__signUp--tooltip {
+  color: white;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+.container__signUp--tooltip .container__signUp--tooltipText {
+  visibility: hidden;
+  display: block;
+  font-size: 12px;
+  line-height: 2em;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+}
+.container__signUp--tooltip:hover .container__signUp--tooltipText {
+  visibility: visible;
+}
 /* 회원가입 성별 select 박스 설정 */
 .container__signUp--gender {
   font-size: 12px;
@@ -92,6 +126,8 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background: url("/views/img/arrow.png") no-repeat 90% 50% white;
+  background-size: 2em 2em;
 }
 /* 회원가입 컨테이너 제출 버튼 */
 .container__signUp--submit {
@@ -102,7 +138,7 @@
   margin: 10%;
   color: #fff;
   background-color: lightsalmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   font-weight: bold;
   border-radius: 20px;
@@ -116,7 +152,7 @@
   margin: 20px;
   padding: 5px;
   background-color: salmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
   font-weight: bold;

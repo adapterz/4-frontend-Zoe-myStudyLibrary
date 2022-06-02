@@ -79,7 +79,7 @@ main 구성요소
   height: 40px;
   color: #fff;
   background-color: lightsalmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   font-size: 15px;
   font-weight: bold;
@@ -93,7 +93,7 @@ main 구성요소
   width: 70px;
   padding: 10px;
   background-color: salmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
   font-size: 14px;
@@ -109,7 +109,7 @@ main 구성요소
   height: 40px;
   color: #fff;
   background-color: lightsalmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   font-size: 15px;
   font-weight: bold;
@@ -124,7 +124,7 @@ main 구성요소
   padding: 5px;
   height: 40px;
   background-color: salmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
   font-size: 14px;
@@ -188,7 +188,7 @@ main 구성요소
   height: 40px;
   color: #fff;
   background-color: lightsalmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   font-size: 16px;
   font-weight: bold;
@@ -200,7 +200,7 @@ main 구성요소
   height: 40px;
   padding: 10px;
   background-color: salmon;
-  border: 1px solid #d6e9c6;
+  border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
   font-size: 16px;

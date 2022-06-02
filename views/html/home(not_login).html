@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="/data/constant.js"></script>
-    <script src="/data/user.js" type="text/javascript"></script>
-    <script src="/data/board.js" type="text/javascript"></script>
-    <script src="/data/wise_saying.js" type="text/javascript"></script>
     <title>myStudyLibrary 홈페이지</title>
     <style>
       @import url("/views/css/reset.css");
@@ -16,54 +12,12 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
-    <script>
-      // 로그인 체크 필요(최초 한번 체크)
-      async function checkLogin() {
-        const result = await getUserInfo();
-        // 이미 로그인 했을 때 다른페이지로 이동
-        if (result.state !== LOGIN_REQUIRED) {
-          location.href = "/authorized";
-        }
-      }
-      checkLogin();
-
-      // 데이터 가져오기
-      async function page() {
-        // 최근 게시판 정보
-        const boardResult = await getRecentBoard();
-        // 최근 게시판 정보 파싱
-        for (let num in boardResult) {
-          document.getElementsByClassName("home__board--title")[num].innerHTML = `${boardResult[num].postTitle}`;
-          document.getElementsByClassName("home__board--nickname")[
-            num
-          ].innerHTML = `작성자: ${boardResult[num].nickname}`;
-        }
-        // 명언 정보
-        const wiseSayingResult = await getWiseSaying();
-        // 명언 정보 파싱
-        document.getElementsByClassName("home__wiseSaying--content")[0].innerHTML = wiseSayingResult.wiseSayingContent;
-        document.getElementsByClassName("home__wiseSaying--celebrity")[0].innerHTML = wiseSayingResult.celebrity;
-      }
-      page();
-    </script>
   </head>
   <body>
-    <!-- 맨 위에 메뉴바 -->
-    <nav class="gmb">
-      <!-- 로고 -->
-      <a href="/">
-        <div class="gmb__logo">
-          <img class="gmb__logo--img" src="/views/img/logo.png" alt="서비스 로고입니다." />
-          myStudyLibrary
-        </div>
-      </a>
-      <!-- 메뉴 -->
-      <ul class="gmb__menu">
-        <li><a href="">주변도서관</a></li>
-        <li><a href="">자유게시판</a></li>
-        <li><a href="">내가작성한글</a></li>
-      </ul>
-    </nav>
+    <!-- gmb -->
+    <header>
+      <script src="/views/js/header.js"></script>
+    </header>
     <main class="home">
       <!-- 배경사진 -->
       <section class="home__card">
@@ -78,36 +32,38 @@
       <article class="home__board">
         <p class="home__category">📋 자유게시판 - 최신글</p>
         <nav>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a href=""
-              ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
+          <ul>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><p class="home__board--title">글을 작성해주세요!</p>
+                <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
+              >
+            </li>
+          </ul>
         </nav>
       </article>
       <!-- 동기부여용 명언 -->
@@ -123,11 +79,14 @@
     </main>
     <!-- footer -->
     <footer class="footer__serviceInfo">
-      (주) myStudyLibrary
-      <br />
-      <pre> 대표: 김예지</pre>
-      <br />
+      <script src="/views/js/footer.js"></script>
     </footer>
-    <main></main>
+    <!-- fetch -->
+    <script src="/customs/constant.js"></script>
+    <script src="/models/user.js" type="text/javascript"></script>
+    <script src="/models/board.js" type="text/javascript"></script>
+    <script src="/models/wise_saying.js" type="text/javascript"></script>
+
+    <script src="/views/js/home(not_login).js" type="text/javascript"></script>
   </body>
 </html>

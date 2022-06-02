@@ -6,7 +6,7 @@ import { allLibraryController, detailLibraryController, localLibraryController }
 import * as path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
-import { OK } from "../customModule/statusCode.js";
+import { OK } from "../services/statusCode.js";
 
 // 라우터 변수
 const router = express.Router();

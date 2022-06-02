@@ -1,7 +1,7 @@
 // 도서관 컨트롤러
 // 내장모듈
 import { allLibraryModel, detailLibraryModel, localLibraryModel } from "../models/library.js";
-import { INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../customModule/statusCode.js";
+import { INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../services/statusCode.js";
 /*
  * 1. 전체도서관 정보
  * 2. 입력한 지역의 도서관 정보
@@ -13,11 +13,11 @@ import { INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../customModule/statusCode
 // 1. 전체 도서관 정보
 export async function allLibraryController(req, res) {
   try {
-    // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+    // 백엔드 서버로부터 요청에 대한 응답받아오는 models 실행결과
     console.log("##### 전체도서관 로그 찍기 ######".rainbow);
     const modelResult = await allLibraryModel(req.ip);
     // 모델 실행결과에 따른 분기처리
-    // model 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
+    // models 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
     if (modelResult.state === "fail-fetch") return res.status(INTERNAL_SERVER_ERROR).end();
     // 백엔드 서버의 sequelize query 메서드 실패
     if (modelResult.state === "fail_sequelize") return res.status(INTERNAL_SERVER_ERROR).json(modelResult);
@@ -45,7 +45,7 @@ export async function allLibraryController(req, res) {
 // 2. 내가 사는 지역을 입력하면 주변 도서관 정보를 주는 메서드
 export async function localLibraryController(req, res) {
   try {
-    // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+    // 백엔드 서버로부터 요청에 대한 응답받아오는 models 실행결과
     const modelResult = await localLibraryModel(req.query, req.ip);
     // 모델 실행 결과에 따른 분기처리
     // 유효하지 않은 req.query(queryString) 으로 요청했을 때
@@ -54,7 +54,7 @@ export async function localLibraryController(req, res) {
       console.log(modelResult.state);
       return res.status(OK).json(modelResult);
     }
-    // model 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
+    // models 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
     if (modelResult.state === "fail-fetch") return res.status(INTERNAL_SERVER_ERROR).end();
     // 백엔드 서버의 sequelize query 메서드 실패
     if (modelResult.state === "fail_sequelize") return res.status(INTERNAL_SERVER_ERROR).json(modelResult);
@@ -88,7 +88,7 @@ export async function localLibraryController(req, res) {
 // 3. 특정 도서관인덱스의 도서관 정보 응답
 export async function detailLibraryController(req, res) {
   try {
-    // 백엔드 서버로부터 요청에 대한 응답받아오는 model 실행결과
+    // 백엔드 서버로부터 요청에 대한 응답받아오는 models 실행결과
     const modelResult = await detailLibraryModel(req.params.libraryIndex, req.ip);
     // 모델 실행 결과에 따른 분기처리
     // 유효하지 않은 req.params 으로 요청했을 때
@@ -97,7 +97,7 @@ export async function detailLibraryController(req, res) {
       console.log(modelResult.state);
       return res.status(OK).json(modelResult);
     }
-    // model 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
+    // models 에서 fetch 메서드를 통해 백엔드 서버에서 데이터 가져오는 것을 실패했을 때
     if (modelResult.state === "fail-fetch") return res.status(INTERNAL_SERVER_ERROR).end();
     // 백엔드 서버의 sequelize query 메서드 실패
     if (modelResult.state === "fail_sequelize") return res.status(INTERNAL_SERVER_ERROR).json(modelResult);

@@ -1,0 +1,39 @@
+/* 회원가입 약관동의 페이지 전체 컨테이너 */
+.container {
+  padding: 20px 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 110vh;
+}
+.container__terms--title {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.container__terms--subtitle {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 1px solid #9b9b9b;
+  line-height: 70px;
+  margin-bottom: 10px;
+}
+
+.container__terms--content {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+  font-size: 20px;
+  line-height: 35px;
+}
+
+/* 5. 반응형 디자인 */
+@media screen and (max-width: 1800px) {
+  .container {
+    padding: 2% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
