@@ -26,7 +26,7 @@ import boardRouter from "./routes/board.js";
 // import libraryRouter from "./routes/library.js";
 // import reviewRouter from "./routes/review.js";
 import userRouter from "./routes/user.js";
-import { OK } from "./customs/statusCode.js";
+import { BACKEND_URL, OK } from "./customs/constant.js";
 
 // 각종 모듈 설정
 // 디도스 방어 모듈 설정(요청 제한)
@@ -52,7 +52,6 @@ app.use(apiLimiter);
 app.use("/user", userRouter);
 app.use("/board", boardRouter);
 
-
 // 서버 시작
 app.listen(process.env.PORT, () => {
   console.log(("Start Frontend Server at" + moment().format(" YYYY-MM-DD HH:mm:ss")).rainbow.bold);
@@ -72,7 +71,7 @@ app.use("/customs", express.static(path.join(__dirname, "customs")));
 // 로그인 했을 때
 app.get("/", (req, res) => {
   res.header({
-    "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
   });
   res.header({
     "Content-Security-Policy":
@@ -83,7 +82,7 @@ app.get("/", (req, res) => {
 // 로그인 안했을 때
 app.get("/authorized", (req, res) => {
   res.header({
-    "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+    "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
   });
   res.header({
     "Content-Security-Policy":

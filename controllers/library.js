@@ -1,7 +1,7 @@
 // 도서관 컨트롤러
 // 내장모듈
 import { allLibraryModel, detailLibraryModel, localLibraryModel } from "../models/library.js";
-import { INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../services/statusCode.js";
+import { INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../services/constant.js";
 /*
  * 1. 전체도서관 정보
  * 2. 입력한 지역의 도서관 정보

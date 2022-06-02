@@ -1,6 +1,14 @@
 // 유저 컨트롤러
 // 내장모듈
-import { BAD_REQUEST, CONFLICT, CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../customs/statusCode.js";
+import {
+  BACKEND_URL,
+  BAD_REQUEST,
+  CONFLICT,
+  CREATED,
+  INTERNAL_SERVER_ERROR,
+  NOT_FOUND,
+  OK
+} from "../customs/constant.js";
 import path from "path";
 import { __dirname } from "../app.js";
 /*
@@ -17,7 +25,7 @@ import { __dirname } from "../app.js";
 export async function signUpGuideController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":
@@ -33,7 +41,7 @@ export async function signUpGuideController(req, res) {
 export async function termsController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":
@@ -48,7 +56,7 @@ export async function termsController(req, res) {
 export async function signUpController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":
@@ -63,7 +71,7 @@ export async function signUpController(req, res) {
 export async function dropOutController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":
@@ -79,7 +87,7 @@ export async function dropOutController(req, res) {
 export async function loginController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":
@@ -114,7 +122,7 @@ export async function deleteUserLibraryController(req, res) {
 export async function editProfileNicknameController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":
@@ -129,7 +137,7 @@ export async function editProfileNicknameController(req, res) {
 export async function editProfileImageController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":
@@ -144,7 +152,7 @@ export async function editProfileImageController(req, res) {
 export async function editPhoneNumberController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":
@@ -159,7 +167,7 @@ export async function editPhoneNumberController(req, res) {
 export async function editPwController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":
@@ -175,7 +183,7 @@ export async function editPwController(req, res) {
 export async function getUserController(req, res) {
   try {
     res.header({
-      "Content-Security-Policy": "default-src 'self'; connect-src http://localhost:13414",
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
     });
     res.header({
       "Content-Security-Policy":

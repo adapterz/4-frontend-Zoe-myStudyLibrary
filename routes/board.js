@@ -14,9 +14,9 @@ const router = express.Router()
 
 // 1. 전체 게시물 목록보기
 router.get("/", entireBoardController)
-// 2. 최초 게시글 작성 요청
-router.get("/write", writeBoardController)
-// 3. 각 게시물 상세보기
+// 2. 각 게시물 상세보기
 router.get("/:boardIndex", detailBoardController)
+// 3. 최초 게시글 작성 요청
+router.get("/write", writeBoardController)
 // 모듈화
 export default router
