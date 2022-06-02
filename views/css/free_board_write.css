@@ -2,9 +2,10 @@
 게시글 작성 페이지
 1. 게시글 작성 form 컨테이너
 2. 글제목/글내용/태그 input 설정
-3. 글자수 컴포넌트
-4. 글작성 버튼
-5. 반응형 디자인
+3. 제목/내용 글자수 컴포넌트
+4. 태그 유효성 툴팁
+5. 글작성 버튼
+6. 반응형 디자인
  */
 /* 게시글작성 form 컨테이너 */
 .container__write {
@@ -19,6 +20,7 @@
 }
 /* 글제목/글내용/태그 input 창 설정 */
 .container__write--title {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
   font-size: 15px;
   background: none;
   padding-left: 20px;
@@ -31,6 +33,7 @@
   border: solid 1px dimgray;
 }
 .container__write--content {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
   font-size: 15px;
   background: none;
   outline: none;
@@ -45,6 +48,7 @@
   border: solid 1px dimgray;
 }
 .container__write--tag {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
   font-size: 15px;
   background: none;
   padding-left: 20px;
@@ -64,6 +68,32 @@
 .container__content--length {
   align-self: self-end;
   margin: 2px 0px;
+}
+/* 태그 유효성 툴팁 *.
+
+/* 유효성 설명 툴팁 */
+.container__tag--tooltip {
+  color: white;
+  align-items: center;
+  justify-self: center;
+  align-self: self-start;
+  text-align: center;
+}
+.container__tag--tooltip .container__tag--tooltipText {
+  visibility: hidden;
+  display: block;
+  font-size: 12px;
+  line-height: 2em;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+}
+.container__tag--tooltip:hover .container__tag--tooltipText {
+  visibility: visible;
 }
 /* 글작성 확인 버튼 */
 .container__write--submit {
