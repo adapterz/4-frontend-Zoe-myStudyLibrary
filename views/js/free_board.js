@@ -9,7 +9,7 @@ window.onscroll = async function () {
     let boardResult;
     if (isEntire === true) {
       boardResult = await getEntireBoard(entirePage++);
-      if (boardResult.state !== NOT_EXIST) {
+      if (boardResult[0] !==undefined) {
         // 전체 게시물 목록 불러오기
         for (let index in boardResult) {
           await addPost(
@@ -21,11 +21,17 @@ window.onscroll = async function () {
             boardResult[index].boardIndex
           );
         }
+      } else if (boardResult.state !== NOT_EXIST) {
+        const result = await sweetAlert(
+          ERROR,
+          "게시판 불러오기 실패",
+          "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+        );
       }
     } else {
       boardResult = await getSearchBoard(scrollSearchOption, scrollSearchContent, scrollSearchPage++);
 
-      if (boardResult.state !== NOT_EXIST) {
+      if (boardResult[0] !==undefined) {
         // 전체 게시물 목록 불러오기
         for (let index in boardResult) {
           await addPost(
@@ -37,6 +43,12 @@ window.onscroll = async function () {
             boardResult[index].boardIndex
           );
         }
+      } else if (boardResult.state !== NOT_EXIST) {
+        const result = await sweetAlert(
+          ERROR,
+          "게시판 불러오기 실패",
+          "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+        );
       }
     }
   }
@@ -55,7 +67,7 @@ async function entireBoard(page) {
     titleElement.classList.add("freeBoard__board--title");
     titleElement.textContent = "검색결과가 없습니다";
     document.getElementsByClassName("freeBoard__board--list")[0].appendChild(titleElement);
-  } else if (boardResult.state !== NOT_EXIST) {
+  } else if (boardResult[0] !==undefined) {
     // 전체 게시물 목록 불러오기
     for (let index in boardResult) {
       await addPost(
@@ -66,6 +78,16 @@ async function entireBoard(page) {
         boardResult[index].createDate,
         boardResult[index].boardIndex
       );
+    }
+  } else {
+    const result = await sweetAlert(
+      ERROR,
+      "게시판 불러오기 실패",
+      "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+    );
+    if (result) {
+      const link = "/board";
+      location.href = link;
     }
   }
 }
@@ -80,15 +102,14 @@ async function searchBoard(searchOption, searchContent, page) {
   // 검색 결과가 없을 때
   if ((page !== undefined || page === 1) && boardResult.state === NOT_EXIST) {
     // 게시물 리스트 생성
-      const listElement = document.createElement("li");
-      listElement.classList.add("freeBoard__board--list");
-      document.getElementsByClassName("freeBoard__board")[0].appendChild(listElement);
-      const titleElement = document.createElement("p");
-      titleElement.classList.add("freeBoard__board--title");
-      titleElement.textContent = "검색결과가 없습니다";
-      document.getElementsByClassName("freeBoard__board--list")[0].appendChild(titleElement);
-
-  } else if (boardResult.state !== NOT_EXIST) {
+    const listElement = document.createElement("li");
+    listElement.classList.add("freeBoard__board--list");
+    document.getElementsByClassName("freeBoard__board")[0].appendChild(listElement);
+    const titleElement = document.createElement("p");
+    titleElement.classList.add("freeBoard__board--title");
+    titleElement.textContent = "검색결과가 없습니다";
+    document.getElementsByClassName("freeBoard__board--list")[0].appendChild(titleElement);
+  } else if (boardResult[0]!==undefined) {
     isEntire = false;
     scrollSearchPage = 2;
     scrollSearchOption = searchOption;
@@ -103,6 +124,16 @@ async function searchBoard(searchOption, searchContent, page) {
         boardResult[index].createDate,
         boardResult[index].boardIndex
       );
+    }
+  } else {
+    const result = await sweetAlert(
+      ERROR,
+      "게시판 불러오기 실패",
+      "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+    );
+    if (result) {
+      const link = "/board";
+      location.href = link;
     }
   }
 }

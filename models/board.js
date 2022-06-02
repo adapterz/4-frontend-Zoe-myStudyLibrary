@@ -35,12 +35,11 @@ async function getEntireBoard(page) {
     };
     if (page === undefined) backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin`, options);
     else backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin?page=${page}`, options);
-    const recentBoardData = await backendResponse.json();
+    const boardData = await backendResponse.json();
     // 성공적으로 데이터를 가져왔을 때
-    return recentBoardData;
+    return boardData;
 
     // 데이터 정보가져오는 것 실패
-    return recentBoardData;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
