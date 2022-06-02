@@ -53,7 +53,7 @@ async function checkTagValidation(tagElement) {
   else {
     for (let tag of tagArray) {
       if (tag.length < 2 || tag.length > 8) {
-        tagElement.setCustomValidity("하나는 태그는 2~8 글자 사이입니다.");
+        tagElement.setCustomValidity("하나의 태그는 2~8 글자 사이입니다.");
         isValidated = false;
       } else {
         const isMatched = /^[가-힣]+$/.test(tag);
