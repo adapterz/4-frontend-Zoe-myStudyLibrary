@@ -4,7 +4,6 @@ async function checkTitleLength(titleElement) {
   document.getElementsByClassName("container__title--length")[0].innerHTML = `(${length}/50)`;
   if (length > 50) {
     const substring = titleElement.value.substring(0, 49);
-    console.log(substring);
     titleElement.value = substring;
     const length = titleElement.value.length;
     document.getElementsByClassName("container__title--length")[0].innerHTML = `(${length}/50)`;
@@ -47,7 +46,6 @@ async function checkTagValidation(tagElement) {
         isValidated = false;
       } else {
         const isMatched = /^[가-힣]+$/.test(tag);
-        console.log(isMatched);
         if (!isMatched) {
           tagElement.setCustomValidity("태그는 한글로만 작성해주세요(+ 가(o)ㄱ(x))");
           isValidated = false;
