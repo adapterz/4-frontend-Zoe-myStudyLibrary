@@ -53,7 +53,7 @@ async function page() {
     const image = userResult.profileImage;
     const mime = userResult.mime;
     const imageHTML = document.getElementsByClassName("home__user--profileImage")[0];
-    imageHTML.innerHTML = `<img class="home__user--profileImageImg" src="data:${mime};base64,${image}">`;
+    imageHTML.innerHTML = `<img class="home__user--profileImageImg" src="data:${mime};base64,${image}" alt="유저 프로필 사진">`;
   }
 }
 

@@ -50,6 +50,7 @@ const NOT_EXIST = "not_exist";
 // 특정 게시글 조회
 const FAVORITE = "favorite +1";
 const CANCEL_FAVORITE = "cancel_favorite";
+const NOT_AUTHORIZATION = "not_authorization";
 
 // sweetAlert icon
 const INFO = "info";

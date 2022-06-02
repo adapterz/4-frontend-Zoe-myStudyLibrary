@@ -150,7 +150,7 @@ async function editPost(boardIndex, _postTitle, _postContent, _tags) {
 }
 
 // 2-4. 게시글 삭제하기
-async function deletePost(boardIndex) {
+async function deletePostRequest(boardIndex) {
   try {
     const options = {
       mode: "cors",
