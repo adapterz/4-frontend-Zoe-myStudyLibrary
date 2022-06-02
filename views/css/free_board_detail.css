@@ -23,7 +23,7 @@
   text-align: right;
 }
 /* 수정하기, 삭제하기 버튼 */
-.button__freeBoard{
+.button__freeBoard--write{
   margin: 0px 5px;
 }
 /* 게시글 좋아요 누르기 아이콘 */

@@ -5,7 +5,7 @@ let scrollSearchOption;
 let scrollSearchContent;
 // 무한 스크롤링
 window.onscroll = async function () {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 3) {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
     let boardResult;
     if (isEntire === true) {
       boardResult = await getEntireBoard(entirePage++);
@@ -81,13 +81,14 @@ async function searchBoard(searchOption, searchContent, page) {
   // 검색 결과가 없을 때
   if ((page !== undefined || page === 1) && boardResult.state === NOT_EXIST) {
     // 게시물 리스트 생성
-    const listElement = document.createElement("li");
-    listElement.classList.add("freeBoard__board--list");
-    document.getElementsByClassName("freeBoard__board")[0].appendChild(listElement);
-    const titleElement = document.createElement("p");
-    titleElement.classList.add("freeBoard__board--title");
-    titleElement.textContent = "검색결과가 없습니다";
-    document.getElementsByClassName("freeBoard__board--list")[0].appendChild(titleElement);
+      const listElement = document.createElement("li");
+      listElement.classList.add("freeBoard__board--list");
+      document.getElementsByClassName("freeBoard__board")[0].appendChild(listElement);
+      const titleElement = document.createElement("p");
+      titleElement.classList.add("freeBoard__board--title");
+      titleElement.textContent = "검색결과가 없습니다";
+      document.getElementsByClassName("freeBoard__board--list")[0].appendChild(titleElement);
+
   } else if (boardResult.state !== NOT_EXIST) {
     isEntire = false;
     scrollSearchPage = 2;
