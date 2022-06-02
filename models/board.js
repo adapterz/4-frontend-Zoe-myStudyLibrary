@@ -63,8 +63,16 @@ async function getDetailBoard(boardIndex) {
 }
 // 2. 게시글 작성/수정/삭제
 // 2-1. 최초 게시글 작성 요청
-async function reqWritePost(_postTitle, _postContent, _tags) {
+async function writePostRequest(_postTitle, _postContent, tag) {
   try {
+    const _tags = [];
+    // 태그 보내야하는 양식으로 바꿔주기
+    const tagArray = tag.split("#");
+    tagArray.shift();
+    for (let tag of tagArray) {
+      const tempTag = { content: tag };
+      _tags.push(tempTag);
+    }
     const options = {
       mode: "cors",
       method: POST,
@@ -220,17 +228,11 @@ async function getUserBoard(page) {
     };
     // 쿼리스트링에 page 키가 없을 때
     if (page === undefined) {
-      backendResponse = await fetch(
-        `${BACKEND_URL}/board/user`,
-        options
-      );
+      backendResponse = await fetch(`${BACKEND_URL}/board/user`, options);
     }
     // 쿼리스트링에 page 키가 있을 때
     else {
-      backendResponse = await fetch(
-        `${BACKEND_URL}/board/user?page=${page}`,
-        options
-      );
+      backendResponse = await fetch(`${BACKEND_URL}/board/user?page=${page}`, options);
     }
     const getUserBoardResult = backendResponse.json();
     return getUserBoardResult;

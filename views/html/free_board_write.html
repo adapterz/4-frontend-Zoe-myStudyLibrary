@@ -21,7 +21,12 @@
     </header>
     <article class="freeBoard">
       <p class="freeBoard__title">📋 자유게시판 - 글작성</p>
-      <form action="" class="container__write" method="post" onsubmit="return false">
+      <form
+        action=""
+        class="container__write"
+        method="post"
+        onsubmit="writePost(document.getElementsByName('postTitle')[0].value,document.getElementsByName('postContent')[0].value,document.getElementsByName('tags')[0].value);return false"
+      >
         <input
           type="text"
           placeholder="글 제목"
@@ -136,6 +141,33 @@
           tagElement.setCustomValidity("");
         }
         tagElement.reportValidity();
+      }
+      // 글 작성 버튼 클릭시
+      async function writePost(postTitle, postContent, tag) {
+        const backendResult = await writePostRequest(postTitle, postContent, tag);
+        // 로그인 필요(시간이 지나 로그아웃 됐을 경우)
+        if (backendResult.state === LOGIN_REQUIRED) {
+          const result = await sweetAlert(WARNING, "로그인 필요", "새 창에서 로그인 해주세요");
+          window.open("/user/login");
+        }
+
+        // 글 작성 성공
+        if (backendResult.state === REQUEST_SUCCESS) {
+          const result = await sweetAlert(SUCCESS, "글 작성 성공", "글 목록으로 이동합니다.");
+          if (result) {
+            const link = "/board";
+            location.href = link;
+          }
+        }
+        // 그 외의 에러
+        if (backendResult.state !== LOGIN_REQUIRED && backendResult.state !== REQUEST_SUCCESS) {
+          const result = await sweetAlert(
+            ERROR,
+            "글 작성 실패",
+            "예상치 못한 에러입니다.",
+            `서버 메시지: ${backendResult.state}`
+          );
+        }
       }
     </script>
   </body>
