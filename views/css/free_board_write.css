@@ -2,8 +2,9 @@
 게시글 작성 페이지
 1. 게시글 작성 form 컨테이너
 2. 글제목/글내용/태그 input 설정
-3. 글작성 버튼
-4. 반응형 디자인
+3. 글자수 컴포넌트
+4. 글작성 버튼
+5. 반응형 디자인
  */
 /* 게시글작성 form 컨테이너 */
 .container__write {
@@ -18,7 +19,7 @@
 }
 /* 글제목/글내용/태그 input 창 설정 */
 .container__write--title {
-  font-size: 12px;
+  font-size: 15px;
   background: none;
   padding-left: 20px;
   width: 800px;
@@ -30,7 +31,7 @@
   border: solid 1px dimgray;
 }
 .container__write--content {
-  font-size: 12px;
+  font-size: 15px;
   background: none;
   outline: none;
   padding-left: 20px;
@@ -44,7 +45,7 @@
   border: solid 1px dimgray;
 }
 .container__write--tag {
-  font-size: 12px;
+  font-size: 15px;
   background: none;
   padding-left: 20px;
   width: 800px;
@@ -54,6 +55,15 @@
   margin-bottom: 10px;
   border-radius: 10px;
   border: solid 1px dimgray;
+}
+/* 글자 수 컴포넌트 */
+.container__title--length {
+  align-self: self-end;
+  margin: 2px 0px;
+}
+.container__content--length {
+  align-self: self-end;
+  margin: 2px 0px;
 }
 /* 글작성 확인 버튼 */
 .container__write--submit {

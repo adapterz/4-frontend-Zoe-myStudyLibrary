@@ -61,12 +61,12 @@ main 구성요소
 .home__user--profileImageImg {
   border: 1px solid #dae1e6;
   margin: auto;
-  height:150%;
+  height: 150%;
   object-position: center;
 }
 .home__user--nickname {
   font-size: 17px;
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   margin: 0px 5px;
   padding: 30px 30px;
   grid-column: 3/7;
@@ -74,7 +74,7 @@ main 구성요소
 }
 
 .button__user {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 70px;
   height: 40px;
   color: #fff;
@@ -89,7 +89,7 @@ main 구성요소
 }
 
 .button__user:hover {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 70px;
   padding: 10px;
   background-color: salmon;
@@ -104,7 +104,7 @@ main 구성요소
 }
 
 .button__logout {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 70px;
   height: 40px;
   color: #fff;
@@ -119,7 +119,7 @@ main 구성요소
 }
 
 .button__logout:hover {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 70px;
   padding: 5px;
   height: 40px;
@@ -142,7 +142,7 @@ main 구성요소
   list-style: none;
 }
 .home__board li {
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   line-height: 20px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
@@ -170,7 +170,7 @@ main 구성요소
 /* 3. 동기부여용 명언 */
 .home__wiseSaying {
   margin: 5% 0%;
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   line-height: 30px;
   display: flex;
   list-style: none;
@@ -183,7 +183,7 @@ main 구성요소
 
 /* 4. 로그인, 회원가입 버튼 */
 .button__login {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 200px;
   height: 40px;
   color: #fff;
@@ -195,7 +195,7 @@ main 구성요소
   border-radius: 20px;
 }
 .button__login:hover {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 200px;
   height: 40px;
   padding: 10px;
