@@ -5,11 +5,11 @@ let scrollSearchOption;
 let scrollSearchContent;
 // 무한 스크롤링
 window.onscroll = async function () {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+  console.log(`${window.innerHeight + window.scrollY},${document.body.offsetHeight}`);
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight-3) {
     let boardResult;
     if (isEntire === true) {
       boardResult = await getEntireBoard(entirePage++);
-
       if (boardResult.state !== NOT_EXIST) {
         // 전체 게시물 목록 불러오기
         for (let index in boardResult) {

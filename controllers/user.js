@@ -1,6 +1,6 @@
 // 유저 컨트롤러
 // 내장모듈
-import { BAD_REQUEST, CONFLICT, CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../services/statusCode.js";
+import { BAD_REQUEST, CONFLICT, CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../customs/statusCode.js";
 import path from "path";
 import { __dirname } from "../app.js";
 /*

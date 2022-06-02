@@ -33,7 +33,6 @@
   align-items: center;
 }
 /* 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정 */
-
 .freeBoard__board li {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   line-height: 23px;

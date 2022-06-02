@@ -43,6 +43,8 @@ const ONLY_IMAGE = "only_jpg,jpeg,gjf,png(upper_5MB)_format_can_be_uploaded";
 // 닉네임 수정
 const DUPLICATED_NICKNAME = "duplicated_nickname";
 
+// 글작성
+const NOT_EXIST = "not_exist";
 // sweetAlert icon
 const INFO = "info";
 const ERROR = "error";
