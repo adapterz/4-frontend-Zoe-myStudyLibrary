@@ -146,6 +146,15 @@ async function checkRequest() {
               "editPost(thisBoardIndex,document.getElementsByName('postTitle')[0].value,document.getElementsByName('postContent')[0].value,document.getElementsByName('tags')[0].value);return false"
             );
         }
+        // 예상치 못한 오류
+        else {
+          await sweetAlert(ERROR, "기존 게시글 정보 불러오기 실패", "예상치 못한 에러입니다.", `서버 메시지: ${backendResult.state}`);
+        }
+      }
+      // boardIndex 쿼리스트링 키가 있지만 값이 숫자가 아닐 때
+      else {
+        const result = await sweetAlert(WARNING, "잘못된 접근입니다.", "유효하지 않은 게시글 정보입니다..");
+        if (result) location.href = "/board";
       }
     }
   }
