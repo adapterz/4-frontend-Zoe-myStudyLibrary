@@ -5,7 +5,7 @@ let scrollSearchOption;
 let scrollSearchContent;
 // 무한 스크롤링
 window.onscroll = async function () {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight-3) {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 3) {
     let boardResult;
     if (isEntire === true) {
       boardResult = await getEntireBoard(entirePage++);
@@ -17,7 +17,8 @@ window.onscroll = async function () {
             boardResult[index].nickname,
             boardResult[index].viewCount,
             boardResult[index].favoriteCount,
-            boardResult[index].createDate
+            boardResult[index].createDate,
+            boardResult[index].boardIndex
           );
         }
       }
@@ -32,7 +33,8 @@ window.onscroll = async function () {
             boardResult[index].nickname,
             boardResult[index].viewCount,
             boardResult[index].favoriteCount,
-            boardResult[index].createDate
+            boardResult[index].createDate,
+            boardResult[index].boardIndex
           );
         }
       }
@@ -61,7 +63,8 @@ async function entireBoard(page) {
         boardResult[index].nickname,
         boardResult[index].viewCount,
         boardResult[index].favoriteCount,
-        boardResult[index].createDate
+        boardResult[index].createDate,
+        boardResult[index].boardIndex
       );
     }
   }
@@ -97,13 +100,14 @@ async function searchBoard(searchOption, searchContent, page) {
         boardResult[index].nickname,
         boardResult[index].viewCount,
         boardResult[index].favoriteCount,
-        boardResult[index].createDate
+        boardResult[index].createDate,
+        boardResult[index].boardIndex
       );
     }
   }
 }
 // 게시글 list 에 추가
-async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate) {
+async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate, boardIndex) {
   // 게시물 리스트 생성
   const listElement = document.createElement("li");
   listElement.classList.add("freeBoard__board--list");
@@ -114,6 +118,7 @@ async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate
   // 하이퍼링크
   const hrefElement = document.createElement("a");
   hrefElement.classList.add("freeBoard__board--href");
+  hrefElement.setAttribute("href", `/board/${boardIndex}`);
   document.getElementsByClassName("freeBoard__board--list")[index].appendChild(hrefElement);
   // 게시글 제목
   const titleElement = document.createElement("p");

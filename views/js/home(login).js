@@ -38,6 +38,7 @@ async function page() {
     document.getElementsByClassName("home__board--nickname")[
       num
       ].innerHTML = `작성자: ${boardResult[num].nickname}`;
+    document.getElementsByClassName("home__board--link")[num].href=`/board/${boardResult[num].boardIndex}`;
   }
   // 명언 정보
   const wiseSayingResult = await getWiseSaying();
