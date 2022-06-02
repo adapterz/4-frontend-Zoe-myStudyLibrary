@@ -5,7 +5,6 @@ let scrollSearchOption;
 let scrollSearchContent;
 // 무한 스크롤링
 window.onscroll = async function () {
-  console.log(`${window.innerHeight + window.scrollY},${document.body.offsetHeight}`);
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight-3) {
     let boardResult;
     if (isEntire === true) {
@@ -91,8 +90,6 @@ async function searchBoard(searchOption, searchContent, page) {
     scrollSearchPage = 2;
     scrollSearchOption = searchOption;
     scrollSearchContent = searchContent;
-    console.log(searchOption);
-    console.log(searchContent);
     // 검색결과 추가
     for (let index in boardResult) {
       await addPost(
