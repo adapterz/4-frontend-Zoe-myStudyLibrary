@@ -3,4 +3,7 @@ async function signUpGuide() {
 
   document.getElementsByClassName("container__terms--content")[0].innerHTML = terms;
 }
-signUpGuide();
+async function lifeCycle(){
+  await signUpGuide();
+}
+lifeCycle();

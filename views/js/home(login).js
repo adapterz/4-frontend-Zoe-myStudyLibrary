@@ -7,7 +7,6 @@ async function checkLogin() {
     location.href = "/";
   }
 }
-checkLogin();
 // 버튼 메서드 정의
 // 로그아웃
 async function logout() {
@@ -57,4 +56,9 @@ async function page() {
     imageHTML.innerHTML = `<img class="home__user--profileImageImg" src="data:${mime};base64,${image}">`;
   }
 }
-page();
+
+async function lifeCycle() {
+  await checkLogin();
+  await page();
+}
+lifeCycle();

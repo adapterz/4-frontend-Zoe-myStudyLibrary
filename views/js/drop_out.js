@@ -6,7 +6,6 @@ async function checkLogin() {
     location.href = "/";
   }
 }
-checkLogin();
 // 회원탈퇴 버튼 눌렀을 때
 async function dropOut() {
   const backendResult = await dropOutRequest();
@@ -30,3 +29,7 @@ async function dropOut() {
     }
   }
 }
+async function lifeCycle() {
+  await checkLogin();
+}
+lifeCycle();

@@ -10,7 +10,6 @@ async function checkLogin() {
     }
   }
 }
-checkLogin();
 // 로그인 버튼 눌렀을 때
 async function signUp(id, pw, confirmPw, name, phoneNumber, nickname, gender) {
   const backendResult = await signUpRequest(id, pw, confirmPw, name, nickname, phoneNumber, gender);
@@ -46,3 +45,7 @@ function checkValidation(confirm, pw) {
   }
   confirm.reportValidity();
 }
+async function lifeCycle(){
+  await checkLogin();
+}
+lifeCycle();

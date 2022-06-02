@@ -10,7 +10,6 @@ async function checkLogin() {
     }
   }
 }
-checkLogin();
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementsByClassName("container__editProfileImage")[0].addEventListener("submit", submitForm);
 });
@@ -52,3 +51,7 @@ async function editProfileImage(profileImageForm) {
     }
   }
 }
+async function lifeCycle() {
+  await checkLogin();
+}
+lifeCycle();

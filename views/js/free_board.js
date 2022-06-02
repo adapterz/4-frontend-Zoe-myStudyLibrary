@@ -69,7 +69,6 @@ async function entireBoard(page) {
     }
   }
 }
-entireBoard();
 
 // 최초 검색 요청 시 호출해줄 메서드
 async function searchBoard(searchOption, searchContent, page) {
@@ -165,3 +164,8 @@ async function checkLogin() {
     location.href = link;
   }
 }
+
+async function lifeCycle() {
+  await entireBoard();
+}
+lifeCycle();

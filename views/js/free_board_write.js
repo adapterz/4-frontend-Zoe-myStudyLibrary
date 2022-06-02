@@ -29,7 +29,7 @@ async function checkContentLength(contentElement) {
 }
 // 태그 체크
 async function checkTagValidation(tagElement) {
-  // TODO isValidated 에 대한 설명
+  // 유효하지 않은 조건에 걸리면 isValidated false 로 바꾸기, 마지막 조건에 isValidated 가 true 일 때 유효성 검사 통과시켜줌
   let isValidated = true;
   const tagArray = tagElement.value.split("#");
   tagArray.shift();

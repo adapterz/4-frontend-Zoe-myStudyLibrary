@@ -10,7 +10,6 @@ async function checkLogin() {
     }
   }
 }
-checkLogin();
 // 닉네임 수정 버튼 눌렀을 때
 async function editNickname(nickname) {
   const backendResult = await editNicknameRequest(nickname);
@@ -38,3 +37,7 @@ async function editNickname(nickname) {
     }
   }
 }
+async function lifeCycle() {
+  await checkLogin();
+}
+lifeCycle();
