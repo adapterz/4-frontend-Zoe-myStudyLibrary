@@ -8,7 +8,7 @@
  */
 
 // 1. 댓글 최초 작성
-async function reqWriteComment(boardIndex, parentIndex, _commentContent) {
+async function writeCommentRequest(boardIndex, _commentContent, parentIndex) {
   try {
     let backendResponse;
     const options = {

@@ -303,6 +303,68 @@ window.onscroll = async function () {
     }
   }
 };
+// 댓글 작성 버튼 눌렀을 때
+
+// 댓글 작성 버튼 눌렀을 때 호출할 함수
+async function writeComment() {
+  // 로그인 여부 체크
+  const checkLogin = await getUserInfo();
+  if (checkLogin.state === LOGIN_REQUIRED) {
+    const result = await sweetAlert(WARNING, "로그인 필요", "새 창에서 로그인 해주세요");
+    if (result) window.open("/user/login");
+  }
+  // 댓글창 띄워서 정보 받아오기
+  const { isConfirmed: isConfirmed, value: comment } = await Swal.fire({
+    input: 'textarea',
+    title: '댓글 작성',
+    inputPlaceholder: '2~500자 사이로 댓글을 작성해주세요.',
+    inputAttributes: {
+      'aria-label': '2~500자 사이로 댓글을 작성해주세요.'
+    },
+    showCancelButton: true,
+    inputValidator: (comment) => {
+      if (!comment) {
+        return "내용을 입력해주세요."
+      }
+      if (comment.length < 2 || comment.length > 500) {
+        return `댓글은 2~500글자 사이로 작성해야합니다. 현재 ${comment.length}자입니다.`
+      }
+    }
+  });
+  // 댓글 작성 요청했을 때
+  if (isConfirmed) {
+    const boardIndex = await getBoardIndex();
+    const backendResult = await writeCommentRequest(boardIndex, comment);
+    console.log(backendResult);
+    // 작성 성공
+    if (backendResult.state === REQUEST_SUCCESS) {
+      const result = await sweetAlert(SUCCESS, "댓글 작성 성공!", "🤩");
+      if(result)location.reload();
+    }
+    // 로그인 필요
+    else if (backendResult.state === LOGIN_REQUIRED) {
+      const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
+      if (result) location.href="/user/login";
+    }
+    // 게시글이 존재하거나 삭제됐을 때
+    else if(backendResult.state===NOT_EXIST){
+      const result = await sweetAlert(WARNING, "존재하지 않는 게시글입니다.", "삭제됐거나 존재하지않는 게시글입니다.");
+      if (result) location.href="/board";
+    }
+    // 예상치 못한 오류
+    else{
+      const result = await sweetAlert(
+        ERROR,
+        "댓글 작성 실패",
+        "예상치 못한 오류입니다.",`서버 메세지: ${backendResult.state}`
+      );
+      if (result) location.reload();
+    }
+  }
+  // 댓글 작성창 취소나 무시
+  else await sweetAlert(WARNING, "댓글 작성 취소", "😂");
+
+}
 // 해당 페이지에서 최초 한번 호출
 async function lifeCycle() {
   await detailBoard();
