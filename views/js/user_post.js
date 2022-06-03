@@ -73,12 +73,48 @@ async function addPost(postTitle, viewCount, favoriteCount, createDate, boardInd
   // 삭제하기 버튼
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("button__userResource--delete");
+  deleteButton.setAttribute("boardIndex",boardIndex);
+  deleteButton.setAttribute("onclick","deletePost(this.getAttribute('boardIndex'))");
   deleteButton.innerHTML = "삭제";
   document.getElementsByClassName("userResource__board--href")[index].append(titleElement);
   document.getElementsByClassName("userResource__board--href")[index].append(viewElement);
   document.getElementsByClassName("userResource__board--href")[index].append(favoriteElement);
   document.getElementsByClassName("userResource__board--href")[index].append(createDateElement);
-  document.getElementsByClassName("userResource__board--href")[index].append(deleteButton);
+  document.getElementsByClassName("userResource__board--list")[index].append(deleteButton);
+}
+// 삭제하기 버튼 눌렀을 때 실행시켜 줄 메서드
+async function deletePost(boardIndex){
+  const backendResult = await deletePostRequest(boardIndex);
+  // 로그인 필요할 때
+  if (backendResult.state === LOGIN_REQUIRED) {
+    const result = await sweetAlert(WARNING, "로그인 필요", "로그인창으로갑니다.");
+    if (result) location.href = "/user/login";
+  }
+  // 게시글이 없을 때 게시글 목록으로 이동
+  else if (backendResult.state === NOT_EXIST) {
+    const result = await sweetAlert(WARNING, "존재하지 않는 게시글입니다.", "삭제되거나 존재하지 않는 게시글입니다.");
+    if (result) location.href = "/board/user";
+  }
+  // 요청 유저와 해당 게시글을 작성한 유저가 일치하지 않을 때
+  else if (backendResult.state === NOT_AUTHORIZATION) {
+    const result = await sweetAlert(WARNING, "권한이 없습니다.", "해당 게시글을 작성한 유저가 아닙니다.");
+    if (result) location.href = "/";
+  }
+  // 삭제 성공
+  else if (backendResult.state === REQUEST_SUCCESS) {
+    const result = await sweetAlert(SUCCESS, "게시글 삭제 성공", "😇");
+    if (result) location.href = "/board";
+  }
+  // 예상치 못한 오류
+  else {
+    const result = await sweetAlert(
+      ERROR,
+      "게시물 삭제 오류",
+      "게시글 목록으로 돌아갑니다.",
+      `서버 메세지: ${backendResult.state}`
+    );
+    if (result) location.href = "/board";
+  }
 }
 // 해당 페이지 불렀을 때 최초 한번 실행
 async function lifeCycle() {
