@@ -164,8 +164,10 @@ async function editPost(boardIndex, postTitle, postContent, tags) {
   const backendResult = await editPostRequest(boardIndex, postTitle, postContent, tags);
   // 로그인 필요(시간이 지나 로그아웃 됐을 경우)
   if (backendResult.state === LOGIN_REQUIRED) {
-    const result = await sweetAlert(WARNING, "로그인 필요", "새 창에서 로그인 해주세요");
-    window.open("/user/login");
+    const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
+    if(result) {
+      location.href = "/user/login";
+    }
   }
   // 존재하지 않는 게시글
   else if (backendResult.state === NOT_EXIST) {

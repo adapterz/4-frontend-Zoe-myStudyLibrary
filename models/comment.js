@@ -76,7 +76,7 @@ async function getComment(boardIndex, commentIndex) {
       credentials: "include",
     };
     const backendResponse = await fetch(
-      `${BACKEND_URL}/comment?boardIndex=${boardIndex}&commentIndex=${commentIndex}`,
+      `${BACKEND_URL}/comment/edit?boardIndex=${boardIndex}&commentIndex=${commentIndex}`,
       options
     );
     const getCommentResult = await backendResponse.json();
@@ -87,7 +87,7 @@ async function getComment(boardIndex, commentIndex) {
   }
 }
 // 4. 댓글 수정 요청
-async function editComment(boardIndex,commentIndex,_commentContent) {
+async function editCommentRequest(boardIndex,commentIndex,_commentContent) {
   try {
     const options = {
       mode: "cors",
@@ -118,7 +118,7 @@ async function editComment(boardIndex,commentIndex,_commentContent) {
   }
 }
 // 5. 댓글 삭제
-async function deleteComment(boardIndex, commentIndex) {
+async function deleteCommentRequest(boardIndex, commentIndex) {
   const options = {
     mode: "cors",
     method: DELETE,

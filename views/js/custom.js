@@ -1,5 +1,5 @@
 async function sweetAlert(type, title, content, message) {
-  // 아이콘 별 분기 처리 (1=일반/2=성공/3=경고/4=실패/5=의문)
+  // 아이콘 별 분기 처리 (1=일반/2=성공/3=경고/4=실패/5=의문/6=유저 요청 성공)
   if (type === INFO) {
     const result = await Swal.fire({
       title: title,
@@ -62,5 +62,23 @@ async function sweetAlert(type, title, content, message) {
       confirmButtonColor: "#ffa07a",
     });
     return result.isConfirmed;
+  }
+  else if(type === CHECK){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+console.log("hi");
+    Toast.fire({
+      icon: content,
+      title: title
+    });
   }
 }

@@ -59,3 +59,4 @@ const ERROR = "error";
 const SUCCESS = "success";
 const WARNING = "warning";
 const QUESTION = "question";
+const CHECK = "check";
