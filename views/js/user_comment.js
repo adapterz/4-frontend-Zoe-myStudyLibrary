@@ -65,7 +65,6 @@ async function addComment(postTitle, commentContent, createDate, boardIndex, com
   // 삭제하기 버튼
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("button__userResource--delete");
-  console.log(boardIndex);
   deleteButton.setAttribute("boardIndex", boardIndex);
   deleteButton.setAttribute("commentIndex", commentIndex);
   deleteButton.setAttribute(
