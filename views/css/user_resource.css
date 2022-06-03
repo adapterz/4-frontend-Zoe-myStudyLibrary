@@ -48,35 +48,6 @@
   background-color: lightsalmon;
   border-radius: 5px;
 }
-/* 페이지 관련 버튼 */
-.userResource__page {
-  flex-direction: row;
-  display: flex;
-  list-style: none;
-  margin-top: 10%;
-  align-self: flex-start;
-  justify-content: center;
-  column-gap: 10%;
-}
-.button__userResource--page {
-  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  border-radius: 50px;
-  width: 120px;
-  height: 40px;
-
-  align-self: self-end;
-  color: #fff;
-  background-color: lightsalmon;
-  border: 1px solid #d6e9c6;
-  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.button__userResource--page:hover {
-  padding: 10px;
-  background-color: salmon;
-}
 
 /* 삭제하기 버튼 */
 .button__userResource--delete {
@@ -124,7 +95,7 @@
     padding: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 200vh;
   }
   .userResource__menu {
@@ -133,15 +104,5 @@
     width: 100%;
     border-right: none;
     border-bottom: 1px solid #9b9b9b;
-  }
-  .userResource__page {
-    flex-direction: row;
-    display: flex;
-    list-style: none;
-    margin-top: 10%;
-    margin-left: 20%;
-    align-self: flex-start;
-    justify-content: center;
-    column-gap: 10%;
   }
 }
