@@ -294,31 +294,6 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
     document.getElementsByClassName("button__comment")[buttonIndex].appendChild(deleteButton);
   }
 }
-// 댓글 무한 스크롤링
-window.onscroll = async function () {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1) {
-    const boardIndex = await getBoardIndex();
-    let backendResult;
-    backendResult = await getDetailComment(boardIndex, commentPage++);
-    // 성공적으로 댓글 정보 불러왔을 때
-    if (backendResult[0] !== undefined) {
-      // 댓글 불러오기
-      for (let index in backendResult) {
-        for (let commentData of backendResult) {
-          const { commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate } = commentData;
-          await addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate);
-        }
-      }
-      // 더 이상 불러올 댓글이 없을 때의 상황이 아닐 때(예상치 못한 오류)
-    } else if (backendResult.state !== NO_COMMENT) {
-      const result = await sweetAlert(
-        ERROR,
-        "댓글 불러오기 실패",
-        "예상치 못한 오류입니다."`서버 메세지: ${backendResult.state}`
-      );
-    }
-  }
-};
 // 댓글 작성 버튼 눌렀을 때 호출할 함수
 async function writeComment() {
   // 로그인 여부 체크
@@ -568,5 +543,31 @@ async function deleteComment(commentIndex){
 async function lifeCycle() {
   await detailBoard();
   await detailComment();
+
+// 댓글 무한 스크롤링
+  window.onscroll = async function () {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1) {
+      const boardIndex = await getBoardIndex();
+      let backendResult;
+      backendResult = await getDetailComment(boardIndex, commentPage++);
+      // 성공적으로 댓글 정보 불러왔을 때
+      if (backendResult[0] !== undefined) {
+        // 댓글 불러오기
+        for (let index in backendResult) {
+          for (let commentData of backendResult) {
+            const { commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate } = commentData;
+            await addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate);
+          }
+        }
+        // 더 이상 불러올 댓글이 없을 때의 상황이 아닐 때(예상치 못한 오류)
+      } else if (backendResult.state !== NO_COMMENT) {
+        const result = await sweetAlert(
+          ERROR,
+          "댓글 불러오기 실패",
+          "예상치 못한 오류입니다."`서버 메세지: ${backendResult.state}`
+        );
+      }
+    }
+  };
 }
 lifeCycle();
