@@ -5,7 +5,8 @@
 3. 유저가 작성한 글/댓글/리뷰 메뉴
 4. 페이지(이전 페이지/다음 페이지) 버튼
 5. 삭제하기 버튼
-6. 반응형 디자인
+6. 가이드텍스트 설정(스크롤 내리세요)
+7. 반응형 디자인
  */
 /* 초기화 */
 .userResource__menu a {
@@ -88,7 +89,6 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   color: #333;
   background-color: #f5f5f5;
-  border: none;
   font-size: 12px;
   font-weight: bold;
   border-radius: 5px;
@@ -107,6 +107,15 @@
   font-size: 12px;
   font-weight: bold;
   border-radius: 5px;
+}
+/* 가이드 텍스트 */
+.userResource__guide {
+  line-height: 35px;
+  padding: 15px 0px;
+  font-size: 25px;
+  font-weight: 100;
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
+  color: dimgray;
 }
 
 /*  반응형 디자인 */

@@ -4,7 +4,7 @@
 3. 조회수/좋아요 수 아이콘 설정
  */
 /* 유저가 작성한 게시글 컨테이너 */
-.userPost__board {
+.userResource__board--board {
   margin-left: 10%;
   margin-top: 5%;
   flex-direction: column;
@@ -13,33 +13,41 @@
   list-style: none;
 }
 
+.userResource__board--container {
+  margin-top: 50px;
+}
 /* 유저가 작성한 게시글 제목/작성날짜/조회수/좋아요 수 설정 */
-.userPost__board li {
-  font-family: "Noto Serif Kr","Noto Sans Kr";
-  line-height: 20px;
+.userResource__board--board li {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  line-height: 33px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
 }
-.userPost__board--title {
-  margin-bottom: 4%;
+.userResource__board--title {
+  margin-bottom: 15%;
+  font-size: 19px;
+  color: dimgray;
 }
 
-.userPost__board--createDate {
+.userResource__board--createDate {
   color: dimgray;
-  font-size: 0.9rem;
+  font-size: 17px;
+  text-align: right;
 }
-.userPost__board--favoriteCount {
+.userResource__board--favoriteCount {
   color: dimgray;
-  font-size: 0.9rem;
+  font-size: 20px;
+  text-align: right;
 }
-.userPost__board--viewCount {
+.userResource__board--viewCount {
   color: dimgray;
-  font-size: 0.9rem;
+  font-size: 20px;
+  text-align: right;
 }
 
 /* 조회수/좋아요 수 아이콘 설정 */
-.userPost__board--img {
+.userResource__board--img {
   width: 1em;
   height: 1em;
-  margin-right: 0.5em;
+  margin-right: 1em;
 }

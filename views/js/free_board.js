@@ -3,56 +3,6 @@ let entirePage = 2;
 let scrollSearchPage = 2;
 let scrollSearchOption;
 let scrollSearchContent;
-// 무한 스크롤링
-window.onscroll = async function () {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
-    let boardResult;
-    if (isEntire === true) {
-      boardResult = await getEntireBoard(entirePage++);
-      if (boardResult[0] !==undefined) {
-        // 전체 게시물 목록 불러오기
-        for (let index in boardResult) {
-          await addPost(
-            boardResult[index].postTitle,
-            boardResult[index].nickname,
-            boardResult[index].viewCount,
-            boardResult[index].favoriteCount,
-            boardResult[index].createDate,
-            boardResult[index].boardIndex
-          );
-        }
-      } else if (boardResult.state !== NOT_EXIST) {
-        const result = await sweetAlert(
-          ERROR,
-          "게시판 불러오기 실패",
-          "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
-        );
-      }
-    } else {
-      boardResult = await getSearchBoard(scrollSearchOption, scrollSearchContent, scrollSearchPage++);
-
-      if (boardResult[0] !==undefined) {
-        // 전체 게시물 목록 불러오기
-        for (let index in boardResult) {
-          await addPost(
-            boardResult[index].postTitle,
-            boardResult[index].nickname,
-            boardResult[index].viewCount,
-            boardResult[index].favoriteCount,
-            boardResult[index].createDate,
-            boardResult[index].boardIndex
-          );
-        }
-      } else if (boardResult.state !== NOT_EXIST) {
-        const result = await sweetAlert(
-          ERROR,
-          "게시판 불러오기 실패",
-          "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
-        );
-      }
-    }
-  }
-};
 // 최초 한번 전체 게시글 정보 가져오기
 async function entireBoard(page) {
   // 전체 게시판 정보
@@ -198,5 +148,56 @@ async function checkLogin() {
 
 async function lifeCycle() {
   await entireBoard();
+
+// 무한 스크롤링
+  window.onscroll = async function () {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+      let boardResult;
+      if (isEntire === true) {
+        boardResult = await getEntireBoard(entirePage++);
+        if (boardResult[0] !==undefined) {
+          // 전체 게시물 목록 불러오기
+          for (let index in boardResult) {
+            await addPost(
+              boardResult[index].postTitle,
+              boardResult[index].nickname,
+              boardResult[index].viewCount,
+              boardResult[index].favoriteCount,
+              boardResult[index].createDate,
+              boardResult[index].boardIndex
+            );
+          }
+        } else if (boardResult.state !== NOT_EXIST) {
+          const result = await sweetAlert(
+            ERROR,
+            "게시판 불러오기 실패",
+            "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+          );
+        }
+      } else {
+        boardResult = await getSearchBoard(scrollSearchOption, scrollSearchContent, scrollSearchPage++);
+
+        if (boardResult[0] !==undefined) {
+          // 전체 게시물 목록 불러오기
+          for (let index in boardResult) {
+            await addPost(
+              boardResult[index].postTitle,
+              boardResult[index].nickname,
+              boardResult[index].viewCount,
+              boardResult[index].favoriteCount,
+              boardResult[index].createDate,
+              boardResult[index].boardIndex
+            );
+          }
+        } else if (boardResult.state !== NOT_EXIST) {
+          const result = await sweetAlert(
+            ERROR,
+            "게시판 불러오기 실패",
+            "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+          );
+        }
+      }
+    }
+  };
 }
 lifeCycle();

@@ -53,6 +53,9 @@ const FAVORITE = "favorite +1";
 const CANCEL_FAVORITE = "cancel_favorite";
 const NOT_AUTHORIZATION = "not_authorization";
 
+// 유저 게시글 조회
+const NO_REGISTERED_INFORMATION="no_registered_information";
+
 // sweetAlert icon
 const INFO = "info";
 const ERROR = "error";

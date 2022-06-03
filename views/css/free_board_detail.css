@@ -174,13 +174,14 @@
 
 .freeBoard__rootComment--nickname {
   margin-top: 30px;
+  margin-bottom: 30px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 20px;
   font-weight: bold;
 }
 
 .freeBoard__rootComment--content {
-  margin: 5px 3px;
+  margin: 5px 10px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 17px;
 }
@@ -204,13 +205,14 @@
 .freeBoard__childComment--nickname {
   margin-top: 30px;
   margin-left: 40px;
+  margin-bottom: 30px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 20px;
   font-weight: bold;
 }
 
 .freeBoard__childComment--content {
-  margin: 5px 43px;
+  margin: 5px 53px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 17px;
 }

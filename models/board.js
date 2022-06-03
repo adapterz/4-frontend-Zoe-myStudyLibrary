@@ -227,7 +227,7 @@ async function getSearchBoard(searchOption, searchContent, page) {
   }
 }
 // 4. 유저가 쓴 글 목록 가져오기
-async function getUserBoard(page) {
+async function userPostRequest(page) {
   try {
     let backendResponse;
     const options = {
