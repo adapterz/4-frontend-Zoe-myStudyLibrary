@@ -3,7 +3,7 @@
 2. 유저가 작성한 댓글 글제목/작성날짜/댓글내용 설정
  */
 /* 유저가 작성한 댓글 컨테이너 */
-.userComment__comment {
+.userResource__comment--comment {
   margin-left: 10%;
   margin-top: 5%;
   flex-direction: column;
@@ -12,24 +12,31 @@
   list-style: none;
 }
 
+.userResource__comment--container {
+  margin-top: 50px;
+}
 /* 유저가 작성한 댓글 글제목/작성날짜/댓글내용 설정 */
-.userComment__comment li {
+.userResource__comment--comment li {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
-  line-height: 20px;
+  line-height: 33px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
 }
-.userComment__comment--title {
+.userResource__comment--title {
+  margin-bottom: 15%;
+  font-size: 19px;
   color: dimgray;
-  font-size: 0.9rem;
 }
 
-.userComment__comment--createDate {
+.userResource__comment--content {
+  margin-bottom: 15%;
+  padding-left: 2px;
   color: dimgray;
-  font-size: 0.9rem;
-
-  margin-bottom: 4%;
+  font-size: 18px;
 }
-.userComment__comment--content {
-  margin-bottom: 4%;
+.userResource__comment--createDate {
+  margin-top: 15%;
+  color: dimgray;
+  font-size: 16px;
+  text-align: right;
 }

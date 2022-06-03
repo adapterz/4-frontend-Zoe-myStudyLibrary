@@ -136,7 +136,7 @@ async function deleteCommentRequest(boardIndex, commentIndex) {
   return deleteReviewResult;
 }
 // 6. 유저가 작성한 댓글 목록
-async function getUserComment(page) {
+async function userCommentRequest(page) {
   try {
     const options = {
       mode: "cors",
