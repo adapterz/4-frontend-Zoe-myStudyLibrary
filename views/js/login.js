@@ -10,7 +10,6 @@ async function checkLogin() {
     }
   }
 }
-checkLogin();
 // 로그인 버튼 눌렀을 때
 async function login(id, pw) {
   const serverResult = await loginRequest(id, pw);
@@ -43,3 +42,7 @@ async function login(id, pw) {
     }
   }
 }
+async function lifeCycle(){
+  await checkLogin();
+}
+lifeCycle();

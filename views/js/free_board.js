@@ -5,12 +5,11 @@ let scrollSearchOption;
 let scrollSearchContent;
 // 무한 스크롤링
 window.onscroll = async function () {
-  console.log(`${window.innerHeight + window.scrollY},${document.body.offsetHeight}`);
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight-3) {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
     let boardResult;
     if (isEntire === true) {
       boardResult = await getEntireBoard(entirePage++);
-      if (boardResult.state !== NOT_EXIST) {
+      if (boardResult[0] !==undefined) {
         // 전체 게시물 목록 불러오기
         for (let index in boardResult) {
           await addPost(
@@ -18,14 +17,21 @@ window.onscroll = async function () {
             boardResult[index].nickname,
             boardResult[index].viewCount,
             boardResult[index].favoriteCount,
-            boardResult[index].createDate
+            boardResult[index].createDate,
+            boardResult[index].boardIndex
           );
         }
+      } else if (boardResult.state !== NOT_EXIST) {
+        const result = await sweetAlert(
+          ERROR,
+          "게시판 불러오기 실패",
+          "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+        );
       }
     } else {
       boardResult = await getSearchBoard(scrollSearchOption, scrollSearchContent, scrollSearchPage++);
 
-      if (boardResult.state !== NOT_EXIST) {
+      if (boardResult[0] !==undefined) {
         // 전체 게시물 목록 불러오기
         for (let index in boardResult) {
           await addPost(
@@ -33,9 +39,16 @@ window.onscroll = async function () {
             boardResult[index].nickname,
             boardResult[index].viewCount,
             boardResult[index].favoriteCount,
-            boardResult[index].createDate
+            boardResult[index].createDate,
+            boardResult[index].boardIndex
           );
         }
+      } else if (boardResult.state !== NOT_EXIST) {
+        const result = await sweetAlert(
+          ERROR,
+          "게시판 불러오기 실패",
+          "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+        );
       }
     }
   }
@@ -54,7 +67,7 @@ async function entireBoard(page) {
     titleElement.classList.add("freeBoard__board--title");
     titleElement.textContent = "검색결과가 없습니다";
     document.getElementsByClassName("freeBoard__board--list")[0].appendChild(titleElement);
-  } else if (boardResult.state !== NOT_EXIST) {
+  } else if (boardResult[0] !==undefined) {
     // 전체 게시물 목록 불러오기
     for (let index in boardResult) {
       await addPost(
@@ -62,12 +75,22 @@ async function entireBoard(page) {
         boardResult[index].nickname,
         boardResult[index].viewCount,
         boardResult[index].favoriteCount,
-        boardResult[index].createDate
+        boardResult[index].createDate,
+        boardResult[index].boardIndex
       );
+    }
+  } else {
+    const result = await sweetAlert(
+      ERROR,
+      "게시판 불러오기 실패",
+      "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+    );
+    if (result) {
+      const link = "/board";
+      location.href = link;
     }
   }
 }
-entireBoard();
 
 // 최초 검색 요청 시 호출해줄 메서드
 async function searchBoard(searchOption, searchContent, page) {
@@ -86,13 +109,11 @@ async function searchBoard(searchOption, searchContent, page) {
     titleElement.classList.add("freeBoard__board--title");
     titleElement.textContent = "검색결과가 없습니다";
     document.getElementsByClassName("freeBoard__board--list")[0].appendChild(titleElement);
-  } else if (boardResult.state !== NOT_EXIST) {
+  } else if (boardResult[0]!==undefined) {
     isEntire = false;
     scrollSearchPage = 2;
     scrollSearchOption = searchOption;
     scrollSearchContent = searchContent;
-    console.log(searchOption);
-    console.log(searchContent);
     // 검색결과 추가
     for (let index in boardResult) {
       await addPost(
@@ -100,13 +121,24 @@ async function searchBoard(searchOption, searchContent, page) {
         boardResult[index].nickname,
         boardResult[index].viewCount,
         boardResult[index].favoriteCount,
-        boardResult[index].createDate
+        boardResult[index].createDate,
+        boardResult[index].boardIndex
       );
+    }
+  } else {
+    const result = await sweetAlert(
+      ERROR,
+      "게시판 불러오기 실패",
+      "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+    );
+    if (result) {
+      const link = "/board";
+      location.href = link;
     }
   }
 }
 // 게시글 list 에 추가
-async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate) {
+async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate, boardIndex) {
   // 게시물 리스트 생성
   const listElement = document.createElement("li");
   listElement.classList.add("freeBoard__board--list");
@@ -117,6 +149,7 @@ async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate
   // 하이퍼링크
   const hrefElement = document.createElement("a");
   hrefElement.classList.add("freeBoard__board--href");
+  hrefElement.setAttribute("href", `/board/${boardIndex}`);
   document.getElementsByClassName("freeBoard__board--list")[index].appendChild(hrefElement);
   // 게시글 제목
   const titleElement = document.createElement("p");
@@ -138,7 +171,7 @@ async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate
               <img className="freeBoard__board--img" width="15px",height="15px" src="/views/img/love.png" alt="조회수 아이콘" /> ${favoriteCount}`;
   // 작성 날짜
   const createDateElement = document.createElement("p");
-  createDateElement.classList.add("freeBoard__board--nickname");
+  createDateElement.classList.add("freeBoard__board--createDate");
   createDateElement.textContent = `${createDate}`;
   document.getElementsByClassName("freeBoard__board--href")[index].append(titleElement);
   document.getElementsByClassName("freeBoard__board--href")[index].append(nicknameElement);
@@ -162,3 +195,8 @@ async function checkLogin() {
     location.href = link;
   }
 }
+
+async function lifeCycle() {
+  await entireBoard();
+}
+lifeCycle();

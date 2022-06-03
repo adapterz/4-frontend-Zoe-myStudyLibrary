@@ -21,11 +21,50 @@
     </header>
     <article class="freeBoard">
       <p class="freeBoard__title">📋 자유게시판 - 글작성</p>
-      <form action="" class="container__write" method="post">
-        <input type="text" placeholder="글 제목" class="container__write--title" name="postTitle" />
-        <input type="textarea" placeholder="글 내용" class="container__write--content" name="postContent" />
-        <input type="text" placeholder="# 태그(최대 5개)" class="container__write--tag" name="tags" />
-        <input type="submit" value="확인" class="container__search--submit" />
+      <form
+        action=""
+        class="container__write"
+        method="post"
+        onsubmit="writePost(document.getElementsByName('postTitle')[0].value,document.getElementsByName('postContent')[0].value,document.getElementsByName('tags')[0].value);return false"
+      >
+        <input
+          type="text"
+          placeholder="글 제목"
+          class="container__write--title"
+          name="postTitle"
+          required
+          minlength="2"
+          maxlength="50"
+          oninput="checkTitleLength(this)"
+        />
+        <span class="container__title--length">(0/50)</span>
+        <textarea
+          placeholder="글 내용"
+          class="container__write--content"
+          name="postContent"
+          required
+          minlength="2"
+          maxlength="5000"
+          oninput="checkContentLength(this)"
+        ></textarea>
+        <span class="container__content--length">(0/5000)</span>
+        <input
+          type="text"
+          placeholder="#태그(최대 5개) 아래 ?에 커서를 올려서 태그 작성법을 확인해주세요"
+          class="container__write--tag"
+          name="tags"
+          oninput="checkTagValidation(this)"
+        />
+        <nav class="container__tag--tooltip">
+          <li>❔</li>
+          <li class="container__tag--tooltipText">
+            <p>
+              #을 구분자로 태그 작성<br />2~8글자 사이 한글만(ㄱ,ㅏ 등으로 나눠쓰는 것 불가 '가' 처럼 완벽한 한 글자만
+              사용 가능)<br />띄어쓰기불가<br />ex)#띄어쓰기불가#다섯개까지#두글자에서여덟#한글만
+            </p>
+          </li>
+        </nav>
+        <input type="submit" value="확인" class="container__write--submit" />
       </form>
     </article>
 
@@ -33,5 +72,14 @@
     <footer class="footer__serviceInfo">
       <script src="/views/js/footer.js"></script>
     </footer>
+
+    <!-- sweetAlert2 -->
+    <script src="/views/js/sweetalert2.js" type="text/javascript"></script>
+    <script src="/views/js/custom.js" type="text/javascript"></script>
+    <!--fetch-->
+    <script src="/views/js/constant.js" type="text/javascript"></script>
+    <script src="/models/board.js" type="text/javascript"></script>
+
+    <script src="/views/js/free_board_write.js" type="text/javascript"></script>
   </body>
 </html>

@@ -7,7 +7,6 @@ async function checkLogin() {
     location.href = "/";
   }
 }
-checkLogin();
 // 버튼 메서드 정의
 // 로그아웃
 async function logout() {
@@ -38,6 +37,7 @@ async function page() {
     document.getElementsByClassName("home__board--nickname")[
       num
       ].innerHTML = `작성자: ${boardResult[num].nickname}`;
+    document.getElementsByClassName("home__board--link")[num].href=`/board/${boardResult[num].boardIndex}`;
   }
   // 명언 정보
   const wiseSayingResult = await getWiseSaying();
@@ -53,7 +53,12 @@ async function page() {
     const image = userResult.profileImage;
     const mime = userResult.mime;
     const imageHTML = document.getElementsByClassName("home__user--profileImage")[0];
-    imageHTML.innerHTML = `<img class="home__user--profileImageImg" src="data:${mime};base64,${image}">`;
+    imageHTML.innerHTML = `<img class="home__user--profileImageImg" src="data:${mime};base64,${image}" alt="유저 프로필 사진">`;
   }
 }
-page();
+
+async function lifeCycle() {
+  await checkLogin();
+  await page();
+}
+lifeCycle();

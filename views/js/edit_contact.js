@@ -10,7 +10,6 @@ async function checkLogin() {
     }
   }
 }
-checkLogin();
 // 연락처 수정 버튼 눌렀을 때
 async function editContact(contact) {
   const backendResult = await editContactRequest(contact);
@@ -28,3 +27,8 @@ async function editContact(contact) {
     await sweetAlert(ERROR, "연락처 수정 실패", "예상치 못한 에러입니다", `서버 메시지: ${backendResult.state}`);
   }
 }
+
+async function lifeCycle() {
+  await checkLogin();
+}
+lifeCycle();

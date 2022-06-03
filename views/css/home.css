@@ -7,7 +7,7 @@ main 구성요소
 5. 반응형 디자인
 */
 .home {
-  padding: 50px 400px;
+  padding: 50px 450px;
   display: grid;
   grid-template-columns: 3fr 2fr;
   grid-template-rows: 2fr 2fr 1fr;
@@ -52,21 +52,23 @@ main 구성요소
   grid-row: 1/3;
   border: 1px solid #dae1e6;
   border-radius: 70%;
-  height: 120px;
-  width: 120px;
+  height: 130px;
+  width: 130px;
   overflow: hidden;
   position: relative;
 }
 
 .home__user--profileImageImg {
-  border: 1px solid #dae1e6;
+  padding-bottom: 30px;
+  border: none;
+  height: 170px;
+  weight: 170px;
   margin: auto;
-  height:150%;
   object-position: center;
 }
 .home__user--nickname {
   font-size: 17px;
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   margin: 0px 5px;
   padding: 30px 30px;
   grid-column: 3/7;
@@ -74,7 +76,7 @@ main 구성요소
 }
 
 .button__user {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 70px;
   height: 40px;
   color: #fff;
@@ -89,7 +91,7 @@ main 구성요소
 }
 
 .button__user:hover {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 70px;
   padding: 10px;
   background-color: salmon;
@@ -104,7 +106,7 @@ main 구성요소
 }
 
 .button__logout {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 70px;
   height: 40px;
   color: #fff;
@@ -119,7 +121,7 @@ main 구성요소
 }
 
 .button__logout:hover {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 70px;
   padding: 5px;
   height: 40px;
@@ -142,14 +144,14 @@ main 구성요소
   list-style: none;
 }
 .home__board li {
-  font-family: "Noto Serif Kr";
-  line-height: 20px;
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  line-height: 23px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
 }
 .home__board--title {
   padding: 0px;
-  font-size: 15px;
+  font-size: 18px;
   color: dimgray;
 }
 .home__board--nickname {
@@ -170,20 +172,20 @@ main 구성요소
 /* 3. 동기부여용 명언 */
 .home__wiseSaying {
   margin: 5% 0%;
-  font-family: "Noto Serif Kr";
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   line-height: 30px;
   display: flex;
   list-style: none;
 }
 .home__wiseSaying li {
   padding: 20px 20px;
-  font-size: 15px;
+  font-size: 18px;
   color: dimgray;
 }
 
 /* 4. 로그인, 회원가입 버튼 */
 .button__login {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 200px;
   height: 40px;
   color: #fff;
@@ -195,7 +197,7 @@ main 구성요소
   border-radius: 20px;
 }
 .button__login:hover {
-  font-family: "Poor Story";
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 200px;
   height: 40px;
   padding: 10px;

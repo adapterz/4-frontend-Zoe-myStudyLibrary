@@ -35,12 +35,11 @@ async function getEntireBoard(page) {
     };
     if (page === undefined) backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin`, options);
     else backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin?page=${page}`, options);
-    const recentBoardData = await backendResponse.json();
+    const boardData = await backendResponse.json();
     // 성공적으로 데이터를 가져왔을 때
-    return recentBoardData;
+    return boardData;
 
     // 데이터 정보가져오는 것 실패
-    return recentBoardData;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };
@@ -55,6 +54,7 @@ async function getDetailBoard(boardIndex) {
     };
     const backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin/${boardIndex}`, options);
     const detailBoardData = await backendResponse.json();
+    if (backendResponse.status === OK) detailBoardData.state = REQUEST_SUCCESS;
     return detailBoardData;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
@@ -63,8 +63,16 @@ async function getDetailBoard(boardIndex) {
 }
 // 2. 게시글 작성/수정/삭제
 // 2-1. 최초 게시글 작성 요청
-async function reqWritePost(_postTitle, _postContent, _tags) {
+async function writePostRequest(_postTitle, _postContent, tag) {
   try {
+    const _tags = [];
+    // 태그 보내야하는 양식으로 바꿔주기
+    const tagArray = tag.split("#");
+    tagArray.shift();
+    for (let tag of tagArray) {
+      const tempTag = { content: tag };
+      _tags.push(tempTag);
+    }
     const options = {
       mode: "cors",
       method: POST,
@@ -94,7 +102,7 @@ async function reqWritePost(_postTitle, _postContent, _tags) {
   }
 }
 // 2-2. 게시글 수정을 위해 기존 게시글 정보 불러오기
-async function getWrite(boardIndex) {
+async function getPostRequest(boardIndex) {
   try {
     const options = {
       mode: "cors",
@@ -104,6 +112,7 @@ async function getWrite(boardIndex) {
     const backendResponse = await fetch(`${BACKEND_URL}/board/write?boardIndex=${boardIndex}`, options);
 
     const writePostResult = await backendResponse.json();
+    if (backendResponse.status === OK) writePostResult.state = REQUEST_SUCCESS;
     return writePostResult;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
@@ -111,8 +120,16 @@ async function getWrite(boardIndex) {
   }
 }
 // 2-3. 게시글 수정요청
-async function editPost(boardIndex, _postTitle, _postContent, _tags) {
+async function editPostRequest(boardIndex, _postTitle, _postContent, tag) {
   try {
+    const _tags = [];
+    // 태그 보내야하는 양식으로 바꿔주기
+    const tagArray = tag.split("#");
+    tagArray.shift();
+    for (let tag of tagArray) {
+      const tempTag = { content: tag };
+      _tags.push(tempTag);
+    }
     const options = {
       mode: "cors",
       method: PATCH,
@@ -142,7 +159,7 @@ async function editPost(boardIndex, _postTitle, _postContent, _tags) {
 }
 
 // 2-4. 게시글 삭제하기
-async function deletePost(boardIndex) {
+async function deletePostRequest(boardIndex) {
   try {
     const options = {
       mode: "cors",
@@ -164,7 +181,7 @@ async function deletePost(boardIndex) {
 
 // 3. 좋아요/검색기능
 // 3-1. 게시글 좋아요 요청
-async function favoritePost(boardIndex) {
+async function favoritePostRequest(boardIndex) {
   try {
     const options = {
       mode: "cors",
@@ -220,17 +237,11 @@ async function getUserBoard(page) {
     };
     // 쿼리스트링에 page 키가 없을 때
     if (page === undefined) {
-      backendResponse = await fetch(
-        `${BACKEND_URL}/board/user`,
-        options
-      );
+      backendResponse = await fetch(`${BACKEND_URL}/board/user`, options);
     }
     // 쿼리스트링에 page 키가 있을 때
     else {
-      backendResponse = await fetch(
-        `${BACKEND_URL}/board/user?page=${page}`,
-        options
-      );
+      backendResponse = await fetch(`${BACKEND_URL}/board/user?page=${page}`, options);
     }
     const getUserBoardResult = backendResponse.json();
     return getUserBoardResult;
