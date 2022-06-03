@@ -12,10 +12,11 @@
  */
 /* 컨테이너 */
 .freeBoard__board {
+  border-bottom: 1px solid #dae1e6;
   margin-top: 30px;
   margin-left: 10%;
   margin-right: 10%;
-  line-height: 25px;
+  line-height: 30px;
   list-style: none;
   row-gap: 3px;
 }
@@ -126,7 +127,6 @@
 /* 댓글 타이틀 */
 .freeBoard__comment--title {
   margin-top: 30px;
-  border-top: 1px solid #dae1e6;
   padding: 15px 0px;
   font-size: 20px;
   font-weight: 100;
@@ -187,16 +187,16 @@
 }
 
 .freeBoard__comment li {
-  border-bottom: 1px solid #dae1e6;
+  border-top: 1px solid #dae1e6;
 }
 .freeBoard__rootComment {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   line-height: 30px;
-  margin-bottom: 5px;
   list-style: none;
 }
 
 .freeBoard__rootComment--nickname {
+  margin-top: 30px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 20px;
   font-weight: bold;
@@ -206,7 +206,6 @@
   margin: 5px 3px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 17px;
-
 }
 
 .freeBoard__rootComment--createDate {
@@ -220,13 +219,13 @@
   line-height: 30px;
   margin-bottom: 5px;
   list-style: none;
-  background: url("/views/img/comment_arrow.png") no-repeat ;
+  background: url("/views/img/comment_arrow.png") no-repeat 0px 30px;
 
   background-size: 1.7em 1.7em;
 }
 
 .freeBoard__childComment--nickname {
-
+  margin-top: 30px;
   margin-left: 40px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 20px;
@@ -245,7 +244,7 @@
   font-size: 17px;
 }
 /* 댓글 수정/삭제 대댓글 버튼 설정 */
-.button__comment{
+.button__comment {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   display: flex;
   flex-direction: row;

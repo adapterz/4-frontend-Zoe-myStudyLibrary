@@ -171,7 +171,7 @@ async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate
               <img className="freeBoard__board--img" width="15px",height="15px" src="/views/img/love.png" alt="조회수 아이콘" /> ${favoriteCount}`;
   // 작성 날짜
   const createDateElement = document.createElement("p");
-  createDateElement.classList.add("freeBoard__board--nickname");
+  createDateElement.classList.add("freeBoard__board--createDate");
   createDateElement.textContent = `${createDate}`;
   document.getElementsByClassName("freeBoard__board--href")[index].append(titleElement);
   document.getElementsByClassName("freeBoard__board--href")[index].append(nicknameElement);

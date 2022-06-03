@@ -44,8 +44,9 @@ const ONLY_IMAGE = "only_jpg,jpeg,gjf,png(upper_5MB)_format_can_be_uploaded";
 // 닉네임 수정
 const DUPLICATED_NICKNAME = "duplicated_nickname";
 
-// 글작성
+// 리소스
 const NOT_EXIST = "not_exist";
+const NO_COMMENT = "no_comment";
 
 // 특정 게시글 조회
 const FAVORITE = "favorite +1";
