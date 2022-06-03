@@ -18,9 +18,7 @@ async function detailBoard() {
     // 성공적으로 개시글 정보 불러왔을 때
   } else if (backendResult.state === REQUEST_SUCCESS) {
     // 게시글 정보 배치
-    document.getElementsByClassName(
-      "freeBoard__board--title"
-    )[0].innerHTML = `${backendResult.dataOfBoard.postTitle}`;
+    document.getElementsByClassName("freeBoard__board--title")[0].innerHTML = `${backendResult.dataOfBoard.postTitle}`;
     document.getElementsByClassName(
       "freeBoard__board--viewCount"
     )[0].innerHTML = `<img class="freeBoard__board--img" src="/views/img/view.png" alt="조회수 아이콘" /> ${backendResult.dataOfBoard.viewCount}`;
@@ -30,33 +28,37 @@ async function detailBoard() {
     document.getElementsByClassName(
       "freeBoard__board--content"
     )[0].innerHTML = `${backendResult.dataOfBoard.postContent}`;
-  }
-
-  // 태그 배치
-  const length = backendResult.dataOfTag.length;
-  for (let cnt = 0; cnt < 5; ++cnt) {
-    if (cnt >= length) document.getElementsByClassName("freeBoard__board--tag")[cnt].style.display = "none";
-    else {
-      document.getElementsByClassName("freeBoard__board--tag")[
-        cnt
+    document.getElementsByClassName(
+      "freeBoard__board--createDate"
+    )[0].innerHTML = `${backendResult.dataOfBoard.createDate}`;
+    // 태그 배치
+    const length = backendResult.dataOfTag.length;
+    for (let cnt = 0; cnt < 5; ++cnt) {
+      if (cnt >= length) document.getElementsByClassName("freeBoard__board--tag")[cnt].style.display = "none";
+      else {
+        document.getElementsByClassName("freeBoard__board--tag")[
+          cnt
         ].innerHTML = `# ${backendResult.dataOfTag[cnt].tag}`;
+      }
     }
-  }
-  // 유저 정보 배치
-  document.getElementsByClassName(
-    "freeBoard__user--nickname"
-  )[0].innerHTML = `${backendResult.dataOfUser.nickname}`;
-  // 유저에게 등록된 프로필 사진이 있을 때
-  if (backendResult.dataOfUser.isProfileImage) {
-    const image = backendResult.dataOfUser.profileImage;
-    const mime = backendResult.dataOfUser.mime;
-    const imageHTML = document.getElementsByClassName("freeBoard__user--profileImage")[0];
-    imageHTML.innerHTML = `<img class="freeBoard__user--profileImageImg" src="data:${mime};base64,${image}" alt="글 작성한 유저 프로필 사진">`;
-  }
-  // 해당 게시글을 작성한 유저가 아닐 때 수정하기, 삭제하기 버튼 안보이게하기
-  const userResult = await getUserInfo();
-  if (userResult === LOGIN_REQUIRED || userResult.userIndex !== backendResult.dataOfUser.userIndex) {
-    document.getElementsByClassName("container__freeBoard--authorization")[0].style.display = "none";
+    // 유저 정보 배치
+    document.getElementsByClassName("freeBoard__user--nickname")[0].innerHTML = `${backendResult.dataOfUser.nickname}`;
+    // 유저에게 등록된 프로필 사진이 있을 때
+    if (backendResult.dataOfUser.isProfileImage) {
+      const image = backendResult.dataOfUser.profileImage;
+      const mime = backendResult.dataOfUser.mime;
+      const imageHTML = document.getElementsByClassName("freeBoard__user--profileImage")[0];
+      imageHTML.innerHTML = `<img class="freeBoard__user--profileImageImg" src="data:${mime};base64,${image}" alt="글 작성한 유저 프로필 사진">`;
+    }
+    // 해당 게시글을 작성한 유저가 아닐 때 수정하기, 삭제하기 버튼 안보이게하기
+    const userResult = await getUserInfo();
+    if (userResult === LOGIN_REQUIRED || userResult.userIndex !== backendResult.dataOfUser.userIndex) {
+      document.getElementsByClassName("container__freeBoard--authorization")[0].style.display = "none";
+    }
+  } // 예상치 못한 에러
+  else {
+    await sweetAlert(ERROR, "게시글 불러오기 실패", "예상치 못한 에러입니다", `서버 메시지: ${backendResult.state}`);
+    location.href = "/board";
   }
 }
 // 좋아요 버튼 눌렀을 때
@@ -70,11 +72,7 @@ async function favoritePost() {
   }
   // 게시글이 없을 때 게시글 목록으로 이동( 그 새 삭제되거나 했을 때)
   else if (backendResult.state === NOT_EXIST) {
-    const result = await sweetAlert(
-      WARNING,
-      "존재하지 않는 게시글입니다.",
-      "삭제되거나 존재하지 않는 게시글입니다."
-    );
+    const result = await sweetAlert(WARNING, "존재하지 않는 게시글입니다.", "삭제되거나 존재하지 않는 게시글입니다.");
     if (result) location.href = "/board";
   }
   // 좋아요 +1
@@ -103,11 +101,7 @@ async function deletePost() {
   }
   // 게시글이 없을 때 게시글 목록으로 이동
   else if (backendResult.state === NOT_EXIST) {
-    const result = await sweetAlert(
-      WARNING,
-      "존재하지 않는 게시글입니다.",
-      "삭제되거나 존재하지 않는 게시글입니다."
-    );
+    const result = await sweetAlert(WARNING, "존재하지 않는 게시글입니다.", "삭제되거나 존재하지 않는 게시글입니다.");
     if (result) location.href = "/board";
   }
   // 요청 유저와 해당 게시글을 작성한 유저가 일치하지 않을 때

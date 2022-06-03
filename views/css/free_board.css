@@ -6,7 +6,7 @@
  */
 /* 자유게시판 컨테이너 */
 .freeBoard {
-  padding: 50px 400px;
+  padding: 50px 500px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

@@ -54,7 +54,27 @@
       </section>
       <form action="" class="freeBoard__comment" method="post">
         <h2 class="freeBoard__comment--title">✏ 댓글</h2>
-        <nav class="freeBoard__comment"></nav>
+        <nav class="freeBoard__comment">
+          <li class="freeBoard__rootComment">
+            <p class="freeBoard__rootComment--nickname">댓글 작성자</p>
+            <p class="freeBoard__rootComment--content">댓글 내용입니당</p>
+            <p class="freeBoard__rootComment--createDate">2022년06월03일</p>
+            <section class="button__comment">
+              <button type="button" class="button__comment--edit" onclick="editPage()">글 수정하기</button>
+              <button type="button" class="button__comment--delete" onclick="deletePost()">글 삭제하기</button>
+            </section>
+          </li>
+          <li class="freeBoard__childComment">
+            <p class="freeBoard__childComment--nickname">댓글 작성자</p>
+            <p class="freeBoard__childComment--content">댓글 내용입니당</p>
+            <p class="freeBoard__childComment--createDate">2022년06월03일</p>
+            <section class="button__comment">
+              <button type="button" class="button__comment--write" onclick="editPage()">대댓글 달기</button>
+              <button type="button" class="button__comment--edit" onclick="editPage()">글 수정하기</button>
+              <button type="button" class="button__comment--delete" onclick="deletePost()">글 삭제하기</button>
+            </section>
+          </li>
+        </nav>
         <input type="textarea" placeholder="댓글 입력" class="freeBoard__comment--input" name="content" />
         <input type="submit" value="댓글입력" class="freeBoard__comment--submit" />
       </form>
