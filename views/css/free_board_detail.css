@@ -255,7 +255,7 @@
 }
 .button__comment--write {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  margin: 0px 5px;
+  width: 200px;
   height: 40px;
   color: lightslategray;
   background-color: #ffffff;
@@ -263,6 +263,7 @@
   font-size: 16px;
   font-weight: bold;
   border-radius: 20px;
+  align-self: self-end;
 }
 .button__comment--edit:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
@@ -297,9 +298,9 @@
   border-radius: 30px;
 }
 /* sweetAlert 댓글 창 설정 */
-.swal2-input-label{
+.swal2-input-label {
   font-size: 25px;
-  font-family: "Noto Serif Kr","Noto Sans Kr", serif;
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
 }
 .swal2-textarea {
   font-size: 20px;

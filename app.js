@@ -77,7 +77,7 @@ app.get("/", (req, res) => {
     "Content-Security-Policy":
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
   });
-  res.status(OK).sendFile(path.join(__dirname, "views", "html", "home(not_login).html"));
+  res.status(OK).sendFile(path.join(__dirname, "views", "html", "home_not_login.html"));
 });
 // 로그인 안했을 때
 app.get("/authorized", (req, res) => {
@@ -88,5 +88,10 @@ app.get("/authorized", (req, res) => {
     "Content-Security-Policy":
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
   });
-  res.status(OK).sendFile(path.join(__dirname, "views", "html", "home(login).html"));
+  res.status(OK).sendFile(path.join(__dirname, "views", "html", "home_login.html"));
+});
+// robots.txt 추가
+app.use("/robots.txt", function (req, res) {
+  res.type("text/plain");
+  res.send("User-agent: *\nAllow: /");
 });
