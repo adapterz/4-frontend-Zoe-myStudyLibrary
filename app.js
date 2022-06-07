@@ -19,6 +19,8 @@ import { fileURLToPath } from "url";
 // 내장모듈
 // 날짜/시간 관련 모듈
 import { moment } from "./customs/dateTime.js";
+// js 파일 빌드
+import { build } from "./customs/buildJs.js";
 
 // 라우터
 import boardRouter from "./routes/board.js";
@@ -52,15 +54,24 @@ app.use("/review", reviewRouter);
 app.use("/user", userRouter);
 app.use("/board", boardRouter);
 
-// 서버 시작
-app.listen(process.env.PORT, () => {
-  console.log(("Start Frontend Server at" + moment().format(" YYYY-MM-DD HH:mm:ss")).rainbow.bold);
-});
-
 // es6 버전에서 __filename, __dirname 사용할 수 있게하기
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
 export const basename = path.basename(__filename);
+
+// 빌드
+if (process.env.NODE_ENV === "development:build") {
+  build();
+}
+
+// 서버 시작
+if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
+  app.listen(process.env.PORT, () => {
+    console.log(("Start Frontend Server at" + moment().format(" YYYY-MM-DD HH:mm:ss")).rainbow.bold);
+  });
+}
+
+
 
 // 정적 파일 경로
 app.use("/views", express.static(path.join(__dirname, "views")));
