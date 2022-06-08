@@ -1,5 +1,5 @@
 document.write(`
-(주) myStudyLibrary
+myStudyLibrary 포트폴리오
 <br />
-<pre> 대표: 김예지</pre>
+<pre> 디자인, 프로그래밍, 배포: 김예지</pre>
 <br />`);
