@@ -1,6 +1,8 @@
 // 서버 url
-const BACKEND_URL = "http://localhost:13414";
-const FRONT_URL = "http://localhost:37866";
+ const BACKEND_URL = "https://mystudylibrary.pe.kr:13414";
+const FRONT_URL = "https://mystudylibrary.pe.kr";
+// const BACKEND_URL = "http://localhost:13414";
+// const FRONT_URL = "http://localhost:36383";
 // HTTP 메서드
 const GET = "GET";
 const POST = "POST";
@@ -54,7 +56,7 @@ const CANCEL_FAVORITE = "cancel_favorite";
 const NOT_AUTHORIZATION = "not_authorization";
 
 // 유저 게시글 조회
-const NO_REGISTERED_INFORMATION="no_registered_information";
+const NO_REGISTERED_INFORMATION = "no_registered_information";
 
 // sweetAlert icon
 const INFO = "info";

@@ -76,7 +76,7 @@
 }
 
 /* 반응형 디자인 */
-@media screen and (max-width: 1480px) {
+@media screen and (max-width: 1500px) {
   .gmb {
     flex-direction: column;
     align-items: flex-start;
