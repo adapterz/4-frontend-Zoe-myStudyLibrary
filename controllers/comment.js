@@ -11,7 +11,7 @@ export async function userCommentController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     return res.status(OK).sendFile(path.join(__dirname, "views", "html", "user_comment.html"));
   } catch (err) {

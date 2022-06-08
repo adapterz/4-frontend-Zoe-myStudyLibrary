@@ -29,7 +29,7 @@ export async function signUpGuideController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     return res.status(OK).sendFile(path.join(__dirname, "views", "html", "sign_up_guide.html"));
   } catch (err) {
@@ -45,7 +45,7 @@ export async function termsController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval'https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     return res.status(OK).sendFile(path.join(__dirname, "views", "html", "terms.html"));
   } catch (err) {
@@ -60,7 +60,7 @@ export async function signUpController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "sign_up.html"));
   } catch (err) {
@@ -75,7 +75,7 @@ export async function dropOutController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "drop_out.html"));
   } catch (err) {
@@ -91,7 +91,7 @@ export async function loginController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "login.html"));
   } catch (err) {
@@ -126,7 +126,7 @@ export async function editProfileNicknameController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "edit_nickname.html"));
   } catch (err) {
@@ -141,7 +141,7 @@ export async function editProfileImageController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "edit_profileImage.html"));
   } catch (err) {
@@ -156,7 +156,7 @@ export async function editPhoneNumberController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "edit_contact.html"));
   } catch (err) {
@@ -171,7 +171,7 @@ export async function editPwController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "edit_pw.html"));
   } catch (err) {
@@ -187,7 +187,7 @@ export async function getUserController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     res.status(OK).sendFile(path.join(__dirname, "views", "html", "user_info.html"));
   } catch (err) {
