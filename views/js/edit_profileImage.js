@@ -10,15 +10,26 @@ async function checkLogin() {
     }
   }
 }
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementsByClassName("container__editProfileImage")[0].addEventListener("submit", submitForm);
-});
+// 폼 제출할 때 호출할 메서드
 async function submitForm(ev) {
   ev.preventDefault();
   const file = document.getElementById("container__editProfileImage--button");
   const formData = new FormData();
   formData.append("profileImage", file.files[0]);
   await editProfileImage(formData);
+}
+// 이미지 변경시 호출할 메서드
+async function previewImage(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const previewImage = document.getElementsByClassName("container__editProfileImage--img")[0];
+      previewImage.src = e.target.result;
+      previewImage.alt ="유저가 등록한 사진.";
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
 }
 // 프로필 수정 버튼 눌렀을 때
 async function editProfileImage(profileImageForm) {
@@ -31,11 +42,7 @@ async function editProfileImage(profileImageForm) {
       location.href = link;
     }
   } else if (backendResult.state === ONLY_IMAGE) {
-    await sweetAlert(
-      WARNING,
-      "프로필 사진 수정 실패",
-      "5MB 이하 이미지 파일만 업로드 가능합니다.(jpg,jpeg,png,gjf)"
-    );
+    await sweetAlert(WARNING, "프로필 사진 수정 실패", "5MB 이하 이미지 파일만 업로드 가능합니다.(jpg,jpeg,png,gjf)");
   }
   // 5mb 이하의 이미지파일이 아니라서 요청거부된 상황이 아닐 때 (ex. 백엔드 서버의 문제, fetch 실패 등)
   else if (backendResult.state !== ONLY_IMAGE) {
@@ -51,7 +58,15 @@ async function editProfileImage(profileImageForm) {
     }
   }
 }
+// 폼 제출시
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementsByClassName("container__editProfileImage")[0].addEventListener("submit", submitForm);
+});
 async function lifeCycle() {
   await checkLogin();
+  // 프로필 사진 수정시 제출시
+  document.getElementById("container__editProfileImage--button").addEventListener("change", (e) => {
+    previewImage(e.target);
+  });
 }
 lifeCycle();

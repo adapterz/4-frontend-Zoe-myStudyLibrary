@@ -24,10 +24,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: space-evenly;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   width: 250px;
-  height: 550px;
+  height: 630px;
 }
 /* title */
 .container__editProfileImage--title {
@@ -57,9 +58,9 @@
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   width: 50%;
   height: 10%;
-  margin: 20%;
+  margin-top: 35%;
   color: #fff;
-
+  align-self: center;
   border: 1px solid lightsalmon;
   background-color: lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
@@ -69,22 +70,15 @@
 }
 
 .container__editProfileImage--submit:hover {
-  width: 50%;
-  height: 10%;
-  margin: 40px;
   padding: 5px;
   background-color: salmon;
   border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 20px;
 }
 /* 파일 업로드 버튼 대용 이미지 */
 .container__editProfileImage--img {
   margin-top: 50%;
   margin-bottom: 50%;
   width: 150px;
-  height: 150px;
 }
