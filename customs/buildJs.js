@@ -5,8 +5,7 @@ import path from "path";
 import { __dirname } from "../app.js";
 
 export async function build() {
-
-// option
+  // option
   const options = {
     compress: {
       defaults: false,
@@ -62,22 +61,26 @@ export async function build() {
         "WARNING",
         "QUESTION",
         "CHECK",
+        "NON_EXISTENT_LIBRARY"
       ],
     },
   };
-// 파일 minify
+  // 파일 minify
   const constant = await setConstant();
   const user = fs.readFileSync(path.join(__dirname, "models", "user.js"), "utf-8");
   const board = fs.readFileSync(path.join(__dirname, "models", "board.js"), "utf-8");
   const comment = fs.readFileSync(path.join(__dirname, "models", "comment.js"), "utf-8");
+  const library = fs.readFileSync(path.join(__dirname, "models", "library.js"), "utf-8");
   const wise_saying = fs.readFileSync(path.join(__dirname, "models", "wise_saying.js"), "utf-8");
   const custom = fs.readFileSync(path.join(__dirname, "views", "js", "custom.js"), "utf-8");
-// 개발 단계 빌드인지 배포 단계 빌드인지에 따라 constant 다른 파일 불러오기
-  async function setConstant(){
-    if(process.env.NODE_ENV==="production:build") return fs.readFileSync(path.join(__dirname, "views", "js", "production_constant.js"), "utf-8");
-    if(process.env.NODE_ENV==="development:build") return fs.readFileSync(path.join(__dirname, "views", "js", "development_constant.js"), "utf-8");
+  // 개발 단계 빌드인지 배포 단계 빌드인지에 따라 constant 다른 파일 불러오기
+  async function setConstant() {
+    if (process.env.NODE_ENV === "production:build")
+      return fs.readFileSync(path.join(__dirname, "views", "js", "production_constant.js"), "utf-8");
+    if (process.env.NODE_ENV === "development:build")
+      return fs.readFileSync(path.join(__dirname, "views", "js", "development_constant.js"), "utf-8");
   }
-// drop_out 페이지 js 파일
+  // drop_out 페이지 js 파일
   const drop_out = await minify(
     {
       "constant.js": constant,
@@ -87,33 +90,33 @@ export async function build() {
     },
     options
   );
-// edit_contact 페이지 js 파일
+  // edit_contact 페이지 js 파일
   const edit_contact = await minify(
     [constant, user, custom, fs.readFileSync(path.join(__dirname, "views", "js", "edit_contact.js"), "utf-8")],
     options
   );
-// edit_nickname 페이지 js 파일
+  // edit_nickname 페이지 js 파일
   const edit_nickname = await minify(
     [constant, user, custom, fs.readFileSync(path.join(__dirname, "views", "js", "edit_nickname.js"), "utf-8")],
     options
   );
-// edit_profileImage 페이지 js 파일
+  // edit_profileImage 페이지 js 파일
   const edit_profileImage = await minify(
     [constant, user, custom, fs.readFileSync(path.join(__dirname, "views", "js", "edit_profileImage.js"), "utf-8")],
     options
   );
-// edit_pw 페이지 js 파일
+  // edit_pw 페이지 js 파일
   const edit_pw = await minify(
     [constant, user, custom, fs.readFileSync(path.join(__dirname, "views", "js", "edit_pw.js"), "utf-8")],
     options
   );
-// 각 페이지에 쓰이는 여러 js 파일 난독화/축소화
-// free_board 페이지 js 파일
+  // 각 페이지에 쓰이는 여러 js 파일 난독화/축소화
+  // free_board 페이지 js 파일
   const free_board = await minify(
     [constant, user, board, custom, fs.readFileSync(path.join(__dirname, "views", "js", "free_board.js"), "utf-8")],
     options
   );
-// free_board_detail 페이지 js 파일
+  // free_board_detail 페이지 js 파일
   const free_board_detail = await minify(
     [
       constant,
@@ -125,12 +128,12 @@ export async function build() {
     ],
     options
   );
-// free_board_write 페이지 js 파일
+  // free_board_write 페이지 js 파일
   const free_board_write = await minify(
     [constant, board, custom, fs.readFileSync(path.join(__dirname, "views", "js", "free_board_write.js"), "utf-8")],
     options
   );
-// home_login
+  // home_login
   const home_login = await minify(
     [
       constant,
@@ -142,7 +145,7 @@ export async function build() {
     ],
     options
   );
-// home_not_login
+  // home_not_login
   const home_not_login = await minify(
     [
       constant,
@@ -155,35 +158,40 @@ export async function build() {
     options
   );
 
-// login
+  // login
   const login = await minify(
     [constant, user, custom, fs.readFileSync(path.join(__dirname, "views", "js", "login.js"), "utf-8")],
     options
   );
-// sign_up
+  // sign_up
   const sign_up = await minify(
     [constant, user, custom, fs.readFileSync(path.join(__dirname, "views", "js", "sign_up.js"), "utf-8")],
     options
   );
-// sign_up_guide
+  // sign_up_guide
   const sign_up_guide = await minify([constant, user], options);
 
-// terms
+  // terms
   const terms = await minify(
     [constant, user, fs.readFileSync(path.join(__dirname, "views", "js", "terms.js"), "utf-8")],
     options
   );
-// user_comment
+  // user_comment
   const user_comment = await minify(
     [constant, user, comment, custom, fs.readFileSync(path.join(__dirname, "views", "js", "user_comment.js"), "utf-8")],
     options
   );
-// user_post
+  // user_post
   const user_post = await minify(
     [constant, user, board, custom, fs.readFileSync(path.join(__dirname, "views", "js", "user_post.js"), "utf-8")],
     options
   );
-// outfile
+  // library
+  const library_page = await minify(
+    [constant, library, custom, fs.readFileSync(path.join(__dirname, "views", "js", "library.js"), "utf-8")],
+    options
+  );
+  // outfile
   fs.writeFileSync("views/build/drop_out.js", drop_out.code, "utf8");
   fs.writeFileSync("views/build/edit_contact.js", edit_contact.code, "utf8");
   fs.writeFileSync("views/build/edit_nickname.js", edit_nickname.code, "utf8");
@@ -200,7 +208,5 @@ export async function build() {
   fs.writeFileSync("views/build/terms.js", terms.code, "utf8");
   fs.writeFileSync("views/build/user_comment.js", user_comment.code, "utf8");
   fs.writeFileSync("views/build/user_post.js", user_post.code, "utf8");
-
-
-
+  fs.writeFileSync("views/build/library.js", library_page.code, "utf8");
 }
