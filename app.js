@@ -65,16 +65,18 @@ export const __dirname = dirname(__filename);
 export const basename = path.basename(__filename);
 
 // 빌드
-if (process.env.NODE_ENV === "development:build") {
+if (process.env.NODE_ENV === "development:build" || process.env.NODE_ENV === "production:build") {
   build();
 }
 
 // 서버 시작
+// 개발 단계
 if (process.env.NODE_ENV === "development") {
   http.createServer(app).listen(process.env.PORT, () => {
     console.log(("Start Frontend Server at" + moment().format(" YYYY-MM-DD HH:mm:ss")).rainbow.bold);
   });
 }
+// 배포 단계
 if (process.env.NODE_ENV === "production") {
   const options = {
     key: fs.readFileSync("/etc/letsencrypt/live/mystudylibrary.pe.kr/privkey.pem", "utf-8"),

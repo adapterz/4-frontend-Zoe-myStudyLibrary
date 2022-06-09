@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon app.js",
-    "build": "cross-env NODE_ENV=development:build node app.js",
+    "build:pro": "cross-env NODE_ENV=production:build node app.js",
+    "build:dev": "cross-env NODE_ENV=development:build node app.js",
     "start": "node app.js"
   },
   "repository": {

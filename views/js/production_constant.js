@@ -1,8 +1,6 @@
 // 서버 url
- const BACKEND_URL = "https://mystudylibrary.pe.kr:13414";
+const BACKEND_URL = "https://mystudylibrary.pe.kr:13414";
 const FRONT_URL = "https://mystudylibrary.pe.kr";
-// const BACKEND_URL = "http://localhost:13414";
-// const FRONT_URL = "http://localhost:36383";
 // HTTP 메서드
 const GET = "GET";
 const POST = "POST";

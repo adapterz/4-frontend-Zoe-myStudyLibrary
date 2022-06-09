@@ -66,13 +66,17 @@ export async function build() {
     },
   };
 // 파일 minify
-  const constant = fs.readFileSync(path.join(__dirname, "views", "js", "constant.js"), "utf-8");
+  const constant = await setConstant();
   const user = fs.readFileSync(path.join(__dirname, "models", "user.js"), "utf-8");
   const board = fs.readFileSync(path.join(__dirname, "models", "board.js"), "utf-8");
   const comment = fs.readFileSync(path.join(__dirname, "models", "comment.js"), "utf-8");
   const wise_saying = fs.readFileSync(path.join(__dirname, "models", "wise_saying.js"), "utf-8");
   const custom = fs.readFileSync(path.join(__dirname, "views", "js", "custom.js"), "utf-8");
-
+// 개발 단계 빌드인지 배포 단계 빌드인지에 따라 constant 다른 파일 불러오기
+  async function setConstant(){
+    if(process.env.NODE_ENV==="production:build") return fs.readFileSync(path.join(__dirname, "views", "js", "production_constant.js"), "utf-8");
+    if(process.env.NODE_ENV==="development:build") return fs.readFileSync(path.join(__dirname, "views", "js", "development_constant.js"), "utf-8");
+  }
 // drop_out 페이지 js 파일
   const drop_out = await minify(
     {
