@@ -56,6 +56,9 @@ const NOT_AUTHORIZATION = "not_authorization";
 // 유저 게시글 조회
 const NO_REGISTERED_INFORMATION = "no_registered_information";
 
+// 도서관 페이지
+const NON_EXISTENT_LIBRARY = "non_existent_library";
+
 // sweetAlert icon
 const INFO = "info";
 const ERROR = "error";
