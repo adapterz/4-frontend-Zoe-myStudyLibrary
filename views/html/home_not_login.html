@@ -2,11 +2,18 @@
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KBKFR75');</script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KBKFR75");
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,7 +25,10 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
     </style>
-    <meta name="description" content="myStudyLibrary 홈페이지, 내가 사는 지역의 도서관 정보를 찾아보고 도서관 이용자들의 후기를 확인해보자!" />
+    <meta
+      name="description"
+      content="myStudyLibrary 홈페이지, 내가 사는 지역의 도서관 정보를 찾아보고 도서관 이용자들의 후기를 확인해보자!"
+    />
   </head>
   <body>
     <!-- gmb -->
@@ -38,47 +48,14 @@
       <!-- 자유게시판-최근게시글 -->
       <article class="home__board">
         <p class="home__category">📋 자유게시판 - 최신글</p>
-        <nav>
-          <li>
-            <a class="home__board--link"
-            ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a class="home__board--link"
-            ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a class="home__board--link"
-            ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a class="home__board--link"
-            ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-          <li>
-            <a class="home__board--link"
-            ><p class="home__board--title">글을 작성해주세요!</p>
-              <p class="home__board--nickname">글이 작성되지 않았어요 :)</p></a
-            >
-          </li>
-        </nav>
+        <nav class="home__board--container"></nav>
       </article>
       <!-- 동기부여용 명언 -->
       <article class="home__wiseSaying">
         <nav>
           <p class="home__category">💪 동기부여</p>
-          <li class="home__wiseSaying--content">
-            명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다명언입니다
-          </li>
-          <li class="home__wiseSaying--celebrity">-Zoe-</li>
+          <li class="home__wiseSaying--content"></li>
+          <li class="home__wiseSaying--celebrity"></li>
         </nav>
       </article>
     </main>
