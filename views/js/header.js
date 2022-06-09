@@ -10,7 +10,7 @@ document.write(`
   </a>
   <!-- 메뉴 -->
   <ul class="gmb__menu">
-    <li><a href="">주변도서관</a></li>
+    <li><a href="/library">주변도서관</a></li>
     <li><a href="/board">자유게시판</a></li>
     <li><a href="/board/user">내가작성한글</a></li>
   </ul>

@@ -27,13 +27,14 @@ import * as fs from "fs";
 import { moment } from "./customs/dateTime.js";
 // js 파일 빌드
 import { build } from "./customs/buildJs.js";
+
+import { BACKEND_URL, OK } from "./customs/constant.js";
 // 라우터
 import boardRouter from "./routes/board.js";
 import commentRouter from "./routes/comment.js";
-// import libraryRouter from "./routes/library.js";
+import libraryRouter from "./routes/library.js";
 import reviewRouter from "./routes/review.js";
 import userRouter from "./routes/user.js";
-import { BACKEND_URL, OK } from "./customs/constant.js";
 
 // 각종 모듈 설정
 // 디도스 방어 모듈 설정(요청 제한)
@@ -54,7 +55,7 @@ app.use(apiLimiter);
 
 // 경로별로 라우팅
 app.use("/comment", commentRouter);
-// app.use("/library", libraryRouter);
+app.use("/library", libraryRouter);
 app.use("/review", reviewRouter);
 app.use("/user", userRouter);
 app.use("/board", boardRouter);
@@ -92,6 +93,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/views", express.static(path.join(__dirname, "views")));
 app.use("/models", express.static(path.join(__dirname, "models")));
 app.use("/customs", express.static(path.join(__dirname, "customs")));
+app.use("/node_modules", express.static(path.join(__dirname, "customs")));
 
 // 홈
 // 로그인 했을 때
@@ -123,5 +125,5 @@ app.use("/robots.txt", function (req, res) {
 });
 // sitemap 추가
 app.get("/sitemap.xml", (req, res) => {
-  res.sendFile(__dirname + "/sitemap.xml");
+  res.sendFile(path.join(__dirname, "sitemap.xml"));
 });
