@@ -68,7 +68,7 @@ main 구성요소
 }
 .home__user--nickname {
   font-size: 17px;
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   margin: 0px 5px;
   padding: 30px 30px;
   grid-column: 3/7;

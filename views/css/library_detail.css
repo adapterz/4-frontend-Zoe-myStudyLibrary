@@ -33,7 +33,7 @@ body {
 .review__title {
   margin: 5% 0%;
   padding: 15px 2%;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
@@ -45,7 +45,7 @@ body {
 .review__subtitle {
   margin: 5% 0%;
   padding: 15px 2%;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
   font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
