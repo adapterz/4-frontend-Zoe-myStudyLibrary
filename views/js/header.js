@@ -4,7 +4,7 @@ document.write(`
   <!-- 로고 -->
   <a href="/">
     <div class="gmb__logo">
-      <img class="gmb__logo--img" src="/views/img/logo.png" alt="서비스 로고입니다." />
+      <img class="gmb__logo--img" src="/views/img/logo.png" alt="서비스 로고" />
       myStudyLibrary
     </div>
   </a>
@@ -14,4 +14,7 @@ document.write(`
     <li><a href="/board">자유게시판</a></li>
     <li><a href="/board/user">내가작성한글</a></li>
   </ul>
+  <a href="#" class="gmb__toogleBtn">
+              <img class="gmb__toogleBtn--img" src="/views/img/menu.png" alt="메뉴 버튼" /></a>
+    <script src="/views/js/menu.js" type="text/javascript"></script>
 </nav>`);
