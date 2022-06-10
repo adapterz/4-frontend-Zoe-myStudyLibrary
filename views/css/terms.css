@@ -1,5 +1,6 @@
 /* 회원가입 약관동의 페이지 전체 컨테이너 */
 .container {
+  background-color: #f9f9fc;
   padding: 20px 400px;
   display: flex;
   flex-direction: column;

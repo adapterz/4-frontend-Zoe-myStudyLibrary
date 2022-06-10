@@ -8,7 +8,7 @@
   margin-left: 10%;
   margin-top: 5%;
   flex-direction: column;
-  width: 300px;
+  width: 600px;
   display: flex;
   list-style: none;
 }
@@ -18,10 +18,14 @@
 }
 /* 유저가 작성한 게시글 제목/작성날짜/조회수/좋아요 수 설정 */
 .userResource__board--board li {
+  width: 450px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   line-height: 33px;
   padding: 20px 20px;
-  border-bottom: 1px solid #dae1e6;
+  border-radius: 0.28571429rem;
+  border: 1px solid #d9dfeb;
+  background: #ffffff;
+  margin:10px;
 }
 .userResource__board--title {
   margin-bottom: 15%;
