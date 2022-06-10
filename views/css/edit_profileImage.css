@@ -53,6 +53,9 @@
   border-radius: 40px;
   border: solid 1px #ffc400;
 }
+#container__editProfileImage--button {
+  margin-bottom: 20px;
+}
 
 /* 제출 버튼 */
 .container__editProfileImage--submit {
