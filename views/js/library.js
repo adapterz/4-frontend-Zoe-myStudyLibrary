@@ -95,23 +95,11 @@ async function addLibrary(library) {
   // 도서관 종류
   const typeElement = document.createElement("p");
   typeElement.classList.add("library__list--component");
-  typeElement.textContent = `도서관 종류 | ${libraryType}`;
+  typeElement.textContent = `종류 | ${libraryType}`;
   // 도서관 휴관일
   const closeDayElement = document.createElement("p");
   closeDayElement.classList.add("library__list--component");
   closeDayElement.textContent = `휴관일 | ${closeDay}`;
-  // 주간 운영시간
-  const weekdayOperateTimeElement = document.createElement("p");
-  weekdayOperateTimeElement.classList.add("library__list--component");
-  weekdayOperateTimeElement.textContent = `주중 운영시간 | ${weekdayOperateTime}`;
-  // 토요일 운영시간
-  const saturdayOperateTimeElement = document.createElement("p");
-  saturdayOperateTimeElement.classList.add("library__list--component");
-  saturdayOperateTimeElement.textContent = `토요일 운영시간 | ${saturdayOperateTime}`;
-  // 휴무일 운영시간
-  const holidayOperateTimeElement = document.createElement("p");
-  holidayOperateTimeElement.classList.add("library__list--component");
-  holidayOperateTimeElement.textContent = `공휴일 운영시간 | ${holidayOperateTime}`;
   // 주소
   const addressElement = document.createElement("p");
   addressElement.classList.add("library__list--component");
@@ -128,9 +116,6 @@ async function addLibrary(library) {
   document.getElementsByClassName("library__list--href")[index].append(nameElement);
   document.getElementsByClassName("library__list--href")[index].append(typeElement);
   document.getElementsByClassName("library__list--href")[index].append(closeDayElement);
-  document.getElementsByClassName("library__list--href")[index].append(weekdayOperateTimeElement);
-  document.getElementsByClassName("library__list--href")[index].append(saturdayOperateTimeElement);
-  document.getElementsByClassName("library__list--href")[index].append(holidayOperateTimeElement);
   document.getElementsByClassName("library__list--href")[index].append(addressElement);
   document.getElementsByClassName("library__list--href")[index].append(libraryContactElement);
   document.getElementsByClassName("library__list--href")[index].append(gradeElement);

@@ -14,6 +14,7 @@ main 구성요소
 }
 .home__card--img {
   margin: 5% 0%;
+  width: 400px;
 }
 /* 1. user 탭 */
 /* notlogined */
@@ -67,8 +68,8 @@ main 구성요소
   object-position: center;
 }
 .home__user--nickname {
-  font-size: 17px;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-size: 13px;
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   margin: 0px 5px;
   padding: 30px 30px;
   grid-column: 3/7;
@@ -139,12 +140,12 @@ main 구성요소
 .home__board {
   margin: 5% 0%;
   flex-direction: column;
-  width: 300px;
+  width: 400px;
   display: flex;
   list-style: none;
 }
 .home__board li {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   line-height: 28px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
@@ -163,8 +164,8 @@ main 구성요소
 .home__category {
   padding: 15px 0px;
   font-size: 25px;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   font-weight: bold;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
   align-items: flex-start;
   border-bottom: 1px solid #dae1e6;
@@ -172,10 +173,8 @@ main 구성요소
 /* 3. 동기부여용 명언 */
 .home__wiseSaying {
   margin-top: 5%;
-  margin-left: 10%;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  width: 300px;
-  font-weight: bold;
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  width: 400px;
   line-height: 30px;
   display: flex;
   list-style: none;
@@ -239,7 +238,7 @@ main 구성요소
 }
 /* 5. 반응형 디자인 */
 
-@media screen and (max-width: 2000px) {
+@media screen and (max-width: 1850px) {
   .home {
     padding: 50px;
     display: flex;
@@ -250,7 +249,7 @@ main 구성요소
   .home__wiseSaying {
     margin-top: 5%;
     margin-left: 0%;
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
     width: 300px;
     line-height: 30px;
     display: flex;
@@ -317,9 +316,15 @@ main 구성요소
   }
   .home__board {
     flex-direction: column;
-    width: 90%;
     display: flex;
     list-style: none;
+  }
+  .home__board--title{
+    font-size: 13px;
+  }
+
+  .home__board--nickname{
+    font-size: 12px;
   }
   .home__wiseSaying {
     display: flex;

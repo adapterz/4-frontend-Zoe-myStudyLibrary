@@ -206,10 +206,9 @@ async function lifeCycle() {
   await detailLibrary();
   await getReview();
   // 무한 스크롤링으로 후기 정보 가져오기
-
+  const libraryIndex = await getLibraryIndex();
   window.onscroll = async function () {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      const libraryIndex = await getLibraryIndex();
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
       const backendResult = await getDetailReview(libraryIndex, reviewPage++);
       // 성공적으로 후기 정보 불러왔을 때
       if (backendResult.state === undefined) {

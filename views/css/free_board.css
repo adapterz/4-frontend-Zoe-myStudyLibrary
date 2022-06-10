@@ -88,23 +88,23 @@ body {
   text-align: center;
 }
 .button__freeBoard--write {
+  text-align: center;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   width: 100px;
-  height: 45px;
-  color: #fff;
-  background-color: lightsalmon;
-  border: 1px solid lightsalmon;
-  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 17px;
+  height: 2em;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 16px;
   font-weight: bold;
-  border-radius: 20px;
-  align-self: self-end;
+  border-radius: 0.3em;
+  margin-left: auto;
 }
 
 .button__freeBoard--write:hover {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  padding: 10px;
-  background-color: salmon;
+  background-color: lightgray;
+  border: none;
+  color: white;
 }
 
 /* form 컨테이너 */
@@ -136,7 +136,7 @@ body {
 .container__search--searchOption {
   font-size: 12px;
   text-align: center;
-  height: 30px;
+  height: 33px;
   width: 120px;
   border: solid 1px #999;
   border-radius: 10px;
@@ -144,24 +144,25 @@ body {
   -moz-appearance: none;
   appearance: none;
   background: url("/views/img/arrow.png") no-repeat 90% 50% white;
-  background-size: 2em 2em;
+  background-size: 1.2em 1.2em;
 }
 /* 제출 버튼 */
 .container__search--submit {
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  width: 70px;
-  height: 40px;
-  color: #fff;
-  background-color: lightsalmon;
-  border: 1px solid lightsalmon;
-  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  width: 40px;
+  height: 2em;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 13px;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 0.3em;
 }
 
 .container__search--submit:hover {
-  background-color: salmon;
-  padding: 10px;
+  background-color: lightgray;
+  border: none;
+  color: white;
 }
 /* 테이블 설정 */
 table {
@@ -223,7 +224,9 @@ td {
   .container__search {
     margin-bottom: 5%;
     margin-top: 10%;
+    width: 90%;
     display: flex;
+    font-size: 10px;
     flex-direction: row;
     justify-content: center;
     align-content: center;
@@ -231,20 +234,34 @@ td {
     justify-items: center;
     place-self: center;
   }
+
+  .container__search--button {
+    margin-bottom: 5%;
+    margin-top: 10%;
+    width: 5%;
+    display: flex;
+    font-size: 10px;
+  }
+
+  .container__search--button:hover {
+    font-size: 10px;
+  }
   .freeBoard__table--title {
-    font-size: 14px;
+    width: 60%;
+    font-size: 10px;
   }
 
   .freeBoard__table--nickname {
-    font-size: 14px;
+    width: 40%;
+    font-size: 10px;
   }
 
   .freeBoard__table--viewCount {
-    font-size: 14px;
+    display: none;
   }
 
   .freeBoard__table--favoriteCount {
-    font-size: 14px;
+    display: none;
   }
 
   .freeBoard__table--createDate {
@@ -254,40 +271,40 @@ td {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
-    font-size: 14px;
+    font-size: 12px;
   }
   .freeBoard__board--title {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     margin-bottom: 3%;
-    font-size: 15px;
+    font-size: 13px;
     text-align: center;
   }
 
   .freeBoard__board--createDate {
-    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-    text-align: center;
-    color: dimgray;
     display: none;
   }
   .freeBoard__board--favoriteCount {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
-    font-size: 14px;
+    font-size: 12px;
     column-gap: 2em;
+
+    display: none;
   }
   .freeBoard__board--viewCount {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
-    font-size: 14px;
+    font-size: 12px;
     column-gap: 2em;
+    display: none;
   }
 
   .freeBoard__board--nickname {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
-    font-size: 14px;
+    font-size: 10px;
   }
 }

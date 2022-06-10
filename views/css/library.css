@@ -75,12 +75,12 @@
   -moz-appearance: none;
   appearance: none;
   background: url("/views/img/arrow.png") no-repeat 90% 50% white;
-  background-size: 2em 2em;
+  background-size: 1.2em 1.2em;
 }
 .container__search--districts {
   font-size: 12px;
   text-align: center;
-  height: 30px;
+  height: 33px;
   width: 150px;
   border: solid 1px #999;
   border-radius: 10px;
@@ -88,24 +88,26 @@
   -moz-appearance: none;
   appearance: none;
   background: url("/views/img/arrow.png") no-repeat 90% 50% white;
-  background-size: 2em 2em;
+  background-size: 1.2em 1.2em;
 }
+/* 제출 버튼 */
 /* 제출 버튼 */
 .container__search--submit {
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  width: 70px;
-  height: 40px;
-  color: #fff;
-  background-color: lightsalmon;
-  border: 1px solid lightsalmon;
-  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  width: 40px;
+  height: 2em;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 13px;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 0.3em;
 }
 
 .container__search--submit:hover {
-  background-color: salmon;
-  padding: 10px;
+  background-color: lightgray;
+  border: none;
+  color: white;
 }
 
 /*  반응형 디자인 */
@@ -122,6 +124,7 @@
   }
 
   .container__search {
+    width: 90%;
     margin-bottom: 5%;
     margin-top: 10%;
     display: flex;
@@ -131,5 +134,12 @@
     align-items: center;
     justify-items: center;
     place-self: center;
+  }
+
+  .container__search--nameOfCity {
+    width: 45%;
+  }
+  .container__search--districts {
+    width: 45%;
   }
 }

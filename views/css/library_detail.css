@@ -34,7 +34,7 @@ body {
 .review__title {
   margin: 5% 0%;
   padding: 15px 2%;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
@@ -44,9 +44,9 @@ body {
 }
 
 .review__subtitle {
-  margin: 5% 0%;
+  margin: 3% 0%;
   padding: 15px 2%;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
@@ -86,18 +86,18 @@ body {
 .review__info--head {
   font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 5rem;
 }
 
 .review__info--body {
   font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 3rem;
   text-align: center;
 }
 .review__info--emoji {
-  font-size: 50px;
+  font-size: 25px;
   line-height: 2em;
 }
 .review__info--count {
@@ -116,7 +116,7 @@ body {
   color: lightslategray;
   background-color: #ffffff;
   border: 1px solid #d9dfeb;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   border-radius: 0.3em;
   align-self: center;
@@ -137,6 +137,7 @@ body {
   line-height: 2em;
   display: flex;
   flex-direction: column;
+  margin-bottom: 200px;
 }
 .review__container--list {
   display: flex;
@@ -146,8 +147,15 @@ body {
   color: dimgray;
   border-radius: 0.3rem;
   background: #ffffff;
+  line-height: 2em;
+  font-size: 17px;
   border: 1px solid #d9dfeb;
   margin: 7px 0px;
+}
+.review__container--nickname {
+  font-size: 17px;
+  font-weight: bold;
+  color: dimgray;
 }
 .review__container--grade {
   color: #ffd400;
@@ -157,7 +165,7 @@ body {
 .review__container--content {
   margin: 4px 0px;
   padding-left: 10px;
-  font-size: 20px;
+  font-size: 17px;
 }
 .review__container--createDate {
   text-align: right;
@@ -167,12 +175,12 @@ body {
   text-align: center;
   margin-left: auto;
   font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  width: 100px;
+  width: 30%;
   height: 2em;
   color: lightslategray;
   background-color: #ffffff;
   border: 1px solid #d9dfeb;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: bold;
   border-radius: 0.3em;
 }
@@ -186,29 +194,37 @@ body {
 @media screen and (max-width: 1400px) {
   .library__container {
     margin: 3%;
+    padding: 3%;
   }
   .library__title{
+    font-size: 25px;
+    line-height: 1.5em;
     margin: 3%;
     padding-left: 0%;
   }
 
   .library__info--table {
-    font-size: 18px;
+    font-size: 14px;
   }
   .review__container{
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .review__container--list {
     display: flex;
     flex-direction: column;
-    padding: 3%;
+    padding: 7%;
     font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
     color: dimgray;
     border-radius: 0.3rem;
     background: #ffffff;
     border: 1px solid #d9dfeb;
     margin: 7px 0px;
+  }
+  .review__container--nickname {
+    font-size: 14px;
+    font-weight: bold;
+    color: dimgray;
   }
   .review__container--grade {
     color: #ffd400;
@@ -217,7 +233,7 @@ body {
   .review__container--content {
     margin: 4px 0px;
     padding-left: 10px;
-    font-size: 17px;
+    font-size: 14px;
   }
   .review__container--createDate {
     text-align: right;

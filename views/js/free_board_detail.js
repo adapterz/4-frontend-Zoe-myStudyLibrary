@@ -44,7 +44,9 @@ async function detailBoard() {
       }
     }
     // 유저 정보 배치
-    document.getElementsByClassName("freeBoard__user--nickname")[0].innerHTML = `닉네임 | ${backendResult.dataOfUser.nickname}`;
+    document.getElementsByClassName(
+      "freeBoard__user--nickname"
+    )[0].innerHTML = `닉네임 | ${backendResult.dataOfUser.nickname}`;
     // 유저에게 등록된 프로필 사진이 있을 때
     if (backendResult.dataOfUser.isProfileImage) {
       const image = backendResult.dataOfUser.profileImage;
@@ -224,9 +226,8 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
       editButton.style.display = "none";
       deleteButton.style.display = "none";
     }
-    document.getElementsByClassName("button__comment")[buttonIndex].appendChild(editButton);
     document.getElementsByClassName("button__comment")[buttonIndex].appendChild(deleteButton);
-
+    document.getElementsByClassName("button__comment")[buttonIndex].appendChild(editButton);
     // 대댓글작성
     const writeChildCommentButton = document.createElement("button");
     writeChildCommentButton.classList.add("button__childComment--write");
@@ -290,8 +291,8 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
       editButton.style.display = "none";
       deleteButton.style.display = "none";
     }
-    document.getElementsByClassName("button__comment")[buttonIndex].appendChild(editButton);
     document.getElementsByClassName("button__comment")[buttonIndex].appendChild(deleteButton);
+    document.getElementsByClassName("button__comment")[buttonIndex].appendChild(editButton);
   }
 }
 // 댓글 작성 버튼 눌렀을 때 호출할 함수
@@ -498,13 +499,13 @@ async function editComment(commentIndex) {
 }
 // 댓글 삭제 버튼 눌렀을 때
 
-async function deleteComment(commentIndex){
+async function deleteComment(commentIndex) {
   const boardIndex = await getBoardIndex();
-  const backendResult = await deleteCommentRequest(boardIndex,commentIndex);
+  const backendResult = await deleteCommentRequest(boardIndex, commentIndex);
   // 로그인 필요할 때
   if (backendResult.state === LOGIN_REQUIRED) {
     const result = await sweetAlert(WARNING, "로그인 필요", "로그인창으로 갑니다.");
-    if (result) location.href="/user/login"
+    if (result) location.href = "/user/login";
   }
   // 게시글이 없을 때 게시글 목록으로 이동
   else if (backendResult.state === NOT_EXIST) {
@@ -538,13 +539,12 @@ async function deleteComment(commentIndex){
   }
 }
 
-
 // 해당 페이지에서 최초 한번 호출
 async function lifeCycle() {
   await detailBoard();
   await detailComment();
 
-// 댓글 무한 스크롤링
+  // 댓글 무한 스크롤링
   window.onscroll = async function () {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1) {
       const boardIndex = await getBoardIndex();

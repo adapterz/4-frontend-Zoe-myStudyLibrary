@@ -55,21 +55,21 @@ async function addPost(postTitle, viewCount, favoriteCount, createDate, boardInd
   // 게시글 제목
   const titleElement = document.createElement("p");
   titleElement.classList.add("userResource__board--title");
-  titleElement.textContent = `${postTitle}`;
+  titleElement.textContent = `글제목 | ${postTitle}`;
   // 게시글 조회수
   const viewElement = document.createElement("p");
   viewElement.classList.add("userResource__board--viewCount");
   viewElement.innerHTML = `
-              <img className="userResouce__board--img" width="17px",height="17px" src="/views/img/view.png" alt="조회수 아이콘" /> ${viewCount}`;
+              <img className="userResouce__board--img" width="17px",height="17px" src="/views/img/view.png" alt="조회수 아이콘" />  ${viewCount}`;
   // 게시글 좋아요 수
   const favoriteElement = document.createElement("p");
   favoriteElement.classList.add("userResource__board--favoriteCount");
   favoriteElement.innerHTML = `
-              <img className="userResource__board--img" width="17px",height="17px" src="/views/img/love.png" alt="조회수 아이콘" /> ${favoriteCount}`;
+              <img className="userResource__board--img" width="17px",height="17px" src="/views/img/love.png" alt="조회수 아이콘" />  ${favoriteCount}`;
   // 작성 날짜
   const createDateElement = document.createElement("p");
   createDateElement.classList.add("userResource__board--createDate");
-  createDateElement.textContent = `${createDate}`;
+  createDateElement.textContent = `작성날짜 | ${createDate}`;
   // 삭제하기 버튼
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("button__userResource--delete");

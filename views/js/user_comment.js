@@ -53,7 +53,7 @@ async function addComment(postTitle, commentContent, createDate, boardIndex, com
   // 게시글 제목
   const titleElement = document.createElement("p");
   titleElement.classList.add("userResource__comment--title");
-  titleElement.textContent = `${postTitle}`;
+  titleElement.textContent = `글제목 | ${postTitle}`;
   // 댓글 내용
   const contentElement = document.createElement("p");
   contentElement.classList.add("userResource__comment--content");
@@ -61,7 +61,7 @@ async function addComment(postTitle, commentContent, createDate, boardIndex, com
   // 작성 날짜
   const createDateElement = document.createElement("p");
   createDateElement.classList.add("userResource__comment--createDate");
-  createDateElement.textContent = `${createDate}`;
+  createDateElement.textContent = `작성날짜 | ${createDate}`;
   // 삭제하기 버튼
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("button__userResource--delete");
