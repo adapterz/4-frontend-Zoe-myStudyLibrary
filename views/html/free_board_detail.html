@@ -14,7 +14,6 @@
     <style>
       @import url("/views/css/reset.css");
       @import url("/views/css/common.css");
-      @import url("/views/css/free_board.css");
       @import url("/views/css/free_board_detail.css");
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
@@ -26,9 +25,10 @@
     <header>
       <script src="/views/js/header.js"></script>
     </header>
-    <article class="freeBoard">
       <p class="freeBoard__title">📋 자유게시판</p>
       <!-- 특정 게시글 정보 -->
+
+    <section class="freeBoard">
       <nav class="freeBoard__board">
         <li>
           <p class="freeBoard__board--title"></p>
@@ -46,29 +46,34 @@
         </li>
       </nav>
       <p class="freeBoard__board--content"></p>
-      <button href="" class="freeBoard__board--giveLove" onclick="favoritePost()">
-        <img src="/views/img/give-love.png" class="freeBoard__board--giveLoveImg" alt="좋아요 +1" />
-      </button>
-      <section class="freeBoard__board--tags">
-        <p class="freeBoard__board--tag"></p>
-        <p class="freeBoard__board--tag"></p>
-        <p class="freeBoard__board--tag"></p>
-        <p class="freeBoard__board--tag"></p>
-        <p class="freeBoard__board--tag"></p>
-      </section>
-      <!-- 해당 게시글을 작성한 유저일 경우 수정하기 삭제하기 버튼 -->
-      <section class="container__freeBoard--authorization">
-        <button type="button" class="button__freeBoard--write" onclick="editPage()">글 수정하기</button>
-        <button type="button" class="button__freeBoard--write" onclick="deletePost()">글 삭제하기</button>
-        <!-- 해당 게시글의 댓글 정보 -->
-      </section>
+          <button href="" class="freeBoard__board--giveLove" onclick="favoritePost()">
+            <img src="/views/img/give-love.png" class="freeBoard__board--giveLoveImg" alt="좋아요 +1" />
+          </button>
+          <section class="freeBoard__board--tags">
+            <p class="freeBoard__board--tag"></p>
+            <p class="freeBoard__board--tag"></p>
+            <p class="freeBoard__board--tag"></p>
+            <p class="freeBoard__board--tag"></p>
+            <p class="freeBoard__board--tag"></p>
+          </section>
+          <!-- 해당 게시글을 작성한 유저일 경우 수정하기 삭제하기 버튼 -->
+          <section class="container__freeBoard--authorization">
+            <button type="button" class="button__freeBoard--write" onclick="editPage()">글 수정하기</button>
+            <button type="button" class="button__freeBoard--write" onclick="deletePost()">글 삭제하기</button>
+
+          </section>
+
+
+      <!-- 해당 게시글의 댓글 정보 -->
+      <section class="freeBoard__comment--container">
         <h2 class="freeBoard__comment--title">✏ 댓글</h2>
         <h3 class="freeBoard__comment--subtitle">📜 스크롤을 계속 내려보세요. 더 내려가지 않으면 댓글이 더이상 없는 것입니다.</h3>
       <button class="button__comment--write" style=" margin-right: 150px;margin-left:150px;border: 1px solid #dae1e6;" onclick="writeComment()">댓글 작성</button>
+      </section>
       <!-- 동적으로 댓글 정보 추가 -->
         <nav class="freeBoard__comment"></nav>
       </form>
-    </article>
+    </section>
 
     <!-- footer -->
     <footer class="footer__serviceInfo">

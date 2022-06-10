@@ -12,6 +12,108 @@
 
  */
 /* 컨테이너 */
+.body {
+  background-color: #f9f9fc;
+}
+
+.freeBoard {
+  margin: 3% 20%;
+  padding: 3% 1%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border-radius: 0.4rem;
+  background: #ffffff;
+  border: 1px solid #d9dfeb;
+}
+/* 자유게시판 타이틀 */
+.freeBoard__title {
+  margin-top: 5%;
+  padding-left: 20%;
+  text-align: left;
+  font-size: 25px;
+  font-weight: 100;
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
+  color: dimgray;
+}
+
+/* 자유게시판 서브타이틀 */
+.freeBoard__subtitle {
+  line-height: 24px;
+  padding: 15px 0px;
+  font-size: 20px;
+  font-weight: 100;
+  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
+  color: dimgray;
+}
+/* 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정 */
+.freeBoard__board--list {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  line-height: 30px;
+  padding: 5% 5%;
+  list-style: none;
+  margin: 10px;
+}
+.freeBoard__board--title {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  margin-bottom: 3%;
+  font-size: 20px;
+}
+
+.freeBoard__board--createDate {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  text-align: right;
+  color: dimgray;
+  font-size: 17px;
+}
+.freeBoard__board--favoriteCount {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  text-align: right;
+  color: dimgray;
+  font-size: 17px;
+  column-gap: 2em;
+}
+.freeBoard__board--viewCount {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  text-align: right;
+  color: dimgray;
+  font-size: 17px;
+  column-gap: 2em;
+}
+
+.freeBoard__board--nickname {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  text-align: right;
+  color: dimgray;
+  font-size: 17px;
+}
+
+/* 조회수/좋아요 수 아이콘 설정 */
+.freeBoard__board--img {
+  width: 15px;
+  height: 17px;
+  margin-right: 0.5em;
+}
+.button__freeBoard--write {
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  width: 100px;
+  height: 45px;
+  color: #fff;
+  background-color: lightsalmon;
+  border: 1px solid lightsalmon;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 20px;
+  align-self: self-end;
+}
+
+.button__freeBoard--write:hover {
+  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  padding: 10px;
+  background-color: salmon;
+}
+
 .freeBoard__board {
   border-bottom: 1px solid #dae1e6;
   margin-top: 30px;
@@ -38,7 +140,8 @@
   display: flex;
   flex-direction: row;
   text-align: right;
-  margin-right: 100px;
+  padding-right: 5%;
+  margin-right: 3%;
 }
 /* 수정하기, 삭제하기 버튼 */
 .button__freeBoard--write {
@@ -49,21 +152,21 @@
   width: 65px;
   height: 65px;
   margin-top: 5%;
-  align-self: center;
   border: none;
   background-color: #ffffff;
+  margin-left: 47%;
 }
 
 .freeBoard__board--giveLoveImg {
   width: 60px;
   height: 60px;
-  align-self: center;
 }
 
 .freeBoard__board--giveLoveImg:hover {
   width: 65px;
   height: 65px;
   align-self: center;
+  text-align: center;
 }
 /* 태그 */
 .freeBoard__board--tags {
@@ -127,15 +230,22 @@
   row-gap: 3px;
 }
 /* 댓글 타이틀 */
+.freeBoard__comment--container {
+  display: flex;
+  flex-direction: column;
+  padding-right: 8%;
+}
 .freeBoard__comment--title {
   margin-top: 30px;
   margin-left: 100px;
-  padding: 15px 0px;
+  padding: 15px 2%;
   font-size: 25px;
   font-weight: 100;
   font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
   color: dimgray;
   align-items: center;
+  background-color: lightsteelblue;
+  border-radius: 0.28rem;
 }
 
 .freeBoard__comment--subtitle {
@@ -164,7 +274,9 @@
 }
 
 .freeBoard__comment li {
-  border-top: 1px solid #dae1e6;
+  border: 1px solid #dae1e6;
+  border-radius: 0.3rem;
+  padding: 1%;
 }
 .freeBoard__rootComment {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
@@ -175,14 +287,16 @@
 .freeBoard__rootComment--nickname {
   margin-top: 30px;
   margin-bottom: 30px;
+  margin-left: 20px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 20px;
   font-weight: bold;
 }
 
 .freeBoard__rootComment--content {
-  margin: 5px 10px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  margin-left: 20px;
+  margin-right: 20px;
   font-size: 17px;
 }
 
@@ -197,14 +311,14 @@
   line-height: 30px;
   margin-bottom: 5px;
   list-style: none;
-  background: url("/views/img/comment_arrow.png") no-repeat 0px 30px;
+  background: url("/views/img/comment_arrow.png") no-repeat 2% 30px;
 
   background-size: 1.7em 1.7em;
 }
 
 .freeBoard__childComment--nickname {
   margin-top: 30px;
-  margin-left: 40px;
+  margin-left: 50px;
   margin-bottom: 30px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 20px;
@@ -212,7 +326,8 @@
 }
 
 .freeBoard__childComment--content {
-  margin: 5px 53px;
+  margin-left: 60px;
+  margin-right: 20px;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   font-size: 17px;
 }
@@ -255,7 +370,7 @@
 }
 .button__comment--write {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 200px;
+  width: 80px;
   height: 40px;
   color: lightslategray;
   background-color: #ffffff;
@@ -263,7 +378,7 @@
   font-size: 16px;
   font-weight: bold;
   border-radius: 20px;
-  align-self: self-end;
+  align-self: center;
 }
 .button__comment--edit:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
@@ -289,7 +404,7 @@
 
 .button__comment--write:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  padding: 10px;
+  padding: 5px;
   background-color: lightgray;
   border: none;
   color: white;
@@ -312,10 +427,15 @@
 }
 /*  반응형 디자인 */
 @media screen and (max-width: 1700px) {
+  .freeBoard {
+    display: flex;
+    flex-direction: column;
+    min-height: 200vh;
+  }
   .freeBoard__comment--title {
     margin-top: 30px;
     margin-left: 0px;
-    padding: 15px 0px;
+    padding: 15px;
     font-size: 25px;
     font-weight: 100;
     font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
@@ -328,16 +448,12 @@
     margin-left: 0px;
     padding: 15px 0px;
     font-size: 20px;
-    line-height: 30px;
+    line-height: 35px;
     font-weight: 100;
     font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
     color: dimgray;
     align-items: center;
   }
-  .container__freeBoard--authorization {
-    margin-right: 0px;
-  }
-
   .button__freeBoard--write {
     font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
     width: 80px;
@@ -377,5 +493,20 @@
     border-radius: 10px;
     text-align: center;
     line-height: 25px;
+  }
+  .freeBoard__comment--container {
+    padding: 4%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .freeBoard {
+    margin: 3%;
+  }
+  .freeBoard__title {
+    padding: 3%;
+  }
+  .freeBoard__comment--container {
+    padding: 3%;
   }
 }
