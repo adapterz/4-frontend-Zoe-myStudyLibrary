@@ -17,6 +17,8 @@ body {
 }
 /* 자유게시판 타이틀 */
 .freeBoard__title {
+  margin: 0.5em 0;
+  line-height: 1.5em;
   padding: 15px 0px;
   font-size: 25px;
   font-weight: bold;

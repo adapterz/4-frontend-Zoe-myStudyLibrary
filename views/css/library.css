@@ -1,58 +1,129 @@
 .library__container {
-    padding: 50px 500px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f9f9fc
+  padding: 50px 500px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f9f9fc;
 }
 .library__title {
-    padding: 15px 0px;
-    font-size: 25px;
-    font-weight:bold;
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-    color: dimgray;
+  margin-top: 2em;
+  line-height: 1.5em;
+  padding: 15px 0px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
 }
 
 .library__subtitle {
-    line-height: 35px;
-    padding: 15px 0px;
-    font-size: 20px;
-    font-weight: 100;
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-    color: dimgray;
+  line-height: 35px;
+  padding: 15px 0px;
+  font-size: 20px;
+  font-weight: 100;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
 }
 .library__list {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-    line-height: 27px;
-    padding: 20px 20px;
-    border-radius: 0.28571429rem;
-    border: 1px solid #d9dfeb;
-    margin: 10px;
-    list-style: none;
-    background: #ffffff;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  line-height: 27px;
+  padding: 20px 20px;
+  border-radius: 0.28571429rem;
+  border: 1px solid #d9dfeb;
+  margin: 10px;
+  list-style: none;
+  background: #ffffff;
 }
 .library__list--name {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-    margin-bottom: 3%;
-    font-size: 20px;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  margin-bottom: 3%;
+  font-size: 20px;
 }
 .library__list--component {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-    text-align: right;
-    color: dimgray;
-    font-size: 17px;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  text-align: right;
+  color: dimgray;
+  font-size: 17px;
 }
 
 /* 조회수/좋아요 수 아이콘 설정 */
 .library__list--img {
-    width: 15px;
-    height: 17px;
-    margin-right: 0.5em;
+  width: 15px;
+  height: 17px;
+  margin-right: 0.5em;
 }
 /* form 컨테이너 */
 .container__search {
+  margin-bottom: 5%;
+  column-gap: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  place-self: center;
+}
+/* 검색옵션 select 박스 설정 */
+.container__search--nameOfCity {
+  font-size: 12px;
+  text-align: center;
+  height: 30px;
+  width: 150px;
+  border: solid 1px #999;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("/views/img/arrow.png") no-repeat 90% 50% white;
+  background-size: 2em 2em;
+}
+.container__search--districts {
+  font-size: 12px;
+  text-align: center;
+  height: 30px;
+  width: 150px;
+  border: solid 1px #999;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("/views/img/arrow.png") no-repeat 90% 50% white;
+  background-size: 2em 2em;
+}
+/* 제출 버튼 */
+.container__search--submit {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 70px;
+  height: 40px;
+  color: #fff;
+  background-color: lightsalmon;
+  border: 1px solid lightsalmon;
+  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.container__search--submit:hover {
+  background-color: salmon;
+  padding: 10px;
+}
+
+/*  반응형 디자인 */
+@media screen and (max-width: 1480px) {
+  .library__container {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    min-height: 200vh;
+  }
+  .library__title {
+    margin: 0.5em 0;
+    line-height: 1.5em;
+  }
+
+  .container__search {
     margin-bottom: 5%;
-    column-gap: 5px;
+    margin-top: 10%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -60,70 +131,5 @@
     align-items: center;
     justify-items: center;
     place-self: center;
-}
-/* 검색옵션 select 박스 설정 */
-.container__search--nameOfCity {
-    font-size: 12px;
-    text-align: center;
-    height: 30px;
-    width: 150px;
-    border: solid 1px #999;
-    border-radius: 10px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url("/views/img/arrow.png") no-repeat 90% 50% white;
-    background-size: 2em 2em;
-}
-.container__search--districts {
-    font-size: 12px;
-    text-align: center;
-    height: 30px;
-    width: 150px;
-    border: solid 1px #999;
-    border-radius: 10px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url("/views/img/arrow.png") no-repeat 90% 50% white;
-    background-size: 2em 2em;
-}
-/* 제출 버튼 */
-.container__search--submit {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-    width: 70px;
-    height: 40px;
-    color: #fff;
-    background-color: lightsalmon;
-    border: 1px solid lightsalmon;
-    box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-    font-weight: bold;
-    border-radius: 20px;
-}
-
-.container__search--submit:hover {
-    background-color: salmon;
-    padding: 10px;
-}
-
-/*  반응형 디자인 */
-@media screen and (max-width: 1480px) {
-    .library__container {
-        padding: 50px;
-        display: flex;
-        flex-direction: column;
-        min-height: 200vh;
-    }
-
-    .container__search {
-        margin-bottom: 5%;
-        margin-top: 10%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-        justify-items: center;
-        place-self: center;
-    }
+  }
 }
