@@ -58,7 +58,7 @@
 }
 /* 페이지네이션 버튼 컴포넌트 */
 .button--page {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", "Gugi", "Poor Story", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   width: 30px;
   height: 30px;
   color: #333;

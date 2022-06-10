@@ -12,7 +12,6 @@ document.write(`
   <ul class="gmb__menu">
     <li><a href="/library">주변도서관</a></li>
     <li><a href="/board">자유게시판</a></li>
-    <li><a href="/board/user">내가작성한글</a></li>
   </ul>
   <a href="#" class="gmb__toogleBtn">
               <img class="gmb__toogleBtn--img" src="/views/img/menu.png" alt="메뉴 버튼" /></a>
