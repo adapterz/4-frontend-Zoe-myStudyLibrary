@@ -204,10 +204,10 @@
 .freeBoard__user--profileImageImg {
   padding-bottom: 30px;
   border: none;
-  height: 170px;
-  weight: 170px;
-  margin: auto;
+  height: auto;
+  width: 100%;
   object-position: center;
+  margin: auto;
 }
 
 .freeBoard__user--nickname {

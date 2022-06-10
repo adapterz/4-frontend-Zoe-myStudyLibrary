@@ -62,9 +62,8 @@ main 구성요소
 .home__user--profileImageImg {
   padding-bottom: 30px;
   border: none;
-  height: 170px;
-  weight: 170px;
-  margin: auto;
+  height: auto;
+  width: 100%;
   object-position: center;
 }
 .home__user--nickname {
