@@ -26,7 +26,7 @@ body{
 
 /* 자유게시판 서브타이틀 */
 .freeBoard__subtitle {
-  line-height: 24px;
+  line-height: 35px;
   padding: 15px 0px;
   font-size: 20px;
   font-weight: 100;
