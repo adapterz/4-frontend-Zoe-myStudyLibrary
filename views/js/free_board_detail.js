@@ -20,7 +20,7 @@ async function detailBoard() {
     // 성공적으로 개시글 정보 불러왔을 때
   } else if (backendResult.state === REQUEST_SUCCESS) {
     // 게시글 정보 배치
-    document.getElementsByClassName("freeBoard__board--title")[0].innerHTML = `${backendResult.dataOfBoard.postTitle}`;
+    document.getElementsByClassName("freeBoard__board--title")[0].innerHTML = `글제목 | ${backendResult.dataOfBoard.postTitle}`;
     document.getElementsByClassName(
       "freeBoard__board--viewCount"
     )[0].innerHTML = `<img class="freeBoard__board--img" src="/views/img/view.png" alt="조회수 아이콘" /> ${backendResult.dataOfBoard.viewCount}`;
@@ -32,7 +32,7 @@ async function detailBoard() {
     )[0].innerHTML = `${backendResult.dataOfBoard.postContent}`;
     document.getElementsByClassName(
       "freeBoard__board--createDate"
-    )[0].innerHTML = `${backendResult.dataOfBoard.createDate}`;
+    )[0].innerHTML = `작성날짜 | ${backendResult.dataOfBoard.createDate}`;
     // 태그 배치
     const length = backendResult.dataOfTag.length;
     for (let cnt = 0; cnt < 5; ++cnt) {
@@ -44,7 +44,7 @@ async function detailBoard() {
       }
     }
     // 유저 정보 배치
-    document.getElementsByClassName("freeBoard__user--nickname")[0].innerHTML = `${backendResult.dataOfUser.nickname}`;
+    document.getElementsByClassName("freeBoard__user--nickname")[0].innerHTML = `닉네임 | ${backendResult.dataOfUser.nickname}`;
     // 유저에게 등록된 프로필 사진이 있을 때
     if (backendResult.dataOfUser.isProfileImage) {
       const image = backendResult.dataOfUser.profileImage;
