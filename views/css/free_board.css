@@ -3,14 +3,15 @@
 2. 자유게시판 타이틀/서브 타이틀
 3. 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정
 4. 조회수/좋아요 수 아이콘 설정
+5. 테이블 설정
  */
-/* 자유게시판 컨테이너 */
+/* 컨테이너 */
 .freeBoard {
   padding: 50px 500px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f9f9fc
+  background-color: #f9f9fc;
 }
 /* 자유게시판 타이틀 */
 .freeBoard__title {
@@ -45,30 +46,33 @@
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   margin-bottom: 3%;
   font-size: 20px;
+  text-align: center;
 }
 
 .freeBoard__board--createDate {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
-  text-align: right;
+  text-align: center;
   color: dimgray;
   font-size: 17px;
 }
 .freeBoard__board--favoriteCount {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
-  text-align: right;
+  text-align: center;
   color: dimgray;
   font-size: 17px;
+  column-gap: 2em;
 }
 .freeBoard__board--viewCount {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
-  text-align: right;
+  text-align: center;
   color: dimgray;
   font-size: 17px;
+  column-gap: 2em;
 }
 
 .freeBoard__board--nickname {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
-  text-align: right;
+  text-align: center;
   color: dimgray;
   font-size: 17px;
 }
@@ -78,6 +82,7 @@
   width: 15px;
   height: 17px;
   margin-right: 0.5em;
+  text-align: center;
 }
 .button__freeBoard--write {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
@@ -155,7 +160,41 @@
   background-color: salmon;
   padding: 10px;
 }
+/* 테이블 설정 */
+.table {
+  margin: 1rem;
+}
+th,
+td {
+  padding: 15px;
+  line-height: 1.5rem;
+  height: 3.5rem;
+}
+.freeBoard__table--title {
+  width: 50%;
+}
 
+.freeBoard__table--nickname {
+  width: 20%;
+}
+
+.freeBoard__table--viewCount {
+  width: 5%;
+}
+
+.freeBoard__table--favoriteCount {
+  width: 5%;
+}
+
+.freeBoard__table--createDate {
+  width: 20%;
+}
+.freeBoard__board--thead {
+  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  text-align: center;
+  color: dimgray;
+  font-size: 17px;
+}
 /*  반응형 디자인 */
 @media screen and (max-width: 1480px) {
   .freeBoard {
@@ -163,6 +202,7 @@
     display: flex;
     flex-direction: column;
     min-height: 200vh;
+    font-size: 12px;
   }
 
   .container__search {
@@ -175,5 +215,64 @@
     align-items: center;
     justify-items: center;
     place-self: center;
+  }
+  .freeBoard__table--title {
+    font-size: 14px;
+  }
+
+  .freeBoard__table--nickname {
+    font-size: 14px;
+  }
+
+  .freeBoard__table--viewCount {
+    font-size: 14px;
+  }
+
+  .freeBoard__table--favoriteCount {
+    font-size: 14px;
+  }
+
+  .freeBoard__table--createDate {
+    display: none;
+  }
+  .freeBoard__board--thead {
+    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    text-align: center;
+    color: dimgray;
+    font-size: 14px;
+  }
+  .freeBoard__board--title {
+    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    margin-bottom: 3%;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .freeBoard__board--createDate {
+    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    text-align: center;
+    color: dimgray;
+    display: none;
+  }
+  .freeBoard__board--favoriteCount {
+    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    text-align: center;
+    color: dimgray;
+    font-size: 14px;
+    column-gap: 2em;
+  }
+  .freeBoard__board--viewCount {
+    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    text-align: center;
+    color: dimgray;
+    font-size: 14px;
+    column-gap: 2em;
+  }
+
+  .freeBoard__board--nickname {
+    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    text-align: center;
+    color: dimgray;
+    font-size: 14px;
   }
 }
