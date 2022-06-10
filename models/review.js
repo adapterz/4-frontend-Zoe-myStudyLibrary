@@ -8,7 +8,7 @@
  */
 
 // 1. 도서관 후기 등록하는 모델
-async function reqRegisterReview(libraryIndex, _reviewContent, _grade) {
+async function registerReviewRequest(libraryIndex, _reviewContent, _grade) {
   try {
     const options = {
       mode: "cors",
@@ -114,7 +114,7 @@ async function editReview(libraryIndex, reviewIndex, _reviewContent, _grade) {
   }
 }
 // 5. 후기 삭제
-async function deleteReview(libraryIndex, reviewIndex) {
+async function deleteReviewRequest(libraryIndex, reviewIndex) {
   const options = {
     mode: "cors",
     method: DELETE,

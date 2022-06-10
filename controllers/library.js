@@ -26,3 +26,18 @@ export async function libraryController(req, res) {
     return res.status(INTERNAL_SERVER_ERROR).end();
   }
 }
+// 2. 특정 도서관 정보 자세히 보기
+export async function detailLibraryController(req, res) {
+  try {
+    res.header({
+      "Content-Security-Policy": `default-src 'self'; connect-src ${BACKEND_URL}`,
+    });
+    res.header({
+      "Content-Security-Policy":
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
+    });
+    return res.status(OK).sendFile(path.join(__dirname, "views", "html", "library_detail.html"));
+  } catch (err) {
+    return res.status(INTERNAL_SERVER_ERROR).end();
+  }
+}

@@ -61,7 +61,8 @@ export async function build() {
         "WARNING",
         "QUESTION",
         "CHECK",
-        "NON_EXISTENT_LIBRARY"
+        "NON_EXISTENT_LIBRARY",
+        "NO_REVIEW"
       ],
     },
   };
@@ -71,6 +72,7 @@ export async function build() {
   const board = fs.readFileSync(path.join(__dirname, "models", "board.js"), "utf-8");
   const comment = fs.readFileSync(path.join(__dirname, "models", "comment.js"), "utf-8");
   const library = fs.readFileSync(path.join(__dirname, "models", "library.js"), "utf-8");
+  const review = fs.readFileSync(path.join(__dirname, "models", "review.js"), "utf-8");
   const wise_saying = fs.readFileSync(path.join(__dirname, "models", "wise_saying.js"), "utf-8");
   const custom = fs.readFileSync(path.join(__dirname, "views", "js", "custom.js"), "utf-8");
   // 개발 단계 빌드인지 배포 단계 빌드인지에 따라 constant 다른 파일 불러오기
@@ -191,6 +193,8 @@ export async function build() {
     [constant, library, custom, fs.readFileSync(path.join(__dirname, "views", "js", "library.js"), "utf-8")],
     options
   );
+  // library_detail
+  const library_detail = await minify([constant,library,user,review,custom,fs.readFileSync(path.join(__dirname, "views", "js", "library_detail.js"),"utf-8")]);
   // outfile
   fs.writeFileSync("views/build/drop_out.js", drop_out.code, "utf8");
   fs.writeFileSync("views/build/edit_contact.js", edit_contact.code, "utf8");
@@ -209,4 +213,5 @@ export async function build() {
   fs.writeFileSync("views/build/user_comment.js", user_comment.code, "utf8");
   fs.writeFileSync("views/build/user_post.js", user_post.code, "utf8");
   fs.writeFileSync("views/build/library.js", library_page.code, "utf8");
+  fs.writeFileSync("views/build/library_detail.js", library_detail.code, "utf8");
 }
