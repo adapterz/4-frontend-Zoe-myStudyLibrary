@@ -1,80 +1,101 @@
-/*
-게시글 상세 조회
-1. 게시글 내용
-2. 수정, 삭제버튼 컨테이너와 버튼
-3. 게시글 좋아요 누르기 아이콘
-4. 태그
-5. 작성 유저 정보
-6. 해당 게시글에 댓글 달 댓글 컨테이너(댓글 title/input/댓글입력 버튼)
-7. 해당 글에 달린 댓글 list 관련 설정
-8. 댓글 수정/삭제 대댓글 버튼 설정
-9. SweetAlert2 댓글창 설정
-
- */
 /* 컨테이너 */
-.body {
-  background-color: #f9f9fc
+body {
+  background-color: #f9f9fc;
 }
 
 .freeBoard {
-  margin: 3% 20%;
+  margin: 2% 25%;
   padding: 3% 1%;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  border-radius: 0.4rem;
+  border-radius: 0.3rem;
   background: #ffffff;
   border: 1px solid #d9dfeb;
 }
-/* 자유게시판 타이틀 */
+
+.freeBoard__info {
+  margin: 1% 10%;
+}
+.freeBoard__comment--container {
+  margin: 1% 10%;
+}
+/* 제목 */
 .freeBoard__title {
   margin-top: 5%;
-  padding-left: 20%;
+  padding-left: 25%;
   text-align: left;
-  font-size: 25px;
-  font-weight: 100;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   color: dimgray;
+}
+.freeBoard__comment--title {
+  margin: 2% 0%;
+  padding: 15px 2%;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
+  align-items: center;
+  background-color: lightsteelblue;
+  border-radius: 0.28rem;
 }
 
-/* 자유게시판 서브타이틀 */
-.freeBoard__subtitle {
-  line-height: 24px;
-  padding: 15px 0px;
-  font-size: 20px;
-  font-weight: 100;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+.freeBoard__comment--subtitle {
+  margin: 5% 0%;
+  padding: 15px 2%;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   color: dimgray;
+  align-items: center;
+  line-height: 1.5em;
+  border-radius: 0.28rem;
 }
-/* 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정 */
-.freeBoard__board--list {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+/* 게시판 게시글 정보 설정 */
+.freeBoard__board {
+  font-size: 20px;
+  width: 100%;
+  border-radius: 0.3em;
+  background: #ffffff;
+  border-bottom: 1px solid #d9dfeb;
+  column-gap: 10%;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  row-gap: 40px;
+}
+/* 게시글 헤더 부분 */
+.freeBoard__board li {
+  list-style: none;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   line-height: 30px;
   padding: 5% 5%;
-  list-style: none;
   margin: 10px;
 }
 .freeBoard__board--title {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   margin-bottom: 3%;
-  font-size: 20px;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 2em;
 }
 
 .freeBoard__board--createDate {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: right;
   color: dimgray;
   font-size: 17px;
 }
 .freeBoard__board--favoriteCount {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: right;
   color: dimgray;
   font-size: 17px;
   column-gap: 2em;
 }
 .freeBoard__board--viewCount {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: right;
   color: dimgray;
   font-size: 17px;
@@ -82,110 +103,13 @@
 }
 
 .freeBoard__board--nickname {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: right;
   color: dimgray;
   font-size: 17px;
+  margin-left: 3px;
 }
 
-/* 조회수/좋아요 수 아이콘 설정 */
-.freeBoard__board--img {
-  width: 15px;
-  height: 17px;
-  margin-right: 0.5em;
-}
-.button__freeBoard--write {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  width: 100px;
-  height: 45px;
-  color: #fff;
-  background-color: lightsalmon;
-  border: 1px solid lightsalmon;
-  box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 17px;
-  font-weight: bold;
-  border-radius: 20px;
-  align-self: self-end;
-}
-
-.button__freeBoard--write:hover {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  padding: 10px;
-  background-color: salmon;
-}
-
-.freeBoard__board {
-  border-bottom: 1px solid #dae1e6;
-  margin-top: 30px;
-  margin-left: 10%;
-  margin-right: 10%;
-  line-height: 30px;
-  list-style: none;
-  row-gap: 3px;
-}
-
-/* 게시글 내용 */
-.freeBoard__board--content {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  margin-top: 10%;
-  margin-left: 10%;
-  margin-right: 10%;
-  border-radius: 10px;
-  text-align: center;
-  line-height: 25px;
-}
-/* 수정하기, 삭제하기 버튼 관리해줄 컨테이너 */
-.container__freeBoard--authorization {
-  align-self: self-end;
-  display: flex;
-  flex-direction: row;
-  text-align: right;
-  padding-right: 5%;
-  margin-right: 3%;
-}
-/* 수정하기, 삭제하기 버튼 */
-.button__freeBoard--write {
-  margin: 0px 5px;
-}
-/* 게시글 좋아요 누르기 아이콘 */
-.freeBoard__board--giveLove {
-  width: 65px;
-  height: 65px;
-  margin-top: 5%;
-  border: none;
-  background-color: #ffffff;
-  margin-left: 47%;
-}
-
-.freeBoard__board--giveLoveImg {
-  width: 60px;
-  height: 60px;
-}
-
-.freeBoard__board--giveLoveImg:hover {
-  width: 65px;
-  height: 65px;
-  align-self: center;
-  text-align: center;
-}
-/* 태그 */
-.freeBoard__board--tags {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  font-size: 15px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: 40px 10%;
-  column-gap: 8px;
-  row-gap: 8px;
-}
-.freeBoard__board--tag {
-  padding: 5px;
-  background-color: darkseagreen;
-  border-radius: 20px;
-  color: white;
-}
-/* 유저 정보 */
 .freeBoard__user--profileImage {
   margin: 5px 0px;
   border: 1px solid #dae1e6;
@@ -200,7 +124,6 @@
   justify-items: self-end;
   align-items: self-end;
 }
-
 .freeBoard__user--profileImageImg {
   padding-bottom: 30px;
   border: none;
@@ -209,296 +132,273 @@
   margin: auto;
   object-position: center;
 }
+.freeBoard__board--img {
+  width: 1em;
+  height: 1em;
+}
+/* 게시글 내용 부분 */
 
-.freeBoard__user--nickname {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  text-align: left;
-  color: dimgray;
-  font-size: 17px;
-  margin-left: 13px;
-  margin-top: 13px;
+.freeBoard__board--content {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  font-size: 19px;
+  padding: 10%;
+  text-align: center;
+  line-height: 27px;
+}
+/* 게시글 좋아요 누르기 아이콘 */
+.freeBoard__board--giveLove {
+  width: 90px;
+  height: 90px;
+  margin-top: 2em;
+  border: none;
+  background-color: #ffffff;
+  margin-left: 47%;
 }
 
-/* 댓글 컨테이너 */
-
-.freeBoard__comment {
-  margin-top: 5px;
-  margin-left: 10%;
-  margin-right: 10%;
-  line-height: 30px;
-  list-style: none;
-  row-gap: 3px;
-}
-/* 댓글 타이틀 */
-.freeBoard__comment--container{
-  display:flex;
-  flex-direction: column;
-  padding-right:8%;
-}
-.freeBoard__comment--title {
-  margin-top: 30px;
-  margin-left: 100px;
-  padding: 15px 2%;
-  font-size: 25px;
-  font-weight: 100;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  color: dimgray;
-  align-items: center;
-  background-color: lightsteelblue;
-  border-radius: 0.28rem;
+.freeBoard__board--giveLoveImg {
+  width: 60px;
+  height: 60px;
 }
 
-.freeBoard__comment--subtitle {
-  margin-top: 30px;
-  margin-left: 100px;
-  padding: 15px 0px;
+.freeBoard__board--giveLove:hover {
+  background-color: lightgray;
+  border-radius: 70%;
+}
+
+/* 태그 */
+.freeBoard__board--tags {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  font-size: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 0.3em;
+  row-gap: 0.2em;
+  margin-top: 2em;
+}
+.freeBoard__board--tag {
+  padding: 5px;
+  background-color: darkseagreen;
+  border-radius: 20px;
+  color: white;
+}
+/* 글 수정 삭제 버튼 */
+/* 수정하기, 삭제하기 버튼 관리해줄 컨테이너 */
+.container__freeBoard--authorization {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2em;
+  column-gap: 1em;
+}
+/* 수정하기, 삭제하기 버튼 */
+.button__freeBoard--write {
+  text-align: center;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 100px;
+  height: 2em;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 0.3em;
+}
+
+.button__freeBoard--write:hover {
+  background-color: lightgray;
+  border: none;
+  color: white;
+}
+/* 댓글 작성 버튼 */
+.button__comment--write {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 100%;
+  height: 60px;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
   font-size: 20px;
-  font-weight: 100;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  color: dimgray;
-  align-items: center;
+  font-weight: bold;
+  border-radius: 0.3em;
+  align-self: center;
+  margin: 0.2em 0;
 }
-
-/* 해당 글에 달린 댓글 list 관련 설정 */
-/* 댓글 설정 */
+.button__comment--write:hover {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  padding: 10px;
+  background-color: lightgray;
+  border: none;
+  color: white;
+}
+/* 댓글 조회 */
 .freeBoard__comment {
+  list-style: none;
+  width: 100%;
+  font-size: 20px;
+  line-height: 2em;
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
-  margin-left: 10%;
-  margin-right: 10%;
-  line-height: 25px;
-  list-style: none;
-  color: dimgray;
-  row-gap: 30px;
 }
-
-.freeBoard__comment li {
-  border: 1px solid #dae1e6;
-  border-radius: 0.3rem;
-  padding:1%;
-}
+/* 루트 댓글 */
 .freeBoard__rootComment {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  line-height: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
+  border-radius: 0.3rem;
+  background: #ffffff;
+  border: 1px solid #d9dfeb;
+  margin: 7px 0px;
+  line-height: 1.5em;
   list-style: none;
 }
 
 .freeBoard__rootComment--nickname {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  padding-left: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   font-size: 20px;
   font-weight: bold;
 }
 
 .freeBoard__rootComment--content {
-  margin: 5px 10px;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  padding-left: 0.5em;
+  margin: 0.3em 10px;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   font-size: 17px;
 }
 
 .freeBoard__rootComment--createDate {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  padding-left: 0.5em;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: right;
   font-size: 17px;
 }
-/* 대댓글 설정 */
+/* 대댓글 */
 .freeBoard__childComment {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  line-height: 30px;
-  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
+  border-radius: 0.3rem;
+  background: #ffffff;
+  border: 1px solid #d9dfeb;
+  margin: 7px 0px;
+  line-height: 1.5em;
   list-style: none;
   background: url("/views/img/comment_arrow.png") no-repeat 2% 30px;
-
   background-size: 1.7em 1.7em;
 }
-
 .freeBoard__childComment--nickname {
-  margin-top: 30px;
-  margin-left: 40px;
-  margin-bottom: 30px;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  margin-top: 1em;
+  margin-left: 2em;
+  padding-left: 0.5em;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   font-size: 20px;
   font-weight: bold;
 }
 
 .freeBoard__childComment--content {
-  margin: 5px 53px;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  margin: 0.3em 48px;
+  padding-left: 0.5em;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   font-size: 17px;
 }
 
 .freeBoard__childComment--createDate {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  padding-left: 0.5em;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: right;
   font-size: 17px;
 }
-/* 댓글 수정/삭제 대댓글 버튼 설정 */
+
+/* 댓글 대댓글작성하기, 수정하기, 삭제하기 버튼 관리해줄 컨테이너 */
 .button__comment {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   display: flex;
-  flex-direction: row;
-  column-gap: 5px;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+  margin-top: 2em;
+  column-gap: 0.5em;
 }
-/* 수정하기, 삭제하기 버튼 */
-.button__comment--edit {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  margin: 0px 5px;
-  height: 40px;
-  background-color: #ffffff;
+.button__childComment--write {
+  text-align: center;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 80px;
+  height: 2em;
   color: lightslategray;
-  border: none;
-  font-size: 16px;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 13px;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 0.3em;
+}
+.button__comment--edit {
+  text-align: center;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 80px;
+  height: 2em;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 0.3em;
 }
 .button__comment--delete {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  margin: 0px 5px;
-  height: 40px;
+  text-align: center;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 80px;
+  height: 2em;
   color: lightslategray;
   background-color: #ffffff;
-  border: none;
-  font-size: 16px;
+  border: 1px solid #d9dfeb;
+  font-size: 13px;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 0.3em;
 }
-.button__comment--write {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  width: 200px;
-  height: 40px;
-  color: lightslategray;
-  background-color: #ffffff;
+
+.button__childComment--write:hover {
+  background-color: lightgray;
   border: none;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 20px;
-  align-self: center;
+  color: white;
 }
 .button__comment--edit:hover {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  padding: 10px;
   background-color: lightgray;
   border: none;
   color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 30px;
 }
-
 .button__comment--delete:hover {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  padding: 10px;
   background-color: lightgray;
   border: none;
   color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 30px;
 }
-
-.button__comment--write:hover {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-  padding: 10px;
-  background-color: lightgray;
-  border: none;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 30px;
-}
-/* sweetAlert 댓글 창 설정 */
-.swal2-input-label {
-  font-size: 25px;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-}
-.swal2-textarea {
-  font-size: 20px;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-}
-.swal2-validation-message {
-  font-size: 18px;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-}
-/*  반응형 디자인 */
-@media screen and (max-width: 1700px) {
+/* 반응형 디자인 */
+@media screen and (max-width: 1400px) {
   .freeBoard {
+    margin: 3%;
+  }
+  .freeBoard__title {
+    margin: 3%;
+    padding-left: 0%;
+  }
+
+  .freeBoard__info {
+    font-size: 18px;
+  }
+  .freeBoard__comment {
+    font-size: 16px;
+  }
+
+  .freeBoard__comment li {
     display: flex;
     flex-direction: column;
-    min-height: 200vh;
-  }
-  .freeBoard__comment--title {
-    margin-top: 30px;
-    margin-left: 0px;
-    padding: 15px 0px;
-    font-size: 25px;
-    font-weight: 100;
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+    padding: 3%;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     color: dimgray;
-    align-items: center;
-  }
-
-  .freeBoard__comment--subtitle {
-    margin-top: 30px;
-    margin-left: 0px;
-    padding: 15px 0px;
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: 100;
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-    color: dimgray;
-    align-items: center;
-  }
-  .button__freeBoard--write {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-    width: 80px;
-    height: 35px;
-    color: #fff;
-    background-color: lightsalmon;
-    border: 1px solid lightsalmon;
-    box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 20px;
-    align-self: self-end;
-    margin-right: 0px;
-  }
-
-  .button__freeBoard--write:hover {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
-    padding: 5px;
-    background-color: salmon;
-  }
-  .freeBoard__board {
-    border-bottom: 1px solid #dae1e6;
-    margin-top: 30px;
-    margin-left: 5%;
-    margin-right: 5%;
-    line-height: 30px;
-    list-style: none;
-    row-gap: 3px;
-  }
-
-  /* 게시글 내용 */
-  .freeBoard__board--content {
-    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
-    margin-top: 10%;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 25px;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .freeBoard {
-    margin: 3%;
-  }
-  .freeBoard__title{
-
-    margin: 3%;
+    border-radius: 0.3rem;
+    border: 1px solid #d9dfeb;
+    margin: 7px 0px;
   }
 }

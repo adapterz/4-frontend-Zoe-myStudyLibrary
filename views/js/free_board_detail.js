@@ -20,7 +20,7 @@ async function detailBoard() {
     // 성공적으로 개시글 정보 불러왔을 때
   } else if (backendResult.state === REQUEST_SUCCESS) {
     // 게시글 정보 배치
-    document.getElementsByClassName("freeBoard__board--title")[0].innerHTML = `글제목 | ${backendResult.dataOfBoard.postTitle}`;
+    document.getElementsByClassName("freeBoard__board--title")[0].innerHTML = `${backendResult.dataOfBoard.postTitle}`;
     document.getElementsByClassName(
       "freeBoard__board--viewCount"
     )[0].innerHTML = `<img class="freeBoard__board--img" src="/views/img/view.png" alt="조회수 아이콘" /> ${backendResult.dataOfBoard.viewCount}`;
@@ -229,7 +229,7 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
 
     // 대댓글작성
     const writeChildCommentButton = document.createElement("button");
-    writeChildCommentButton.classList.add("button__comment--write");
+    writeChildCommentButton.classList.add("button__childComment--write");
     writeChildCommentButton.setAttribute("commentIndex", commentIndex);
     writeChildCommentButton.textContent = "대댓글작성";
     writeChildCommentButton.setAttribute("onclick", "writeChildComment(this.getAttribute('commentIndex'))");

@@ -25,10 +25,11 @@
     <header>
       <script src="/views/js/header.js"></script>
     </header>
-      <p class="freeBoard__title">📋 자유게시판</p>
+      <p class="freeBoard__title">📌 자유게시판</p>
       <!-- 특정 게시글 정보 -->
 
     <section class="freeBoard">
+      <article class="freeBoard__info">
       <nav class="freeBoard__board">
         <li>
           <p class="freeBoard__board--title"></p>
@@ -60,18 +61,16 @@
           <section class="container__freeBoard--authorization">
             <button type="button" class="button__freeBoard--write" onclick="editPage()">글 수정하기</button>
             <button type="button" class="button__freeBoard--write" onclick="deletePost()">글 삭제하기</button>
-
           </section>
-
-
+      </article>
       <!-- 해당 게시글의 댓글 정보 -->
       <section class="freeBoard__comment--container">
-        <h2 class="freeBoard__comment--title">✏ 댓글</h2>
-        <h3 class="freeBoard__comment--subtitle">📜 스크롤을 계속 내려보세요. 더 내려가지 않으면 댓글이 더이상 없는 것입니다.</h3>
-      <button class="button__comment--write" style=" margin-right: 150px;margin-left:150px;border: 1px solid #dae1e6;" onclick="writeComment()">댓글 작성</button>
-      </section>
+        <h2 class="freeBoard__comment--title">💬 댓글</h2>
+      <button class="button__comment--write" onclick="writeComment()">댓글 작성</button>
+        <h3 class="freeBoard__comment--subtitle">🧾 댓글조회 |</h3>
       <!-- 동적으로 댓글 정보 추가 -->
         <nav class="freeBoard__comment"></nav>
+      </section>
       </form>
     </section>
 
