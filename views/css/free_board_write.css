@@ -21,7 +21,7 @@
 /* 글제목/글내용/태그 input 창 설정 */
 .container__write--title {
 
-  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   font-size: 15px;
   background: none;
   padding-left: 20px;
@@ -34,7 +34,7 @@
   border: solid 1px dimgray;
 }
 .container__write--content {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   font-size: 15px;
   background: none;
   outline: none;
@@ -49,7 +49,7 @@
   border: solid 1px dimgray;
 }
 .container__write--tag {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   font-size: 15px;
   background: none;
   padding-left: 20px;
@@ -98,7 +98,7 @@
 }
 /* 글작성 확인 버튼 */
 .container__write--submit {
-  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   font-size: 16px;
   width: 100px;
   height: 40px;

@@ -40,7 +40,7 @@
 }
 
 .container__signUp--subtitle {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
   font-size: 1rem;
 }

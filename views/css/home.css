@@ -144,7 +144,7 @@ main 구성요소
   list-style: none;
 }
 .home__board li {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   line-height: 28px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
@@ -163,8 +163,8 @@ main 구성요소
 .home__category {
   padding: 15px 0px;
   font-size: 25px;
-  font-weight: 100;
-  font-family: "Gugi";
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
   align-items: flex-start;
   border-bottom: 1px solid #dae1e6;
@@ -173,8 +173,9 @@ main 구성요소
 .home__wiseSaying {
   margin-top: 5%;
   margin-left: 10%;
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   width: 300px;
+  font-weight: bold;
   line-height: 30px;
   display: flex;
   list-style: none;
@@ -249,7 +250,7 @@ main 구성요소
   .home__wiseSaying {
     margin-top: 5%;
     margin-left: 0%;
-    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
     width: 300px;
     line-height: 30px;
     display: flex;

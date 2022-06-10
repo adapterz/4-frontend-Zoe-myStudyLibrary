@@ -19,8 +19,8 @@ body{
 .freeBoard__title {
   padding: 15px 0px;
   font-size: 25px;
-  font-weight: 100;
-  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
 }
 
@@ -30,12 +30,12 @@ body{
   padding: 15px 0px;
   font-size: 20px;
   font-weight: 100;
-  font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
 }
 /* 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정 */
 .freeBoard__board--list {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   line-height: 25px;
   padding: 5px 20px;
   border-radius: 0.28571429rem;
@@ -45,27 +45,27 @@ body{
   margin: 10px;
 }
 .freeBoard__board--title {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   margin-bottom: 3%;
   font-size: 20px;
   text-align: center;
 }
 
 .freeBoard__board--createDate {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
 }
 .freeBoard__board--favoriteCount {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
   column-gap: 1.5em;
 }
 .freeBoard__board--viewCount {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
@@ -73,7 +73,7 @@ body{
 }
 
 .freeBoard__board--nickname {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
@@ -86,7 +86,7 @@ body{
   text-align: center;
 }
 .button__freeBoard--write {
-  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   width: 100px;
   height: 45px;
   color: #fff;
@@ -100,7 +100,7 @@ body{
 }
 
 .button__freeBoard--write:hover {
-  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   padding: 10px;
   background-color: salmon;
 }
@@ -146,7 +146,7 @@ body{
 }
 /* 제출 버튼 */
 .container__search--submit {
-  font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   width: 70px;
   height: 40px;
   color: #fff;
@@ -195,7 +195,7 @@ td {
   padding: 20px 20px;
 }
 .freeBoard__board--thead {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
@@ -243,33 +243,33 @@ td {
     display: none;
   }
   .freeBoard__board--thead {
-    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     font-size: 14px;
   }
   .freeBoard__board--title {
-    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
     margin-bottom: 3%;
     font-size: 15px;
     text-align: center;
   }
 
   .freeBoard__board--createDate {
-    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     display: none;
   }
   .freeBoard__board--favoriteCount {
-    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     font-size: 14px;
     column-gap: 2em;
   }
   .freeBoard__board--viewCount {
-    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     font-size: 14px;
@@ -277,7 +277,7 @@ td {
   }
 
   .freeBoard__board--nickname {
-    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     font-size: 14px;

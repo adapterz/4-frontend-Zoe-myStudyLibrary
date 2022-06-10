@@ -8,13 +8,13 @@
   min-height: 110vh;
 }
 .container__terms--title {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   font-size: 35px;
   font-weight: bold;
 }
 
 .container__terms--subtitle {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   font-size: 25px;
   font-weight: bold;
   border-bottom: 1px solid #9b9b9b;
@@ -23,7 +23,7 @@
 }
 
 .container__terms--content {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   font-size: 20px;
   line-height: 35px;
 }
