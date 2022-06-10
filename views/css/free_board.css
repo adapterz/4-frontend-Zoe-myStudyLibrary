@@ -109,6 +109,7 @@ body {
 
 /* form 컨테이너 */
 .container__search {
+  min-width: 300px;
   margin-bottom: 5%;
   display: flex;
   flex-direction: row;
@@ -125,7 +126,7 @@ body {
   background: #ffffff;
   text-align: center;
   outline: none;
-  width: 200px;
+  width: 50%;
   height: 30px;
   margin-left: 10px;
   margin-right: 10px;
@@ -137,7 +138,7 @@ body {
   font-size: 12px;
   text-align: center;
   height: 33px;
-  width: 120px;
+  width: 30%;
   border: solid 1px #999;
   border-radius: 10px;
   -webkit-appearance: none;
@@ -149,7 +150,7 @@ body {
 /* 제출 버튼 */
 .container__search--submit {
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  width: 40px;
+  width: 20%;
   height: 2em;
   color: lightslategray;
   background-color: #ffffff;

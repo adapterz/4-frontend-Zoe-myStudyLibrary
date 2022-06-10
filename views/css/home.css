@@ -69,6 +69,7 @@ main 구성요소
 }
 .home__user--nickname {
   font-size: 13px;
+  line-height: 1.5em;
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   margin: 0px 5px;
   padding: 30px 30px;
@@ -78,13 +79,13 @@ main 구성요소
 
 .button__user {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 70px;
-  height: 40px;
+  width: 6em;
+  height: 3.5em;
   color: #fff;
   background-color: lightsalmon;
   border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 3/5;
@@ -93,13 +94,14 @@ main 구성요소
 
 .button__user:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 70px;
   padding: 10px;
+  width: 6em;
+  height: 3.5em;
   background-color: salmon;
   border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 3/5;
@@ -108,13 +110,13 @@ main 구성요소
 
 .button__logout {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 70px;
-  height: 40px;
+  width: 6em;
+  height: 3.5em;
   color: #fff;
   background-color: lightsalmon;
   border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 15px;
+  font-size: 11px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 5/7;
@@ -123,14 +125,14 @@ main 구성요소
 
 .button__logout:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 70px;
-  padding: 5px;
-  height: 40px;
+  padding: 10px;
+  width: 6em;
+  height: 3.5em;
   background-color: salmon;
   border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 5/7;
@@ -146,18 +148,18 @@ main 구성요소
 }
 .home__board li {
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  line-height: 28px;
+  line-height: 30px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
 }
 .home__board--title {
   padding: 0px;
-  font-size: 18px;
+  font-size: 15px;
   color: dimgray;
 }
 .home__board--nickname {
   padding: 0px;
-  font-size: 13px;
+  font-size: 15px;
   color: dimgray;
 }
 /* 자유게시판, 명언 헤드라인 */
@@ -173,7 +175,7 @@ main 구성요소
 /* 3. 동기부여용 명언 */
 .home__wiseSaying {
   margin-top: 5%;
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   width: 400px;
   line-height: 30px;
   display: flex;
@@ -249,7 +251,7 @@ main 구성요소
   .home__wiseSaying {
     margin-top: 5%;
     margin-left: 0%;
-    font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     width: 300px;
     line-height: 30px;
     display: flex;
@@ -306,7 +308,7 @@ main 구성요소
 
 @media screen and (max-width: 500px) {
   .home__card--img {
-    width: 90%;
+    width: 95%;
   }
   .home__user--notLogined {
     width: 90%;
@@ -320,11 +322,11 @@ main 구성요소
     list-style: none;
   }
   .home__board--title{
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .home__board--nickname{
-    font-size: 12px;
+    font-size: 15px;
   }
   .home__wiseSaying {
     display: flex;
