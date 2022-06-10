@@ -134,9 +134,8 @@ body {
 .freeBoard__user--profileImageImg {
   padding-bottom: 30px;
   border: none;
-  height: 170px;
-  weight: 170px;
-  margin: auto;
+  height: auto;
+  width: 100%;
   object-position: center;
 }
 .freeBoard__board--img {
@@ -267,7 +266,7 @@ body {
   margin-top: 1em;
   margin-bottom: 1em;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: bold;
 }
 
@@ -275,7 +274,7 @@ body {
   padding-left: 0.5em;
   margin: 0.3em 10px;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.2em;
 }
 
@@ -283,7 +282,8 @@ body {
   padding-left: 0.5em;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: right;
-  font-size: 17px;
+  font-size: 18px;
+  margin-top: 1em;
 }
 /* 대댓글 */
 .freeBoard__childComment {
@@ -303,10 +303,12 @@ body {
 }
 .freeBoard__childComment--nickname {
   margin-top: 1em;
+  margin-bottom: 1em;
   margin-left: 2em;
   padding-left: 0.5em;
+  line-height: 1.5em;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: bold;
 }
 
@@ -314,15 +316,16 @@ body {
   margin: 0.3em 48px;
   padding-left: 0.5em;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.2em;
 }
 
 .freeBoard__childComment--createDate {
+  margin-top: 1em;
   padding-left: 0.5em;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: right;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 /* 댓글 대댓글작성하기, 수정하기, 삭제하기 버튼 관리해줄 컨테이너 */
@@ -400,15 +403,15 @@ body {
     line-height: 1.5em;
   }
   .freeBoard__comment {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5em;
   }
   .freeBoard__rootComment--nickname {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5em;
   }
   .freeBoard__childComment--nickname {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5em;
   }
 
@@ -419,6 +422,13 @@ body {
   .freeBoard__childComment--content {
     font-size: 14px;
     line-height: 1.2em;
+  }
+
+  .freeBoard__rootComment--createDate {
+    font-size: 14px;
+  }
+  .freeBoard__childComment--createDate {
+    font-size: 14px;
   }
   .freeBoard__comment li {
     display: flex;
@@ -431,5 +441,9 @@ body {
     font-size: 13px;
     border: 1px solid #d9dfeb;
     margin: 7px 0px;
+  }
+  .freeBoard__user--profileImage {
+    height: 100px;
+    width: 100px;
   }
 }

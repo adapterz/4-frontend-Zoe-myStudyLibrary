@@ -55,6 +55,7 @@
 .container__search {
   margin-bottom: 5%;
   column-gap: 5px;
+  max-width: 280px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -65,12 +66,13 @@
 }
 /* 검색옵션 select 박스 설정 */
 .container__search--nameOfCity {
-  font-size: 12px;
-  text-align: center;
+  font-size: 10px;
+  padding-left: 1em;
+  text-align: left;
   height: 30px;
-  width: 150px;
+  width: 40%;
   border: solid 1px #999;
-  border-radius: 10px;
+  border-radius: 1em;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -78,12 +80,13 @@
   background-size: 1.2em 1.2em;
 }
 .container__search--districts {
-  font-size: 12px;
-  text-align: center;
-  height: 33px;
-  width: 150px;
+  font-size: 10px;
+  padding-left: 1em;
+  text-align: left;
+  height: 30px;
+  width: 40%;
   border: solid 1px #999;
-  border-radius: 10px;
+  border-radius: 1em;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -94,7 +97,7 @@
 /* 제출 버튼 */
 .container__search--submit {
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  width: 40px;
+  width: 20%;
   height: 2em;
   color: lightslategray;
   background-color: #ffffff;

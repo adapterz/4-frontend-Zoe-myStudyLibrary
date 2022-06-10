@@ -28,7 +28,7 @@ body {
   text-align: left;
   font-size: 30px;
   font-weight: bold;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   color: dimgray;
 }
 .review__title {
@@ -36,7 +36,7 @@ body {
   padding: 15px 2%;
   font-size: 20px;
   font-weight: bold;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   color: dimgray;
   align-items: center;
   background-color: lightsteelblue;
@@ -48,7 +48,7 @@ body {
   padding: 15px 2%;
   font-size: 18px;
   font-weight: bold;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   color: dimgray;
   align-items: center;
   border-radius: 0.28rem;
@@ -61,7 +61,7 @@ body {
   background: #ffffff;
   border: 1px solid #d9dfeb;
   column-gap: 10%;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   row-gap: 40px;
 }
 
@@ -80,19 +80,20 @@ body {
   background: #ffffff;
   border: 1px solid #d9dfeb;
   column-gap: 10%;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   row-gap: 40px;
 }
 .review__info--head {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   font-weight: bold;
   font-size: 20px;
-  line-height: 5rem;
+  line-height: 3.5rem;
 }
 
 .review__info--body {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   font-size: 20px;
+  padding-right: 1em;
   line-height: 3rem;
   text-align: center;
 }
@@ -110,7 +111,7 @@ body {
 }
 /* 리뷰 작성 버튼 */
 .review__write--button {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   width: 100%;
   height: 60px;
   color: lightslategray;
@@ -123,7 +124,7 @@ body {
   margin: 2% 0%;
 }
 .review__write--button:hover {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   padding: 10px;
   background-color: lightgray;
   border: none;
@@ -143,7 +144,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 3%;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   color: dimgray;
   border-radius: 0.3rem;
   background: #ffffff;
@@ -153,28 +154,32 @@ body {
   margin: 7px 0px;
 }
 .review__container--nickname {
-  font-size: 17px;
+  font-size: 18px;
+  padding-left: 1em;
   font-weight: bold;
   color: dimgray;
 }
 .review__container--grade {
+  padding-left: 0.5em;
   color: #ffd400;
   font-size: 23px;
   text-shadow: 1px 1px 1px orange;
 }
 .review__container--content {
   margin: 4px 0px;
-  padding-left: 10px;
+  padding-left: 1em;
+  padding-right: 1em;
   font-size: 17px;
 }
 .review__container--createDate {
   text-align: right;
   font-size: 17px;
+  padding-right: 0.5em;
 }
 .review__container--delete {
   text-align: center;
   margin-left: auto;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   width: 30%;
   height: 2em;
   color: lightslategray;
@@ -196,7 +201,7 @@ body {
     margin: 3%;
     padding: 3%;
   }
-  .library__title{
+  .library__title {
     font-size: 25px;
     line-height: 1.5em;
     margin: 3%;
@@ -204,17 +209,41 @@ body {
   }
 
   .library__info--table {
-    font-size: 14px;
+    padding-right: 2.5em;
   }
-  .review__container{
+  .library__info--head {
+    padding-right: 2.5em;
+  }
+  .library__data--name {
+    padding-right: 2.5em;
+  }
+  .library__data--type {
+    padding-right: 2.5em;
+  }
+  .library__data--address {
+    padding-right: 2.5em;
+  }
+  .library__data--closeDay {
+    padding-right: 2.5em;
+  }
+  .library__data--weekOperateTime {
+    padding-right: 2.5em;
+  }
+  .library__data--saturdayOperateTime {
+    padding-right: 2.5em;
+  }
+  .library__data--contact {
+    padding-right: 2.5em;
+  }
+  .review__container {
     font-size: 14px;
   }
 
   .review__container--list {
     display: flex;
     flex-direction: column;
-    padding: 7%;
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+    padding: 1em;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     color: dimgray;
     border-radius: 0.3rem;
     background: #ffffff;
@@ -222,7 +251,7 @@ body {
     margin: 7px 0px;
   }
   .review__container--nickname {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     color: dimgray;
   }
@@ -232,7 +261,6 @@ body {
   }
   .review__container--content {
     margin: 4px 0px;
-    padding-left: 10px;
     font-size: 14px;
   }
   .review__container--createDate {

@@ -79,13 +79,13 @@ main 구성요소
 
 .button__user {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 6em;
+  width: 5.5em;
   height: 3.5em;
   color: #fff;
   background-color: lightsalmon;
   border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 3/5;
@@ -95,13 +95,11 @@ main 구성요소
 .button__user:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   padding: 10px;
-  width: 6em;
   height: 3.5em;
   background-color: salmon;
   border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
-  font-size: 12px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 3/5;
@@ -110,13 +108,13 @@ main 구성요소
 
 .button__logout {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 6em;
+  width: 5.5em;
   height: 3.5em;
   color: #fff;
   background-color: lightsalmon;
   border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 5/7;
@@ -126,13 +124,11 @@ main 구성요소
 .button__logout:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
   padding: 10px;
-  width: 6em;
   height: 3.5em;
   background-color: salmon;
   border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
-  font-size: 11px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 5/7;
@@ -307,6 +303,13 @@ main 구성요소
 }
 
 @media screen and (max-width: 500px) {
+  .button__user {
+    font-size: 10px;
+  }
+
+  .button__logout {
+    font-size: 10px;
+  }
   .home__card--img {
     width: 95%;
   }
@@ -333,4 +336,9 @@ main 구성요소
     flex-direction: column;
     list-style: none;
   }
+  .home__user--profileImage {
+    height: 80px;
+    width: 80px;
+  }
+
 }
