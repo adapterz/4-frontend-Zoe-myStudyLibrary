@@ -6,7 +6,7 @@
 5. 테이블 설정
  */
 /* 컨테이너 */
-body{
+body {
   background-color: #f9f9fc;
 }
 .freeBoard {
@@ -20,7 +20,7 @@ body{
   padding: 15px 0px;
   font-size: 25px;
   font-weight: bold;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   color: dimgray;
 }
 
@@ -30,12 +30,12 @@ body{
   padding: 15px 0px;
   font-size: 20px;
   font-weight: 100;
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   color: dimgray;
 }
 /* 자유게시판 게시글 제목/닉네임/작성날짜/조회수/좋아요 설정 */
 .freeBoard__board--list {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   line-height: 25px;
   padding: 5px 20px;
   border-radius: 0.28571429rem;
@@ -45,27 +45,27 @@ body{
   margin: 10px;
 }
 .freeBoard__board--title {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   margin-bottom: 3%;
   font-size: 20px;
   text-align: center;
 }
 
 .freeBoard__board--createDate {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
 }
 .freeBoard__board--favoriteCount {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
   column-gap: 1.5em;
 }
 .freeBoard__board--viewCount {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
@@ -73,7 +73,7 @@ body{
 }
 
 .freeBoard__board--nickname {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
@@ -86,7 +86,7 @@ body{
   text-align: center;
 }
 .button__freeBoard--write {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   width: 100px;
   height: 45px;
   color: #fff;
@@ -100,7 +100,7 @@ body{
 }
 
 .button__freeBoard--write:hover {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   padding: 10px;
   background-color: salmon;
 }
@@ -120,7 +120,7 @@ body{
 /* 입력(input) 설정 */
 .container__search--input {
   font-size: 12px;
-  background: none;
+  background: #ffffff;
   text-align: center;
   outline: none;
   width: 200px;
@@ -146,7 +146,7 @@ body{
 }
 /* 제출 버튼 */
 .container__search--submit {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   width: 70px;
   height: 40px;
   color: #fff;
@@ -162,9 +162,10 @@ body{
   padding: 10px;
 }
 /* 테이블 설정 */
-table {border-style: hidden;
+table {
+  border-style: hidden;
 }
-th{
+th {
   line-height: 1.5rem;
   padding: 15px;
 }
@@ -195,11 +196,16 @@ td {
   padding: 20px 20px;
 }
 .freeBoard__board--thead {
-  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
   padding: 20px 20px;
+  background-color: lightsteelblue;
+  border-radius: 1rem;
+  font-weight: bold;
+  border-top: darkslateblue;
+  border-bottom: darkslateblue;
 }
 /*  반응형 디자인 */
 
@@ -243,33 +249,33 @@ td {
     display: none;
   }
   .freeBoard__board--thead {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     font-size: 14px;
   }
   .freeBoard__board--title {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     margin-bottom: 3%;
     font-size: 15px;
     text-align: center;
   }
 
   .freeBoard__board--createDate {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     display: none;
   }
   .freeBoard__board--favoriteCount {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     font-size: 14px;
     column-gap: 2em;
   }
   .freeBoard__board--viewCount {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     font-size: 14px;
@@ -277,7 +283,7 @@ td {
   }
 
   .freeBoard__board--nickname {
-    font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
     font-size: 14px;

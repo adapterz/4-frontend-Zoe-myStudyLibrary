@@ -274,16 +274,16 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
       1;
     // 해당 댓글을 작성한 유저가 아닐때 수정하기, 삭제하기 안보이게하기
     const userResult = await getUserInfo();
-    const editButton = document.createElement("button");
-    editButton.classList.add("button__comment--edit");
-    editButton.setAttribute("commentIndex", commentIndex);
-    editButton.textContent = "수정하기";
-    editButton.setAttribute("onclick", "editComment(this.getAttribute('commentIndex'))");
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("button__comment--delete");
     deleteButton.setAttribute("commentIndex", commentIndex);
     deleteButton.textContent = "삭제하기";
     deleteButton.setAttribute("onclick", "deleteComment(this.getAttribute('commentIndex'))");
+    const editButton = document.createElement("button");
+    editButton.classList.add("button__comment--edit");
+    editButton.setAttribute("commentIndex", commentIndex);
+    editButton.textContent = "수정하기";
+    editButton.setAttribute("onclick", "editComment(this.getAttribute('commentIndex'))");
 
     console.log(`대댓글 ${commentIndex} ${userResult.userIndex}  ${userIndex}`);
     if (userResult.state === LOGIN_REQUIRED || userResult.userIndex !== userIndex) {
