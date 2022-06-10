@@ -81,9 +81,8 @@ body{
 
 /* 조회수/좋아요 수 아이콘 설정 */
 .freeBoard__board--img {
-  width: 15px;
+  width: 17px;
   height: 17px;
-  margin-right: 0.5em;
   text-align: center;
 }
 .button__freeBoard--write {
@@ -192,12 +191,15 @@ td {
 
 .freeBoard__table--createDate {
   width: 20%;
+  text-align: center;
+  padding: 20px 20px;
 }
 .freeBoard__board--thead {
   font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
   text-align: center;
   color: dimgray;
   font-size: 17px;
+  padding: 20px 20px;
 }
 /*  반응형 디자인 */
 
