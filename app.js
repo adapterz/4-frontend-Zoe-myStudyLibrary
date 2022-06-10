@@ -33,7 +33,6 @@ import { BACKEND_URL, OK } from "./customs/constant.js";
 import boardRouter from "./routes/board.js";
 import commentRouter from "./routes/comment.js";
 import libraryRouter from "./routes/library.js";
-import reviewRouter from "./routes/review.js";
 import userRouter from "./routes/user.js";
 
 // 각종 모듈 설정
@@ -56,7 +55,6 @@ app.use(apiLimiter);
 // 경로별로 라우팅
 app.use("/comment", commentRouter);
 app.use("/library", libraryRouter);
-app.use("/review", reviewRouter);
 app.use("/user", userRouter);
 app.use("/board", boardRouter);
 
