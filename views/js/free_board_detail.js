@@ -431,10 +431,10 @@ async function editComment(commentIndex) {
   // 게시글 존재하지 않을 때
   else if (commentResult.state === NOT_EXIST) {
     const result = await sweetAlert(WARNING, "게시글이 존재하지 않습니다.", "삭제되거나 존재하지 않는 게시글");
-    location.href = "/board";
+    if (result) location.href = "/board";
   } else if (commentResult.state === NO_COMMENT) {
     const result = await sweetAlert(WARNING, "댓글이 존재하지 않습니다.", "삭제되거나 존재하지 않는 댓글");
-    location.href = "/board";
+    if (result) location.href = "/board";
   }
   // 성공적으로 댓글 정보 받아왔을 때
   else if (commentResult.commentContent !== undefined) {
@@ -472,6 +472,9 @@ async function editComment(commentIndex) {
       else if (backendResult.state === LOGIN_REQUIRED) {
         const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
         if (result) location.href = "/user/login";
+      } else if (backendResult.state === NOT_AUTHORIZATION) {
+        const result = await sweetAlert(WARNING, "댓글 수정 권한이 없습니다", "해당 댓글을 작성한 유저가 아닙니다");
+        if (result) location.reload();
       }
       // 게시글이 존재하지않거나 삭제됐을 때
       else if (backendResult.state === NOT_EXIST) {

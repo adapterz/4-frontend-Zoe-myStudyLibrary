@@ -177,11 +177,31 @@ body {
   font-size: 17px;
   padding-right: 0.5em;
 }
+/* 리뷰 수정 삭제 버튼 */
+.button__review {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2em;
+  column-gap: 0.5em;
+}
+.review__container--edit {
+  text-align: center;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 20%;
+  min-width: 5em;
+  height: 2em;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 0.3em;
+}
 .review__container--delete {
   text-align: center;
-  margin-left: auto;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  width: 30%;
+  width: 20%;
+  min-width: 5em;
   height: 2em;
   color: lightslategray;
   background-color: #ffffff;
