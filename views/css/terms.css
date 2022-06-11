@@ -41,18 +41,18 @@
   }
   .container__terms--title {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
   }
   .container__terms--subtitle {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-    font-size: 25px;
+    font-size: 16px;
     font-weight: bold;
   }
   .container__terms--content {
     padding: 1% 1%;
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 35px;
   }
 }
