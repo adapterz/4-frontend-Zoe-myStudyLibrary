@@ -285,8 +285,6 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
     editButton.setAttribute("commentIndex", commentIndex);
     editButton.textContent = "수정하기";
     editButton.setAttribute("onclick", "editComment(this.getAttribute('commentIndex'))");
-
-    console.log(`대댓글 ${commentIndex} ${userResult.userIndex}  ${userIndex}`);
     if (userResult.state === LOGIN_REQUIRED || userResult.userIndex !== userIndex) {
       editButton.style.display = "none";
       deleteButton.style.display = "none";
