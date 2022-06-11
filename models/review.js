@@ -63,7 +63,7 @@ async function getDetailReview(libraryIndex, page) {
 }
 
 // 3. 수정시 기존 댓글 정보 불러오기
-async function getReview(libraryIndex, reviewIndex) {
+async function getReviewRequest(libraryIndex, reviewIndex) {
   try {
     const options = {
       mode: "cors",
@@ -82,7 +82,7 @@ async function getReview(libraryIndex, reviewIndex) {
   }
 }
 // 4. 후기 수정 요청
-async function editReview(libraryIndex, reviewIndex, _reviewContent, _grade) {
+async function editReviewRequest(libraryIndex, reviewIndex, _reviewContent, _grade) {
   try {
     const options = {
       mode: "cors",

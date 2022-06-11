@@ -42,11 +42,14 @@
   height: 150px;
   display: flex;
   flex-direction: column;
-  color: #9b9b9b;
-  line-height: 25px;
+  color: #777;
+  padding-top: 1.5em;
+  line-height: 2em;
   justify-content: center;
   align-items: center;
-  background-color: #3e3e3e;
+  background-color: #e4e8eb;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  border-top: 1px solid #d9dfeb;
 }
 /* 페이지네이션 컨테이너 */
 .pagination {
