@@ -195,6 +195,8 @@ export async function build() {
   );
   // library_detail
   const library_detail = await minify([constant,library,user,review,custom,fs.readFileSync(path.join(__dirname, "views", "js", "library_detail.js"),"utf-8")]);
+  // 메뉴
+  const menu = await minify([fs.readFileSync(path.join(__dirname, "views", "js", "menu.js"),"utf-8")]);
   // outfile
   fs.writeFileSync("views/build/drop_out.js", drop_out.code, "utf8");
   fs.writeFileSync("views/build/edit_contact.js", edit_contact.code, "utf8");
@@ -214,4 +216,5 @@ export async function build() {
   fs.writeFileSync("views/build/user_post.js", user_post.code, "utf8");
   fs.writeFileSync("views/build/library.js", library_page.code, "utf8");
   fs.writeFileSync("views/build/library_detail.js", library_detail.code, "utf8");
+  fs.writeFileSync("views/build/menu.js", menu.code, "utf8");
 }

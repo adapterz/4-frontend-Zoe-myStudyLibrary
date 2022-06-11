@@ -15,5 +15,5 @@ document.write(`
   </ul>
   <a href="#" class="gmb__toogleBtn">
               <img class="gmb__toogleBtn--img" src="/views/img/menu.png" alt="메뉴 버튼" /></a>
-    <script src="/views/js/menu.js" type="text/javascript"></script>
+    <script src="/views/build/menu.js" type="text/javascript"></script>
 </nav>`);
