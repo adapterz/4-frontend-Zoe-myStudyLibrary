@@ -65,8 +65,18 @@ async function home() {
   if (userResult.isProfileImage) {
     const image = userResult.profileImage;
     const mime = userResult.mime;
-    const imageHTML = document.getElementsByClassName("home__user--profileImage")[0];
-    imageHTML.innerHTML = `<img class="home__user--profileImageImg" src="data:${mime};base64,${image}" alt="유저 프로필 사진">`;
+    const tempImg = document.createElement("img");
+    tempImg.setAttribute("src", `data:${mime};base64,${image}`);
+    // 이미지의 높이가 넓이보다 길 때
+    if (tempImg.height > tempImg.width) {
+      const imageHTML = document.getElementsByClassName("home__user--profileImage")[0];
+      imageHTML.innerHTML = `<img  class="home__user--profileImageFitWidth" src="data:${mime};base64,${image}" alt="유저 프로필 사진">`;
+    }
+    // 이미지의 넓이가 높이보다 길 때
+    if (tempImg.height <= tempImg.width) {
+      const imageHTML = document.getElementsByClassName("home__user--profileImage")[0];
+      imageHTML.innerHTML = `<img class="home__user--profileImageFitHeight" src="data:${mime};base64,${image}" alt="유저 프로필 사진">`;
+    }
   }
 }
 

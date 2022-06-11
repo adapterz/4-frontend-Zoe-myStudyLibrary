@@ -60,11 +60,19 @@ main 구성요소
   position: relative;
 }
 
-.home__user--profileImageImg {
+.home__user--profileImageFitWidth {
   padding-bottom: 30px;
   border: none;
   height: auto;
   width: 100%;
+  object-position: center;
+}
+
+.home__user--profileImageFitHeight {
+  padding-bottom: 30px;
+  border: none;
+  height: 100%;
+  width:auto;
   object-position: center;
 }
 .home__user--nickname {

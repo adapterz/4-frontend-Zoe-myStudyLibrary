@@ -131,11 +131,19 @@ body {
   justify-items: self-end;
   align-items: self-end;
 }
-.freeBoard__user--profileImageImg {
+.freeBoard__user--profileImageFitWidth {
   padding-bottom: 30px;
   border: none;
   height: auto;
   width: 100%;
+  object-position: center;
+}
+
+.freeBoard__user--profileImageFitHeight {
+  padding-bottom: 30px;
+  border: none;
+  height: 100%;
+  width:auto;
   object-position: center;
 }
 .freeBoard__board--img {

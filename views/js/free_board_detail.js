@@ -51,8 +51,18 @@ async function detailBoard() {
     if (backendResult.dataOfUser.isProfileImage) {
       const image = backendResult.dataOfUser.profileImage;
       const mime = backendResult.dataOfUser.mime;
-      const imageHTML = document.getElementsByClassName("freeBoard__user--profileImage")[0];
-      imageHTML.innerHTML = `<img class="freeBoard__user--profileImageImg" src="data:${mime};base64,${image}" alt="글 작성한 유저 프로필 사진">`;
+      const tempImg = document.createElement("img");
+      tempImg.setAttribute("src", `data:${mime};base64,${image}`);
+      // 이미지의 높이가 넓이보다 길 때
+      if (tempImg.height > tempImg.width) {
+        const imageHTML = document.getElementsByClassName("freeBoard__user--profileImage")[0];
+        imageHTML.innerHTML = `<img  class="freeBoard__user--profileImageFitWidth" src="data:${mime};base64,${image}" alt="유저 프로필 사진">`;
+      }
+      // 이미지의 넓이가 높이보다 길 때
+      if (tempImg.height <= tempImg.width) {
+        const imageHTML = document.getElementsByClassName("freeBoard__user--profileImage")[0];
+        imageHTML.innerHTML = `<img class="freeBoard__user--profileImageFitHeight" src="data:${mime};base64,${image}" alt="유저 프로필 사진">`;
+      }
     }
     // 해당 게시글을 작성한 유저가 아닐 때 수정하기, 삭제하기 버튼 안보이게하기
     const userResult = await getUserInfo();
