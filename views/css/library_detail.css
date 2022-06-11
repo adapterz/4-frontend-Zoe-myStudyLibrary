@@ -197,10 +197,16 @@ body {
   color: white;
 }
 /* 반응형 디자인 */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1200px) {
   .library__container {
-    margin: 3%;
-    padding: 3%;
+    margin: 3% 0%;
+    padding: 0%;
+  }
+  .library__container--detail {
+    margin: 3% 5%;
+  }
+  .library__container--review {
+    margin: 3% 5%;
   }
   .library__title {
     font-size: 25px;

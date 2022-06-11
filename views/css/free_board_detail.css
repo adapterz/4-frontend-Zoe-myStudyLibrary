@@ -147,7 +147,7 @@ body {
 .freeBoard__board--content {
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   font-size: 15px;
-  padding: 10%;
+  padding: 5%;
   text-align: center;
   line-height: 1.7em;
 }
@@ -388,19 +388,23 @@ body {
   color: white;
 }
 /* 반응형 디자인 */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1200px) {
   .freeBoard {
     margin: 3%;
+  }
+  .freeBoard__info {
+    margin: 3% 5%;
+    font-size: 14px;
+    line-height: 1.5em;
+  }
+  .freeBoard__comment--container {
+    margin: 3% 5%;
   }
   .freeBoard__title {
     font-size: 25px;
     line-height: 1.5em;
     margin: 3%;
     padding-left: 0%;
-  }
-  .freeBoard__info {
-    font-size: 14px;
-    line-height: 1.5em;
   }
   .freeBoard__comment {
     font-size: 14px;
