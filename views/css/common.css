@@ -88,6 +88,11 @@
   width: 35px;
   height: 35px;
 }
+/* swal2 설정 */
+.swal2-textarea{
+  resize: none;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
+}
 /* 반응형 디자인 */
 @media screen and (max-width: 1800px) {
   .gmb {

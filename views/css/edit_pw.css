@@ -19,7 +19,7 @@
 
 /* 비밀번호 수정 form 컨테이너 */
 .container__editPw {
-  margin: 10%;
+  margin: 3%;
   border: 1px solid #dae1e6;
   padding: 20px;
   display: flex;

@@ -2,11 +2,18 @@
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KBKFR75');</script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KBKFR75");
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,7 +25,10 @@
       /* 글씨체 */
       @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&family=Nanum+Gothic+Coding&display=swap");
     </style>
-    <meta name="description" content="myStudyLibrary 회원가입 약관동의 페이지, 내가 사는 지역의 도서관 정보를 찾아보고 도서관 이용자들의 후기를 확인해보자!" />
+    <meta
+      name="description"
+      content="myStudyLibrary 회원가입 약관동의 페이지, 내가 사는 지역의 도서관 정보를 찾아보고 도서관 이용자들의 후기를 확인해보자!"
+    />
   </head>
   <body>
     <!-- gmb -->
@@ -28,14 +38,24 @@
     <section class="container" onsubmit="location.href='/user/sign-up';return false" ;>
       <form action="" class="container__signUpGuide">
         <h2 class="container__signUpGuide--title">회원가입 이용약관</h2>
-        <button class="button__terms" onclick="window.open('/user/sign-up/terms');return false" target="_blank">
-          > 약관확인
-        </button>
+        <button class="button__terms" onclick="readTerms();return false" target="_blank">> 약관확인</button>
 
         <label
-          >약관에 동의해주세요 <input class="container__signUpGuide--agree" type="checkbox" name="agree" required />
+          >약관에 동의해주세요
+          <input
+            class="container__signUpGuide--agree"
+            onchange="checkValidation(this)"
+            type="checkbox"
+            name="agree"
+            required
+          />
         </label>
-        <input type="submit" value="확인" class="container__signUpGuide--submit" />
+        <input
+          type="submit"
+          value="확인"
+          onclick="checkValidation(document.getElementsByClassName('container__signUpGuide--agree')[0]);return false"
+          class="container__signUpGuide--submit"
+        />
       </form>
     </section>
     <!-- footer -->

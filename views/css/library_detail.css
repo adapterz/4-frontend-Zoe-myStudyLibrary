@@ -71,6 +71,7 @@ body {
 .library__info--head {
   padding: 20px;
   font-weight: bold;
+  min-width: 5.5em;
 }
 /* 도서관 후기 테이블 설정 */
 .review__info {
@@ -209,31 +210,33 @@ body {
   }
 
   .library__info--table {
-    padding-right: 2.5em;
+    font-size: 14px;
+    padding-right: 1.5em;
   }
   .library__info--head {
-    padding-right: 2.5em;
+    padding-right: 1.5em;
+    min-width: 5.5em;
   }
   .library__data--name {
-    padding-right: 2.5em;
+    padding-right: 1.5em;
   }
   .library__data--type {
-    padding-right: 2.5em;
+    padding-right: 1.5em;
   }
   .library__data--address {
-    padding-right: 2.5em;
+    padding-right: 1.5em;
   }
   .library__data--closeDay {
-    padding-right: 2.5em;
+    padding-right: 1.5em;
   }
   .library__data--weekOperateTime {
-    padding-right: 2.5em;
+    padding-right: 1.5em;
   }
   .library__data--saturdayOperateTime {
-    padding-right: 2.5em;
+    padding-right: 1.5em;
   }
   .library__data--contact {
-    padding-right: 2.5em;
+    padding-right: 1.5em;
   }
   .review__container {
     font-size: 14px;
