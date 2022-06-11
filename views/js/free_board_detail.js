@@ -32,7 +32,7 @@ async function detailBoard() {
     )[0].innerHTML = `${backendResult.dataOfBoard.postContent}`;
     document.getElementsByClassName(
       "freeBoard__board--createDate"
-    )[0].innerHTML = `작성날짜 | ${backendResult.dataOfBoard.createDate}`;
+    )[0].innerHTML = `${backendResult.dataOfBoard.createDate}`;
     // 태그 배치
     const length = backendResult.dataOfTag.length;
     for (let cnt = 0; cnt < 5; ++cnt) {

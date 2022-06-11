@@ -47,56 +47,43 @@ async function writeReview() {
     const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
     if (result) location.href = "/user/login";
   }
-  let { value: grade } = await Swal.fire({
+  const { isConfirmed: isConfirmed, value: formValues } = await Swal.fire({
     title: "평점 등록",
-    input: "select",
-    inputOptions: {
-      5: "⭐⭐⭐⭐⭐",
-      4: "⭐⭐⭐⭐",
-      3: "⭐⭐⭐",
-      2: "⭐⭐",
-      1: "⭐",
+    html:
+      '<select id="swal-input1" class="swal2-select"><optgroup label="평점">평점</optgroup><option value="5">⭐⭐⭐⭐⭐</option><option value="4">⭐⭐⭐⭐</option value="3"><option>⭐⭐⭐</option><option value="2">⭐⭐</option><option value="1">⭐</option></select>' +
+      '<textarea id="swal-input2" class="swal2-textarea" placeholder="2~100자 사이로 작성">',
+    focusConfirm: false,
+    preConfirm: () => {
+      const review = document.getElementById("swal-input2").value;
+      // 후기 유효성 검사(2~100자 사이가 아닐 때
+      if (review.length < 2 || review.length > 100) {
+        Swal.showValidationMessage(`후기는 2~100자 사이로 작성해야합니다. 현재 ${review.length}자 입니다.`);
+      } else return [document.getElementById("swal-input1").value, review];
     },
-    inputPlaceholder: "평점을 골라주세요",
-    showCancelButton: true,
   });
-  // 평점 등록 시 후기 등록
-  if (grade) {
-    // 후기창 띄워서 정보 받아오기
-    const { isConfirmed: isConfirmed, value: review } = await Swal.fire({
-      input: "textarea",
-      title: "도서관 후기 작성",
-      inputPlaceholder: "2~100자 사이로 후기를 작성해주세요.",
-      inputAttributes: {
-        "aria-label": "2~100자 사이로 후기를 작성해주세요.",
-      },
-      showCancelButton: true,
-      inputValidator: (review) => {
-        if (!review) {
-          return "내용을 입력해주세요.";
-        }
-        if (review.length < 2 || review.length > 100) {
-          return `후기는 2~100글자 사이로 작성해야합니다. 현재 ${review.length}자입니다.`;
-        }
-      },
-    });
-    // 후기 작성 요청했을 때
-    if (isConfirmed) {
-      const libraryIndex = await getLibraryIndex();
-      const backendResult = await registerReviewRequest(libraryIndex, review, grade);
-      console.log(backendResult);
-      // 작성 성공
-      if (backendResult.state === REQUEST_SUCCESS) {
-        const result = await sweetAlert(SUCCESS, "후기 작성 성공!", "🤩");
-        if (result) location.reload();
-      }
-      // 로그인 필요
-      else if (backendResult.state === LOGIN_REQUIRED) {
-        const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
-        if (result) location.href = "/user/login";
-      }
-      // 예상치 못한 오류
-      else {
+  // 후기 작성 요청했을 때
+  if (isConfirmed) {
+    const review = formValues[1];
+    const grade = formValues[0];
+    const libraryIndex = await getLibraryIndex();
+    const backendResult = await registerReviewRequest(libraryIndex, review, grade);
+    console.log(backendResult);
+    // 작성 성공
+    if (backendResult.state === REQUEST_SUCCESS) {
+      const result = await sweetAlert(SUCCESS, "후기 작성 성공!", "🤩");
+      if (result) location.reload();
+    }
+    // 로그인 필요
+    else if (backendResult.state === LOGIN_REQUIRED) {
+      const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
+      if (result) location.href = "/user/login";
+    }
+    // 오류
+    else {
+      // 후기를 작성한 적 있을 때
+      if(backendResult.state==="already_written"){
+        const result = await sweetAlert(WARNING, "중복 작성 시도", "한 도서관에 하나의 후기만 작성할 수 있습니다.");
+      }else {
         const result = await sweetAlert(
           ERROR,
           "후기 작성 실패",
@@ -106,11 +93,9 @@ async function writeReview() {
         if (result) location.reload();
       }
     }
-    // 후기 작성창 취소나 무시
-    else await sweetAlert(CHECK, "후기 작성 취소", "warning");
-
-    // 후기 작성창 취소나 무시
-  } else await sweetAlert(CHECK, "후기 작성 취소", "warning");
+  }
+  // 후기 작성창 취소나 무시
+  else await sweetAlert(CHECK, "후기 작성 취소", "warning");
 } // 최초 도서관 후기정보 가져오기
 async function getReview() {
   const libraryIndex = await getLibraryIndex();
