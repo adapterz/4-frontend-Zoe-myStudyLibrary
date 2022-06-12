@@ -9,11 +9,11 @@
   justify-content: space-between;
   align-items: center;
   background-color: #1d9c72;
-  padding: 20px 450px;
+  padding: 1% 15%;
 }
 .gmb__logo {
   font-size: 27px;
-  line-height: 30px;
+  line-height: 1.5em;
   color: #fff;
   font-family: "Gugi", "Poor Story", "Lobster", "Grape Nuts", serif;
 }
@@ -97,12 +97,12 @@
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
 }
 /* 반응형 디자인 */
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 768px) {
   .gmb {
     flex-direction: column;
     align-items: flex-start;
     row-gap: 20px;
-    padding: 20px 20px;
+    padding: 3% 10%;
   }
   .gmb__menu {
     display: none;

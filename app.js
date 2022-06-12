@@ -31,7 +31,6 @@ import { build } from "./customs/buildJs.js";
 import { BACKEND_URL, OK } from "./customs/constant.js";
 // 라우터
 import boardRouter from "./routes/board.js";
-import commentRouter from "./routes/comment.js";
 import libraryRouter from "./routes/library.js";
 import userRouter from "./routes/user.js";
 
@@ -53,7 +52,6 @@ app.use(helmet());
 app.use(apiLimiter);
 
 // 경로별로 라우팅
-app.use("/comment", commentRouter);
 app.use("/library", libraryRouter);
 app.use("/user", userRouter);
 app.use("/board", boardRouter);

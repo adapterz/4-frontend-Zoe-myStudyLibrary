@@ -9,8 +9,9 @@ main 구성요소
 .home {
   display: flex;
   flex-wrap: wrap;
-  padding: 50px 450px;
+  padding: 3% 15%;
   justify-content: space-evenly;
+  column-gap: 3em;
 }
 .home__card--img {
   margin: 5% 0%;
@@ -244,7 +245,7 @@ main 구성요소
 }
 /* 5. 반응형 디자인 */
 
-@media screen and (max-width: 1850px) {
+@media screen and (max-width: 1440px) {
   .home {
     padding: 50px;
     display: flex;
@@ -256,26 +257,12 @@ main 구성요소
     margin-top: 5%;
     margin-left: 0%;
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-    width: 300px;
     line-height: 30px;
     display: flex;
     list-style: none;
-    align-self: center;
   }
-  .home__user--logined {
-    align-self: center;
-  }
-  .home__user--notLogined {
-    align-self: center;
-  }
-  .home__board {
-    align-self: center;
-  }
-}
-
-@media screen and (max-width: 1800px) {
   .home__card--img {
-    width: 500px;
+    width: 95%;
   }
   .home__user--notLogined {
     display: grid;
@@ -307,19 +294,17 @@ main 구성요소
     display: flex;
     flex-direction: column;
     list-style: none;
+    align-items: start;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   .button__user {
     font-size: 10px;
   }
 
   .button__logout {
     font-size: 10px;
-  }
-  .home__card--img {
-    width: 95%;
   }
   .home__user--notLogined {
     width: 90%;
@@ -343,6 +328,7 @@ main 구성요소
     display: flex;
     flex-direction: column;
     list-style: none;
+    width: 300px;
   }
   .home__user--profileImage {
     height: 80px;

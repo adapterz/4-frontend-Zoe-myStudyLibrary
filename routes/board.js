@@ -6,7 +6,6 @@ import express from "express";
 import {
   detailBoardController,
   entireBoardController,
-  userBoardController,
   writeBoardController
 } from "../controllers/board.js";
 
@@ -17,9 +16,7 @@ const router = express.Router();
 router.get("/", entireBoardController);
 // 2. 최초 게시글 작성 요청
 router.get("/write", writeBoardController);
-// 3. 유저가 작성한 게시글
-router.get("/user", userBoardController);
-// 4. 각 게시물 상세보기
+// 3. 각 게시물 상세보기
 router.get("/:boardIndex", detailBoardController);
 // 모듈화
 export default router;

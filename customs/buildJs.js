@@ -181,16 +181,6 @@ export async function build() {
     [constant, user, fs.readFileSync(path.join(__dirname, "views", "js", "terms.js"), "utf-8")],
     options
   );
-  // user_comment
-  const user_comment = await minify(
-    [constant, user, comment, custom, fs.readFileSync(path.join(__dirname, "views", "js", "user_comment.js"), "utf-8")],
-    options
-  );
-  // user_post
-  const user_post = await minify(
-    [constant, user, board, custom, fs.readFileSync(path.join(__dirname, "views", "js", "user_post.js"), "utf-8")],
-    options
-  );
   // library
   const library_page = await minify(
     [constant, library, custom, fs.readFileSync(path.join(__dirname, "views", "js", "library.js"), "utf-8")],
@@ -222,8 +212,6 @@ export async function build() {
   fs.writeFileSync("views/build/sign_up.js", sign_up.code, "utf8");
   fs.writeFileSync("views/build/sign_up_guide.js", sign_up_guide.code, "utf8");
   fs.writeFileSync("views/build/terms.js", terms.code, "utf8");
-  fs.writeFileSync("views/build/user_comment.js", user_comment.code, "utf8");
-  fs.writeFileSync("views/build/user_post.js", user_post.code, "utf8");
   fs.writeFileSync("views/build/library.js", library_page.code, "utf8");
   fs.writeFileSync("views/build/library_detail.js", library_detail.code, "utf8");
   fs.writeFileSync("views/build/menu.js", menu.code, "utf8");
