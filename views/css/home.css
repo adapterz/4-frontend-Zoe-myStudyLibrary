@@ -252,18 +252,7 @@ main 구성요소
     flex-direction: column;
     align-content: center;
   }
-  /* 3. 동기부여용 명언 */
-  .home__wiseSaying {
-    margin-top: 5%;
-    margin-left: 0%;
-    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-    line-height: 30px;
-    display: flex;
-    list-style: none;
-  }
-  .home__card--img {
-    width: 95%;
-  }
+
   .home__user--notLogined {
     display: grid;
     padding: 30px;
@@ -284,17 +273,15 @@ main 구성요소
     border-radius: 5px;
     justify-content: space-evenly;
   }
-  .home__board {
-    flex-direction: column;
-    width: 300px;
-    display: flex;
-    list-style: none;
-  }
+  /* 3. 동기부여용 명언 */
   .home__wiseSaying {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    align-items: start;
+    margin-top: 5%;
+    margin-left: 0%;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+    line-height: 30px;
+  }
+  .home__card--img {
+    width: 95%;
   }
 }
 
@@ -312,10 +299,13 @@ main 구성요소
   .home__user--logined {
     width: 90%;
   }
+  .home__user--nickname {
+    font-size: 12px;
+    min-width: 9em;
+  }
+
   .home__board {
-    flex-direction: column;
-    display: flex;
-    list-style: none;
+    width: 300px;
   }
   .home__board--title {
     font-size: 15px;
@@ -325,9 +315,6 @@ main 구성요소
     font-size: 15px;
   }
   .home__wiseSaying {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
     width: 300px;
   }
   .home__user--profileImage {

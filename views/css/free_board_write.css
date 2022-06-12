@@ -119,6 +119,7 @@ body {
   margin: 10%;
   color: #fff;
   background-color: lightsalmon;
+  border: lightsalmon;;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   font-weight: bold;
   border-radius: 20px;
@@ -128,6 +129,7 @@ body {
   font-size: 16px;
   padding: 5px;
   background-color: salmon;
+  border: lightsalmon;;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
 }
