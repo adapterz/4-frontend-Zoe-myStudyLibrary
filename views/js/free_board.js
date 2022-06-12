@@ -18,7 +18,7 @@ async function entireBoard(page) {
     titleElement.classList.add("freeBoard__board--title");
     titleElement.textContent = "검색결과가 없습니다";
     document.getElementsByClassName("freeBoard__board--list")[0].appendChild(titleElement);
-  } else if (boardResult[0] !==undefined) {
+  } else if (boardResult[0] !== undefined) {
     // 전체 게시물 목록 불러오기
     for (let index in boardResult) {
       await addPost(
@@ -61,7 +61,7 @@ async function searchBoard(searchOption, searchContent, page) {
     titleElement.classList.add("freeBoard__board--title");
     titleElement.textContent = "검색결과가 없습니다";
     document.getElementsByClassName("freeBoard__board--list")[0].appendChild(titleElement);
-  } else if (boardResult[0]!==undefined) {
+  } else if (boardResult[0] !== undefined) {
     isEntire = false;
     scrollSearchPage = 2;
     scrollSearchOption = searchOption;
@@ -130,7 +130,6 @@ async function addPost(postTitle, nickname, viewCount, favoriteCount, createDate
   document.getElementsByClassName("freeBoard__board--list")[index].append(viewElement);
   document.getElementsByClassName("freeBoard__board--list")[index].append(favoriteElement);
   document.getElementsByClassName("freeBoard__board--list")[index].append(createDateElement);
-
 }
 // 글쓰기 버튼 눌렀을 때 로그인 체크
 // 로그인 여부 체크
@@ -138,10 +137,15 @@ async function checkLogin() {
   const backendResult = await getUserInfo();
   // 로그인 안 했을 때 로그인 페이지로 이동
   if (backendResult.state === LOGIN_REQUIRED) {
-    const result = await sweetAlert(WARNING, "로그인 필요", "로그인이 필요한 기능입니다.");
-    if (result) {
-      const link = "/user/login";
-      location.href = link;
+    const { isConfirmed: isConfirmed } = await Swal.fire({
+      title: "로그인 필요",
+      text: "로그인 창으로 가시겠습니까?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#ffa07a",
+    });
+    if (isConfirmed) {
+      location.href = "/user/login";
     }
   } else {
     const link = "/board/write";
@@ -152,13 +156,13 @@ async function checkLogin() {
 async function lifeCycle() {
   await entireBoard();
 
-// 무한 스크롤링
+  // 무한 스크롤링
   window.onscroll = async function () {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
       let boardResult;
       if (isEntire === true) {
         boardResult = await getEntireBoard(entirePage++);
-        if (boardResult[0] !==undefined) {
+        if (boardResult[0] !== undefined) {
           // 전체 게시물 목록 불러오기
           for (let index in boardResult) {
             await addPost(
@@ -180,7 +184,7 @@ async function lifeCycle() {
       } else {
         boardResult = await getSearchBoard(scrollSearchOption, scrollSearchContent, scrollSearchPage++);
 
-        if (boardResult[0] !==undefined) {
+        if (boardResult[0] !== undefined) {
           // 전체 게시물 목록 불러오기
           for (let index in boardResult) {
             await addPost(

@@ -50,7 +50,7 @@ async function detailBoard() {
     // 유저에게 등록된 프로필 사진이 있을 때
     if (backendResult.dataOfUser.isProfileImage) {
       const imageHTML = document.getElementsByClassName("freeBoard__user--profileImage")[0];
-      imageHTML.innerHTML="";
+      imageHTML.innerHTML = "";
       const image = backendResult.dataOfUser.profileImage;
       const mime = backendResult.dataOfUser.mime;
       const tempImg = document.createElement("img");
@@ -64,12 +64,10 @@ async function detailBoard() {
         if (tempImg.height <= tempImg.width) {
           imageHTML.innerHTML = `<img class="freeBoard__user--profileImageFitHeight" src="data:${mime};base64,${image}" alt="유저 프로필 사진">`;
         }
-      },1);
-
-    }
-    else{
+      }, 1);
+    } else {
       const imageHTML = document.getElementsByClassName("freeBoard__user--profileImage")[0];
-      imageHTML.innerHTML =`<img class="freeBoard__user--classNameleImageFitHeight" src="/views/img/none_registered.png" alt="유저 디폴트 사진" />`
+      imageHTML.innerHTML = `<img class="freeBoard__user--classNameleImageFitHeight" src="/views/img/none_registered.png" alt="유저 디폴트 사진" />`;
     }
     // 해당 게시글을 작성한 유저가 아닐 때 수정하기, 삭제하기 버튼 안보이게하기
     const userResult = await getUserInfo();
@@ -88,8 +86,16 @@ async function favoritePost() {
   const backendResult = await favoritePostRequest(boardIndex);
   // 로그인 필요할 때
   if (backendResult.state === LOGIN_REQUIRED) {
-    const result = await sweetAlert(WARNING, "로그인 필요", "새 창에서 로그인 해주세요");
-    if (result) window.open("/user/login");
+    const { isConfirmed: isConfirmed } = await Swal.fire({
+      title: "로그인 필요",
+      text: "로그인 창으로 가시겠습니까?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#ffa07a",
+    });
+    if (isConfirmed) {
+      location.href = "/user/login";
+    }
   }
   // 게시글이 없을 때 게시글 목록으로 이동( 그 새 삭제되거나 했을 때)
   else if (backendResult.state === NOT_EXIST) {
@@ -115,8 +121,16 @@ async function deletePost() {
   const backendResult = await deletePostRequest(boardIndex);
   // 로그인 필요할 때
   if (backendResult.state === LOGIN_REQUIRED) {
-    const result = await sweetAlert(WARNING, "로그인 필요", "로그인창으로갑니다.");
-    if (result) location.href = "/user/login";
+    const { isConfirmed: isConfirmed } = await Swal.fire({
+      title: "로그인 필요",
+      text: "로그인 창으로 가시겠습니까?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#ffa07a",
+    });
+    if (isConfirmed) {
+      location.href = "/user/login";
+    }
   }
   // 게시글이 없을 때 게시글 목록으로 이동
   else if (backendResult.state === NOT_EXIST) {
@@ -315,124 +329,166 @@ async function writeComment() {
   // 로그인 여부 체크
   const checkLogin = await getUserInfo();
   if (checkLogin.state === LOGIN_REQUIRED) {
-    const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
-    if (result) location.href = "/user/login";
-  }
-  // 댓글창 띄워서 정보 받아오기
-  const { isConfirmed: isConfirmed, value: comment } = await Swal.fire({
-    input: "textarea",
-    title: "댓글 작성",
-    inputPlaceholder: "2~500자 사이로 댓글을 작성해주세요.",
-    inputAttributes: {
-      "aria-label": "2~500자 사이로 댓글을 작성해주세요.",
-    },
-    showCancelButton: true,
-    inputValidator: (comment) => {
-      if (!comment) {
-        return "내용을 입력해주세요.";
+    const { isConfirmed: isConfirmed } = await Swal.fire({
+      title: "로그인 필요",
+      text: "로그인 창으로 가시겠습니까?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#ffa07a",
+    });
+    if (isConfirmed) {
+      location.href = "/user/login";
+    }
+  } else {
+    // 댓글창 띄워서 정보 받아오기
+    const { isConfirmed: isConfirmed, value: comment } = await Swal.fire({
+      input: "textarea",
+      title: "댓글 작성",
+      inputPlaceholder: "2~500자 사이로 댓글을 작성해주세요.",
+      inputAttributes: {
+        "aria-label": "2~500자 사이로 댓글을 작성해주세요.",
+      },
+      showCancelButton: true,
+      inputValidator: (comment) => {
+        if (!comment) {
+          return "내용을 입력해주세요.";
+        }
+        if (comment.length < 2 || comment.length > 500) {
+          return `댓글은 2~500글자 사이로 작성해야합니다. 현재 ${comment.length}자입니다.`;
+        }
+      },
+    });
+    // 댓글 작성 요청했을 때
+    if (isConfirmed) {
+      const boardIndex = await getBoardIndex();
+      const backendResult = await writeCommentRequest(boardIndex, comment);
+      console.log(backendResult);
+      // 작성 성공
+      if (backendResult.state === REQUEST_SUCCESS) {
+        const result = await sweetAlert(SUCCESS, "댓글 작성 성공!", "🤩");
+        if (result) location.reload();
       }
-      if (comment.length < 2 || comment.length > 500) {
-        return `댓글은 2~500글자 사이로 작성해야합니다. 현재 ${comment.length}자입니다.`;
+      // 로그인 필요
+      else if (backendResult.state === LOGIN_REQUIRED) {
+        const { isConfirmed: isConfirmed } = await Swal.fire({
+          title: "로그인 필요",
+          text: "로그인 창으로 가시겠습니까?",
+          icon: "info",
+          showCancelButton: true,
+          confirmButtonColor: "#ffa07a",
+        });
+        if (isConfirmed) {
+          location.href = "/user/login";
+        }
       }
-    },
-  });
-  // 댓글 작성 요청했을 때
-  if (isConfirmed) {
-    const boardIndex = await getBoardIndex();
-    const backendResult = await writeCommentRequest(boardIndex, comment);
-    console.log(backendResult);
-    // 작성 성공
-    if (backendResult.state === REQUEST_SUCCESS) {
-      const result = await sweetAlert(SUCCESS, "댓글 작성 성공!", "🤩");
-      if (result) location.reload();
+      // 게시글이 존재하지않거나 삭제됐을 때
+      else if (backendResult.state === NOT_EXIST) {
+        const result = await sweetAlert(
+          WARNING,
+          "존재하지 않는 게시글입니다.",
+          "삭제됐거나 존재하지않는 게시글입니다."
+        );
+        if (result) location.href = "/board";
+      }
+      // 예상치 못한 오류
+      else {
+        const result = await sweetAlert(
+          ERROR,
+          "댓글 작성 실패",
+          "예상치 못한 오류입니다.",
+          `서버 메세지: ${backendResult.state}`
+        );
+        if (result) location.reload();
+      }
     }
-    // 로그인 필요
-    else if (backendResult.state === LOGIN_REQUIRED) {
-      const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
-      if (result) location.href = "/user/login";
-    }
-    // 게시글이 존재하지않거나 삭제됐을 때
-    else if (backendResult.state === NOT_EXIST) {
-      const result = await sweetAlert(WARNING, "존재하지 않는 게시글입니다.", "삭제됐거나 존재하지않는 게시글입니다.");
-      if (result) location.href = "/board";
-    }
-    // 예상치 못한 오류
-    else {
-      const result = await sweetAlert(
-        ERROR,
-        "댓글 작성 실패",
-        "예상치 못한 오류입니다.",
-        `서버 메세지: ${backendResult.state}`
-      );
-      if (result) location.reload();
-    }
+    // 댓글 작성창 취소나 무시
+    else await sweetAlert(CHECK, "댓글 작성 취소", "warning");
   }
-  // 댓글 작성창 취소나 무시
-  else await sweetAlert(CHECK, "댓글 작성 취소", "warning");
 }
 // 대댓글 작성 버튼 눌렀을 때 호출할 함수
 async function writeChildComment(commentIndex) {
   const checkLogin = await getUserInfo();
   if (checkLogin.state === LOGIN_REQUIRED) {
-    const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
-    if (result) location.href = "/user/login";
-  }
-  // 대댓글 작성창 띄워서 정보 받아오기
-  const { isConfirmed: isConfirmed, value: comment } = await Swal.fire({
-    input: "textarea",
-    title: "대댓글 작성",
-    inputPlaceholder: "2~500자 사이로 대댓글을 작성해주세요.",
-    inputAttributes: {
-      "aria-label": "2~500자 사이로 대댓글을 작성해주세요.",
-    },
-    showCancelButton: true,
-    inputValidator: (comment) => {
-      if (!comment) {
-        return "내용을 입력해주세요.";
+    const { isConfirmed: isConfirmed } = await Swal.fire({
+      title: "로그인 필요",
+      text: "로그인 창으로 가시겠습니까?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#ffa07a",
+    });
+    if (isConfirmed) {
+      location.href = "/user/login";
+    }
+  } else {
+    // 대댓글 작성창 띄워서 정보 받아오기
+    const { isConfirmed: isConfirmed, value: comment } = await Swal.fire({
+      input: "textarea",
+      title: "대댓글 작성",
+      inputPlaceholder: "2~500자 사이로 대댓글을 작성해주세요.",
+      inputAttributes: {
+        "aria-label": "2~500자 사이로 대댓글을 작성해주세요.",
+      },
+      showCancelButton: true,
+      inputValidator: (comment) => {
+        if (!comment) {
+          return "내용을 입력해주세요.";
+        }
+        if (comment.length < 2 || comment.length > 500) {
+          return `댓글은 2~500글자 사이로 작성해야합니다. 현재 ${comment.length}자입니다.`;
+        }
+      },
+    });
+    // 대댓글 작성 요청했을 때
+    if (isConfirmed) {
+      const boardIndex = await getBoardIndex();
+      const backendResult = await writeCommentRequest(boardIndex, comment, commentIndex);
+      console.log(backendResult);
+      // 작성 성공
+      if (backendResult.state === REQUEST_SUCCESS) {
+        const result = await sweetAlert(SUCCESS, "댓글 작성 성공!", "🤩");
+        if (result) location.reload();
       }
-      if (comment.length < 2 || comment.length > 500) {
-        return `댓글은 2~500글자 사이로 작성해야합니다. 현재 ${comment.length}자입니다.`;
+      // 로그인 필요
+      else if (backendResult.state === LOGIN_REQUIRED) {
+        const { isConfirmed: isConfirmed } = await Swal.fire({
+          title: "로그인 필요",
+          text: "로그인 창으로 가시겠습니까?",
+          icon: "info",
+          showCancelButton: true,
+          confirmButtonColor: "#ffa07a",
+        });
+        if (isConfirmed) {
+          location.href = "/user/login";
+        }
       }
-    },
-  });
-  // 대댓글 작성 요청했을 때
-  if (isConfirmed) {
-    const boardIndex = await getBoardIndex();
-    const backendResult = await writeCommentRequest(boardIndex, comment, commentIndex);
-    console.log(backendResult);
-    // 작성 성공
-    if (backendResult.state === REQUEST_SUCCESS) {
-      const result = await sweetAlert(SUCCESS, "댓글 작성 성공!", "🤩");
-      if (result) location.reload();
+      // 게시글이 존재하지않거나 삭제됐을 때
+      else if (backendResult.state === NOT_EXIST) {
+        const result = await sweetAlert(
+          WARNING,
+          "존재하지 않는 게시글입니다.",
+          "삭제됐거나 존재하지않는 게시글입니다."
+        );
+        if (result) location.href = "/board";
+      }
+      // 루트댓글이 존재하지 않거나 삭제됐을 때
+      else if (backendResult.state === NO_COMMENT) {
+        const result = await sweetAlert(WARNING, "존재하지 않는 댓글입니다.", "삭제됐거나 존재하지않는 게시글입니다.");
+        if (result) location.reload();
+      }
+      // 예상치 못한 오류
+      else {
+        const result = await sweetAlert(
+          ERROR,
+          "댓글 작성 실패",
+          "예상치 못한 오류입니다.",
+          `서버 메세지: ${backendResult.state}`
+        );
+        if (result) location.reload();
+      }
     }
-    // 로그인 필요
-    else if (backendResult.state === LOGIN_REQUIRED) {
-      const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
-      if (result) location.href = "/user/login";
-    }
-    // 게시글이 존재하지않거나 삭제됐을 때
-    else if (backendResult.state === NOT_EXIST) {
-      const result = await sweetAlert(WARNING, "존재하지 않는 게시글입니다.", "삭제됐거나 존재하지않는 게시글입니다.");
-      if (result) location.href = "/board";
-    }
-    // 루트댓글이 존재하지 않거나 삭제됐을 때
-    else if (backendResult.state === NO_COMMENT) {
-      const result = await sweetAlert(WARNING, "존재하지 않는 댓글입니다.", "삭제됐거나 존재하지않는 게시글입니다.");
-      if (result) location.reload();
-    }
-    // 예상치 못한 오류
-    else {
-      const result = await sweetAlert(
-        ERROR,
-        "댓글 작성 실패",
-        "예상치 못한 오류입니다.",
-        `서버 메세지: ${backendResult.state}`
-      );
-      if (result) location.reload();
-    }
+    // 댓글 작성창 취소나 무시
+    else await sweetAlert(CHECK, "댓글 작성 취소", "warning");
   }
-  // 댓글 작성창 취소나 무시
-  else await sweetAlert(CHECK, "댓글 작성 취소", "warning");
 }
 // 댓글 수정 버튼 눌렀을 때 호출시켜줄 메서드
 async function editComment(commentIndex) {
@@ -440,8 +496,16 @@ async function editComment(commentIndex) {
   const commentResult = await getComment(boardIndex, commentIndex);
   // 로그인 필요
   if (commentResult.state === LOGIN_REQUIRED) {
-    const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
-    location.href = "/user/login";
+    const { isConfirmed: isConfirmed } = await Swal.fire({
+      title: "로그인 필요",
+      text: "로그인 창으로 가시겠습니까?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#ffa07a",
+    });
+    if (isConfirmed) {
+      location.href = "/user/login";
+    }
   }
   // 게시글 존재하지 않을 때
   else if (commentResult.state === NOT_EXIST) {
@@ -485,8 +549,16 @@ async function editComment(commentIndex) {
       }
       // 로그인 필요
       else if (backendResult.state === LOGIN_REQUIRED) {
-        const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
-        if (result) location.href = "/user/login";
+        const { isConfirmed: isConfirmed } = await Swal.fire({
+          title: "로그인 필요",
+          text: "로그인 창으로 가시겠습니까?",
+          icon: "info",
+          showCancelButton: true,
+          confirmButtonColor: "#ffa07a",
+        });
+        if (isConfirmed) {
+          location.href = "/user/login";
+        }
       } else if (backendResult.state === NOT_AUTHORIZATION) {
         const result = await sweetAlert(WARNING, "댓글 수정 권한이 없습니다", "해당 댓글을 작성한 유저가 아닙니다");
         if (result) location.reload();
@@ -522,8 +594,16 @@ async function deleteComment(commentIndex) {
   const backendResult = await deleteCommentRequest(boardIndex, commentIndex);
   // 로그인 필요할 때
   if (backendResult.state === LOGIN_REQUIRED) {
-    const result = await sweetAlert(WARNING, "로그인 필요", "로그인창으로 갑니다.");
-    if (result) location.href = "/user/login";
+    const { isConfirmed: isConfirmed } = await Swal.fire({
+      title: "로그인 필요",
+      text: "로그인 창으로 가시겠습니까?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#ffa07a",
+    });
+    if (isConfirmed) {
+      location.href = "/user/login";
+    }
   }
   // 게시글이 없을 때 게시글 목록으로 이동
   else if (backendResult.state === NOT_EXIST) {

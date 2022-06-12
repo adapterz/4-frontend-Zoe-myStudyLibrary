@@ -109,3 +109,5 @@ dist
 .idea/navEditor.xml
 /.idea/vcs.xml
 /.idea/
+
+/views/build
