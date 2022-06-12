@@ -472,7 +472,7 @@ async function writeChildComment(commentIndex) {
       }
       // 루트댓글이 존재하지 않거나 삭제됐을 때
       else if (backendResult.state === NO_COMMENT) {
-        const result = await sweetAlert(WARNING, "존재하지 않는 댓글입니다.", "삭제됐거나 존재하지않는 게시글입니다.");
+        const result = await sweetAlert(WARNING, "존재하지 않는 댓글입니다.", "삭제됐거나 존재하지않는 댓글입니다.");
         if (result) location.reload();
       }
       // 예상치 못한 오류
@@ -513,7 +513,7 @@ async function editComment(commentIndex) {
     if (result) location.href = "/board";
   } else if (commentResult.state === NO_COMMENT) {
     const result = await sweetAlert(WARNING, "댓글이 존재하지 않습니다.", "삭제되거나 존재하지 않는 댓글");
-    if (result) location.href = "/board";
+    if (result) location.reload();
   }
   // 성공적으로 댓글 정보 받아왔을 때
   else if (commentResult.commentContent !== undefined) {

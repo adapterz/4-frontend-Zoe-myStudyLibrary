@@ -8,7 +8,7 @@ async function entireBoard(page) {
   // 전체 게시판 정보
   const boardResult = await getEntireBoard(page);
   // 결과가 없을 때
-  if ((page !== undefined || page === 1) && boardResult.state === NOT_EXIST) {
+  if (boardResult.state === NOT_EXIST) {
     // 게시물 리스트 생성
     const listElement = document.createElement("tr");
     listElement.classList.add("freeBoard__board--list");
@@ -34,7 +34,7 @@ async function entireBoard(page) {
     const result = await sweetAlert(
       ERROR,
       "게시판 불러오기 실패",
-      "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+      "예상치 못한 오류입니다.",`서버 메세지: ${boardResult.state}`
     );
     if (result) {
       const link = "/board";
@@ -51,7 +51,7 @@ async function searchBoard(searchOption, searchContent, page) {
   const nav = document.getElementsByClassName("freeBoard__board--body")[0];
   nav.innerHTML = "";
   // 검색 결과가 없을 때
-  if ((page !== undefined || page === 1) && boardResult.state === NOT_EXIST) {
+  if (boardResult.state === NOT_EXIST) {
     // 게시물 리스트 생성
     const listElement = document.createElement("tr");
     listElement.classList.add("freeBoard__board--list");
@@ -81,7 +81,7 @@ async function searchBoard(searchOption, searchContent, page) {
     const result = await sweetAlert(
       ERROR,
       "게시판 불러오기 실패",
-      "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+      "예상치 못한 오류입니다.",`서버 메세지: ${boardResult.state}`
     );
     if (result) {
       const link = "/board";
