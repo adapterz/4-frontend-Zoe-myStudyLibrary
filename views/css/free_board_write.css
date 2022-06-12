@@ -150,7 +150,7 @@ body {
   }
   /* 글제목/글내용/태그 input 창 설정 */
   .container__write--title {
-    font-size: 12px;
+    font-size: 13px;
     background: none;
     margin: 1% 0%;
     outline: none;
@@ -160,7 +160,7 @@ body {
     border: solid 1px dimgray;
   }
   .container__write--content {
-    font-size: 12px;
+    font-size: 13px;
     background: none;
     outline: none;
     margin: 1% 0%;
@@ -170,7 +170,7 @@ body {
     border: solid 1px dimgray;
   }
   .container__write--tag {
-    font-size: 12px;
+    font-size: 13px;
     background: none;
     width: 95%;
     margin: 1% 0%;

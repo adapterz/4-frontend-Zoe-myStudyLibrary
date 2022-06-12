@@ -182,7 +182,6 @@ async function deleteReview(reviewIndex) {
   // 후기 삭제 권한 없음
   else if (backendResult.state === NOT_AUTHORIZATION) {
     const result = await sweetAlert(WARNING, "삭제권한이 없습니다.", "해당 후기를 작성한 유저가 아닙니다.");
-    if (result) location.reload();
   }
   // 삭제 성공
   else if (backendResult.state === REQUEST_SUCCESS) {
@@ -214,7 +213,6 @@ async function editReview(reviewIndex) {
       "후기 수정할 권한이 없습니다.",
       "해당 후기를 작성한 유저가 아닙니다."
     );
-    if (result) location.reload();
     // 성공적으로 결과 받아왔을 때
   } else if (requestResult.reviewContent !== undefined) {
     // 평점 수정 알림창이 떴을 때 기존의 평점이 선택돼있도록 하는 html 코드

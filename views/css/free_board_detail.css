@@ -135,15 +135,15 @@ body {
   padding-bottom: 30px;
   border: none;
   height: auto;
-  width: 100%;
+  width: 120%;
   object-position: center;
 }
 
 .freeBoard__user--profileImageFitHeight {
   padding-bottom: 30px;
   border: none;
-  height: 100%;
-  width:auto;
+  height: 120%;
+  width: auto;
   object-position: center;
 }
 .freeBoard__board--img {
@@ -457,5 +457,13 @@ body {
   .freeBoard__user--profileImage {
     height: 100px;
     width: 100px;
+  }
+  .freeBoard__user--profileImageFitHeight {
+    height: 110%;
+    width: auto;
+  }
+  .freeBoard__user--profileImageFitWidth {
+    width: 110%;
+    height: auto;
   }
 }

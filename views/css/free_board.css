@@ -252,12 +252,12 @@ td {
   }
   .freeBoard__table--title {
     width: 65%;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .freeBoard__table--nickname {
     width: 35%;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .freeBoard__table--viewCount {
@@ -275,12 +275,12 @@ td {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
-    font-size: 12px;
+    font-size: 13px;
   }
   .freeBoard__board--title {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     margin-bottom: 3%;
-    font-size: 11px;
+    font-size: 13px;
     text-align: center;
   }
 
@@ -291,7 +291,7 @@ td {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
-    font-size: 12px;
+    font-size: 13px;
     column-gap: 2em;
 
     display: none;
@@ -300,7 +300,7 @@ td {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
-    font-size: 12px;
+    font-size: 13px;
     column-gap: 2em;
     display: none;
   }
@@ -309,6 +309,7 @@ td {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     text-align: center;
     color: dimgray;
-    font-size: 11px;
+    font-size: 12px;
+    min-width: 8.5em;
   }
 }

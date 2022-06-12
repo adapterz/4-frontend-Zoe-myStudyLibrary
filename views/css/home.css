@@ -64,21 +64,21 @@ main 구성요소
   padding-bottom: 30px;
   border: none;
   height: auto;
-  width: 100%;
+  width: 120%;
   object-position: center;
 }
 
 .home__user--profileImageFitHeight {
   padding-bottom: 30px;
   border: none;
-  height: 100%;
-  width:auto;
+  height: 120%;
+  width: auto;
   object-position: center;
 }
 .home__user--nickname {
   font-size: 13px;
   line-height: 1.5em;
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   margin: 0px 5px;
   padding: 30px 30px;
   grid-column: 3/7;
@@ -332,11 +332,11 @@ main 구성요소
     display: flex;
     list-style: none;
   }
-  .home__board--title{
+  .home__board--title {
     font-size: 15px;
   }
 
-  .home__board--nickname{
+  .home__board--nickname {
     font-size: 15px;
   }
   .home__wiseSaying {
@@ -349,4 +349,12 @@ main 구성요소
     width: 80px;
   }
 
+  .home__user--profileImageFitHeight {
+    height: 110%;
+    width: auto;
+  }
+  .home__user--profileImageFitWidth {
+    width: 110%;
+    height: auto;
+  }
 }
