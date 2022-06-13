@@ -117,13 +117,14 @@
     flex-direction: column;
     align-items: center;
     margin-top: 3em;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.3em;
     width: 100%;
   }
   .gmb__menu li {
     height: 80%;
     width: 80%;
     text-align: center;
+    line-height: 1.3em;
   }
 
   .button--page {
