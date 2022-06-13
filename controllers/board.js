@@ -1,5 +1,5 @@
 // 게시판 컨트롤러
-import { INTERNAL_SERVER_ERROR, OK,BACKEND_URL } from "../customs/constant.js";
+import { INTERNAL_SERVER_ERROR, OK, BACKEND_URL } from "../customs/constant.js";
 import path from "path";
 import { __dirname } from "../app.js";
 
@@ -11,7 +11,7 @@ export async function entireBoardController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     return res.status(OK).sendFile(path.join(__dirname, "views", "html", "free_board.html"));
   } catch (err) {
@@ -26,7 +26,7 @@ export async function detailBoardController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     return res.status(OK).sendFile(path.join(__dirname, "views", "html", "free_board_detail.html"));
   } catch (err) {
@@ -41,7 +41,7 @@ export async function writeBoardController(req, res) {
     });
     res.header({
       "Content-Security-Policy":
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com/ https://fonts.googleapis.com https://fonts.gstatic.com",
     });
     return res.status(OK).sendFile(path.join(__dirname, "views", "html", "free_board_write.html"));
   } catch (err) {

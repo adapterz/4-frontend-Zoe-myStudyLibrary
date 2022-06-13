@@ -10,6 +10,7 @@
 */
 /* 회원가입 페이지 전체 컨테이너 */
 .container {
+  background-color: #f9f9fc;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,7 +29,7 @@
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   width: 300px;
-  height: 1200px;
+  height: 1100px;
 }
 
 /* 회원가입 컨테이너 title */
@@ -40,7 +41,7 @@
 }
 
 .container__signUp--subtitle {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr","Nanum Gothic", serif;
   color: dimgray;
   font-size: 1rem;
 }

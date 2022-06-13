@@ -9,11 +9,12 @@
   justify-content: space-between;
   align-items: center;
   background-color: #1d9c72;
-  padding: 8px 450px;
-  height: 4em;
+  padding: 0% 20%;
+  min-height: 70px;
 }
 .gmb__logo {
-  font-size: 27px;
+  font-size: 20px;
+  line-height: 2em;
   color: #fff;
   font-family: "Gugi", "Poor Story", "Lobster", "Grape Nuts", serif;
 }
@@ -22,6 +23,7 @@
   list-style: none;
   padding: 0;
   font-size: 18px;
+  justify-self: center;
   font-family: "Gugi", "Poor Story", "Noto Sans Kr", serif;
 }
 .gmb__menu li:hover {
@@ -41,11 +43,14 @@
   height: 150px;
   display: flex;
   flex-direction: column;
-  color: #9b9b9b;
-  line-height: 25px;
+  color: #777;
+  padding-top: 1.5em;
+  line-height: 2em;
   justify-content: center;
   align-items: center;
-  background-color: #3e3e3e;
+  background-color: #e4e8eb;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  border-top: 1px solid #d9dfeb;
 }
 /* 페이지네이션 컨테이너 */
 .pagination {
@@ -57,7 +62,7 @@
 }
 /* 페이지네이션 버튼 컴포넌트 */
 .button--page {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", "Gugi", "Poor Story", serif;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   width: 30px;
   height: 30px;
   color: #333;
@@ -74,21 +79,49 @@
   border: 1px solid #ddd;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
+/* gmb toogle 버튼 */
 
+.gmb__toogleBtn {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 32px;
+  font-size: 24px;
+  color: #d49466;
+}
+.gmb__toogleBtn--img {
+  width: 35px;
+  height: 35px;
+}
+/* swal2 설정 */
+.swal2-textarea {
+  resize: none;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+}
 /* 반응형 디자인 */
-@media screen and (max-width: 1480px) {
+@media screen and (max-width: 1024px) {
   .gmb {
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px 20px;
-    height: 9em;
+    row-gap: 20px;
+    line-height: 2em;
+    padding: 0% 10%;
+  }
+  .gmb__logo {
+    position: absolute;
+    top: 15px;
+    left: 32px;
   }
   .gmb__menu {
+    display: none;
     flex-direction: column;
     align-items: center;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
     width: 100%;
   }
   .gmb__menu li {
+    height: 80%;
     width: 80%;
     text-align: center;
   }
@@ -111,5 +144,23 @@
     background-color: lightgray;
     border: 1px solid #ddd;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+  .gmb__toogleBtn {
+    display: block;
+  }
+  .gmb__menu.active {
+    display: flex;
+    animation: fadein 1s;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

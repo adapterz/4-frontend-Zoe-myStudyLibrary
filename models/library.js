@@ -45,8 +45,8 @@ async function getDetailLibraryData(libraryIndex) {
     };
     const backendResponse = await fetch(`${BACKEND_URL}/library/librarys/${libraryIndex}`, options);
 
-    const localLibraryData = await backendResponse.json();
-    return localLibraryData;
+    const libraryData = await backendResponse.json();
+    return libraryData;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };

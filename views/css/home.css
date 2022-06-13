@@ -7,18 +7,21 @@ main 구성요소
 5. 반응형 디자인
 */
 .home {
-  padding: 50px 450px;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  grid-template-rows: 2fr 2fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3% 15%;
   justify-content: space-evenly;
+  column-gap: 3em;
 }
 .home__card--img {
   margin: 5% 0%;
+  width: 400px;
+  height: auto;
 }
 /* 1. user 탭 */
 /* notlogined */
 .home__user--notLogined {
+  width: 400px;
   margin: 5% 0%;
   display: grid;
   padding: 30px;
@@ -32,6 +35,7 @@ main 구성요소
 }
 /* logined */
 .home__user--logined {
+  width: 400px;
   margin: 5% 0%;
   display: grid;
   padding: 30px;
@@ -58,17 +62,25 @@ main 구성요소
   position: relative;
 }
 
-.home__user--profileImageImg {
+.home__user--profileImageFitWidth {
   padding-bottom: 30px;
   border: none;
-  height: 170px;
-  weight: 170px;
-  margin: auto;
+  height: auto;
+  width: 120%;
+  object-position: center;
+}
+
+.home__user--profileImageFitHeight {
+  padding-bottom: 30px;
+  border: none;
+  height: 120%;
+  width: auto;
   object-position: center;
 }
 .home__user--nickname {
-  font-size: 17px;
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  font-size: 13px;
+  line-height: 1.5em;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   margin: 0px 5px;
   padding: 30px 30px;
   grid-column: 3/7;
@@ -77,13 +89,13 @@ main 구성요소
 
 .button__user {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 70px;
-  height: 40px;
+  width: 5.5em;
+  height: 3.5em;
   color: #fff;
   background-color: lightsalmon;
   border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 3/5;
@@ -92,13 +104,12 @@ main 구성요소
 
 .button__user:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 70px;
   padding: 10px;
+  height: 3.5em;
   background-color: salmon;
   border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
-  font-size: 14px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 3/5;
@@ -107,13 +118,13 @@ main 구성요소
 
 .button__logout {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 70px;
-  height: 40px;
+  width: 5.5em;
+  height: 3.5em;
   color: #fff;
   background-color: lightsalmon;
   border: 1px solid lightsalmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 5/7;
@@ -122,14 +133,12 @@ main 구성요소
 
 .button__logout:hover {
   font-family: "Poor Story", "Gugi", "Noto Sans Kr", serif;
-  width: 70px;
-  padding: 5px;
-  height: 40px;
+  padding: 10px;
+  height: 3.5em;
   background-color: salmon;
   border: 1px solid salmon;
   box-shadow: 0 4px 16px rgba(255, 79, 0, 0.3);
   color: white;
-  font-size: 14px;
   font-weight: bold;
   border-radius: 20px;
   grid-column: 5/7;
@@ -139,40 +148,41 @@ main 구성요소
 .home__board {
   margin: 5% 0%;
   flex-direction: column;
-  width: 300px;
+  width: 400px;
   display: flex;
   list-style: none;
 }
 .home__board li {
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
-  line-height: 23px;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  line-height: 30px;
   padding: 20px 20px;
   border-bottom: 1px solid #dae1e6;
 }
 .home__board--title {
   padding: 0px;
-  font-size: 18px;
+  font-size: 15px;
   color: dimgray;
 }
 .home__board--nickname {
   padding: 0px;
-  font-size: 13px;
+  font-size: 15px;
   color: dimgray;
 }
 /* 자유게시판, 명언 헤드라인 */
 .home__category {
   padding: 15px 0px;
   font-size: 25px;
-  font-weight: 100;
-  font-family: "Gugi";
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  font-weight: bold;
   color: dimgray;
   align-items: flex-start;
   border-bottom: 1px solid #dae1e6;
 }
 /* 3. 동기부여용 명언 */
 .home__wiseSaying {
-  margin: 5% 0%;
-  font-family: "Noto Serif Kr", "Noto Sans Kr", serif;
+  margin-top: 5%;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 400px;
   line-height: 30px;
   display: flex;
   list-style: none;
@@ -235,51 +245,80 @@ main 구성요소
   border-radius: 30px;
 }
 /* 5. 반응형 디자인 */
-@media screen and (max-width: 1800px) {
+
+@media screen and (max-width: 1440px) {
   .home {
     padding: 50px;
-    display: grid;
-    grid-template-columns: 470px;
-    grid-template-rows: 300px 200px 500px 400px;
-    grid-row-gap: 100px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
   }
-  .home__card--img {
-    margin: 5% 0%;
-    max-width: 100%;
-    height: auto !important;
 
-    border: 1px solid #dae1e6;
-  }
   .home__user--notLogined {
-    display: grid;
     padding: 30px;
-    background-color: #f7f9fa;
     height: 120px;
-    color: grey;
-    border: 1px solid #dae1e6;
-    border-radius: 5px;
     justify-content: space-evenly;
   }
   .home__user--logined {
-    display: grid;
     padding: 30px;
-    background-color: #f7f9fa;
     height: 120px;
-    color: grey;
-    border: 1px solid #dae1e6;
     border-radius: 5px;
     justify-content: space-evenly;
   }
+  /* 3. 동기부여용 명언 */
+  .home__wiseSaying {
+    margin-top: 5%;
+    margin-left: 0%;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+    line-height: 30px;
+  }
+  .home__card--img {
+    width: 95%;
+    max-width: 350px;
+    min-height: 199px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .button__user {
+    font-size: 10px;
+  }
+
+  .button__logout {
+    font-size: 10px;
+  }
+  .home__user--notLogined {
+    width: 90%;
+    max-width: 400px;
+  }
+  .home__user--logined {
+    width: 90%;
+    max-width: 400px;
+  }
+  .home__user--nickname {
+    font-size: 12px;
+    min-width: 9em;
+  }
+
   .home__board {
-    flex-direction: column;
     width: 300px;
-    display: flex;
-    list-style: none;
   }
   .home__wiseSaying {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
+    width: 300px;
+  }
+  .home__user--profileImage {
+    height: 90px;
+    width: 90px;
+  }
+
+  .home__user--profileImageFitHeight {
+    height: 110%;
+    width: auto;
+    object-position: center;
+  }
+  .home__user--profileImageFitWidth {
+    width: 110%;
+    height: auto;
+    object-position: center;
   }
 }

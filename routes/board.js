@@ -3,7 +3,11 @@
 import express from "express";
 
 // 내장모듈
-import { detailBoardController, entireBoardController, writeBoardController } from "../controllers/board.js";
+import {
+  detailBoardController,
+  entireBoardController,
+  writeBoardController
+} from "../controllers/board.js";
 
 // 라우터 변수
 const router = express.Router();

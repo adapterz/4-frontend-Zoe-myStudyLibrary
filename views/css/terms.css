@@ -1,39 +1,61 @@
 /* 회원가입 약관동의 페이지 전체 컨테이너 */
 .container {
-  padding: 20px 400px;
+  background-color: #e4e8eb;
+  padding: 2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 110vh;
+  min-height: 100vh;
 }
 .container__terms--title {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
-  font-size: 35px;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  font-size: 23px;
   font-weight: bold;
+  line-height: 2em;
 }
 
 .container__terms--subtitle {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
-  font-size: 25px;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  font-size: 20px;
   font-weight: bold;
-  border-bottom: 1px solid #9b9b9b;
-  line-height: 70px;
+  line-height: 2em;
   margin-bottom: 10px;
 }
 
 .container__terms--content {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", serif;
+
+  border-top:1px solid #d9dfeb;
+  padding: 1% 20%;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   font-size: 20px;
-  line-height: 35px;
+  line-height: 1.5em;
 }
 
 /* 5. 반응형 디자인 */
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 768px) {
   .container {
-    padding: 2% 5%;
+    padding: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .container__terms--title {
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 8em;
+  }
+  .container__terms--subtitle {
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 11.5em;
+  }
+  .container__terms--content {
+    padding: 1% 1%;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+    font-size: 15px;
+    line-height: 35px;
   }
 }

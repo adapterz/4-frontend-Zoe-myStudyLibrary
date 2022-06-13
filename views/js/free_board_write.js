@@ -102,6 +102,7 @@ async function checkRequest() {
       // boardIndex 의 값이 숫자일 때( 쿼리스트링이 유효할 때)
       if (!isNaN(value)) {
         thisBoardIndex = value;
+        document.getElementsByClassName("container__write")[0].setAttribute("boardIndex", thisBoardIndex);
         // 기존 게시글 정보 가져오는 요청
         const backendResult = await getPostRequest(valueString);
         // 로그인이 안돼있을 때
@@ -143,12 +144,17 @@ async function checkRequest() {
             .getElementsByClassName("container__write")[0]
             .setAttribute(
               "onsubmit",
-              "editPost(thisBoardIndex,document.getElementsByName('postTitle')[0].value,document.getElementsByName('postContent')[0].value,document.getElementsByName('tags')[0].value);return false"
+              "editPost(this.getAttribute('boardIndex'),document.getElementsByName('postTitle')[0].value,document.getElementsByName('postContent')[0].value,document.getElementsByName('tags')[0].value);return false"
             );
         }
         // 예상치 못한 오류
         else {
-          await sweetAlert(ERROR, "기존 게시글 정보 불러오기 실패", "예상치 못한 에러입니다.", `서버 메시지: ${backendResult.state}`);
+          await sweetAlert(
+            ERROR,
+            "기존 게시글 정보 불러오기 실패",
+            "예상치 못한 에러입니다.",
+            `서버 메시지: ${backendResult.state}`
+          );
         }
       }
       // boardIndex 쿼리스트링 키가 있지만 값이 숫자가 아닐 때
@@ -164,8 +170,10 @@ async function editPost(boardIndex, postTitle, postContent, tags) {
   const backendResult = await editPostRequest(boardIndex, postTitle, postContent, tags);
   // 로그인 필요(시간이 지나 로그아웃 됐을 경우)
   if (backendResult.state === LOGIN_REQUIRED) {
-    const result = await sweetAlert(WARNING, "로그인 필요", "새 창에서 로그인 해주세요");
-    window.open("/user/login");
+    const result = await sweetAlert(WARNING, "로그인 필요", "로그인 해주세요");
+    if (result) {
+      location.href = "/user/login";
+    }
   }
   // 존재하지 않는 게시글
   else if (backendResult.state === NOT_EXIST) {

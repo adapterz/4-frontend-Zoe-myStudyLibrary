@@ -1,0 +1,151 @@
+.library__container {
+  padding: 3% 20%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f9f9fc;
+}
+.library__title {
+  margin-top: 2em;
+  line-height: 1.5em;
+  padding: 15px 0px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
+}
+
+.library__subtitle {
+  line-height: 35px;
+  padding: 15px 0px;
+  font-size: 20px;
+  font-weight: 100;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
+}
+.library__list {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  line-height: 27px;
+  padding: 20px 20px;
+  border-radius: 0.28571429rem;
+  border: 1px solid #d9dfeb;
+  margin: 10px;
+  list-style: none;
+  background: #ffffff;
+}
+.library__list--name {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  margin-bottom: 3%;
+  font-size: 20px;
+}
+.library__list--component {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  text-align: right;
+  color: dimgray;
+  font-size: 17px;
+}
+
+/* 조회수/좋아요 수 아이콘 설정 */
+.library__list--img {
+  width: 15px;
+  height: 17px;
+  margin-right: 0.5em;
+}
+/* form 컨테이너 */
+.container__search {
+  margin-bottom: 5%;
+  column-gap: 5px;
+  min-width: 280px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  place-self: center;
+}
+/* 검색옵션 select 박스 설정 */
+.container__search--nameOfCity {
+  font-size: 10px;
+  padding-left: 1em;
+  text-align: left;
+  height: 30px;
+  width: 40%;
+  border: solid 1px #999;
+  border-radius: 1em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  appearance: none;
+  background: url("/views/img/arrow.png") no-repeat 90% 50% white;
+  background-size: 1.2em 1.2em;
+}
+.container__search--districts {
+  font-size: 10px;
+  padding-left: 1em;
+  text-align: left;
+  height: 30px;
+  width: 40%;
+  border: solid 1px #999;
+  border-radius: 1em;
+  -webkit-appearance: none;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("/views/img/arrow.png") no-repeat 90% 50% white;
+  background-size: 1.2em 1.2em;
+}
+/* 제출 버튼 */
+/* 제출 버튼 */
+.container__search--submit {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 20%;
+  height: 2em;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 0.3em;
+}
+
+.container__search--submit:hover {
+  background-color: lightgray;
+  border: none;
+  color: white;
+}
+
+/*  반응형 디자인 */
+@media screen and (max-width: 1024px) {
+  .library__container {
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    min-height: 200vh;
+  }
+  .library__title {
+    margin: 0.5em 0;
+    line-height: 1.5em;
+  }
+
+  .container__search {
+    width: 90%;
+    margin-bottom: 5%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    place-self: center;
+  }
+
+  .container__search--nameOfCity {
+    width: 45%;
+  }
+  .container__search--districts {
+    width: 45%;
+  }
+}

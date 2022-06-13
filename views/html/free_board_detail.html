@@ -1,68 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KBKFR75');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>myStudyLibrary 자유게시판</title>
+    <title>자유게시판 글조회| myStudyLibrary</title>
     <style>
       @import url("/views/css/reset.css");
       @import url("/views/css/common.css");
-      @import url("/views/css/free_board.css");
       @import url("/views/css/free_board_detail.css");
       /* 글씨체 */
-      @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Gugi&family=Lobster&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR&family=Poor+Story&family=Nanum+Gothic+Coding&display=swap");
     </style>
+    <meta name="description" content="myStudyLibrary 의 자유게시판 - 특정 글 조회" />
   </head>
   <body>
     <!-- gmb -->
     <header>
       <script src="/views/js/header.js"></script>
     </header>
-    <article class="freeBoard">
-      <p class="freeBoard__title">📋 자유게시판</p>
+      <p class="freeBoard__title">📌 자유게시판</p>
       <!-- 특정 게시글 정보 -->
+
+    <section class="freeBoard">
+      <article class="freeBoard__info">
       <nav class="freeBoard__board">
         <li>
           <p class="freeBoard__board--title"></p>
           <p class="freeBoard__user--profileImage">
-            <img class="freeBoard__user--profileImageImg" src="/views/img/none_registered.png" alt="유저 사진입니다." />
           </p>
           <p class="freeBoard__user--nickname"></p>
           <p class="freeBoard__board--viewCount">
-            <img class="freeBoard__board--img" src="/views/img/view.png" alt="조회수 아이콘" />123
           </p>
           <p class="freeBoard__board--favoriteCount">
-            <img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" />123
           </p>
           <p class="freeBoard__board--createDate"></p>
         </li>
       </nav>
       <p class="freeBoard__board--content"></p>
-      <button href="" class="freeBoard__board--giveLove" onclick="favoritePost()">
-        <img src="/views/img/give-love.png" class="freeBoard__board--giveLoveImg" alt="좋아요 +1" />
-      </button>
-      <section class="freeBoard__board--tags">
-        <p class="freeBoard__board--tag"></p>
-        <p class="freeBoard__board--tag"></p>
-        <p class="freeBoard__board--tag"></p>
-        <p class="freeBoard__board--tag"></p>
-        <p class="freeBoard__board--tag"></p>
-      </section>
-      <!-- 해당 게시글을 작성한 유저일 경우 수정하기 삭제하기 버튼 -->
-      <section class="container__freeBoard--authorization">
-        <button type="button" class="button__freeBoard--write" onclick="editPage()">글 수정하기</button>
-        <button type="button" class="button__freeBoard--write" onclick="deletePost()">글 삭제하기</button>
-        <!-- 해당 게시글의 댓글 정보 -->
-      </section>
-        <h2 class="freeBoard__comment--title">✏ 댓글</h2>
-        <h3 class="freeBoard__comment--subtitle">스크롤을 계속 내려보세요. 더 내려가지 않으면 댓글이 더이상 없는 것입니다.</h3>
+          <button href="" class="freeBoard__board--giveLove" onclick="favoritePost()">
+            <img src="/views/img/give-love.png" class="freeBoard__board--giveLoveImg" alt="좋아요 +1" />
+          </button>
+          <section class="freeBoard__board--tags">
+            <p class="freeBoard__board--tag"></p>
+            <p class="freeBoard__board--tag"></p>
+            <p class="freeBoard__board--tag"></p>
+            <p class="freeBoard__board--tag"></p>
+            <p class="freeBoard__board--tag"></p>
+          </section>
+          <!-- 해당 게시글을 작성한 유저일 경우 수정하기 삭제하기 버튼 -->
+          <section class="container__freeBoard--authorization">
+            <button type="button" class="button__freeBoard--write" onclick="deletePost()">글 삭제하기</button>
+            <button type="button" class="button__freeBoard--write" onclick="editPage()">글 수정하기</button>
+          </section>
+      </article>
+      <!-- 해당 게시글의 댓글 정보 -->
+      <section class="freeBoard__comment--container">
+        <h2 class="freeBoard__comment--title">💬 댓글</h2>
+      <button class="button__comment--write" onclick="writeComment()">댓글 작성</button>
+        <h3 class="freeBoard__comment--subtitle">댓글조회</h3>
       <!-- 동적으로 댓글 정보 추가 -->
         <nav class="freeBoard__comment"></nav>
-        <input type="textarea" placeholder="댓글 입력" class="freeBoard__comment--input" name="content" />
-        <input type="submit" value="댓글입력" class="freeBoard__comment--submit" />
+      </section>
       </form>
-    </article>
+    </section>
 
     <!-- footer -->
     <footer class="footer__serviceInfo">
@@ -70,14 +77,7 @@
     </footer>
 
     <!-- sweetAlert2 -->
-    <script src="/views/js/sweetalert2.js" type="text/javascript"></script>
-    <script src="/views/js/custom.js" type="text/javascript"></script>
-    <!--fetch-->
-    <script src="/views/js/constant.js" type="text/javascript"></script>
-    <script src="/models/board.js" type="text/javascript"></script>
-    <script src="/models/comment.js" type="text/javascript"></script>
-    <script src="/models/user.js" type="text/javascript"></script>
-
-    <script src="/views/js/free_board_detail.js" type="text/javascript"></script>
+    <script src="/views/build/sweetalert2.js" type="text/javascript"></script>
+    <script src="/views/build/free_board_detail.js" type="text/javascript"></script>
   </body>
 </html>

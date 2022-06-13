@@ -1,0 +1,298 @@
+/* 컨테이너 */
+body {
+  background-color: #f9f9fc;
+}
+
+.library__container {
+  margin: 3% 20%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border-radius: 0.3rem;
+  background: #ffffff;
+  border: 1px solid #d9dfeb;
+}
+
+.library__container--detail {
+  margin: 7% 10%;
+}
+.library__container--review {
+  margin: 3% 10%;
+}
+/* 제목 */
+.library__title {
+  margin-top: 2em;
+  line-height: 1.5em;
+  padding-left: 20%;
+  text-align: left;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
+}
+.review__title {
+  margin: 5% 0%;
+  padding: 15px 2%;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
+  align-items: center;
+  background-color: lightsteelblue;
+  border-radius: 0.28rem;
+}
+
+.review__subtitle {
+  margin: 3% 0%;
+  padding: 15px 2%;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
+  align-items: center;
+  border-radius: 0.28rem;
+}
+/* 도서관 정보 테이블 설정 */
+.library__info--table {
+  font-size: 18px;
+  width: 100%;
+  border-radius: 1em;
+  background: #ffffff;
+  border: 1px solid #d9dfeb;
+  column-gap: 10%;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  row-gap: 40px;
+}
+
+.library__info--row {
+  line-height: 30px;
+}
+.library__info--head {
+  padding: 20px;
+  font-weight: bold;
+  min-width: 5.5em;
+}
+/* 도서관 후기 테이블 설정 */
+.review__info {
+  font-size: 25px;
+  width: 100%;
+  border-radius: 1em;
+  background: #ffffff;
+  border: 1px solid #d9dfeb;
+  column-gap: 10%;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  row-gap: 40px;
+}
+.review__info--head {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 3.5rem;
+}
+
+.review__info--body {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  font-size: 20px;
+  padding-right: 1em;
+  line-height: 3rem;
+  text-align: center;
+}
+.review__info--emoji {
+  font-size: 25px;
+  line-height: 2em;
+}
+.review__info--count {
+  line-height: 2em;
+  padding-bottom: 10px;
+}
+.review__info--grade {
+  line-height: 2em;
+  padding-bottom: 15px;
+}
+/* 리뷰 작성 버튼 */
+.review__write--button {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 100%;
+  height: 60px;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 0.3em;
+  align-self: center;
+  margin: 2% 0%;
+}
+.review__write--button:hover {
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  padding: 10px;
+  background-color: lightgray;
+  border: none;
+  color: white;
+}
+/* 리뷰 조회 */
+.review__container {
+  list-style: none;
+  width: 100%;
+  font-size: 20px;
+  line-height: 2em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 200px;
+}
+.review__container--list {
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  color: dimgray;
+  border-radius: 0.3rem;
+  background: #ffffff;
+  line-height: 2em;
+  font-size: 17px;
+  border: 1px solid #d9dfeb;
+  margin: 7px 0px;
+}
+.review__container--nickname {
+  font-size: 18px;
+  padding-left: 1em;
+  font-weight: bold;
+  color: dimgray;
+}
+.review__container--grade {
+  padding-left: 0.5em;
+  color: #ffd400;
+  font-size: 23px;
+  text-shadow: 1px 1px 1px orange;
+}
+.review__container--content {
+  margin: 4px 0px;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 17px;
+}
+.review__container--createDate {
+  text-align: right;
+  font-size: 17px;
+  padding-right: 0.5em;
+}
+/* 리뷰 수정 삭제 버튼 */
+.button__review {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2em;
+  column-gap: 0.5em;
+}
+.review__container--edit {
+  text-align: center;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 20%;
+  min-width: 5em;
+  height: 2em;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 0.3em;
+}
+.review__container--delete {
+  text-align: center;
+  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+  width: 20%;
+  min-width: 5em;
+  height: 2em;
+  color: lightslategray;
+  background-color: #ffffff;
+  border: 1px solid #d9dfeb;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 0.3em;
+}
+
+.review__container--delete:hover {
+  background-color: lightgray;
+  border: none;
+  color: white;
+}
+/* 반응형 디자인 */
+@media screen and (max-width: 1024px) {
+  .library__container {
+    margin: 3% 0%;
+    padding: 0%;
+  }
+  .library__container--detail {
+    margin: 3% 5%;
+  }
+  .library__container--review {
+    margin: 3% 5%;
+  }
+  .library__title {
+    font-size: 25px;
+    line-height: 1.5em;
+    margin: 3%;
+    padding-left: 0%;
+  }
+
+  .library__info--table {
+    font-size: 14px;
+    padding-right: 1.5em;
+  }
+  .library__info--head {
+    padding-right: 1.5em;
+    min-width: 5.5em;
+  }
+  .library__data--name {
+    padding-right: 1.5em;
+  }
+  .library__data--type {
+    padding-right: 1.5em;
+  }
+  .library__data--address {
+    padding-right: 1.5em;
+  }
+  .library__data--closeDay {
+    padding-right: 1.5em;
+  }
+  .library__data--weekOperateTime {
+    padding-right: 1.5em;
+  }
+  .library__data--saturdayOperateTime {
+    padding-right: 1.5em;
+  }
+  .library__data--contact {
+    padding-right: 1.5em;
+  }
+  .review__container {
+    font-size: 14px;
+  }
+
+  .review__container--list {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
+    color: dimgray;
+    border-radius: 0.3rem;
+    background: #ffffff;
+    border: 1px solid #d9dfeb;
+    margin: 7px 0px;
+  }
+  .review__container--nickname {
+    font-size: 15px;
+    font-weight: bold;
+    color: dimgray;
+  }
+  .review__container--grade {
+    color: #ffd400;
+    font-size: 20px;
+  }
+  .review__container--content {
+    margin: 4px 0px;
+    font-size: 14px;
+  }
+  .review__container--createDate {
+    text-align: right;
+    font-size: 14px;
+  }
+}

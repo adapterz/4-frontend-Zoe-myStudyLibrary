@@ -16,10 +16,8 @@ async function login(id, pw) {
   // 로그인 성공
   if (serverResult.state === LOGIN) {
     const result = await sweetAlert(SUCCESS, "로그인 성공", "홈페이지로 이동합니다");
-    if (result) {
-      const link = "/authorized";
-      location.href = link;
-    }
+    if (result) location.href="/authorized";
+
   }
   // 로그인 된 상태일 때 홈페이지로 이동
   else if (serverResult.state === ALREADY_LOGIN) {

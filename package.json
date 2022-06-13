@@ -4,7 +4,10 @@
   "description": "지역을 입력하면 주변 도서관이 검색되고 평점을 남길 수 있는 사이트입니다",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "build:pro": "cross-env NODE_ENV=production:build node app.js",
+    "build:dev": "cross-env NODE_ENV=development:build node app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/Zoe0631/4-frontend-Zoe-myStudyLibrary#readme",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -31,11 +35,12 @@
     "express": "^4.18.1",
     "express-rate-limit": "^6.4.0",
     "helmet": "^5.0.2",
+    "https": "^1.0.0",
     "isomorphic-fetch": "^3.0.0",
     "moment": "^2.29.3",
     "moment-timezone": "^0.5.34",
-    "node-fetch": "^3.2.4",
-    "query-string": "^7.1.1"
+    "query-string": "^7.1.1",
+    "terser": "^5.14.0"
   },
   "type": "module"
 }
