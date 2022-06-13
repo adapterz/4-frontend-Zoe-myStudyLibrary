@@ -16,6 +16,7 @@ main 구성요소
 .home__card--img {
   margin: 5% 0%;
   width: 400px;
+  height: auto;
 }
 /* 1. user 탭 */
 /* notlogined */
@@ -254,22 +255,13 @@ main 구성요소
   }
 
   .home__user--notLogined {
-    display: grid;
     padding: 30px;
-    background-color: #f7f9fa;
     height: 120px;
-    color: grey;
-    border: 1px solid #dae1e6;
-    border-radius: 5px;
     justify-content: space-evenly;
   }
   .home__user--logined {
-    display: grid;
     padding: 30px;
-    background-color: #f7f9fa;
     height: 120px;
-    color: grey;
-    border: 1px solid #dae1e6;
     border-radius: 5px;
     justify-content: space-evenly;
   }
@@ -282,6 +274,8 @@ main 구성요소
   }
   .home__card--img {
     width: 95%;
+    max-width: 350px;
+    min-height: 199px;
   }
 }
 
@@ -295,9 +289,11 @@ main 구성요소
   }
   .home__user--notLogined {
     width: 90%;
+    max-width: 400px;
   }
   .home__user--logined {
     width: 90%;
+    max-width: 400px;
   }
   .home__user--nickname {
     font-size: 12px;
@@ -307,27 +303,22 @@ main 구성요소
   .home__board {
     width: 300px;
   }
-  .home__board--title {
-    font-size: 15px;
-  }
-
-  .home__board--nickname {
-    font-size: 15px;
-  }
   .home__wiseSaying {
     width: 300px;
   }
   .home__user--profileImage {
-    height: 80px;
-    width: 80px;
+    height: 90px;
+    width: 90px;
   }
 
   .home__user--profileImageFitHeight {
     height: 110%;
     width: auto;
+    object-position: center;
   }
   .home__user--profileImageFitWidth {
     width: 110%;
     height: auto;
+    object-position: center;
   }
 }

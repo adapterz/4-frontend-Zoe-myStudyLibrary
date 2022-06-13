@@ -9,7 +9,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: #1d9c72;
-  padding: 1% 20%;
+  padding: 0% 20%;
+  min-height: 70px;
 }
 .gmb__logo {
   font-size: 20px;
@@ -83,6 +84,7 @@
 .gmb__toogleBtn {
   display: none;
   position: absolute;
+  top: 20px;
   right: 32px;
   font-size: 24px;
   color: #d49466;
@@ -102,15 +104,24 @@
     flex-direction: column;
     align-items: flex-start;
     row-gap: 20px;
-    padding: 2% 10%;
+    line-height: 2em;
+    padding: 0% 10%;
+  }
+  .gmb__logo {
+    position: absolute;
+    top: 15px;
+    left: 32px;
   }
   .gmb__menu {
     display: none;
     flex-direction: column;
     align-items: center;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
     width: 100%;
   }
   .gmb__menu li {
+    height: 80%;
     width: 80%;
     text-align: center;
   }
