@@ -1,5 +1,7 @@
 # 4-frontend-Zoe-myStudyLibrary
 
+작성자: 김예지
+작성연월: 2022-06
 
 ## :books: 내 주변의 도서관 찾는 사이트 :books:
 
@@ -33,7 +35,7 @@
 │   ├── library.js
 │   └── user.js
 ├── customs
-│   ├── buildJs.js // js 파일 빌드
+│   ├── buildJs.js # js 파일 빌드
 │   ├── constant.js
 │   └── dateTime.js
 ├── models
@@ -48,7 +50,7 @@
 │   ├── library.js
 │   └── user.js
 ├── views
-│   ├── build // 직접 빌드해서 사용하는 디렉토리로 github에는 업로드 하지 않는 디렉토리 입니다.
+│   ├── build # 직접 빌드해서 사용하는 디렉토리로 github에는 업로드 하지 않는 디렉토리
 │   ├── css
 │   │   ├── common.css
 │   │   ├── drop_out.css
@@ -86,10 +88,10 @@
 │   │   ├── sign_up_guide.html
 │   │   ├── terms.html
 │   │   └── user_info.html
-│   ├── img // 해당 서비스에서 랜더링해줄 이미지 디렉토리
+│   ├── img # 해당 서비스에서 랜더링해줄 이미지 디렉토리
 │   ├── js
 │   │   ├── custom.js
-│   │   ├── development_constant.js // 개발환경에서의 상수
+│   │   ├── development_constant.js # 개발환경에서의 상수
 │   │   ├── drop_out.js
 │   │   ├── edit_contact.js
 │   │   ├── edit_nickname.js
@@ -106,9 +108,10 @@
 │   │   ├── library_detail.js
 │   │   ├── login.js
 │   │   ├── menu.js
-│   │   ├── production_constant.js // 배포환경에서의 상수
+│   │   ├── production_constant.js # 배포환경에서의 상수
 │   │   ├── sign_up.js
 │   │   ├── sign_up_guide.js
+│   │   ├── sweet_alert2.js # sweetAlert2 라이브러리
 │   │   └── terms.js
 ├── .env
 ├── .eslintrc
@@ -119,6 +122,6 @@
 ├── package-lock.json
 ├── sitemap.xml 
 └──  README.md
-    // robots.txt 는 txt 파일을 따로 두지 않고 미들웨어에 바로 바로 삽입해줬습니다.
+    # robots.txt 는 txt 파일을 따로 두지 않고 미들웨어에 바로 바로 삽입해줬습니다.
 ```
 
