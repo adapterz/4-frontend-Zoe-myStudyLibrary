@@ -15,14 +15,6 @@
   line-height: 2em;
 }
 
-.container__terms--subtitle {
-  font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 2em;
-  margin-bottom: 10px;
-}
-
 .container__terms--content {
 
   border-top:1px solid #d9dfeb;
@@ -42,20 +34,13 @@
   }
   .container__terms--title {
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-    font-size: 18px;
-    font-weight: bold;
-    min-width: 8em;
-  }
-  .container__terms--subtitle {
-    font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
     font-size: 16px;
     font-weight: bold;
-    min-width: 11.5em;
   }
   .container__terms--content {
     padding: 1% 1%;
     font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 35px;
   }
 }
