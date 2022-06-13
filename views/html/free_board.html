@@ -54,19 +54,22 @@
       <!-- 게시글 목록 -->
       <table class="freeBoard__board">
         <thead class="freeBoard__board--thead">
-          <tr >
+          <tr>
             <th class="freeBoard__table--title">제목</th>
             <th class="freeBoard__table--nickname">닉네임</th>
             <th class="freeBoard__table--viewCount">
               <img class="freeBoard__board--img" src="/views/img/view.png" alt="조회수 아이콘" />
             </th>
-            <th class="freeBoard__table--favoriteCount"><img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" /></th>
+            <th class="freeBoard__table--favoriteCount">
+              <img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" />
+            </th>
             <th class="freeBoard__table--createDate">작성날짜</th>
           </tr>
         </thead>
         <tbody class="freeBoard__board--body"></tbody>
       </table>
     </article>
+    <img src="/views/img/top.png" type="button" class="button__top" onClick="javascript:window.scrollTo(0,0)">
     <!-- footer -->
     <footer class="footer__serviceInfo">
       <script src="/views/js/footer.js"></script>
