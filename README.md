@@ -122,6 +122,6 @@
 ├── package-lock.json
 ├── sitemap.xml 
 └──  README.md
-    # robots.txt 는 txt 파일을 따로 두지 않고 미들웨어에 바로 바로 삽입해줬습니다.
+    # robots.txt 는 txt 파일을 따로 두지 않고 미들웨어에 바로 삽입해줬습니다.
 ```
 
