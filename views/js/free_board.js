@@ -178,7 +178,7 @@ async function lifeCycle() {
           const result = await sweetAlert(
             ERROR,
             "게시판 불러오기 실패",
-            "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+            "예상치 못한 오류입니다.",`서버 메세지: ${boardResult.state}`
           );
         }
       } else {
@@ -200,7 +200,7 @@ async function lifeCycle() {
           const result = await sweetAlert(
             ERROR,
             "게시판 불러오기 실패",
-            "예상치 못한 오류입니다."`서버 메세지: ${boardResult.state}`
+            "예상치 못한 오류입니다.",`서버 메세지: ${boardResult.state}`
           );
         }
       }
