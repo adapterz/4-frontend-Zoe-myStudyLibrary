@@ -8,15 +8,19 @@
 
 read.me 작성연월: 2022-06
 
-## :closed_book: 프로젝트 설명
+## :pushpin: 프로젝트 설명
 
 사용자의 지역을 입력하면 그 지역의 도서관이 검색되는 복지 사이트 입니다.
 
 각 개별 도서관에 평점, 후기를 남길 수 있고 사이트 사용자들끼리 커뮤니티 글을 공유할 수 있습니다.
 
 ---
-## :pushpin: 폴더 구조
+## 📁 폴더 구조
 
+
+
+<details>
+    <summary> 🧷 프로젝트 구조 펼쳐보기</summary>
 
 ```bash
 ├── controllers
@@ -115,9 +119,14 @@ read.me 작성연월: 2022-06
 ```
 
 
-## :orange_book: 주요 기능
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
 
-* css의 display는 주로 flex, grid를 사용했습니다.
+</details>
+
+
+
+
+## :orange_book: 주요 기능
 
 * alert창은 SweetAlert2 라이브러리 이용했습니다.
 
@@ -145,7 +154,7 @@ read.me 작성연월: 2022-06
        
 
 <details>
-    <summary> 유효성 검사 </summary>
+    <summary> 🧷 유효성 검사 </summary>
     
 * 회원가입 이용약관 페이지에서 약관을 읽지 않을 시 '약관동의' 체크박스에 체크되지 않도록 함
     
@@ -171,7 +180,7 @@ ovenapp.io 툴 이용했습니다.
 * 예시 이미지
 ![image](https://user-images.githubusercontent.com/98700133/173318356-b076ce39-37cf-4abc-8ea7-c76c7eecfb4f.png)
 
-1. :clipboard: [기획](https://ovenapp.io/view/sM4TbEvWMLijyHLw5oZIhUubP99mgGUD/gHdLH)
+1. :clipboard: [기획 링크](https://ovenapp.io/view/sM4TbEvWMLijyHLw5oZIhUubP99mgGUD/gHdLH)
 2. 왼쪽 하단의 '메모 표시'를 누르면 각 페이지와 기능에 대한 설명을 볼 수 있습니다.
 3. 화살표를 누르거나 '페이지 목록'을 누르면 다른 페이지로 넘어갈 수 있습니다.
 4. '링크 영역 표시'를 누르면 누를 수 있는 영역을 확인할 수 있습니다.
