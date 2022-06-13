@@ -15,22 +15,6 @@ read.me 작성연월: 2022-06
 각 개별 도서관에 평점, 후기를 남길 수 있고 사이트 사용자들끼리 커뮤니티 글을 공유할 수 있습니다.
 
 ---
-
-## :orange_book: 프로젝트 기획
-
-ovenapp.io 툴 이용했습니다.
-
-1. :clipboard: [기획](https://ovenapp.io/view/sM4TbEvWMLijyHLw5oZIhUubP99mgGUD/gHdLH)
-2. 왼쪽 하단의 '메모 표시'를 누르면 각 페이지와 기능에 대한 설명을 볼 수 있습니다.
-3. 화살표를 누르거나 '페이지 목록'을 누르면 다른 페이지로 넘어갈 수 있습니다.
-4. '링크 영역 표시'를 누르면 누를 수 있는 영역을 확인할 수 있습니다.
-* 해당 프로젝트를 진행하면서 초반 기획과 달라진 부분들이 꽤 있으니 참고만 부탁 바랍니다.
-
-:clipboard: [사이트 링크](https://mystudylibrary.pe.kr)
-:clipboard: [백엔드 서버 깃허브](https://github.com/Zoe0631/4-backend-Zoe-myStudyLibrary)
-
-
-
 ## :pushpin: 폴더 구조
 
 
@@ -43,7 +27,7 @@ ovenapp.io 툴 이용했습니다.
 │   ├── buildJs.js # js 파일 빌드
 │   ├── constant.js
 │   └── dateTime.js
-├── models
+├── models # fetch 사용해서 정보 받아오는 메서드들 정의
 │   ├── board.js
 │   ├── comment.js
 │   ├── library.js
@@ -131,7 +115,7 @@ ovenapp.io 툴 이용했습니다.
 ```
 
 
-## :blue_book: 주요 기능
+## :orange_book: 주요 기능
 
 * css의 display는 주로 flex, grid를 사용했습니다.
 
@@ -139,22 +123,22 @@ ovenapp.io 툴 이용했습니다.
 
 * 메뉴바(gmb)
 
-    * 뷰포트가 특정 넓이 이하(max-width: 1024px)로 내려갔을 때 오른쪽 상단의 메뉴버튼을 누를때만 메뉴창 활성화
+    * 뷰포트가 특정 넓이 이하(max-width: 1024px)로 내려갔을 때 오른쪽 상단의 메뉴버튼을 누를때만 메뉴창 활성화했습니다.
     
-    * 메뉴버튼을 눌렀을 때 1초간 fade-in 하도록 animation 설정 (@keyframes 으로 fade-in 효과 정의)
+    * 메뉴버튼을 눌렀을 때 1초간 fade-in 하도록 animation 설정했습니다. (@keyframes 으로 fade-in 효과 정의)
 
 * 무한 스크롤링
     
-    * 페이지네이션이 필요한 부분에 무한 스크롤링 구현
+    * 페이지네이션이 필요한 부분에 무한 스크롤링 구현했습니다.
 
 * 반응형 디자인
     
-    * 기기들의 분기점(1024px, 768px, 480px)을 기준으로 미디어 쿼리 사용해서 데스크탑과 모바일에서 사이트 이용할 수 있도록 함
+    * 기기들의 분기점(1024px, 768px, 480px)을 기준으로 미디어 쿼리 사용해서 데스크탑과 모바일에서 사이트 이용할 수 있도록 했습니다.
         * 모바일에서 의도한 구조가 깨져보이지 않게 하기 위해서 백엔드 서버에서 가공해온 정보 사용(ex. 글 목록에서 글자 제목수가 10글자 이상이면 파싱 후 ... 붙여주기) 
     
-    * 구글 서치콘솔에서 sitemap.xml 파일에 의해 연결된 url들 모바일 친화적이라는 평을 받음
+    * 구글 서치콘솔에서 sitemap.xml 파일에 의해 연결된 url들 모바일 친화적이라는 평을 받았습니다.
     
-    * pageSpeed Insights 를 확인하면서 모바일 성능 높이기 위해 노력 (최종평가: 모바일 83/100 데스크탑 98/100)
+    * pageSpeed Insights 를 확인하면서 모바일 성능 높이기 위해 노력했습니다. (최종평가: 모바일 83/100 데스크탑 98/100)
         * terser 모듈 사용해서 js 코드 build(축소화)
         * 이미지 파일 높이와 넓이 명시
         * 중복되는 css 코드 제거
@@ -180,3 +164,21 @@ ovenapp.io 툴 이용했습니다.
 
 </details>
 
+## :ledger: 프로젝트 기획
+
+ovenapp.io 툴 이용했습니다.
+
+* 예시 이미지
+![image](https://user-images.githubusercontent.com/98700133/173318356-b076ce39-37cf-4abc-8ea7-c76c7eecfb4f.png)
+
+1. :clipboard: [기획](https://ovenapp.io/view/sM4TbEvWMLijyHLw5oZIhUubP99mgGUD/gHdLH)
+2. 왼쪽 하단의 '메모 표시'를 누르면 각 페이지와 기능에 대한 설명을 볼 수 있습니다.
+3. 화살표를 누르거나 '페이지 목록'을 누르면 다른 페이지로 넘어갈 수 있습니다.
+4. '링크 영역 표시'를 누르면 누를 수 있는 영역을 확인할 수 있습니다.
+
+* 해당 프로젝트를 진행하면서 초반 기획과 달라진 부분들이 꽤 있으니 참고 바랍니다.
+
+:clipboard: [사이트 링크](https://mystudylibrary.pe.kr)
+:clipboard: [백엔드 서버 깃허브](https://github.com/Zoe0631/4-backend-Zoe-myStudyLibrary)
+
+## :green_book: 문제점과 해결방안
