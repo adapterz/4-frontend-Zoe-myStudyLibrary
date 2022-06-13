@@ -221,8 +221,19 @@ td {
   border-top: darkslateblue;
   border-bottom: darkslateblue;
 }
-/*  반응형 디자인 */
 
+/* 맨위로 올라가는 버튼 */
+.button__top{
+  position: sticky;
+  bottom: 1em;
+  display: block;
+  margin-left: auto;
+  padding-right: 15%;
+  width: 35px;
+  height: 35px;
+  color: #d49466;
+}
+/*  반응형 디자인 */
 @media screen and (max-width: 1024px) {
   .freeBoard {
     margin: 3%;
@@ -318,5 +329,8 @@ td {
     color: dimgray;
     font-size: 12px;
     min-width: 8.5em;
+  }
+  .button__top{
+    padding-right: 0.2em;
   }
 }

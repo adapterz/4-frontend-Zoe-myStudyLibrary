@@ -108,15 +108,6 @@
   resize: none;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
 }
-/* 맨위로 올라가는 버튼 */
-.button__top{
-  position: fixed;
-  bottom: 1em;
-  right:1em;
-  width: 35px;
-  height: 35px;
-  color: #d49466;
-}
 /* 반응형 디자인 */
 @media screen and (max-width: 1024px) {
   .gmb {

@@ -32,44 +32,48 @@
     <header>
       <script src="/views/js/header.js"></script>
     </header>
-    <!-- 자유게시판 -->
-    <article class="freeBoard">
-      <p class="freeBoard__title">📌 자유게시판</p>
-      <p class="freeBoard__subtitle">스크롤을 계속 내려보세요.</p>
-      <button type="button" class="button__freeBoard--write" onclick="checkLogin()">글작성</button>
-      <form
-        action=""
-        class="container__search"
-        onsubmit="searchBoard(document.getElementsByName('searchOption')[0].value, document.getElementsByName('searchContent')[0].value, 1);return false"
-      >
-        <select class="container__search--searchOption" name="searchOption">
-          <optgroup label="검색옵션">검색옵션</optgroup>
-          <option value="제목만">제목만</option>
-          <option value="내용만">내용만</option>
-          <option value="닉네임">닉네임</option>
-        </select>
-        <input type="text" placeholder="검색 내용" class="container__search--input" name="searchContent" required />
-        <input type="submit" value="검색" class="container__search--submit" />
-      </form>
-      <!-- 게시글 목록 -->
-      <table class="freeBoard__board">
-        <thead class="freeBoard__board--thead">
-          <tr>
-            <th class="freeBoard__table--title">제목</th>
-            <th class="freeBoard__table--nickname">닉네임</th>
-            <th class="freeBoard__table--viewCount">
-              <img class="freeBoard__board--img" src="/views/img/view.png" alt="조회수 아이콘" />
-            </th>
-            <th class="freeBoard__table--favoriteCount">
-              <img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" />
-            </th>
-            <th class="freeBoard__table--createDate">작성날짜</th>
-          </tr>
-        </thead>
-        <tbody class="freeBoard__board--body"></tbody>
-      </table>
-    </article>
-    <img src="/views/img/top.png" type="button" class="button__top" onClick="javascript:window.scrollTo(0,0)">
+    <section>
+      <!-- 자유게시판 -->
+      <article class="freeBoard">
+        <p class="freeBoard__title">📌 자유게시판</p>
+        <p class="freeBoard__subtitle">스크롤을 계속 내려보세요.</p>
+        <button type="button" class="button__freeBoard--write" onclick="checkLogin()">글작성</button>
+        <form
+          action=""
+          class="container__search"
+          onsubmit="searchBoard(document.getElementsByName('searchOption')[0].value, document.getElementsByName('searchContent')[0].value, 1);return false"
+        >
+          <select class="container__search--searchOption" name="searchOption">
+            <optgroup label="검색옵션">검색옵션</optgroup>
+            <option value="제목만">제목만</option>
+            <option value="내용만">내용만</option>
+            <option value="닉네임">닉네임</option>
+          </select>
+          <input type="text" placeholder="검색 내용" class="container__search--input" name="searchContent" required />
+          <input type="submit" value="검색" class="container__search--submit" />
+        </form>
+        <!-- 게시글 목록 -->
+        <table class="freeBoard__board">
+          <thead class="freeBoard__board--thead">
+            <tr>
+              <th class="freeBoard__table--title">제목</th>
+              <th class="freeBoard__table--nickname">닉네임</th>
+              <th class="freeBoard__table--viewCount">
+                <img class="freeBoard__board--img" src="/views/img/view.png" alt="조회수 아이콘" />
+              </th>
+              <th class="freeBoard__table--favoriteCount">
+                <img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" />
+              </th>
+              <th class="freeBoard__table--createDate">작성날짜</th>
+            </tr>
+          </thead>
+          <tbody class="freeBoard__board--body"></tbody>
+        </table>
+      </article>
+
+      <img src="/views/img/top.png" type="button" class="button__top" onClick="javascript:window.scrollTo(0,0)" />
+    </section>
+    <
     <!-- footer -->
     <footer class="footer__serviceInfo">
       <script src="/views/js/footer.js"></script>
