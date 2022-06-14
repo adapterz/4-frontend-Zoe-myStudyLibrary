@@ -10,6 +10,7 @@ async function getBoardIndex() {
 // 특정 게시글 정보 불러오기(최초 1번)
 async function detailBoard() {
   const boardIndex = await getBoardIndex();
+  await getDetailBoard(boardIndex);
   const backendResult = await getDetailBoard(boardIndex);
   // 해당 게시글인덱스의 게시글이 없을 때
   if (backendResult.state === NOT_EXIST) {
@@ -105,10 +106,21 @@ async function favoritePost() {
   // 좋아요 +1
   else if (backendResult.state === FAVORITE) {
     await sweetAlert(CHECK, "좋아요 +1", "success");
+    const backendResult = await getDetailBoard(boardIndex);
+    if (backendResult.state === REQUEST_SUCCESS) {
+      document.getElementsByClassName(
+        "freeBoard__board--favoriteCount"
+      )[0].innerHTML = `<img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" /> ${backendResult.dataOfBoard.favoriteCount}`;
+    }
   }
   // 좋아요 취소
   else if (backendResult.state === CANCEL_FAVORITE) {
-    await sweetAlert(CHECK, "좋아요 취소", "success");
+    await sweetAlert(CHECK, "좋아요 취소", "success");  const backendResult = await getDetailBoard(boardIndex);
+    if (backendResult.state === REQUEST_SUCCESS) {
+      document.getElementsByClassName(
+        "freeBoard__board--favoriteCount"
+      )[0].innerHTML = `<img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" /> ${backendResult.dataOfBoard.favoriteCount}`;
+    }
   }
   // 예상치 못한 에러
   else {
