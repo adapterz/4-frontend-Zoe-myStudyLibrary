@@ -10,6 +10,8 @@ read.me 작성연월: 2022-06
 
 :clipboard:프로젝트 링크: https://mystudylibrary.pe.kr
 
+* 참고사항: letsencrypt에서 발급받은 ssl인증서를 적용했고 비밀번호는 암호화돼서 저장됩니다.
+
 
 ## :pushpin: 프로젝트 설명
 
