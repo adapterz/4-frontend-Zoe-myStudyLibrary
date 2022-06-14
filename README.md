@@ -124,7 +124,7 @@ read.me 작성연월: 2022-06
 
 </details>
 
-
+-------------------------------------------
 
 ## :orange_book: 주요 기능
 
@@ -176,6 +176,8 @@ read.me 작성연월: 2022-06
 
 </details>
 
+------------------------------------
+
 ## :ledger: 프로젝트 기획 및 설계
     
 ### 프로젝트 기획
@@ -217,4 +219,22 @@ ovenapp.io 툴 이용했습니다.
  :clipboard: [문제와 해결방안1](https://www.notion.so/myStudyLibrary-1-ce02d0c21c894e679ef855a4ad6b17aa)
  
  :clipboard: [문제와 해결방안2](https://www.notion.so/myStudyLibrary-2-f347d23512254d15a90abf3f47675e26)
+
+------------------------
+## 📕 실제 사이트 사진
+
+* 데스크탑 
+
+
+<img src="https://user-images.githubusercontent.com/98700133/173548307-50d1adb5-830b-424b-be3c-a5d385a3bccc.png" width="55%"><img src="https://user-images.githubusercontent.com/98700133/173546623-ec5d597c-a7db-4a25-b43b-7fb0efa4a3dd.png" width="40%">
+
+    
+* 모바일
+
+
+<img src="https://user-images.githubusercontent.com/98700133/173549341-62af3ea1-53f0-475c-87e6-08ea34d33ace.png" width="40%"><img src="https://user-images.githubusercontent.com/98700133/173549496-e3569812-515b-462a-88c0-bf8d642bd9d3.png" width="40%">
+
+
+
+
 
