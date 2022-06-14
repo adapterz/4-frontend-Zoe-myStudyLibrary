@@ -8,7 +8,7 @@
 
 read.me 작성연월: 2022-06
 
-:clipboard: [프로젝트 링크](https://mystudylibrary.pe.kr)
+:clipboard: [프로젝트 링크](https://mystudylibrary.pe.kr): https://mystudylibrary.pe.kr
 
 
 ## :pushpin: 프로젝트 설명
