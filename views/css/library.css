@@ -117,7 +117,10 @@
 }
 
 /* 맨위로 올라가는 버튼 */
-.button__top{
+.button__top--container {
+  background: #f9f9fc;
+}
+.button__top {
   position: sticky;
   bottom: 1em;
   display: block;
@@ -159,7 +162,7 @@
   .container__search--districts {
     width: 45%;
   }
-  .button__top{
+  .button__top {
     padding-right: 0.2em;
   }
 }
