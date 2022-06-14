@@ -10,6 +10,7 @@ async function getBoardIndex() {
 // 특정 게시글 정보 불러오기(최초 1번)
 async function detailBoard() {
   const boardIndex = await getBoardIndex();
+  // 조회수 증가시 반영해주기위해서 두번 호출
   await getDetailBoard(boardIndex);
   const backendResult = await getDetailBoard(boardIndex);
   // 해당 게시글인덱스의 게시글이 없을 때
