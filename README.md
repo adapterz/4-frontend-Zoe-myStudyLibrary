@@ -29,10 +29,10 @@ read.me 작성연월: 2022-06
 │   ├── library.js
 │   └── user.js
 ├── customs
-│   ├── buildJs.js # js 파일 빌드
+│   ├── buildJs.js # js 파일 빌드하는 메서드 정의
 │   ├── constant.js
 │   └── dateTime.js
-├── models # fetch 사용해서 정보 받아오는 메서드들 정의
+├── models # 주로 fetch 사용해서 백엔드 서버에서 정보 받아오거나 데이터 가공하는 메서드들 정의
 │   ├── board.js
 │   ├── comment.js
 │   ├── library.js
@@ -84,7 +84,7 @@ read.me 작성연월: 2022-06
 │   │   └── user_info.html
 │   ├── img # 해당 서비스에서 랜더링해줄 이미지 디렉토리
 │   ├── js
-│   │   ├── custom.js
+│   │   ├── custom.js # sweetAlert2 라이브러리에서 자주 사용하는 메서드들 쉽게 사용할 수 있도록 정의
 │   │   ├── development_constant.js # 개발환경에서의 상수
 │   │   ├── drop_out.js
 │   │   ├── edit_contact.js
@@ -138,7 +138,9 @@ read.me 작성연월: 2022-06
 
 * 무한 스크롤링
     
-    * 페이지네이션이 필요한 부분에 무한 스크롤링 구현했습니다.
+    * 페이지네이션이 필요한 부분에 무한 스크롤링 구현했습니다. 
+    
+    * 유저의 편의성을 위해 게시글 목록과 도서관 목록 페이지에 최상단으로 올라가는 버튼을 구현했습니다. 이 버튼은 유저의 입장에서 특정 컨테이너 범위 이내에서 고정된 위치에 보이도록 했습니다.
 
 * 반응형 디자인
     
@@ -147,14 +149,15 @@ read.me 작성연월: 2022-06
     
     * 구글 서치콘솔에서 sitemap.xml 파일에 의해 연결된 url들 모바일 친화적이라는 평을 받았습니다.
     
-    * pageSpeed Insights 를 확인하면서 모바일 성능 높이기 위해 노력했습니다. (최종평가: 모바일 83/100 데스크탑 98/100)
+    * pageSpeed Insights 를 확인하면서 모바일 성능 높이기 위해 노력했습니다. (최종평가: 모바일 83/100 데스크탑 97/100)
         * terser 모듈 사용해서 js 코드 build(축소화)
         * 이미지 파일 높이와 넓이 명시
-        * 중복되는 css 코드 제거
        
 
 <details>
     <summary> 🧷 유효성 검사 </summary>
+    
+* 필요한 경우 setValidity 메서드를 사용해서 요소의 유효성 설정    
     
 * 회원가입 이용약관 페이지에서 약관을 읽지 않을 시 '약관동의' 체크박스에 체크되지 않도록 함
     
@@ -173,9 +176,10 @@ read.me 작성연월: 2022-06
 
 </details>
 
-### :ledger: 프로젝트 기획
+## :ledger: 프로젝트 기획 및 설계
     
-    
+### 프로젝트 기획
+
 ovenapp.io 툴 이용했습니다.  
 
 
@@ -199,5 +203,16 @@ ovenapp.io 툴 이용했습니다.
 
 </details>
 
+### 프로젝트 설계
+
+![image](https://user-images.githubusercontent.com/98700133/173525786-726ad8f8-07ef-42e5-bc50-8012911aca4d.png)
+
+
+
 --------------------
 ## :green_book: 문제점과 해결방안
+
+기존에 구현해 둔 백엔드 서버와 연결하면서 생긴 문제들도 해당 항목에 포함했습니다.
+
+ :clipboard: [문제1과 해결방안](https://www.notion.so/myStudyLibrary-1-ce02d0c21c894e679ef855a4ad6b17aa)
+
