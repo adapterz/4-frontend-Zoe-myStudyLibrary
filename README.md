@@ -224,8 +224,24 @@ ovenapp.io 툴 이용했습니다.
 ## 📕 실제 사이트 사진
 
 * 데스크탑 
+    * 홈페이지(로그인 시)
+     
+    ![image](https://user-images.githubusercontent.com/98700133/173558139-ebb55244-ba87-4940-8f99-cc7b87db5a27.png)
+   
 
-<img src="https://user-images.githubusercontent.com/98700133/173557056-0c8db056-28ce-40bd-96c5-934a3dc1d41f.png" width="50%"><img src="https://user-images.githubusercontent.com/98700133/173556571-32a8c660-eff9-4266-a008-936e9f6e1cb4.png" width="50%">
+    * 회원가입
+![image](https://user-images.githubusercontent.com/98700133/173557056-0c8db056-28ce-40bd-96c5-934a3dc1d41f.png)
+
+
+    * 도서관 평점등록
+![image](https://user-images.githubusercontent.com/98700133/173556571-32a8c660-eff9-4266-a008-936e9f6e1cb4.png)
+
+
+    * 자유게시판 로그인 안한 상태로 글작성 버튼 눌렀을 때
+![image](https://user-images.githubusercontent.com/98700133/173557989-2999d02b-3cf5-4253-a658-9ec6b0309619.png)
+
+
+
     
 * 모바일
 
@@ -234,5 +250,6 @@ ovenapp.io 툴 이용했습니다.
 
 
 
-
+-----------------------------
+## 
 
