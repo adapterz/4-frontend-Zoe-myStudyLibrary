@@ -5,7 +5,7 @@ function checkValidation(check) {
     check.setCustomValidity("약관을 읽어주세요");
     document.getElementsByClassName("container__signUpGuide--agree")[0].checked=false;
   } else check.setCustomValidity("");
-  confirm.reportValidity();
+  check.reportValidity();
 }
 // 약관 확인창 눌러봤는지 여부 변경, 체크박스 활성화
 async function readTerms() {
