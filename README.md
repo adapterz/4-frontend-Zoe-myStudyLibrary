@@ -225,9 +225,7 @@ ovenapp.io 툴 이용했습니다.
 
 * 데스크탑 
 
-
-<img src="https://user-images.githubusercontent.com/98700133/173548307-50d1adb5-830b-424b-be3c-a5d385a3bccc.png" width="55%"><img src="https://user-images.githubusercontent.com/98700133/173546623-ec5d597c-a7db-4a25-b43b-7fb0efa4a3dd.png" width="40%">
-
+<img src="https://user-images.githubusercontent.com/98700133/173556295-824d3283-2e02-45df-ba7d-71ee01466375.png" width="50%">!<img src="https://user-images.githubusercontent.com/98700133/173556571-32a8c660-eff9-4266-a008-936e9f6e1cb4.png" width="50%">
     
 * 모바일
 
