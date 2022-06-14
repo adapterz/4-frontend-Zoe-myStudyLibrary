@@ -212,7 +212,9 @@ ovenapp.io 툴 이용했습니다.
 --------------------
 ## :green_book: 문제점과 해결방안
 
-기존에 구현해 둔 백엔드 서버와 연결하면서 생긴 문제들도 해당 항목에 포함했습니다.
+기존에 구현해 둔 백엔드 서버와 연결하면서 생긴 문제도 해당 항목에 포함했습니다.
 
- :clipboard: [문제1과 해결방안](https://www.notion.so/myStudyLibrary-1-ce02d0c21c894e679ef855a4ad6b17aa)
+ :clipboard: [문제와 해결방안1](https://www.notion.so/myStudyLibrary-1-ce02d0c21c894e679ef855a4ad6b17aa)
+ 
+ :clipboard: [문제와 해결방안2](https://www.notion.so/myStudyLibrary-2-f347d23512254d15a90abf3f47675e26)
 
