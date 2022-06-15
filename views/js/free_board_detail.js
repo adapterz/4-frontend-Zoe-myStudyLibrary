@@ -232,7 +232,7 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
     nicknameElement.textContent = nickname;
     document.getElementsByClassName("freeBoard__rootComment")[index].appendChild(nicknameElement);
     // 댓글 내용
-    const contentElement = document.createElement("p");
+    const contentElement = document.createElement("span");
     contentElement.classList.add("freeBoard__rootComment--content");
     if (isDeleted) contentElement.textContent = "삭제된 댓글입니다.";
     if (!isDeleted) contentElement.textContent = commentContent;
@@ -295,7 +295,7 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
     nicknameElement.textContent = nickname;
     document.getElementsByClassName("freeBoard__childComment")[index].appendChild(nicknameElement);
     // 대댓글 내용
-    const contentElement = document.createElement("p");
+    const contentElement = document.createElement("span");
     contentElement.classList.add("freeBoard__childComment--content");
     if (isDeleted) contentElement.textContent = "삭제된 댓글입니다.";
     if (!isDeleted) contentElement.textContent = commentContent;

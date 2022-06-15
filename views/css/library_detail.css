@@ -170,6 +170,7 @@ body {
   padding-left: 1em;
   padding-right: 1em;
   font-size: 17px;
+  word-break: break-all;
 }
 .review__container--createDate {
   text-align: right;
