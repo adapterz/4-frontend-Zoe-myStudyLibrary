@@ -116,7 +116,8 @@ async function favoritePost() {
   }
   // 좋아요 취소
   else if (backendResult.state === CANCEL_FAVORITE) {
-    await sweetAlert(CHECK, "좋아요 취소", "success");  const backendResult = await getDetailBoard(boardIndex);
+    await sweetAlert(CHECK, "좋아요 취소", "success");
+    const backendResult = await getDetailBoard(boardIndex);
     if (backendResult.state === REQUEST_SUCCESS) {
       document.getElementsByClassName(
         "freeBoard__board--favoriteCount"
@@ -664,12 +665,11 @@ async function lifeCycle() {
       // 성공적으로 댓글 정보 불러왔을 때
       if (backendResult[0] !== undefined) {
         // 댓글 불러오기
-        for (let index in backendResult) {
-          for (let commentData of backendResult) {
-            const { commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate } = commentData;
-            await addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate);
-          }
+        for (let commentData of backendResult) {
+          const { commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate } = commentData;
+          await addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate);
         }
+
         // 더 이상 불러올 댓글이 없을 때의 상황이 아닐 때(예상치 못한 오류)
       } else if (backendResult.state !== NO_COMMENT) {
         const result = await sweetAlert(
