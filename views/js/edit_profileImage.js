@@ -18,11 +18,11 @@ async function submitForm(ev) {
   formData.append("profileImage", file.files[0]);
   await editProfileImage(formData);
 }
-// 이미지 변경시 호출할 메서드
+// 이미지 업로드 이벤트 시 호출할 메서드(미리보기)
 async function previewImage(input) {
   if (input.files && input.files[0]) {
     const reader = new FileReader();
-
+    // 유저가 업로드 한 사진 읽어오기
     reader.onload = (e) => {
       const previewImage = document.getElementsByClassName("container__editProfileImage--img")[0];
       previewImage.src = e.target.result;
@@ -62,6 +62,7 @@ async function editProfileImage(profileImageForm) {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementsByClassName("container__editProfileImage")[0].addEventListener("submit", submitForm);
 });
+// 최초 한 번 호출해주는 함수
 async function lifeCycle() {
   await checkLogin();
   // 프로필 사진 수정시 제출시
