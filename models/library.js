@@ -10,7 +10,7 @@ async function getEntireLibraryData() {
       mode: "cors",
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/library`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/librarys`, options);
     const entireLibraryData = await backendResponse.json();
     return entireLibraryData;
   } catch (err) {
@@ -26,7 +26,7 @@ async function getLocalLibraryData(nameOfCity, districts) {
       credentials: "include",
     };
     const backendResponse = await fetch(
-      `${BACKEND_URL}/library/search?nameOfCity=${nameOfCity}&districts=${districts}`,
+      `${BACKEND_URL}/librarys/user-address?nameOfCity=${nameOfCity}&districts=${districts}`,
       options
     );
     const localLibraryData = await backendResponse.json();
@@ -43,8 +43,8 @@ async function getDetailLibraryData(libraryIndex) {
       mode: "cors",
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/library/librarys/${libraryIndex}`, options);
-
+    const backendResponse = await fetch(`${BACKEND_URL}/librarys/${libraryIndex}`, options);
+    console.log(backendResponse);
     const libraryData = await backendResponse.json();
     return libraryData;
   } catch (err) {
@@ -53,7 +53,7 @@ async function getDetailLibraryData(libraryIndex) {
   }
 }
 // 4. 도서관 시도명/시군구명 목록에 따라 배열 만들기
-async function getAddressArray(){
+async function getAddressArray() {
   const dataArray = [];
   dataArray.push([
     "강원도",

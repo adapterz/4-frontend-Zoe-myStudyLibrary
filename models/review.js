@@ -24,7 +24,7 @@ async function registerReviewRequest(libraryIndex, _reviewContent, _grade) {
         grade: _grade,
       }),
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/review/post?libraryIndex=${libraryIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/reviews?libraryIndex=${libraryIndex}`, options);
     const status = backendResponse.status;
     // 리뷰 작성 성공
     if (status === CREATED) return { state: REQUEST_SUCCESS };
@@ -45,13 +45,13 @@ async function getDetailReview(libraryIndex, page) {
     };
     // 쿼리스트링에 page 값이 없을 때
     if (page === undefined) {
-      const backendResponse = await fetch(`${BACKEND_URL}/review/detail?libraryIndex=${libraryIndex}`, options);
+      const backendResponse = await fetch(`${BACKEND_URL}/reviews?libraryIndex=${libraryIndex}`, options);
       const getDetailReviewResult = await backendResponse.json();
       return getDetailReviewResult;
     }
     // 쿼리스트링에 page 값이 있을 때
     const backendResponse = await fetch(
-      `${BACKEND_URL}/review/detail?libraryIndex=${libraryIndex}&page=${page}`,
+      `${BACKEND_URL}/reviews?libraryIndex=${libraryIndex}&page=${page}`,
       options
     );
     const getDetailReviewResult = await backendResponse.json();
@@ -71,7 +71,7 @@ async function getReviewRequest(libraryIndex, reviewIndex) {
       credentials: "include",
     };
     const backendResponse = await fetch(
-      `${BACKEND_URL}/review?libraryIndex=${libraryIndex}&reviewIndex=${reviewIndex}`,
+      `${BACKEND_URL}/reviews/${reviewIndex}?libraryIndex=${libraryIndex}`,
       options
     );
     const getReviewResult = await backendResponse.json();
@@ -99,7 +99,7 @@ async function editReviewRequest(libraryIndex, reviewIndex, _reviewContent, _gra
       }),
     };
     const backendResponse = await fetch(
-      `${BACKEND_URL}/review/edit?libraryIndex=${libraryIndex}&reviewIndex=${reviewIndex}`,
+      `${BACKEND_URL}/reviews/${reviewIndex}?libraryIndex=${libraryIndex}`,
       options
     );
     const status = backendResponse.status;
@@ -121,7 +121,7 @@ async function deleteReviewRequest(libraryIndex, reviewIndex) {
     credentials: "include",
   };
   const backendResponse = await fetch(
-    `${BACKEND_URL}/review/delete?libraryIndex=${libraryIndex}&reviewIndex=${reviewIndex}`,
+    `${BACKEND_URL}/reviews/${reviewIndex}?libraryIndex=${libraryIndex}`,
     options
   );
   const status = backendResponse.status;
@@ -130,27 +130,4 @@ async function deleteReviewRequest(libraryIndex, reviewIndex) {
   // 후기 삭제 실패
   const deleteReviewResult = await backendResponse.json();
   return deleteReviewResult;
-}
-// 6. 유저가 작성한 후기 목록
-async function getUserReview(page) {
-  try {
-    const options = {
-      mode: "cors",
-      method: GET,
-      credentials: "include",
-    };
-    // 쿼리스트링에 들어갈 페이지 값이 없을 때
-    if (page === undefined) {
-      const backendResponse = await fetch(`${BACKEND_URL}/review/user`, options);
-      const userReviewResult = await backendResponse.json();
-      return userReviewResult;
-    }
-    // 쿼리스트링에 들어갈 페이지 값이 있을 때
-    const backendResponse = await fetch(`${BACKEND_URL}/review/user?page=${page}`, options);
-    const userReviewResult = await backendResponse.json();
-    return userReviewResult;
-  } catch (err) {
-    console.log(`FETCH ERROR: ${err}`);
-    return { state: FAIL_FETCH };
-  }
 }

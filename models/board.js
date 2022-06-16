@@ -13,7 +13,7 @@ async function getRecentBoard() {
       mode: "cors",
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/board/get`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/board/recent-post`, options);
     const recentBoardData = await backendResponse.json();
     // 성공적으로 데이터를 가져왔을 때
     if (backendResponse.status === OK) return recentBoardData[0];
@@ -33,8 +33,8 @@ async function getEntireBoard(page) {
       mode: "cors",
       credentials: "include",
     };
-    if (page === undefined) backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin`, options);
-    else backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin?page=${page}`, options);
+    if (page === undefined) backendResponse = await fetch(`${BACKEND_URL}/board/free-bulletin`, options);
+    else backendResponse = await fetch(`${BACKEND_URL}/board/free-bulletin?page=${page}`, options);
     const boardData = await backendResponse.json();
     // 성공적으로 데이터를 가져왔을 때
     return boardData;
@@ -52,7 +52,7 @@ async function getDetailBoard(boardIndex) {
       mode: "cors",
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/board/get/free-bulletin/${boardIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/board/free-bulletin/${boardIndex}`, options);
     const detailBoardData = await backendResponse.json();
     if (backendResponse.status === OK) detailBoardData.state = REQUEST_SUCCESS;
     return detailBoardData;
@@ -89,7 +89,7 @@ async function writePostRequest(_postTitle, _postContent, tag) {
         tags: _tags,
       }),
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/board/write`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/board`, options);
     const status = backendResponse.status;
     // 게시글 작성 성공
     if (status === CREATED) return { state: REQUEST_SUCCESS };
@@ -109,7 +109,7 @@ async function getPostRequest(boardIndex) {
       method: GET,
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/board/write?boardIndex=${boardIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/board?boardIndex=${boardIndex}`, options);
 
     const writePostResult = await backendResponse.json();
     if (backendResponse.status === OK) writePostResult.state = REQUEST_SUCCESS;
@@ -146,7 +146,7 @@ async function editPostRequest(boardIndex, _postTitle, _postContent, tag) {
         tags: _tags,
       }),
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/board/edit?boardIndex=${boardIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/board/${boardIndex}`, options);
     // 성공적으로 수정했을 때
     if (backendResponse.status === OK) return { state: REQUEST_SUCCESS };
     // 수정 실패
@@ -166,7 +166,7 @@ async function deletePostRequest(boardIndex) {
       method: DELETE,
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/board/delete?boardIndex=${boardIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/board/${boardIndex}`, options);
     const status = backendResponse.status;
     // 성공적으로 후기 삭제했을 때
     if (status === NO_CONTENT) return { state: REQUEST_SUCCESS };
@@ -188,7 +188,7 @@ async function favoritePostRequest(boardIndex) {
       method: PATCH,
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/board/like?boardIndex=${boardIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/board/${boardIndex}/favorite-count`, options);
     const favoriteResult = backendResponse.json();
     return favoriteResult;
   } catch (err) {
@@ -208,43 +208,19 @@ async function getSearchBoard(searchOption, searchContent, page) {
     // 쿼리스트링에 page 키가 없을 때
     if (page === undefined) {
       backendResponse = await fetch(
-        `${BACKEND_URL}/board/search/free-bulletin?searchOption=${searchOption}&searchContent=${searchContent}`,
+        `${BACKEND_URL}/board/free-bulletin/result?searchOption=${searchOption}&searchContent=${searchContent}`,
         options
       );
     }
     // 쿼리스트링에 page 키가 있을 때
     else {
       backendResponse = await fetch(
-        `${BACKEND_URL}/board/search/free-bulletin?searchOption=${searchOption}&searchContent=${searchContent}&page=${page}`,
+        `${BACKEND_URL}/board/free-bulletin/result?searchOption=${searchOption}&searchContent=${searchContent}&page=${page}`,
         options
       );
     }
     const getSearchResult = backendResponse.json();
     return getSearchResult;
-  } catch (err) {
-    console.log(`FETCH ERROR: ${err}`);
-    return { state: FAIL_FETCH };
-  }
-}
-// 4. 유저가 쓴 글 목록 가져오기
-async function userPostRequest(page) {
-  try {
-    let backendResponse;
-    const options = {
-      mode: "cors",
-      method: GET,
-      credentials: "include",
-    };
-    // 쿼리스트링에 page 키가 없을 때
-    if (page === undefined) {
-      backendResponse = await fetch(`${BACKEND_URL}/board/user`, options);
-    }
-    // 쿼리스트링에 page 키가 있을 때
-    else {
-      backendResponse = await fetch(`${BACKEND_URL}/board/user?page=${page}`, options);
-    }
-    const getUserBoardResult = backendResponse.json();
-    return getUserBoardResult;
   } catch (err) {
     console.log(`FETCH ERROR: ${err}`);
     return { state: FAIL_FETCH };

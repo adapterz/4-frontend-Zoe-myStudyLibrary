@@ -26,11 +26,11 @@ async function writeCommentRequest(boardIndex, _commentContent, parentIndex) {
     };
     // 댓글 작성
     if (parentIndex === undefined)
-      backendResponse = await fetch(`${BACKEND_URL}/comment/post?boardIndex=${boardIndex}`, options);
+      backendResponse = await fetch(`${BACKEND_URL}/comments?boardIndex=${boardIndex}`, options);
     // 대댓글 작성
     else
       backendResponse = await fetch(
-        `${BACKEND_URL}/comment/post?boardIndex=${boardIndex}&parentIndex=${parentIndex}`,
+        `${BACKEND_URL}/comments?boardIndex=${boardIndex}&parentIndex=${parentIndex}`,
         options
       );
     const status = backendResponse.status;
@@ -54,12 +54,12 @@ async function getDetailComment(boardIndex, page) {
     };
     // 쿼리스트링에 page 값이 없을 때
     if (page === undefined) {
-      const backendResponse = await fetch(`${BACKEND_URL}/comment?boardIndex=${boardIndex}`, options);
+      const backendResponse = await fetch(`${BACKEND_URL}/comments?boardIndex=${boardIndex}`, options);
       const getDetailReviewResult = await backendResponse.json();
       return getDetailReviewResult;
     }
     // 쿼리스트링에 page 값이 있을 때
-    const backendResponse = await fetch(`${BACKEND_URL}/comment?boardIndex=${boardIndex}&page=${page}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/comments?boardIndex=${boardIndex}&page=${page}`, options);
     const getDetailReviewResult = await backendResponse.json();
     return getDetailReviewResult;
   } catch (err) {
@@ -76,7 +76,7 @@ async function getComment(boardIndex, commentIndex) {
       credentials: "include",
     };
     const backendResponse = await fetch(
-      `${BACKEND_URL}/comment/edit?boardIndex=${boardIndex}&commentIndex=${commentIndex}`,
+      `${BACKEND_URL}/comments/${commentIndex}?boardIndex=${boardIndex}`,
       options
     );
     const getCommentResult = await backendResponse.json();
@@ -103,7 +103,7 @@ async function editCommentRequest(boardIndex,commentIndex,_commentContent) {
       }),
     };
     const backendResponse = await fetch(
-      `${BACKEND_URL}/comment/edit?boardIndex=${boardIndex}&commentIndex=${commentIndex}`,
+      `${BACKEND_URL}/comments/${commentIndex}?boardIndex=${boardIndex}`,
       options
     );
     const status = backendResponse.status;
@@ -125,7 +125,7 @@ async function deleteCommentRequest(boardIndex, commentIndex) {
     credentials: "include",
   };
   const backendResponse = await fetch(
-    `${BACKEND_URL}/comment/delete?boardIndex=${boardIndex}&commentIndex=${commentIndex}`,
+    `${BACKEND_URL}/comments/${commentIndex}?boardIndex=${boardIndex}`,
     options
   );
   const status = backendResponse.status;
@@ -134,27 +134,4 @@ async function deleteCommentRequest(boardIndex, commentIndex) {
   // 후기 댓글 실패
   const deleteReviewResult = await backendResponse.json();
   return deleteReviewResult;
-}
-// 6. 유저가 작성한 댓글 목록
-async function userCommentRequest(page) {
-  try {
-    const options = {
-      mode: "cors",
-      method: GET,
-      credentials: "include",
-    };
-    // 쿼리스트링에 들어갈 페이지 값이 없을 때
-    if (page === undefined) {
-      const backendResponse = await fetch(`${BACKEND_URL}/comment/user`, options);
-      const userCommentResult = await backendResponse.json();
-      return userCommentResult;
-    }
-    // 쿼리스트링에 들어갈 페이지 값이 있을 때
-    const backendResponse = await fetch(`${BACKEND_URL}/comment/user?page=${page}`, options);
-    const userCommentResult = await backendResponse.json();
-    return userCommentResult;
-  } catch (err) {
-    console.log(`FETCH ERROR: ${err}`);
-    return { state: FAIL_FETCH };
-  }
 }
