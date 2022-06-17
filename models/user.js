@@ -15,7 +15,7 @@ async function getSignUpGuide() {
       mode: "cors",
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/sign-up/guide`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/guide`, options);
     const status = backendResponse.status;
     // 성공적으로 약관을 가져왔을 때
     if (status === OK) {
@@ -53,7 +53,7 @@ async function signUpRequest(_id, _pw, _confirmPw, _name, _nickname, _phoneNumbe
         gender: _gender,
       }),
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/sign-up`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user`, options);
     const signUpResult = await backendResponse.json();
     return signUpResult;
   } catch (err) {
@@ -73,7 +73,7 @@ async function dropOutRequest() {
         "Referrer-Policy": "strict-origin-when-cross-origin",
       },
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/drop-out`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user`, options);
     if (backendResponse.status === NO_CONTENT) return { state: REQUEST_SUCCESS };
     const dropOutResult = await backendResponse.json();
     return dropOutResult;
@@ -96,7 +96,7 @@ async function loginRequest(_id, _pw) {
       },
       body: JSON.stringify({ id: _id, pw: _pw }),
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/login`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/token`, options);
     const resultJson = await backendResponse.json();
     return resultJson;
   } catch (err) {
@@ -110,10 +110,10 @@ async function logoutRequest() {
   try {
     const options = {
       mode: "cors",
-      method: POST,
+      method: DELETE,
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/logout`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/token`, options);
 
     const logoutResult = await backendResponse.json();
     return logoutResult;
@@ -131,7 +131,7 @@ async function getUserLibrary() {
       mode: "cors",
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/user-lib`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/library`, options);
     const getUserLibraryResult = await backendResponse.json();
     return getUserLibraryResult;
   } catch (err) {
@@ -147,7 +147,7 @@ async function reqRegisterUserLibrary(libraryIndex) {
       method: PATCH,
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/user-lib?libraryIndex=${libraryIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/library?libraryIndex=${libraryIndex}`, options);
     const status = backendResponse.status;
     // 구독 요청 성공
     if (status === OK) return { state: REQUEST_SUCCESS };
@@ -167,7 +167,7 @@ async function deleteUserLibrary(libraryIndex) {
       method: DELETE,
       credentials: "include",
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/user-lib?libraryIndex=${libraryIndex}`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/library?libraryIndex=${libraryIndex}`, options);
     const deleteUserLibraryResult = await backendResponse.json();
     return deleteUserLibraryResult;
   } catch (err) {
@@ -191,7 +191,7 @@ async function editNicknameRequest(_nickname) {
       },
       body: JSON.stringify({ nickname: _nickname }),
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/profile/nickname`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/info/nickname`, options);
     const status = backendResponse.status;
     if (status === OK) return { state: REQUEST_SUCCESS };
 
@@ -211,7 +211,7 @@ async function editProfileImageRequest(formData) {
       credentials: "include",
       body: formData,
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/profile/profileImage`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/info/profile-image`, options);
     const status = backendResponse.status;
     // 연락처 수정 성공
     if (status === OK) return { state: REQUEST_SUCCESS };
@@ -237,7 +237,7 @@ async function editContactRequest(contact) {
       },
       body: JSON.stringify({ phoneNumber: contact }),
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/new-contact`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/info/contact`, options);
     const status = backendResponse.status;
     // 연락처 수정 성공
     if (status === OK) return { state: REQUEST_SUCCESS };
@@ -263,7 +263,7 @@ async function editPwRequest(_pw, _newPw, _confirmPw) {
       },
       body: JSON.stringify({ pw: _pw, newPw: _newPw, confirmPw: _confirmPw }),
     };
-    const backendResponse = await fetch(`${BACKEND_URL}/user/new-pw`, options);
+    const backendResponse = await fetch(`${BACKEND_URL}/user/info/pw`, options);
     const status = backendResponse.status;
     // 비밀번호 수정 성공
     if (status === OK) return { state: REQUEST_SUCCESS };
