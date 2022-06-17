@@ -12,7 +12,7 @@
 
 read.me 작성연월: 2022-06
 
-:clipboard:프로젝트 링크: https://mystudylibrary.pe.kr
+:clipboard: [프로젝트 링크](https://mystudylibrary.pe.kr)
 
 * 참고사항: 보안상 letsencrypt에서 발급받은 ssl인증서를 적용했고 비밀번호는 암호화돼서 저장됩니다.
 
@@ -143,7 +143,7 @@ read.me 작성연월: 2022-06
 
 ## :orange_book: 주요 기능
 
-* 메뉴바(gmb)
+* 메뉴바(gnb)
 
     * 뷰포트가 특정 넓이 이하(max-width: 1024px)로 내려갔을 때 오른쪽 상단의 메뉴버튼을 누를때만 메뉴창 활성화했습니다.
     
