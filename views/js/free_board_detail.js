@@ -10,6 +10,8 @@ async function getBoardIndex() {
 // 특정 게시글 정보 불러오기(최초 1번)
 async function detailBoard() {
   const boardIndex = await getBoardIndex();
+  // 조회수 증가시 반영해주기위해서 두번 호출
+  await getDetailBoard(boardIndex);
   const backendResult = await getDetailBoard(boardIndex);
   // 해당 게시글인덱스의 게시글이 없을 때
   if (backendResult.state === NOT_EXIST) {
@@ -105,10 +107,22 @@ async function favoritePost() {
   // 좋아요 +1
   else if (backendResult.state === FAVORITE) {
     await sweetAlert(CHECK, "좋아요 +1", "success");
+    const backendResult = await getDetailBoard(boardIndex);
+    if (backendResult.state === REQUEST_SUCCESS) {
+      document.getElementsByClassName(
+        "freeBoard__board--favoriteCount"
+      )[0].innerHTML = `<img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" /> ${backendResult.dataOfBoard.favoriteCount}`;
+    }
   }
   // 좋아요 취소
   else if (backendResult.state === CANCEL_FAVORITE) {
     await sweetAlert(CHECK, "좋아요 취소", "success");
+    const backendResult = await getDetailBoard(boardIndex);
+    if (backendResult.state === REQUEST_SUCCESS) {
+      document.getElementsByClassName(
+        "freeBoard__board--favoriteCount"
+      )[0].innerHTML = `<img class="freeBoard__board--img" src="/views/img/love.png" alt="좋아요 아이콘" /> ${backendResult.dataOfBoard.favoriteCount}`;
+    }
   }
   // 예상치 못한 에러
   else {
@@ -219,7 +233,7 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
     nicknameElement.textContent = nickname;
     document.getElementsByClassName("freeBoard__rootComment")[index].appendChild(nicknameElement);
     // 댓글 내용
-    const contentElement = document.createElement("p");
+    const contentElement = document.createElement("span");
     contentElement.classList.add("freeBoard__rootComment--content");
     if (isDeleted) contentElement.textContent = "삭제된 댓글입니다.";
     if (!isDeleted) contentElement.textContent = commentContent;
@@ -282,7 +296,7 @@ async function addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, 
     nicknameElement.textContent = nickname;
     document.getElementsByClassName("freeBoard__childComment")[index].appendChild(nicknameElement);
     // 대댓글 내용
-    const contentElement = document.createElement("p");
+    const contentElement = document.createElement("span");
     contentElement.classList.add("freeBoard__childComment--content");
     if (isDeleted) contentElement.textContent = "삭제된 댓글입니다.";
     if (!isDeleted) contentElement.textContent = commentContent;
@@ -651,12 +665,11 @@ async function lifeCycle() {
       // 성공적으로 댓글 정보 불러왔을 때
       if (backendResult[0] !== undefined) {
         // 댓글 불러오기
-        for (let index in backendResult) {
-          for (let commentData of backendResult) {
-            const { commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate } = commentData;
-            await addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate);
-          }
+        for (let commentData of backendResult) {
+          const { commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate } = commentData;
+          await addComment(commentIndex, userIndex, isRoot, isDeleted, nickname, commentContent, createDate);
         }
+
         // 더 이상 불러올 댓글이 없을 때의 상황이 아닐 때(예상치 못한 오류)
       } else if (backendResult.state !== NO_COMMENT) {
         const result = await sweetAlert(

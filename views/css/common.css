@@ -40,17 +40,27 @@
 
 /* footer(서비스명, 대표자 등 페이지 맨 밑에 들어가는 내용)*/
 .footer__serviceInfo {
-  height: 150px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   color: #777;
-  padding-top: 1.5em;
+  padding:4% 20%;
   line-height: 2em;
   justify-content: center;
   align-items: center;
+  font-size: 12px;
   background-color: #e4e8eb;
   font-family: "Noto Sans Kr", "Noto Serif Kr", "Nanum Gothic", serif;
   border-top: 1px solid #d9dfeb;
+}
+/* footer 저작권 */
+.copyright__container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 1% 5%;
+  font-size: 7px;
+  column-gap: 2em;
 }
 /* 페이지네이션 컨테이너 */
 .pagination {
@@ -117,13 +127,14 @@
     flex-direction: column;
     align-items: center;
     margin-top: 3em;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.3em;
     width: 100%;
   }
   .gmb__menu li {
     height: 80%;
     width: 80%;
     text-align: center;
+    line-height: 1.3em;
   }
 
   .button--page {

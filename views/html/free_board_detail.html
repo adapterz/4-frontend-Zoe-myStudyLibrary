@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KBKFR75');</script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KBKFR75");
+    </script>
     <!-- End Google Tag Manager -->
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>자유게시판 글조회| myStudyLibrary</title>
     <style>
@@ -25,59 +32,53 @@
     <header>
       <script src="/views/js/header.js"></script>
     </header>
-      <p class="freeBoard__title">📌 자유게시판</p>
-      <!-- 특정 게시글 정보 -->
+    <p class="freeBoard__title">📌 자유게시판</p>
+    <!-- 특정 게시글 정보 -->
 
     <section class="freeBoard">
       <article class="freeBoard__info">
-      <nav class="freeBoard__board">
-        <li>
-          <p class="freeBoard__board--title"></p>
-          <p class="freeBoard__user--profileImage">
-          </p>
-          <p class="freeBoard__user--nickname"></p>
-          <p class="freeBoard__board--viewCount">
-          </p>
-          <p class="freeBoard__board--favoriteCount">
-          </p>
-          <p class="freeBoard__board--createDate"></p>
-        </li>
-      </nav>
-      <p class="freeBoard__board--content"></p>
-          <button href="" class="freeBoard__board--giveLove" onclick="favoritePost()">
-            <img src="/views/img/give-love.png" class="freeBoard__board--giveLoveImg" alt="좋아요 +1" />
-          </button>
-          <section class="freeBoard__board--tags">
-            <p class="freeBoard__board--tag"></p>
-            <p class="freeBoard__board--tag"></p>
-            <p class="freeBoard__board--tag"></p>
-            <p class="freeBoard__board--tag"></p>
-            <p class="freeBoard__board--tag"></p>
-          </section>
-          <!-- 해당 게시글을 작성한 유저일 경우 수정하기 삭제하기 버튼 -->
-          <section class="container__freeBoard--authorization">
-            <button type="button" class="button__freeBoard--write" onclick="deletePost()">글 삭제하기</button>
-            <button type="button" class="button__freeBoard--write" onclick="editPage()">글 수정하기</button>
-          </section>
+        <nav class="freeBoard__board">
+          <li>
+            <p class="freeBoard__board--title"></p>
+            <p class="freeBoard__user--profileImage"></p>
+            <p class="freeBoard__user--nickname"></p>
+            <p class="freeBoard__board--viewCount"></p>
+            <p class="freeBoard__board--favoriteCount"></p>
+            <p class="freeBoard__board--createDate"></p>
+          </li>
+        </nav>
+        <p class="freeBoard__board--content"></p>
+        <button href="" class="freeBoard__board--giveLove" onclick="favoritePost()">
+          <img src="/views/img/give-love.png" class="freeBoard__board--giveLoveImg" alt="좋아요 +1" />
+        </button>
+        <section class="freeBoard__board--tags">
+          <p class="freeBoard__board--tag"></p>
+          <p class="freeBoard__board--tag"></p>
+          <p class="freeBoard__board--tag"></p>
+          <p class="freeBoard__board--tag"></p>
+          <p class="freeBoard__board--tag"></p>
+        </section>
+        <!-- 해당 게시글을 작성한 유저일 경우 수정하기 삭제하기 버튼 -->
+        <section class="container__freeBoard--authorization">
+          <button type="button" class="button__freeBoard--write" onclick="deletePost()">글 삭제하기</button>
+          <button type="button" class="button__freeBoard--write" onclick="editPage()">글 수정하기</button>
+        </section>
       </article>
       <!-- 해당 게시글의 댓글 정보 -->
       <section class="freeBoard__comment--container">
         <h2 class="freeBoard__comment--title">💬 댓글</h2>
-      <button class="button__comment--write" onclick="writeComment()">댓글 작성</button>
+        <button class="button__comment--write" onclick="writeComment()">댓글 작성</button>
         <h3 class="freeBoard__comment--subtitle">댓글조회</h3>
-      <!-- 동적으로 댓글 정보 추가 -->
+        <!-- 동적으로 댓글 정보 추가 -->
         <nav class="freeBoard__comment"></nav>
       </section>
-      </form>
     </section>
-
     <!-- footer -->
     <footer class="footer__serviceInfo">
       <script src="/views/js/footer.js"></script>
     </footer>
 
-    <!-- sweetAlert2 -->
-    <script src="/views/build/sweetalert2.js" type="text/javascript"></script>
+    <script src="/views/js/sweet_alert2.js" type="text/javascript"></script>
     <script src="/views/build/free_board_detail.js" type="text/javascript"></script>
   </body>
 </html>

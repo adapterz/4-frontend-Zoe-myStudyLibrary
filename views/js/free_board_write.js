@@ -59,7 +59,7 @@ async function checkTagValidation(tagElement) {
       } else {
         const isMatched = /^[가-힣]+$/.test(tag);
         if (!isMatched) {
-          tagElement.setCustomValidity("태그는 한글로만 작성해주세요(+ 가(o)ㄱ(x))");
+          tagElement.setCustomValidity("태그는 한글로만 작성해주세요(+ 가(o)ㄱ(x)), 띄어쓰기 불가");
           isValidated = false;
         }
       }

@@ -14,7 +14,8 @@ async function entireLibrary(libraryResult) {
     const result = await sweetAlert(
       ERROR,
       "도서관 정보 불러오기 실패",
-      "예상치 못한 오류입니다."`서버 메세지: ${libraryResult.state}`
+      "예상치 못한 오류입니다.",
+      `서버 메세지: ${libraryResult.state}`
     );
     if (result) {
       const link = "/library";
@@ -54,7 +55,8 @@ async function searchLibrary(nameOfCity, districts) {
     const result = await sweetAlert(
       ERROR,
       "게시판 불러오기 실패",
-      "예상치 못한 오류입니다."`서버 메세지: ${libraryResult.state}`
+      "예상치 못한 오류입니다.",
+      `서버 메세지: ${libraryResult.state}`
     );
     if (result) {
       const link = "/board";
@@ -120,12 +122,33 @@ async function addLibrary(library) {
   document.getElementsByClassName("library__list--href")[index].append(libraryContactElement);
   document.getElementsByClassName("library__list--href")[index].append(gradeElement);
 }
+// 첫번째 select 에 따라 두번째 select 값 바뀌도록 하기
+async function changeSubSelect(nameOfCity) {
+  // dataArray ex) [[강원도,[강원도의 시들...],[경기도, [수원시, 용인시...]]...] -> 하나의 요소: [시/도,[시/군/구 목록]]
+  const dataArray=await getAddressArray();
+  const subOptionElement = document.getElementsByClassName("container__search--districts")[0];
+  // data[0] - nameOfCity(시/도), data[1] - districts(시/군/구) 목록
+  for (const data of dataArray) {
+    // 첫번째 select 값과 일치할 때 두번째 select 태그 초기화
+    if (data[0] === nameOfCity) {
+      subOptionElement.innerHTML=`<optgroup label="시군구명">시군구명</optgroup>`;
+      // 두번째 select 에 값넣기
+      for (const tempDistricts of data[1]) {
+        const optionElement = document.createElement("option");
+        optionElement.value = tempDistricts;
+        optionElement.innerHTML = tempDistricts;
+        subOptionElement.appendChild(optionElement);
+      }
+    }
+  }
+}
 // 최초 한번 호출
 async function lifeCycle() {
   // 백엔드 서버에서 데이터 얻어오기
   const libraryResult = await getEntireLibraryData();
   // 페이지에 도서관 데이터 추가
   await entireLibrary(libraryResult);
+  await changeSubSelect(document.getElementsByClassName("container__search--nameOfCity")[0].value);
   // 무한 스크롤링
   window.onscroll = async function () {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1) {
@@ -147,7 +170,8 @@ async function lifeCycle() {
           const result = await sweetAlert(
             ERROR,
             "도서관 정보 불러오기 실패",
-            "예상치 못한 오류입니다."`서버 메세지: ${libraryResult.state}`
+            "예상치 못한 오류입니다.",
+            `서버 메세지: ${libraryResult.state}`
           );
           if (result) {
             const link = "/library";
@@ -174,7 +198,8 @@ async function lifeCycle() {
           const result = await sweetAlert(
             ERROR,
             "도서관 정보 불러오기 실패",
-            "예상치 못한 오류입니다."`서버 메세지: ${libraryResult.state}`
+            "예상치 못한 오류입니다.",
+            `서버 메세지: ${libraryResult.state}`
           );
         }
       }
